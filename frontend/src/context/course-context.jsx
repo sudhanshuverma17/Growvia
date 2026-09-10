@@ -1,0 +1,307 @@
+import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
+import { apiUrl } from "@/lib/api-config";
+import { careers as defaultCareers } from "@/lib/mock-data";
+import { ICON_MAP } from "@/components/career-icon";
+
+const CourseContext = createContext(null);
+const STORAGE_KEY = "growvia_courses_v1";
+
+// Helper to sanitize courses for JSON storage (turn function icons into string keys)
+function serializeCourses(coursesList) {
+  return coursesList.map((course) => {
+    let iconName = "Briefcase";
+    if (typeof course.icon === "string") {
+      iconName = course.icon;
+    } else if (course.icon) {
+      const found = Object.entries(ICON_MAP).find(
+        ([_, comp]) => comp === course.icon
+      );
+      if (found) {
+        iconName = found[0];
+      } else if (course.icon.displayName || course.icon.name) {
+        iconName = course.icon.displayName || course.icon.name;
+      }
+    }
+    return {
+      ...course,
+      icon: iconName,
+    };
+  });
+}
+
+// Helper to restore courses from JSON/API response
+function deserializeCourses(rawList) {
+  return rawList.map((course) => {
+    const iconKey = typeof course.icon === "string" ? course.icon : "Briefcase";
+    return {
+      ...course,
+      icon: ICON_MAP[iconKey] || iconKey,
+      courses: Array.isArray(course.courses) ? course.courses : [],
+    };
+  });
+}
+
+export function CourseProvider({ children }) {
+  const [courses, setCourses] = useState(() => {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return deserializeCourses(parsed);
+        }
+      }
+    } catch (e) {
+      console.warn("Failed to load courses from localStorage, using default", e);
+    }
+    return defaultCareers;
+  });
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [isBackendConnected, setIsBackendConnected] = useState(false);
+
+  // 1. Fetch live courses from Express + MongoDB backend on mount
+  const fetchCoursesFromBackend = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const res = await fetch(apiUrl("/api/courses"));
+      if (res.ok) {
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) {
+          const deserialized = deserializeCourses(data);
+          setCourses(deserialized);
+          setIsBackendConnected(true);
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(serializeCourses(deserialized)));
+          return;
+        }
+      }
+    } catch (err) {
+      // Backend not running or offline, fallback to localStorage/default
+      console.info("[CourseContext]: Backend not reachable, using local storage cache.");
+      setIsBackendConnected(false);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchCoursesFromBackend();
+  }, [fetchCoursesFromBackend]);
+
+  // Sync to localStorage on state change
+  useEffect(() => {
+    try {
+      const serialized = serializeCourses(courses);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(serialized));
+    } catch (e) {
+      console.error("Failed to save courses to localStorage", e);
+    }
+  }, [courses]);
+
+  const getCourseById = (id) => {
+    if (!id) return undefined;
+    return courses.find(
+      (c) => String(c.id).toLowerCase() === String(id).toLowerCase()
+    );
+  };
+
+  const getAuthHeaders = () => {
+    const token = localStorage.getItem("growvia_token");
+    const headers = { "Content-Type": "application/json" };
+    if (token) {
+      headers["Authorization"] = `Bearer ${token}`;
+    }
+    return headers;
+  };
+
+  const addCourse = async (courseData) => {
+    let slug = courseData.id
+      ? courseData.id.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-")
+      : courseData.title.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-");
+
+    let counter = 1;
+    let uniqueId = slug;
+    while (courses.some((c) => c.id === uniqueId)) {
+      uniqueId = `${slug}-${counter}`;
+      counter++;
+    }
+
+    const payload = {
+      ...courseData,
+      id: uniqueId,
+      title: courseData.title || "Untitled Course",
+      category: courseData.category || "Technology",
+      description: courseData.description || "",
+      icon: typeof courseData.icon === "string" ? courseData.icon : "Briefcase",
+      stats: {
+        salary: courseData.stats?.salary || "₹5L - ₹20L+",
+        demand: courseData.stats?.demand || "High",
+        difficulty: courseData.stats?.difficulty || "Medium",
+      },
+      whyChoose: Array.isArray(courseData.whyChoose) ? courseData.whyChoose : [],
+      skills: Array.isArray(courseData.skills) ? courseData.skills : [],
+      paths: Array.isArray(courseData.paths) ? courseData.paths : [],
+      timeline: Array.isArray(courseData.timeline) ? courseData.timeline : [],
+      courses: Array.isArray(courseData.courses) ? courseData.courses : [],
+      exams: Array.isArray(courseData.exams) ? courseData.exams : [],
+      colleges: Array.isArray(courseData.colleges) ? courseData.colleges : [],
+      budgetColleges: Array.isArray(courseData.budgetColleges) ? courseData.budgetColleges : [],
+      abroad: Array.isArray(courseData.abroad) ? courseData.abroad : [],
+      investment: courseData.investment || "₹2 Lakhs - ₹10 Lakhs",
+      salaryExpectations: Array.isArray(courseData.salaryExpectations)
+        ? courseData.salaryExpectations
+        : [
+            { level: "Entry Level", amount: "₹4L - ₹8L / year" },
+            { level: "Mid Level", amount: "₹10L - ₹20L / year" },
+            { level: "Senior Level", amount: "₹25L+ / year" },
+          ],
+      dailyWork: Array.isArray(courseData.dailyWork) ? courseData.dailyWork : [],
+      firstOpportunity: courseData.firstOpportunity || "Internships and entry-level positions.",
+      whoShould: Array.isArray(courseData.whoShould) ? courseData.whoShould : [],
+      whoShouldAvoid: Array.isArray(courseData.whoShouldAvoid) ? courseData.whoShouldAvoid : [],
+      harshReality: courseData.harshReality || "Competition is strong, continuous learning is necessary.",
+      industryInsights: courseData.industryInsights || "Growing domain with evolving tools and methods.",
+      isCustom: true,
+    };
+
+    // 1. Optimistically update local state
+    const newCourseObj = {
+      ...payload,
+      icon: ICON_MAP[payload.icon] || payload.icon,
+    };
+    setCourses((prev) => [newCourseObj, ...prev]);
+
+    // 2. Persist to MongoDB backend with auth header
+    try {
+      const res = await fetch(apiUrl("/api/courses"), {
+        method: "POST",
+        headers: getAuthHeaders(),
+        body: JSON.stringify(payload),
+      });
+      if (res.ok) {
+        const saved = await res.json();
+        setIsBackendConnected(true);
+        // Replace with saved document from MongoDB
+        setCourses((prev) =>
+          prev.map((c) => (c.id === uniqueId ? { ...saved, icon: ICON_MAP[saved.icon] || saved.icon } : c))
+        );
+        return saved;
+      }
+    } catch (e) {
+      console.warn("Backend save failed, preserved locally in localStorage:", e);
+    }
+
+    return newCourseObj;
+  };
+
+  const updateCourse = async (id, updatedFields) => {
+    // 1. Optimistically update local state
+    setCourses((prev) =>
+      prev.map((course) => {
+        if (course.id === id) {
+          return {
+            ...course,
+            ...updatedFields,
+            stats: {
+              ...course.stats,
+              ...(updatedFields.stats || {}),
+            },
+            updatedAt: new Date().toISOString(),
+          };
+        }
+        return course;
+      })
+    );
+
+    // 2. Persist to MongoDB backend with auth header
+    try {
+      const serializedFields = {
+        ...updatedFields,
+        icon: typeof updatedFields.icon === "string" ? updatedFields.icon : undefined,
+      };
+      const res = await fetch(apiUrl(`/api/courses/${id}`), {
+        method: "PUT",
+        headers: getAuthHeaders(),
+        body: JSON.stringify(serializedFields),
+      });
+      if (res.ok) {
+        setIsBackendConnected(true);
+      }
+    } catch (e) {
+      console.warn("Backend update failed, preserved locally:", e);
+    }
+  };
+
+  const deleteCourse = async (id) => {
+    // 1. Optimistically remove from state
+    setCourses((prev) => prev.filter((course) => course.id !== id));
+
+    // 2. Send DELETE to MongoDB backend with auth header
+    try {
+      const res = await fetch(apiUrl(`/api/courses/${id}`), {
+        method: "DELETE",
+        headers: getAuthHeaders(),
+      });
+      if (res.ok) {
+        setIsBackendConnected(true);
+      }
+    } catch (e) {
+      console.warn("Backend delete failed, removed locally:", e);
+    }
+  };
+
+  const updateRoadmapStages = (courseId, newTimeline) => {
+    updateCourse(courseId, { timeline: newTimeline });
+  };
+
+  const resetToDefault = async () => {
+    // 1. Reset backend MongoDB with auth header
+    try {
+      const res = await fetch(apiUrl("/api/courses/reset"), {
+        method: "POST",
+        headers: getAuthHeaders(),
+      });
+      if (res.ok) {
+        await fetchCoursesFromBackend();
+        return;
+      }
+    } catch (e) {
+      console.warn("Backend reset failed, resetting locally:", e);
+    }
+
+    // 2. Fallback to default
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch (e) {
+      console.error(e);
+    }
+    setCourses(defaultCareers);
+  };
+
+  return (
+    <CourseContext.Provider
+      value={{
+        courses,
+        getCourseById,
+        addCourse,
+        updateCourse,
+        deleteCourse,
+        updateRoadmapStages,
+        resetToDefault,
+        isLoading,
+        isBackendConnected,
+        refreshCourses: fetchCoursesFromBackend,
+      }}
+    >
+      {children}
+    </CourseContext.Provider>
+  );
+}
+
+export function useCourses() {
+  const context = useContext(CourseContext);
+  if (!context) {
+    throw new Error("useCourses must be used within a CourseProvider");
+  }
+  return context;
+}
