@@ -40,17 +40,6 @@ A modern, fullstack career platform built with **React (Pure JavaScript / Vite)*
 
 ---
 
-## 🔑 Default Credentials for Testing
-
-| Role | Email | Password | Access |
-|---|---|---|---|
-| **Admin** | `admin@growvia.com` | `Admin@1234` | Full access to Admin Studio, Course Editor, Roadmap Stage Manager |
-| **Student** | `student@growvia.com` | `Student@1234` | Student Dashboard, Save Roadmaps, Profile |
-
-*(One-click quick demo login buttons are also available directly on the `/login` page)*
-
----
-
 ## 📁 Project Structure
 
 ```
