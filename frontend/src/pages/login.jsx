@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Layout } from "@/components/layout";
 import { Button } from "@/components/ui/button";
@@ -13,8 +13,42 @@ export default function Login() {
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const { login, register } = useAuth();
+  const { user, isAuthenticated, login, register } = useAuth();
   const [, setLocation] = useLocation();
+
+  // Extract and sanitize redirect query parameter if available
+  const getRedirectUrl = () => {
+    try {
+      const searchParams = new URLSearchParams(window.location.search);
+      const redirectParam = searchParams.get("redirect");
+      if (
+        redirectParam &&
+        redirectParam.startsWith("/") &&
+        !redirectParam.startsWith("//") &&
+        !redirectParam.includes("://") &&
+        !redirectParam.includes(":\\")
+      ) {
+        return redirectParam;
+      }
+    } catch {
+      // ignore
+    }
+    return null;
+  };
+
+  // If already authenticated, redirect immediately
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      const target = getRedirectUrl();
+      if (target) {
+        setLocation(target);
+      } else if (user.role === "admin") {
+        setLocation("/admin");
+      } else {
+        setLocation("/dashboard");
+      }
+    }
+  }, [isAuthenticated, user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +59,10 @@ export default function Login() {
       if (isLogin) {
         const result = await login(email, password);
         if (result.success) {
-          if (result.user.role === "admin") {
+          const target = getRedirectUrl();
+          if (target) {
+            setLocation(target);
+          } else if (result.user?.role === "admin") {
             setLocation("/admin");
           } else {
             setLocation("/dashboard");
@@ -41,7 +78,12 @@ export default function Login() {
         }
         const result = await register(name, email, password);
         if (result.success) {
-          setLocation("/dashboard");
+          const target = getRedirectUrl();
+          if (target) {
+            setLocation(target);
+          } else {
+            setLocation("/dashboard");
+          }
         } else {
           setError(result.error || "Failed to create account");
         }
@@ -206,7 +248,7 @@ export default function Login() {
                   asChild
                   className="w-full border border-white/10 hover:bg-white/5 rounded-xl h-11"
                 >
-                  <Link href="/roadmaps">
+                  <Link href={getRedirectUrl() || "/roadmaps"}>
                     Continue as Guest <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </Button>

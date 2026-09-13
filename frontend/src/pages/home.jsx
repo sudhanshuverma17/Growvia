@@ -5,6 +5,7 @@ import { ArrowRight, Brain, Target, ShieldAlert, Navigation, MapPin, Video, Help
 import { Layout } from "@/components/layout";
 import { Button } from "@/components/ui/button";
 import { useCourses } from "@/context/course-context";
+import { useAuth } from "@/context/auth-context";
 import { CareerIcon } from "@/components/career-icon";
 function Counter({ to, suffix = "" }) {
   const [val, setVal] = useState(0);
@@ -45,6 +46,7 @@ const fadeUp = {
 };
 export default function Home() {
   const { courses } = useCourses();
+  const { isAuthenticated } = useAuth();
   return <Layout>
 
       {
@@ -390,7 +392,9 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild size="lg" className="btn-premium bg-primary text-primary-foreground text-base h-13 px-10 rounded-full font-bold shadow-[0_0_50px_-12px_rgba(232,224,208,0.5)] hover:shadow-[0_0_70px_-10px_rgba(232,224,208,0.65)] hover:scale-105 transition-all duration-300">
-                <Link href="/pricing">Get Access for ₹99</Link>
+                <Link href={isAuthenticated ? "/pricing" : `/login?redirect=${encodeURIComponent("/pricing")}`}>
+                  Get Access for ₹99
+                </Link>
               </Button>
               <Button asChild size="lg" variant="ghost" className="text-muted-foreground hover:text-white text-sm h-13 px-6 rounded-full">
                 <Link href="/roadmaps">Browse Free First →</Link>

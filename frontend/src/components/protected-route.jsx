@@ -18,6 +18,8 @@ export function AdminRoute({ component: Component, ...rest }) {
     );
   }
 
+  const currentPath = typeof window !== "undefined" ? window.location.pathname + window.location.search : "/admin";
+
   if (!isAuthenticated) {
     return (
       <Layout>
@@ -31,7 +33,7 @@ export function AdminRoute({ component: Component, ...rest }) {
           </p>
           <div className="flex gap-4">
             <Button asChild className="bg-primary text-primary-foreground">
-              <Link href="/login">Log In to Continue</Link>
+              <Link href={`/login?redirect=${encodeURIComponent(currentPath)}`}>Log In to Continue</Link>
             </Button>
             <Button asChild variant="outline" className="border-white/10">
               <Link href="/">Return Home</Link>
@@ -87,6 +89,8 @@ export function UserRoute({ component: Component, title, description, ...rest })
     );
   }
 
+  const currentPath = typeof window !== "undefined" ? window.location.pathname + window.location.search : "/dashboard";
+
   if (!isAuthenticated) {
     return (
       <Layout>
@@ -102,7 +106,7 @@ export function UserRoute({ component: Component, title, description, ...rest })
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild className="bg-primary text-primary-foreground font-semibold px-6">
-              <Link href="/login">Log In / Sign Up <ArrowRight className="w-4 h-4 ml-2" /></Link>
+              <Link href={`/login?redirect=${encodeURIComponent(currentPath)}`}>Log In / Sign Up <ArrowRight className="w-4 h-4 ml-2" /></Link>
             </Button>
             <Button asChild variant="outline" className="border-white/10">
               <Link href="/roadmaps">Explore Free Roadmaps</Link>

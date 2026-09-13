@@ -10,7 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import { CareerIcon } from "@/components/career-icon";
 
 export default function Pricing() {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user, toggleSaveRoadmap } = useAuth();
   const { courses } = useCourses();
   const { toast } = useToast();
   const [, setLocation] = useLocation();
@@ -35,7 +35,7 @@ export default function Pricing() {
 
   const currentCareer = allCareers.find((c) => c.id === selectedCareer) || allCareers[0];
 
-  const handleUnlockClick = () => {
+  const handleUnlockClick = async () => {
     if (!selectedCareer) return;
 
     if (!isAuthenticated) {
@@ -43,11 +43,24 @@ export default function Pricing() {
         title: "Sign in Required",
         description: "Please log in or create an account to unlock career roadmaps.",
       });
-      setLocation("/login");
+      setLocation(`/login?redirect=${encodeURIComponent(`/pricing?career=${selectedCareer}`)}`);
       return;
     }
 
-    // Authenticated user: no notification, no redirect
+    // Authenticated user: save/bookmark roadmap and navigate to roadmap details
+    if (toggleSaveRoadmap) {
+      const isAlreadySaved = Array.isArray(user?.savedRoadmaps) && user.savedRoadmaps.includes(selectedCareer);
+      if (!isAlreadySaved) {
+        await toggleSaveRoadmap(selectedCareer);
+      }
+    }
+
+    toast({
+      title: "Roadmap Unlocked! 🎉",
+      description: `You now have full lifetime access to the ${currentCareer?.title || "chosen"} career roadmap.`,
+    });
+
+    setLocation(`/roadmaps/${selectedCareer}`);
   };
 
   return (

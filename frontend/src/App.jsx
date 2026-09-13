@@ -61,12 +61,13 @@ function Router() {
             />
           )}
         </Route>
+        {/* Pricing page: Protected; only accessible to logged-in members */}
         <Route path="/pricing">
           {(params) => (
             <UserRoute
               component={Pricing}
-              title="Sign in for Premium Access"
-              description="Explore premium preparation packs, curated resource bundles, and expert guidance. Please sign in to view available plans."
+              title="Sign in to View Pricing & Plans"
+              description="Detailed career roadmaps, preparation strategies, and curated mentor resources are reserved for registered students. Please sign in or create an account to view pricing and plans."
               {...params}
             />
           )}

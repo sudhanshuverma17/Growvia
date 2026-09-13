@@ -509,7 +509,9 @@ export function CareerResults({ resultData, onRetake }) {
               asChild
               className="bg-primary text-primary-foreground font-bold rounded-xl w-full sm:w-auto"
             >
-              <Link href="/login">Sign in / Register</Link>
+              <Link href={`/login?redirect=${encodeURIComponent(typeof window !== "undefined" ? window.location.pathname + window.location.search : "/career-quiz")}`}>
+                Sign in / Register
+              </Link>
             </Button>
           </div>
         </div>

@@ -1,10 +1,16 @@
 import { useState } from "react";
+import { useLocation } from "wouter";
 import { X, Play, Lock, CheckCircle2, Sparkles, ExternalLink, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/context/auth-context";
+import { useToast } from "@/hooks/use-toast";
 import { getYouTubeEmbedUrl } from "@/lib/video-utils";
 
 export function VideoPlayerModal({ video, isOpen, onClose, onUnlock }) {
   const [unlocked, setUnlocked] = useState(false);
+  const { isAuthenticated } = useAuth();
+  const { toast } = useToast();
+  const [, setLocation] = useLocation();
 
   if (!isOpen || !video) return null;
 
@@ -12,6 +18,17 @@ export function VideoPlayerModal({ video, isOpen, onClose, onUnlock }) {
   const isPaid = video.isPaid && !unlocked;
 
   const handleSimulatedUnlock = () => {
+    if (!isAuthenticated) {
+      toast({
+        title: "Sign in Required",
+        description: "Please sign in or create an account to unlock masterclasses.",
+      });
+      if (onClose) onClose();
+      const currentPath = typeof window !== "undefined" ? window.location.pathname + window.location.search : "/videos";
+      setLocation(`/login?redirect=${encodeURIComponent(currentPath)}`);
+      return;
+    }
+
     setUnlocked(true);
     if (onUnlock) onUnlock(video);
   };

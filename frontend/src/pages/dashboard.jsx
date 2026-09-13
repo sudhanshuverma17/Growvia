@@ -59,6 +59,31 @@ export default function Dashboard() {
     fetchLatestAssessment();
   }, [token]);
 
+  // Automatically save roadmap if redirected from roadmap save action (?save=careerId)
+  useEffect(() => {
+    if (!token || !user || !toggleSaveRoadmap) return;
+    try {
+      const searchParams = new URLSearchParams(window.location.search);
+      const saveCareerId = searchParams.get("save");
+      if (saveCareerId) {
+        const isAlreadySaved = Array.isArray(user?.savedRoadmaps) && user.savedRoadmaps.includes(saveCareerId);
+        if (!isAlreadySaved) {
+          toggleSaveRoadmap(saveCareerId).then((saved) => {
+            if (saved) {
+              const targetCareer = courses.find((c) => c.id === saveCareerId);
+              toast({
+                title: "Roadmap Saved! 🎉",
+                description: `Added "${targetCareer?.title || "chosen roadmap"}" to your dashboard.`,
+              });
+            }
+          });
+        }
+      }
+    } catch (err) {
+      console.warn("[Dashboard Auto-Save Error]:", err);
+    }
+  }, [token, user, courses]);
+
   // Load only roadmaps explicitly saved by the user
   const userSavedIds = Array.isArray(user?.savedRoadmaps) ? user.savedRoadmaps : [];
   const savedCareers = courses.filter((c) => userSavedIds.includes(c.id));

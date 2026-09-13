@@ -37,6 +37,11 @@ export function Layout({ children }) {
         { name: "About", href: "/about" },
       ];
 
+  const currentFullPath = typeof window !== "undefined" ? window.location.pathname + window.location.search : location;
+  const loginHref = currentFullPath && currentFullPath !== "/" && !currentFullPath.startsWith("/login")
+    ? `/login?redirect=${encodeURIComponent(currentFullPath)}`
+    : "/login";
+
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground font-sans selection:bg-primary/30">
       <header
@@ -121,7 +126,7 @@ export function Layout({ children }) {
             ) : (
               <>
                 <Link
-                  href="/login"
+                  href={loginHref}
                   className="text-sm font-medium text-muted-foreground hover:text-white transition-colors"
                 >
                   Log in
@@ -130,7 +135,7 @@ export function Layout({ children }) {
                   asChild
                   className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-5 text-sm"
                 >
-                  <Link href="/login">Get Started</Link>
+                  <Link href={loginHref}>Get Started</Link>
                 </Button>
               </>
             )}
@@ -217,10 +222,10 @@ export function Layout({ children }) {
               ) : (
                 <>
                   <Button asChild variant="outline" className="w-full border-white/20">
-                    <Link href="/login">Log in</Link>
+                    <Link href={loginHref}>Log in</Link>
                   </Button>
                   <Button asChild className="w-full bg-primary text-primary-foreground">
-                    <Link href="/login">Get Started</Link>
+                    <Link href={loginHref}>Get Started</Link>
                   </Button>
                 </>
               )}

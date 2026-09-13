@@ -88,7 +88,7 @@ export default function RoadmapDetail() {
         title: "Sign in to Save Roadmaps",
         description: "Please log in or create an account to bookmark roadmaps to your personal student dashboard.",
       });
-      setLocation("/login");
+      setLocation(`/login?redirect=${encodeURIComponent(`/dashboard?save=${careerId}`)}`);
       return;
     }
 
@@ -99,6 +99,10 @@ export default function RoadmapDetail() {
         ? `Added "${career?.title}" to your student dashboard.`
         : `Removed "${career?.title}" from your saved list.`,
     });
+
+    if (saved) {
+      setLocation("/dashboard");
+    }
   };
 
 
@@ -755,7 +759,15 @@ export default function RoadmapDetail() {
             asChild
             className="bg-primary text-primary-foreground font-bold rounded-full px-8"
           >
-            <Link href="/pricing">Unlock for ₹99</Link>
+            <Link
+              href={
+                isAuthenticated
+                  ? `/pricing?career=${career.id}`
+                  : `/login?redirect=${encodeURIComponent(`/pricing?career=${career.id}`)}`
+              }
+            >
+              Unlock for ₹99
+            </Link>
           </Button>
         </motion.div>
       </div>
