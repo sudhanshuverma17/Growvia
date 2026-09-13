@@ -73,7 +73,7 @@ export function AdminRoute({ component: Component, ...rest }) {
   return <Component {...rest} />;
 }
 
-export function UserRoute({ component: Component, ...rest }) {
+export function UserRoute({ component: Component, title, description, ...rest }) {
   const { loading, isAuthenticated } = useAuth();
 
   if (loading) {
@@ -94,16 +94,18 @@ export function UserRoute({ component: Component, ...rest }) {
           <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-6">
             <Lock className="w-8 h-8" />
           </div>
-          <h2 className="text-2xl font-bold text-white mb-2">Sign in to Access Dashboard</h2>
+          <h2 className="text-2xl font-bold text-white mb-2">
+            {title || "Sign In Required"}
+          </h2>
           <p className="text-muted-foreground text-sm max-w-md mb-6">
-            Please log in or create an account to view your saved roadmaps and personalized guidance.
+            {description || "Please log in or create an account to access this feature. Guest users can explore all career roadmaps for free."}
           </p>
-          <div className="flex gap-4">
-            <Button asChild className="bg-primary text-primary-foreground">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button asChild className="bg-primary text-primary-foreground font-semibold px-6">
               <Link href="/login">Log In / Sign Up <ArrowRight className="w-4 h-4 ml-2" /></Link>
             </Button>
             <Button asChild variant="outline" className="border-white/10">
-              <Link href="/roadmaps">Explore Roadmaps</Link>
+              <Link href="/roadmaps">Explore Free Roadmaps</Link>
             </Button>
           </div>
         </div>

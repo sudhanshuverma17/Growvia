@@ -23,13 +23,19 @@ export function Layout({ children }) {
     setMobileMenuOpen(false);
   }, [location]);
 
-  const navLinks = [
-    { name: "Roadmaps", href: "/roadmaps" },
-    { name: "Videos", href: "/videos" },
-    { name: "Quiz", href: "/quiz" },
-    { name: "Pricing", href: "/pricing" },
-    { name: "About", href: "/about" },
-  ];
+  const navLinks = isAuthenticated
+    ? [
+        { name: "Roadmaps", href: "/roadmaps" },
+        { name: "Videos", href: "/videos" },
+        { name: "Career Quiz", href: "/career-quiz" },
+        { name: "Pricing", href: "/pricing" },
+        { name: "About", href: "/about" },
+      ]
+    : [
+        { name: "Roadmaps", href: "/roadmaps" },
+        { name: "Career Quiz", href: "/career-quiz" },
+        { name: "About", href: "/about" },
+      ];
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground font-sans selection:bg-primary/30">
@@ -250,21 +256,25 @@ export function Layout({ children }) {
                     Roadmaps
                   </Link>
                 </li>
-                <li>
-                  <Link href="/videos" className="hover:text-primary">
-                    Mentor Videos
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/quiz" className="hover:text-primary">
-                    Career Quiz
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/pricing" className="hover:text-primary">
-                    Pricing
-                  </Link>
-                </li>
+                {isAuthenticated && (
+                  <>
+                    <li>
+                      <Link href="/videos" className="hover:text-primary">
+                        Mentor Videos
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/quiz" className="hover:text-primary">
+                        Career Quiz
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/pricing" className="hover:text-primary">
+                        Pricing
+                      </Link>
+                    </li>
+                  </>
+                )}
                 {isAdmin && (
                   <li>
                     <Link

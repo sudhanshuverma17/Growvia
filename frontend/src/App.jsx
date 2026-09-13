@@ -40,19 +40,46 @@ function Router() {
   return (
     <Suspense fallback={<PageLoader />}>
       <Switch>
-        {/* Public Pages */}
+        {/* Public Pages: Guests can only explore Roadmaps, Home, About, and Login */}
         <Route path="/" component={Home} />
         <Route path="/roadmaps" component={Roadmaps} />
         <Route path="/roadmaps/:career" component={RoadmapDetail} />
-        <Route path="/quiz" component={Quiz} />
-        <Route path="/pricing" component={Pricing} />
         <Route path="/about" component={About} />
         <Route path="/login" component={Login} />
-        <Route path="/videos" component={Videos} />
 
-        {/* Protected Student Dashboard */}
+        {/* Career Assessment Quiz (Accessible to guests and members; attaches userId if signed in) */}
+        <Route path="/career-quiz" component={Quiz} />
+        <Route path="/quiz" component={Quiz} />
+
+        <Route path="/videos">
+          {(params) => (
+            <UserRoute
+              component={Videos}
+              title="Sign in for Mentor Videos"
+              description="Mentor masterclasses, industry insights, and career guidance sessions are reserved for registered members. Guests can explore all roadmaps for free."
+              {...params}
+            />
+          )}
+        </Route>
+        <Route path="/pricing">
+          {(params) => (
+            <UserRoute
+              component={Pricing}
+              title="Sign in for Premium Access"
+              description="Explore premium preparation packs, curated resource bundles, and expert guidance. Please sign in to view available plans."
+              {...params}
+            />
+          )}
+        </Route>
         <Route path="/dashboard">
-          {(params) => <UserRoute component={Dashboard} {...params} />}
+          {(params) => (
+            <UserRoute
+              component={Dashboard}
+              title="Sign in to Access Dashboard"
+              description="Track your saved career roadmaps, bookmarked mentor videos, and personalized progression from your student dashboard."
+              {...params}
+            />
+          )}
         </Route>
 
         {/* Protected Admin Pages */}

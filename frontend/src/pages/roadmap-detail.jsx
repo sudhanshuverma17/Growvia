@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { useParams, Link } from "wouter";
+import { useParams, Link, useLocation } from "wouter";
 import { Layout } from "@/components/layout";
+import { useToast } from "@/hooks/use-toast";
 
 import { useCourses } from "@/context/course-context";
 import { CareerIcon } from "@/components/career-icon";
@@ -67,6 +68,8 @@ export default function RoadmapDetail() {
   const { getCourseById } = useCourses();
   const { videos: allDbVideos } = useVideos();
   const { user, isAuthenticated, isAdmin, toggleSaveRoadmap } = useAuth();
+  const { toast } = useToast();
+  const [, setLocation] = useLocation();
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   const career = getCourseById(careerId);
@@ -78,6 +81,25 @@ export default function RoadmapDetail() {
   const roadmapVideos = attachedVideos.length > 0 ? attachedVideos : dbVideos;
 
   const isSaved = Array.isArray(user?.savedRoadmaps) && user.savedRoadmaps.includes(careerId);
+
+  const handleSaveRoadmap = async () => {
+    if (!isAuthenticated) {
+      toast({
+        title: "Sign in to Save Roadmaps",
+        description: "Please log in or create an account to bookmark roadmaps to your personal student dashboard.",
+      });
+      setLocation("/login");
+      return;
+    }
+
+    const saved = await toggleSaveRoadmap(career.id);
+    toast({
+      title: saved ? "Roadmap Saved!" : "Roadmap Removed",
+      description: saved
+        ? `Added "${career?.title}" to your student dashboard.`
+        : `Removed "${career?.title}" from your saved list.`,
+    });
+  };
 
 
   if (!career) {
@@ -123,32 +145,19 @@ export default function RoadmapDetail() {
           </Link>
 
           <div className="flex items-center gap-2">
-            {isAuthenticated ? (
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => toggleSaveRoadmap(career.id)}
-                className={`text-xs transition-all ${
-                  isSaved
-                    ? "border-primary bg-primary/10 text-primary hover:bg-primary/20"
-                    : "border-white/15 text-muted-foreground hover:text-white hover:bg-white/10"
-                }`}
-              >
-                <Bookmark className={`w-3.5 h-3.5 mr-1.5 ${isSaved ? "fill-primary" : ""}`} />
-                {isSaved ? "Saved to Dashboard" : "Save Roadmap"}
-              </Button>
-            ) : (
-              <Button
-                asChild
-                variant="outline"
-                size="sm"
-                className="border-white/15 text-xs hover:bg-white/10"
-              >
-                <Link href="/login">
-                  <Bookmark className="w-3.5 h-3.5 mr-1.5" /> Save Roadmap
-                </Link>
-              </Button>
-            )}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleSaveRoadmap}
+              className={`text-xs transition-all ${
+                isSaved && isAuthenticated
+                  ? "border-primary bg-primary/10 text-primary hover:bg-primary/20"
+                  : "border-white/15 text-muted-foreground hover:text-white hover:bg-white/10"
+              }`}
+            >
+              <Bookmark className={`w-3.5 h-3.5 mr-1.5 ${isSaved && isAuthenticated ? "fill-primary text-primary" : ""}`} />
+              {isAuthenticated && isSaved ? "Saved to Dashboard" : "Save Roadmap"}
+            </Button>
 
             {isAdmin && (
               <Button

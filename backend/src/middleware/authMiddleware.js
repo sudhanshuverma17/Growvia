@@ -65,3 +65,25 @@ export const authorize = (...roles) => {
     next();
   };
 };
+
+// Optional protect - attaches req.user if valid token provided, but does not block guests
+export const optionalProtect = async (req, res, next) => {
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
+    try {
+      const token = req.headers.authorization.split(" ")[1];
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      req.user = await User.findById(decoded.id).select("-password");
+      const configuredAdminEmail = (process.env.ADMIN_EMAIL || "").trim().toLowerCase();
+      if (req.user && configuredAdminEmail) {
+        req.user.role = req.user.email.toLowerCase() === configuredAdminEmail ? "admin" : "user";
+      }
+    } catch (err) {
+      req.user = null;
+    }
+  }
+  next();
+};
+

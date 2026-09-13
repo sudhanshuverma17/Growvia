@@ -13,6 +13,7 @@ import { connectDB, disconnectDB } from "./config/db.js";
 import courseRoutes from "./routes/courseRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import videoRoutes from "./routes/videoRoutes.js";
+import quizRoutes from "./routes/quizRoutes.js";
 import { authLimiter, apiLimiter } from "./middleware/rateLimiter.js";
 import { Course } from "./models/Course.js";
 import User from "./models/User.js";
@@ -123,6 +124,7 @@ app.get("/api/health", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/videos", videoRoutes);
+app.use("/api/career-quiz", quizRoutes);
 
 // 8. Unified Serving (Express serves compiled React frontend from backend/public)
 const staticServingPath = fs.existsSync(path.join(backendPublicPath, "index.html"))
@@ -243,6 +245,7 @@ const startServer = async () => {
     console.log(`📡 Auth Endpoints: http://localhost:${PORT}/api/auth`);
     console.log(`📡 Courses Endpoints: http://localhost:${PORT}/api/courses`);
     console.log(`📡 Videos Endpoints: http://localhost:${PORT}/api/videos`);
+    console.log(`📡 Quiz Endpoints: http://localhost:${PORT}/api/career-quiz`);
     console.log(`💚 Health Check: http://localhost:${PORT}/api/health\n`);
   });
 };
