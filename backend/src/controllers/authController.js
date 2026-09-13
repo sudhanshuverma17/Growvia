@@ -1,4 +1,6 @@
+import mongoose from "mongoose";
 import User from "../models/User.js";
+import { connectDB } from "../config/db.js";
 import { generateToken } from "../middleware/authMiddleware.js";
 
 // @desc    Register a new user
@@ -19,6 +21,17 @@ export const registerUser = async (req, res) => {
       return res.status(400).json({
         success: false,
         message: "Password must be at least 6 characters long",
+      });
+    }
+
+    if (mongoose.connection.readyState !== 1) {
+      await connectDB();
+    }
+
+    if (mongoose.connection.readyState !== 1) {
+      return res.status(503).json({
+        success: false,
+        message: "Database connection temporarily unavailable. Please try again in a few moments.",
       });
     }
 
@@ -84,6 +97,18 @@ export const loginUser = async (req, res) => {
     }
 
     const emailLower = email.toLowerCase().trim();
+
+    if (mongoose.connection.readyState !== 1) {
+      await connectDB();
+    }
+
+    if (mongoose.connection.readyState !== 1) {
+      return res.status(503).json({
+        success: false,
+        message: "Database connection temporarily unavailable. Please try again in a few moments.",
+      });
+    }
+
     const user = await User.findOne({ email: emailLower }).select("+password");
 
     if (!user) {
@@ -142,6 +167,10 @@ export const loginUser = async (req, res) => {
 // @access  Private (Requires token)
 export const getMe = async (req, res) => {
   try {
+    if (mongoose.connection.readyState !== 1) {
+      await connectDB();
+    }
+
     const user = await User.findById(req.user._id).select("-password");
     if (!user) {
       return res.status(404).json({
@@ -194,6 +223,10 @@ export const toggleSaveRoadmap = async (req, res) => {
         success: false,
         message: "courseId is required",
       });
+    }
+
+    if (mongoose.connection.readyState !== 1) {
+      await connectDB();
     }
 
     const user = await User.findById(req.user._id);

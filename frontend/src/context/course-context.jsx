@@ -52,7 +52,7 @@ export function CourseProvider({ children }) {
         }
       }
     } catch (e) {
-      console.warn("Failed to load courses from localStorage, using default", e);
+      // Fall back to default
     }
     return defaultCareers;
   });
@@ -77,7 +77,6 @@ export function CourseProvider({ children }) {
       }
     } catch (err) {
       // Backend not running or offline, fallback to localStorage/default
-      console.info("[CourseContext]: Backend not reachable, using local storage cache.");
       setIsBackendConnected(false);
     } finally {
       setIsLoading(false);
@@ -188,7 +187,7 @@ export function CourseProvider({ children }) {
         return saved;
       }
     } catch (e) {
-      console.warn("Backend save failed, preserved locally in localStorage:", e);
+      // Preserved locally
     }
 
     return newCourseObj;
@@ -228,7 +227,7 @@ export function CourseProvider({ children }) {
         setIsBackendConnected(true);
       }
     } catch (e) {
-      console.warn("Backend update failed, preserved locally:", e);
+      // Preserved locally
     }
   };
 
@@ -246,7 +245,7 @@ export function CourseProvider({ children }) {
         setIsBackendConnected(true);
       }
     } catch (e) {
-      console.warn("Backend delete failed, removed locally:", e);
+      // Removed locally
     }
   };
 
@@ -266,7 +265,7 @@ export function CourseProvider({ children }) {
         return;
       }
     } catch (e) {
-      console.warn("Backend reset failed, resetting locally:", e);
+      // Reset locally
     }
 
     // 2. Fallback to default

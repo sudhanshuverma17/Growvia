@@ -1,3 +1,5 @@
+import mongoose from "mongoose";
+import { connectDB } from "../config/db.js";
 import { Course } from "../models/Course.js";
 import { seedCareers } from "../data/seedData.js";
 
@@ -31,11 +33,39 @@ export const getAllCourses = async (req, res) => {
       ];
     }
 
-    const courses = await Course.find(query).sort({ createdAt: -1 });
+    let courses = [];
+    try {
+      if (mongoose.connection.readyState !== 1) {
+        await connectDB();
+      }
+      if (mongoose.connection.readyState === 1) {
+        courses = await Course.find(query).sort({ createdAt: -1 });
+      }
+    } catch (dbErr) {
+      // Fall back silently
+    }
+
+    if (!courses || courses.length === 0) {
+      let filtered = [...seedCareers];
+      if (category && category !== "All") {
+        filtered = filtered.filter((c) => c.category === category);
+      }
+      if (search && search.trim()) {
+        const s = search.trim().toLowerCase();
+        filtered = filtered.filter(
+          (c) =>
+            c.title?.toLowerCase().includes(s) ||
+            c.description?.toLowerCase().includes(s) ||
+            (Array.isArray(c.skills) && c.skills.some((sk) => sk.toLowerCase().includes(s)))
+        );
+      }
+      return res.json(filtered);
+    }
+
     res.json(courses);
   } catch (error) {
     console.error("Error in getAllCourses:", error);
-    res.status(500).json({ error: "Failed to fetch courses" });
+    res.json(seedCareers);
   }
 };
 
@@ -44,11 +74,24 @@ export const getAllCourses = async (req, res) => {
 export const getCourseById = async (req, res) => {
   try {
     const { id } = req.params;
-    let course = await Course.findOne({ id: id.toLowerCase() });
+    let course = null;
 
-    // Fallback: check if id is a valid Mongo ObjectId
-    if (!course && id.match(/^[0-9a-fA-F]{24}$/)) {
-      course = await Course.findById(id);
+    try {
+      if (mongoose.connection.readyState !== 1) {
+        await connectDB();
+      }
+      if (mongoose.connection.readyState === 1) {
+        course = await Course.findOne({ id: id.toLowerCase() });
+        if (!course && id.match(/^[0-9a-fA-F]{24}$/)) {
+          course = await Course.findById(id);
+        }
+      }
+    } catch (dbErr) {
+      // Fall back silently
+    }
+
+    if (!course) {
+      course = seedCareers.find((c) => c.id === id.toLowerCase() || c._id === id);
     }
 
     if (!course) {
@@ -58,6 +101,8 @@ export const getCourseById = async (req, res) => {
     res.json(course);
   } catch (error) {
     console.error("Error in getCourseById:", error);
+    const fallback = seedCareers.find((c) => c.id === req.params.id?.toLowerCase());
+    if (fallback) return res.json(fallback);
     res.status(500).json({ error: "Failed to fetch course details" });
   }
 };

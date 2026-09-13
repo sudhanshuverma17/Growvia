@@ -50,7 +50,7 @@ export default function Dashboard() {
           }
         }
       } catch (err) {
-        console.warn("[Dashboard Quiz Fetch]:", err);
+        // No assessment found or network unavailable
       } finally {
         setLoadingAssessment(false);
       }
@@ -80,7 +80,7 @@ export default function Dashboard() {
         }
       }
     } catch (err) {
-      console.warn("[Dashboard Auto-Save Error]:", err);
+      // Ignore
     }
   }, [token, user, courses]);
 

@@ -16,7 +16,7 @@ export function VideoProvider({ children }) {
         }
       }
     } catch (e) {
-      console.warn("Failed to load videos from localStorage", e);
+      // Use fallback
     }
     // Fallback initial videos
     return defaultMentorVideos.map((v, i) => ({
@@ -65,7 +65,6 @@ export function VideoProvider({ children }) {
         }
       }
     } catch (err) {
-      console.info("[VideoContext]: Backend not reachable, using local cached videos.");
       setIsBackendConnected(false);
     } finally {
       setIsLoading(false);
@@ -105,7 +104,7 @@ export function VideoProvider({ children }) {
         return saved;
       }
     } catch (err) {
-      console.warn("Backend video save failed, preserved locally:", err);
+      // Preserved locally
     }
 
     return newVideo;
@@ -132,7 +131,7 @@ export function VideoProvider({ children }) {
         return updated;
       }
     } catch (err) {
-      console.warn("Backend video update failed:", err);
+      // Ignore
     }
   };
 
@@ -146,7 +145,7 @@ export function VideoProvider({ children }) {
         headers: getAuthHeaders(),
       });
     } catch (err) {
-      console.warn("Backend video deletion failed:", err);
+      // Ignore
     }
   };
 

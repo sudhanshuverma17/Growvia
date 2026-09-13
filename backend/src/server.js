@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import morgan from "morgan";
 import mongoose from "mongoose";
 import helmet from "helmet";
 import compression from "compression";
@@ -100,12 +99,9 @@ app.use(
   })
 );
 
-// 4. Body Parser & Logging
+// 4. Body Parser
 app.use(express.json({ limit: "2mb" }));
 app.use(express.urlencoded({ extended: true, limit: "2mb" }));
-app.use(morgan(isProduction ? "combined" : "dev", {
-  skip: (req) => req.url === "/api/health", // avoid log spam on health checks
-}));
 
 // 5. Rate Limiting (Brute-force & DDoS protection)
 app.use("/api/auth/login", authLimiter);
@@ -182,9 +178,8 @@ app.use(async (req, res, next) => {
   if (req.path.startsWith("/api") && mongoose.connection.readyState !== 1) {
     try {
       await connectDB();
-      await seedInitialData();
     } catch (err) {
-      console.error("[Serverless DB Error]:", err.message);
+      console.warn("[Serverless DB Warning]:", err.message);
     }
   }
   next();
@@ -204,7 +199,6 @@ const staticServingPath = fs.existsSync(path.join(backendPublicPath, "index.html
   : null;
 
 if (staticServingPath) {
-  console.log(`[Frontend Serving]: Serving static frontend bundle from ${staticServingPath}`);
   app.use(
     express.static(staticServingPath, {
       maxAge: isProduction ? "1d" : 0,
@@ -252,14 +246,7 @@ const startServer = async () => {
   await seedInitialData();
 
   server = app.listen(PORT, () => {
-    console.log(`\n🚀 [Growvia Backend Server] running at http://localhost:${PORT}`);
-    console.log(`🛡️ Security: Helmet HTTP headers active`);
-    console.log(`⚡ Performance: Gzip compression & Route rate limiting active`);
-    console.log(`📡 Auth Endpoints: http://localhost:${PORT}/api/auth`);
-    console.log(`📡 Courses Endpoints: http://localhost:${PORT}/api/courses`);
-    console.log(`📡 Videos Endpoints: http://localhost:${PORT}/api/videos`);
-    console.log(`📡 Quiz Endpoints: http://localhost:${PORT}/api/career-quiz`);
-    console.log(`💚 Health Check: http://localhost:${PORT}/api/health\n`);
+    console.log(`🚀 [Growvia Backend Server] running at http://localhost:${PORT}`);
   });
 };
 

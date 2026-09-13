@@ -1,5 +1,13 @@
 import mongoose from "mongoose";
 import dns from "dns";
+import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.resolve(__dirname, "../../.env") });
+dotenv.config();
 
 // Ensure Node.js resolves MongoDB Atlas SRV records reliably across all network environments
 if (!process.env.VERCEL) {
@@ -10,6 +18,9 @@ if (!process.env.VERCEL) {
   }
 }
 
+// Disable Mongoose query buffering so operations fail fast if disconnected instead of hanging serverless functions
+mongoose.set("bufferCommands", false);
+
 let cachedPromise = null;
 
 export const connectDB = async () => {
@@ -18,27 +29,37 @@ export const connectDB = async () => {
   }
 
   if (cachedPromise) {
-    return cachedPromise;
+    try {
+      return await cachedPromise;
+    } catch {
+      cachedPromise = null;
+    }
   }
 
-  const uri = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/growvia";
+  const uri = process.env.MONGO_URI;
 
-  if (!process.env.MONGO_URI && process.env.VERCEL) {
-    console.warn("⚠️ [Vercel Warning]: MONGO_URI is not set in Vercel Environment Variables!");
-    console.warn("👉 Go to Vercel Dashboard -> Project -> Settings -> Environment Variables and add MONGO_URI.");
+  if (!uri) {
+    console.error("\n❌ [MongoDB Error]: MONGO_URI is not set in environment variables!");
+    return null;
   }
 
   try {
-    cachedPromise = mongoose.connect(uri, {
-      serverSelectionTimeoutMS: 10000,
-      socketTimeoutMS: 45000,
+    const connectOptions = {
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 30000,
       maxPoolSize: 10,
-      family: 4, // Force IPv4 for faster, reliable connection on Windows
-    });
+    };
+
+    // Only force IPv4 on local Windows dev without SRV
+    if (process.platform === "win32" && !process.env.VERCEL) {
+      connectOptions.family = 4;
+    }
+
+    cachedPromise = mongoose.connect(uri, connectOptions);
 
     const conn = await cachedPromise;
 
-    console.log(`[MongoDB Connected]: ${conn.connection.host} (${conn.connection.name})`);
+    console.log("[MongoDB]: Connected successfully.");
 
     mongoose.connection.on("error", (err) => {
       console.error(`[MongoDB Runtime Error]: ${err.message}`);
@@ -46,28 +67,12 @@ export const connectDB = async () => {
 
     mongoose.connection.on("disconnected", () => {
       cachedPromise = null;
-      // Only warn if the entire connection pool is disconnected
-      if (mongoose.connection.readyState === 0) {
-        console.warn("[MongoDB]: Connection disconnected. Attempting reconnect...");
-      }
-    });
-
-    mongoose.connection.on("reconnected", () => {
-      console.log("[MongoDB]: Connection re-established.");
     });
 
     return conn;
   } catch (error) {
     cachedPromise = null;
     console.error(`\n❌ [MongoDB Connection Error]: ${error.message}`);
-    if (uri.includes(".mongodb.net")) {
-      console.error(`💡 [MongoDB Atlas Tip]:`);
-      console.error(`   1. Verify your username and password in MONGO_URI.`);
-      console.error(`   2. In MongoDB Atlas -> Network Access, ensure IP '0.0.0.0/0' is allowed.`);
-      console.error(`   3. If your password has special characters, ensure they are URL-encoded.\n`);
-    } else {
-      console.error(`   Ensure local MongoDB service is running or check your MONGO_URI in backend/.env\n`);
-    }
     return null;
   }
 };
@@ -75,7 +80,6 @@ export const connectDB = async () => {
 export const disconnectDB = async () => {
   try {
     await mongoose.connection.close();
-    console.log("[MongoDB]: Disconnected cleanly for graceful shutdown.");
   } catch (err) {
     console.error("[MongoDB]: Error during disconnect:", err);
   }

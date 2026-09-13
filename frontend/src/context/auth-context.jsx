@@ -35,7 +35,6 @@ export function AuthProvider({ children }) {
           setToken(null);
         }
       } catch (err) {
-        console.warn("[Auth]: Could not verify token with backend:", err);
         // Fallback: keep existing token without clearing if server is temporarily unreachable
       } finally {
         setLoading(false);
