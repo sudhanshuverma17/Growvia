@@ -1,19 +1,13 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "wouter";
 import { Check, ChevronRight, Zap, ShieldCheck } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { Button } from "@/components/ui/button";
 import { careers, pricingFeatures } from "@/lib/mock-data";
-import { useAuth } from "@/context/auth-context";
 import { useCourses } from "@/context/course-context";
-import { useToast } from "@/hooks/use-toast";
 import { CareerIcon } from "@/components/career-icon";
 
 export default function Pricing() {
-  const { isAuthenticated, user, toggleSaveRoadmap } = useAuth();
   const { courses } = useCourses();
-  const { toast } = useToast();
-  const [, setLocation] = useLocation();
 
   const allCareers = courses && courses.length > 0 ? courses : careers;
 
@@ -35,32 +29,8 @@ export default function Pricing() {
 
   const currentCareer = allCareers.find((c) => c.id === selectedCareer) || allCareers[0];
 
-  const handleUnlockClick = async () => {
-    if (!selectedCareer) return;
-
-    if (!isAuthenticated) {
-      toast({
-        title: "Sign in Required",
-        description: "Please log in or create an account to unlock career roadmaps.",
-      });
-      setLocation(`/login?redirect=${encodeURIComponent(`/pricing?career=${selectedCareer}`)}`);
-      return;
-    }
-
-    // Authenticated user: save/bookmark roadmap and navigate to roadmap details
-    if (toggleSaveRoadmap) {
-      const isAlreadySaved = Array.isArray(user?.savedRoadmaps) && user.savedRoadmaps.includes(selectedCareer);
-      if (!isAlreadySaved) {
-        await toggleSaveRoadmap(selectedCareer);
-      }
-    }
-
-    toast({
-      title: "Roadmap Unlocked! 🎉",
-      description: `You now have full lifetime access to the ${currentCareer?.title || "chosen"} career roadmap.`,
-    });
-
-    setLocation(`/roadmaps/${selectedCareer}`);
+  const handleUnlockClick = () => {
+    // Action intentionally omitted for now; will be integrated later
   };
 
   return (
