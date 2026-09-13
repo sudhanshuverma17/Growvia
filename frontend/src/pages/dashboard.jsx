@@ -63,6 +63,13 @@ export default function Dashboard() {
   const userSavedIds = Array.isArray(user?.savedRoadmaps) ? user.savedRoadmaps : [];
   const savedCareers = courses.filter((c) => userSavedIds.includes(c.id));
 
+  // Extract quiz recommendation details if assessment exists
+  const topQuizRecommendation = latestAssessment?.topRecommendations?.[0];
+  const topQuizCareerId =
+    topQuizRecommendation?.careerId || topQuizRecommendation?.id || "software-engineer";
+  const topQuizRoadmapUrl =
+    topQuizRecommendation?.roadmapUrl || `/roadmaps/${topQuizCareerId}`;
+
   const handleRemoveBookmark = async (e, careerId, careerTitle) => {
     e.preventDefault();
     e.stopPropagation();
@@ -113,23 +120,34 @@ export default function Dashboard() {
               <nav className="space-y-1.5">
                 {[
                   { icon: Bookmark, label: "Saved Roadmaps", active: true },
-                  { icon: Target, label: "Quiz Results", active: false },
+                  { icon: Target, label: "Quiz Results", href: "/career-quiz" },
                   { icon: Award, label: "Certificates", active: false },
                   { icon: User, label: "Profile", active: false },
                   { icon: Settings, label: "Settings", active: false },
-                ].map((item, i) => (
-                  <button
-                    key={i}
-                    className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-colors ${
-                      item.active
-                        ? "bg-white/10 text-white font-medium shadow-sm"
-                        : "text-muted-foreground hover:bg-white/5 hover:text-white"
-                    }`}
-                  >
-                    <item.icon className="w-4 h-4 text-primary" />
-                    {item.label}
-                  </button>
-                ))}
+                ].map((item, i) =>
+                  item.href ? (
+                    <Link
+                      key={i}
+                      href={item.href}
+                      className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-colors text-muted-foreground hover:bg-white/5 hover:text-white"
+                    >
+                      <item.icon className="w-4 h-4 text-primary" />
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <button
+                      key={i}
+                      className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-colors ${
+                        item.active
+                          ? "bg-white/10 text-white font-medium shadow-sm"
+                          : "text-muted-foreground hover:bg-white/5 hover:text-white"
+                      }`}
+                    >
+                      <item.icon className="w-4 h-4 text-primary" />
+                      {item.label}
+                    </button>
+                  )
+                )}
               </nav>
 
               {isAdmin && (
@@ -172,129 +190,15 @@ export default function Dashboard() {
               </div>
             </div>
 
-            {/* Career Assessment Dynamic Widget */}
-            {loadingAssessment ? (
-              <div className="bg-card/50 border border-white/5 rounded-2xl p-6 mb-8 animate-pulse flex items-center justify-between">
-                <div className="space-y-2">
-                  <div className="h-4 w-36 bg-white/10 rounded" />
-                  <div className="h-6 w-56 bg-white/15 rounded" />
-                </div>
-                <div className="h-9 w-28 bg-white/10 rounded-xl" />
-              </div>
-            ) : latestAssessment ? (
-              <div className="bg-gradient-to-r from-card via-card to-primary/[0.04] border border-primary/20 rounded-2xl p-6 mb-8 relative overflow-hidden group shadow-lg shadow-primary/5">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 group-hover:bg-primary/10 transition-colors" />
-
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-primary px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/20 flex items-center gap-1">
-                        <Trophy className="w-3 h-3 text-amber-400" /> Top Career Match
-                      </span>
-                      {latestAssessment.createdAt && (
-                        <span className="text-[11px] text-muted-foreground">
-                          • Evaluated {new Date(latestAssessment.createdAt).toLocaleDateString()}
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="flex items-center gap-3">
-                      <h2 className="text-xl sm:text-2xl font-bold text-white">
-                        {latestAssessment.topRecommendations?.[0]?.title ||
-                          latestAssessment.aiAnalysis?.topCareer?.title ||
-                          "Recommended Career"}
-                      </h2>
-                      <span className="text-xs font-mono font-bold text-primary bg-white/5 px-2.5 py-1 rounded-full border border-white/10">
-                        {latestAssessment.topRecommendations?.[0]?.matchPercentage || 92}% Match
-                      </span>
-                    </div>
-
-                    <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 max-w-xl">
-                      {latestAssessment.aiAnalysis?.summary ||
-                        latestAssessment.topRecommendations?.[0]?.description ||
-                        "Your profile aligns strongly with analytical reasoning and high-impact problem solving."}
-                    </p>
-
-                    {/* Top traits chips */}
-                    {latestAssessment.traitScores && (
-                      <div className="flex flex-wrap items-center gap-2 pt-1">
-                        <span className="text-[11px] text-muted-foreground mr-1">
-                          Core Traits:
-                        </span>
-                        {Object.entries(latestAssessment.traitScores)
-                          .sort((a, b) => b[1] - a[1])
-                          .slice(0, 3)
-                          .map(([trait, score]) => (
-                            <span
-                              key={trait}
-                              className="text-[11px] font-medium px-2 py-0.5 rounded-md bg-white/[0.04] border border-white/10 text-white/90 capitalize"
-                            >
-                              {trait}: <span className="text-primary font-mono">{score}%</span>
-                            </span>
-                          ))}
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 flex-shrink-0">
-                    <Button
-                      asChild
-                      className="bg-primary text-primary-foreground font-bold rounded-xl text-xs sm:text-sm shadow-md shadow-primary/20"
-                    >
-                      <Link
-                        href={
-                          latestAssessment.topRecommendations?.[0]?.roadmapUrl ||
-                          `/roadmaps/${latestAssessment.topRecommendations?.[0]?.careerId || "software-engineer"}`
-                        }
-                      >
-                        View Roadmap <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
-                      </Link>
-                    </Button>
-
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="border-white/15 hover:bg-white/5 bg-background text-white rounded-xl text-xs sm:text-sm"
-                    >
-                      <Link href="/career-quiz">Retake Assessment</Link>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className="bg-gradient-to-r from-card to-card border border-white/10 rounded-2xl p-6 mb-8 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 relative z-10">
-                  <div className="space-y-1">
-                    <div className="inline-flex items-center gap-1.5 text-xs text-primary font-semibold">
-                      <Sparkles className="w-3.5 h-3.5" /> Career Assessment
-                    </div>
-                    <h2 className="text-lg font-bold text-white">
-                      Find Your Best-Fit Career Path
-                    </h2>
-                    <p className="text-xs sm:text-sm text-muted-foreground max-w-lg">
-                      Take our 10-question assessment to discover tailored roadmaps matched to your unique traits, strengths, and ambitions.
-                    </p>
-                  </div>
-                  <Button
-                    asChild
-                    className="bg-primary text-primary-foreground font-bold rounded-xl flex-shrink-0"
-                  >
-                    <Link href="/career-quiz">
-                      Take Assessment <ArrowRight className="w-4 h-4 ml-1.5" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            )}
-
             {/* Saved Roadmaps */}
             <div className="mb-8">
               <div className="flex justify-between items-end mb-6">
                 <div>
                   <h2 className="text-xl font-bold text-white">Saved Roadmaps</h2>
                   <p className="text-xs text-muted-foreground mt-0.5">
-                    {savedCareers.length} career {savedCareers.length === 1 ? "path" : "paths"} bookmarked
+                    {latestAssessment
+                      ? "Your career assessment recommendation and bookmarked paths"
+                      : `${savedCareers.length} career ${savedCareers.length === 1 ? "path" : "paths"} bookmarked`}
                   </p>
                 </div>
                 <Link
@@ -305,21 +209,117 @@ export default function Dashboard() {
                 </Link>
               </div>
 
-              {savedCareers.length === 0 ? (
-                <div className="bg-card border border-dashed border-white/10 rounded-2xl p-8 sm:p-12 text-center">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mx-auto mb-4">
-                    <Bookmark className="w-6 h-6" />
+              {/* Quiz Result Highlight inside Saved Roadmaps */}
+              {latestAssessment && topQuizRecommendation && (
+                <div className="mb-6 rounded-2xl border border-primary/30 bg-gradient-to-r from-card via-card to-primary/[0.05] p-5 sm:p-6 relative overflow-hidden shadow-lg shadow-primary/5">
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+
+                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative z-10">
+                    <div className="space-y-2 flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-amber-300 bg-amber-400/15 border border-amber-400/30 px-2.5 py-0.5 rounded-full flex items-center gap-1.5 w-fit">
+                          <Trophy className="w-3 h-3 text-amber-400" /> Career Quiz Recommendation
+                        </span>
+                        <span className="text-xs font-mono font-bold text-primary bg-white/5 px-2 py-0.5 rounded-md border border-white/10">
+                          {topQuizRecommendation.matchPercentage || topQuizRecommendation.score || 92}% Match
+                        </span>
+                      </div>
+
+                      <div className="flex items-center gap-2.5">
+                        <h3 className="text-xl sm:text-2xl font-bold text-white">
+                          {topQuizRecommendation.title}
+                        </h3>
+                        {topQuizRecommendation.category && (
+                          <span className="text-xs text-muted-foreground px-2 py-0.5 rounded-full bg-white/5 border border-white/10 hidden sm:inline">
+                            {topQuizRecommendation.category}
+                          </span>
+                        )}
+                      </div>
+
+                      <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 max-w-2xl leading-relaxed">
+                        {topQuizRecommendation.description ||
+                          latestAssessment.aiAnalysis?.summary ||
+                          "Top recommended career path based on your 10-question career assessment."}
+                      </p>
+
+                      {latestAssessment.traitScores && (
+                        <div className="flex flex-wrap items-center gap-2 pt-1">
+                          <span className="text-[11px] text-muted-foreground mr-1">
+                            Key Traits:
+                          </span>
+                          {Object.entries(latestAssessment.traitScores)
+                            .sort((a, b) => b[1] - a[1])
+                            .slice(0, 3)
+                            .map(([trait, score]) => (
+                              <span
+                                key={trait}
+                                className="text-[11px] font-medium px-2 py-0.5 rounded-md bg-white/[0.04] border border-white/10 text-white/90 capitalize"
+                              >
+                                {trait}: <span className="text-primary font-mono">{score}%</span>
+                              </span>
+                            ))}
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 flex-shrink-0 pt-2 lg:pt-0">
+                      <Button
+                        asChild
+                        className="bg-primary text-primary-foreground font-bold rounded-xl text-xs sm:text-sm shadow-md shadow-primary/20"
+                      >
+                        <Link href={topQuizRoadmapUrl}>
+                          View Roadmap <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                        </Link>
+                      </Button>
+
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="border-white/15 hover:bg-white/5 bg-background text-white rounded-xl text-xs sm:text-sm"
+                      >
+                        <Link href="/career-quiz">Retake Quiz</Link>
+                      </Button>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">No Saved Roadmaps Yet</h3>
-                  <p className="text-sm text-muted-foreground max-w-md mx-auto mb-6">
-                    You haven&apos;t bookmarked any career roadmaps yet. Explore our structured roadmaps and click &ldquo;Save Roadmap&rdquo; to track them here.
-                  </p>
-                  <Button asChild className="bg-primary text-primary-foreground font-semibold rounded-xl px-6">
-                    <Link href="/roadmaps">
-                      Explore Career Roadmaps <ArrowRight className="w-4 h-4 ml-2" />
-                    </Link>
-                  </Button>
                 </div>
+              )}
+
+              {/* Saved Roadmaps Grid / Empty state */}
+              {savedCareers.length === 0 ? (
+                !latestAssessment ? (
+                  <div className="bg-card border border-dashed border-white/10 rounded-2xl p-8 sm:p-12 text-center">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mx-auto mb-4">
+                      <Bookmark className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-2">No Saved Roadmaps Yet</h3>
+                    <p className="text-sm text-muted-foreground max-w-md mx-auto mb-6">
+                      You haven&apos;t bookmarked any career roadmaps yet. Explore our structured roadmaps and click &ldquo;Save Roadmap&rdquo; to track them here.
+                    </p>
+                    <div className="flex flex-wrap items-center justify-center gap-3">
+                      <Button asChild className="bg-primary text-primary-foreground font-semibold rounded-xl px-6">
+                        <Link href="/roadmaps">
+                          Explore Career Roadmaps <ArrowRight className="w-4 h-4 ml-2" />
+                        </Link>
+                      </Button>
+                      <Button asChild variant="outline" className="border-white/15 text-white hover:bg-white/5 rounded-xl px-5">
+                        <Link href="/career-quiz">
+                          Take Career Quiz <Sparkles className="w-3.5 h-3.5 ml-1.5" />
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="border border-dashed border-white/10 rounded-2xl p-6 text-center">
+                    <p className="text-xs text-muted-foreground mb-3">
+                      Want to track other careers alongside your quiz recommendation? You can bookmark any roadmap while exploring.
+                    </p>
+                    <Button asChild variant="outline" className="border-white/15 text-white hover:bg-white/5 rounded-xl text-xs">
+                      <Link href="/roadmaps">
+                        Explore All 18 Roadmaps <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                      </Link>
+                    </Button>
+                  </div>
+                )
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {savedCareers.map((career) => (
