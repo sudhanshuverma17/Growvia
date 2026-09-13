@@ -23,6 +23,12 @@ import { seedVideos } from "./data/seedVideos.js";
 
 dotenv.config();
 
+// Ensure JWT_SECRET fallback is always available across all deployment environments
+if (!process.env.JWT_SECRET) {
+  console.warn("⚠️ [Security Warning]: JWT_SECRET is not set in environment variables! Using dev fallback.");
+  process.env.JWT_SECRET = "growvia_dev_fallback_secret_key_2026";
+}
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const backendPublicPath = path.resolve(__dirname, "../public");
@@ -120,7 +126,71 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-// 7. Mount Core API Routes
+// 7. Database auto-seed helper & serverless connection middleware
+let isSeeded = false;
+export const seedInitialData = async () => {
+  if (isSeeded) return;
+  isSeeded = true;
+
+  try {
+    const courseCount = await Course.countDocuments();
+    if (courseCount === 0) {
+      console.log(`[Auto-Seeder]: Database is empty. Seeding initial ${seedCareers.length} career roadmaps...`);
+      await Course.insertMany(seedCareers);
+      console.log(`[Auto-Seeder]: Seed complete! ${seedCareers.length} courses created.`);
+    }
+  } catch (seedErr) {
+    console.warn(`[Auto-Seeder Warning]: Could not seed courses: ${seedErr.message}`);
+  }
+
+  try {
+    const adminEmail = (process.env.ADMIN_EMAIL || "admin@growvia.com").trim().toLowerCase();
+    const adminUser = await User.findOne({ email: adminEmail });
+    if (!adminUser) {
+      console.log(`[Auto-Seeder]: Creating default Admin user for ${adminEmail}...`);
+      await User.create({
+        name: "Growvia Administrator",
+        email: adminEmail,
+        password: "Admin@1234",
+        role: "admin",
+      });
+      console.log(`[Auto-Seeder]: Default Admin created: ${adminEmail} / Admin@1234`);
+    } else {
+      if (adminUser.role !== "admin") {
+        adminUser.role = "admin";
+        await adminUser.save();
+      }
+    }
+  } catch (userErr) {
+    console.warn(`[Auto-Seeder Warning]: Could not seed admin user: ${userErr.message}`);
+  }
+
+  try {
+    const videoCount = await Video.countDocuments();
+    if (videoCount === 0) {
+      console.log(`[Auto-Seeder]: Seeding ${seedVideos.length} mentor guidance videos...`);
+      await Video.insertMany(seedVideos);
+      console.log(`[Auto-Seeder]: Seed complete! ${seedVideos.length} videos created.`);
+    }
+  } catch (vidErr) {
+    console.warn(`[Auto-Seeder Warning]: Could not seed videos: ${vidErr.message}`);
+  }
+};
+
+// Ensure database connection for serverless invocations (e.g. on Vercel)
+app.use(async (req, res, next) => {
+  if (req.path.startsWith("/api") && mongoose.connection.readyState !== 1) {
+    try {
+      await connectDB();
+      await seedInitialData();
+    } catch (err) {
+      console.error("[Serverless DB Error]:", err.message);
+    }
+  }
+  next();
+});
+
+// 8. Mount Core API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/videos", videoRoutes);
@@ -174,69 +244,12 @@ app.use((err, req, res, next) => {
   res.status(status).json(errorResponse);
 });
 
-// 11. Database Seeder & Server Startup
+// 12. Server Startup & Export
 let server;
 
 const startServer = async () => {
-  // Validate critical environment variables
-  if (!process.env.JWT_SECRET) {
-    console.warn("⚠️ [Security Warning]: JWT_SECRET is not set in environment variables! Using dev fallback.");
-    process.env.JWT_SECRET = "growvia_dev_fallback_secret_key_2026";
-  }
-
   await connectDB();
-
-  // Auto-seed courses if database is empty
-  try {
-    const courseCount = await Course.countDocuments();
-    if (courseCount === 0) {
-      console.log(`[Auto-Seeder]: Database is empty. Seeding initial ${seedCareers.length} career roadmaps...`);
-      await Course.insertMany(seedCareers);
-      console.log(`[Auto-Seeder]: Seed complete! ${seedCareers.length} courses created.`);
-    } else {
-      console.log(`[Database Ready]: ${courseCount} courses available in MongoDB.`);
-    }
-  } catch (seedErr) {
-    console.warn(`[Auto-Seeder Warning]: Could not seed courses: ${seedErr.message}`);
-  }
-
-  // Auto-seed default Admin user if none exists
-  try {
-    const adminEmail = (process.env.ADMIN_EMAIL || "admin@growvia.com").trim().toLowerCase();
-    const adminUser = await User.findOne({ email: adminEmail });
-    if (!adminUser) {
-      console.log(`[Auto-Seeder]: Creating default Admin user for ${adminEmail}...`);
-      await User.create({
-        name: "Growvia Administrator",
-        email: adminEmail,
-        password: "Admin@1234",
-        role: "admin",
-      });
-      console.log(`[Auto-Seeder]: Default Admin created: ${adminEmail} / Admin@1234`);
-    } else {
-      if (adminUser.role !== "admin") {
-        adminUser.role = "admin";
-        await adminUser.save();
-      }
-      console.log(`[Admin Ready]: Existing admin user (${adminUser.email}) verified.`);
-    }
-  } catch (userErr) {
-    console.warn(`[Auto-Seeder Warning]: Could not seed admin user: ${userErr.message}`);
-  }
-
-  // Auto-seed initial Videos if collection is empty
-  try {
-    const videoCount = await Video.countDocuments();
-    if (videoCount === 0) {
-      console.log(`[Auto-Seeder]: Seeding ${seedVideos.length} mentor guidance videos...`);
-      await Video.insertMany(seedVideos);
-      console.log(`[Auto-Seeder]: Seed complete! ${seedVideos.length} videos created.`);
-    } else {
-      console.log(`[Database Ready]: ${videoCount} videos available in MongoDB.`);
-    }
-  } catch (vidErr) {
-    console.warn(`[Auto-Seeder Warning]: Could not seed videos: ${vidErr.message}`);
-  }
+  await seedInitialData();
 
   server = app.listen(PORT, () => {
     console.log(`\n🚀 [Growvia Backend Server] running at http://localhost:${PORT}`);
@@ -265,4 +278,9 @@ const gracefulShutdown = async (signal) => {
 process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
 process.on("SIGINT", () => gracefulShutdown("SIGINT"));
 
-startServer();
+// Only run standalone HTTP listener if not running in a serverless environment (like Vercel)
+if (!process.env.VERCEL) {
+  startServer();
+}
+
+export default app;

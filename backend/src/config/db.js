@@ -2,22 +2,41 @@ import mongoose from "mongoose";
 import dns from "dns";
 
 // Ensure Node.js resolves MongoDB Atlas SRV records reliably across all network environments
-try {
-  dns.setServers(["8.8.8.8", "1.1.1.1"]);
-} catch (dnsErr) {
-  // Ignore if running in an environment where setServers is restricted
+if (!process.env.VERCEL) {
+  try {
+    dns.setServers(["8.8.8.8", "1.1.1.1"]);
+  } catch (dnsErr) {
+    // Ignore if running in an environment where setServers is restricted
+  }
 }
 
+let cachedPromise = null;
+
 export const connectDB = async () => {
+  if (mongoose.connection.readyState === 1) {
+    return mongoose.connection;
+  }
+
+  if (cachedPromise) {
+    return cachedPromise;
+  }
+
   const uri = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/growvia";
 
+  if (!process.env.MONGO_URI && process.env.VERCEL) {
+    console.warn("⚠️ [Vercel Warning]: MONGO_URI is not set in Vercel Environment Variables!");
+    console.warn("👉 Go to Vercel Dashboard -> Project -> Settings -> Environment Variables and add MONGO_URI.");
+  }
+
   try {
-    const conn = await mongoose.connect(uri, {
+    cachedPromise = mongoose.connect(uri, {
       serverSelectionTimeoutMS: 10000,
       socketTimeoutMS: 45000,
       maxPoolSize: 10,
       family: 4, // Force IPv4 for faster, reliable connection on Windows
     });
+
+    const conn = await cachedPromise;
 
     console.log(`[MongoDB Connected]: ${conn.connection.host} (${conn.connection.name})`);
 
@@ -26,6 +45,7 @@ export const connectDB = async () => {
     });
 
     mongoose.connection.on("disconnected", () => {
+      cachedPromise = null;
       // Only warn if the entire connection pool is disconnected
       if (mongoose.connection.readyState === 0) {
         console.warn("[MongoDB]: Connection disconnected. Attempting reconnect...");
@@ -38,6 +58,7 @@ export const connectDB = async () => {
 
     return conn;
   } catch (error) {
+    cachedPromise = null;
     console.error(`\n❌ [MongoDB Connection Error]: ${error.message}`);
     if (uri.includes(".mongodb.net")) {
       console.error(`💡 [MongoDB Atlas Tip]:`);
