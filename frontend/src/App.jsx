@@ -1,5 +1,31 @@
-import React, { lazy, Suspense } from "react";
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import React, { lazy, Suspense, useEffect } from "react";
+import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
+
+// Prevent browser from restoring previous scroll positions on SPA navigation
+if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
+  window.history.scrollRestoration = "manual";
+}
+
+function ScrollToTop() {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    if (document.documentElement) document.documentElement.scrollTop = 0;
+    if (document.body) document.body.scrollTop = 0;
+
+    // Handle any delayed layout rendering from lazy-loaded routes
+    const frameId = requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      if (document.documentElement) document.documentElement.scrollTop = 0;
+      if (document.body) document.body.scrollTop = 0;
+    });
+
+    return () => cancelAnimationFrame(frameId);
+  }, [location]);
+
+  return null;
+}
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -113,6 +139,7 @@ function App() {
             <VideoProvider>
               <TooltipProvider>
                 <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+                  <ScrollToTop />
                   <Router />
                 </WouterRouter>
                 <Toaster />

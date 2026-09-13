@@ -4,13 +4,14 @@ import { QUIZ_QUESTIONS } from "../config/quizConfig.js";
 import { processAssessment } from "../services/scoringEngine.js";
 import { generateCareerAnalysis } from "../services/aiService.js";
 import { QuizAssessment } from "../models/QuizAssessment.js";
+import { Course } from "../models/Course.js";
 
 /**
  * Validates that all 10 quiz answers meet required formats and constraints
  * @param {Object} answers
  * @returns {{ isValid: boolean, error?: string }}
  */
-const validateAnswers = (answers = {}) => {
+export const validateAnswers = (answers = {}) => {
   if (!answers || typeof answers !== "object") {
     return { isValid: false, error: "Answers payload must be an object" };
   }
@@ -26,6 +27,11 @@ const validateAnswers = (answers = {}) => {
       if (typeof val !== "string" || !val.trim()) {
         return { isValid: false, error: `Invalid selection for question ${q.id}` };
       }
+      // Ensure the option ID exists in the question options
+      const optExists = q.options.some((o) => o.id === val.trim());
+      if (!optExists) {
+        return { isValid: false, error: `Unrecognized option ID "${val}" for question ${q.id}` };
+      }
     } else if (q.type === "multiple") {
       if (!Array.isArray(val) || val.length === 0) {
         return { isValid: false, error: `Please select at least one option for question ${q.id}` };
@@ -35,6 +41,11 @@ const validateAnswers = (answers = {}) => {
           isValid: false,
           error: `Question ${q.id} allows a maximum of ${q.maxSelect} selections`,
         };
+      }
+      const validOptIds = new Set(q.options.map((o) => o.id));
+      const hasInvalid = val.some((optId) => !validOptIds.has(optId));
+      if (hasInvalid) {
+        return { isValid: false, error: `Unrecognized option in selection for question ${q.id}` };
       }
     } else if (q.type === "rating") {
       const num = Number(val);
@@ -48,7 +59,7 @@ const validateAnswers = (answers = {}) => {
 };
 
 /**
- * @desc    Submit 10-Question Career Assessment Quiz
+ * @desc    Submit 10-Question Diverse Career Assessment Quiz
  * @route   POST /api/career-quiz/submit
  * @access  Public (Optional JWT attaches to User account)
  */
@@ -65,27 +76,42 @@ export const submitCareerQuiz = async (req, res) => {
       });
     }
 
-    // 2. Deterministic scoring engine calculates trait profile and career rankings
-    const scoredData = processAssessment(answers);
-
-    // 3. Generate structured AI analysis using LLM or deterministic fallback
-    const aiAnalysis = await generateCareerAnalysis({
-      traitScores: scoredData.traitScores,
-      careerMatches: scoredData.careerScores,
-      answers,
-    });
-
-    // 4. Persist to MongoDB Atlas (fault-tolerant)
-    let assessmentDoc = null;
+    // 2. Fetch live available courses/roadmaps from MongoDB
+    let availableCourses = [];
     try {
       if (mongoose.connection.readyState !== 1) {
         await connectDB();
       }
       if (mongoose.connection.readyState === 1) {
+        availableCourses = await Course.find(
+          {},
+          "id title category icon description skills stats"
+        ).lean();
+      }
+    } catch (dbErr) {
+      console.warn("[Quiz Controller DB Warning]: Could not fetch courses from DB:", dbErr.message);
+    }
+
+    // 3. Multidimensional scoring and diversity-aware ranking
+    const scoredData = processAssessment(answers, availableCourses, {
+      recommendationCount: 4, // 3 to 5 recommendations
+    });
+
+    // 4. Generate structured qualitative AI analysis
+    const aiAnalysis = await generateCareerAnalysis({
+      traitScores: scoredData.traitScores,
+      careerMatches: scoredData.topRecommendations,
+      answers,
+    });
+
+    // 5. Persist to MongoDB Atlas (fault-tolerant)
+    let assessmentDoc = null;
+    try {
+      if (mongoose.connection.readyState === 1) {
         const userId = req.user?._id || null;
         assessmentDoc = await QuizAssessment.create({
           userId,
-          quizVersion: "career-assessment-v1",
+          quizVersion: "career-assessment-v2",
           answers,
           traitScores: scoredData.traitScores,
           careerScores: scoredData.careerScores,
@@ -93,8 +119,8 @@ export const submitCareerQuiz = async (req, res) => {
           aiAnalysis,
         });
       }
-    } catch (dbErr) {
-      // Proceed silently - results are safely computed and returned
+    } catch (persistErr) {
+      console.warn("[Quiz Controller Save Warning]: Could not save assessment to DB:", persistErr.message);
     }
 
     return res.status(200).json({
@@ -102,7 +128,7 @@ export const submitCareerQuiz = async (req, res) => {
       message: "Career assessment processed successfully",
       data: {
         id: assessmentDoc?._id || `temp-${Date.now()}`,
-        quizVersion: assessmentDoc?.quizVersion || "career-assessment-v1",
+        quizVersion: assessmentDoc?.quizVersion || "career-assessment-v2",
         traitScores: scoredData.traitScores,
         careerScores: scoredData.careerScores,
         topRecommendations: scoredData.topRecommendations,

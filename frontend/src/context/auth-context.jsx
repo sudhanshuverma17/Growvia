@@ -58,9 +58,12 @@ export function AuthProvider({ children }) {
       const data = await res.json();
 
       if (!res.ok) {
+        const errorMsg = data.details
+          ? `${data.message} (${data.details})`
+          : data.message || "Invalid credentials";
         return {
           success: false,
-          error: data.message || "Invalid credentials",
+          error: errorMsg,
         };
       }
 
@@ -95,9 +98,12 @@ export function AuthProvider({ children }) {
       const data = await res.json();
 
       if (!res.ok) {
+        const errorMsg = data.details
+          ? `${data.message} (${data.details})`
+          : data.message || "Registration failed";
         return {
           success: false,
-          error: data.message || "Registration failed",
+          error: errorMsg,
         };
       }
 

@@ -7,7 +7,6 @@ import { useAuth } from "@/context/auth-context";
 import { useToast } from "@/hooks/use-toast";
 import {
   Trophy,
-  Medal,
   Sparkles,
   ArrowRight,
   RotateCcw,
@@ -16,61 +15,85 @@ import {
   TrendingUp,
   Target,
   Share2,
-  Copy,
   Check,
   Brain,
   Lightbulb,
-  ExternalLink,
   Lock,
+  Layers,
+  GraduationCap,
 } from "lucide-react";
 
-// Trait display metadata
-const TRAIT_INFO = {
+// The 10 standardized career dimensions
+const DIMENSION_INFO = {
   technical: {
-    label: "Technical Aptitude",
+    label: "Technical & Systems",
     desc: "Coding, systems, infrastructure, algorithmic thinking",
     color: "from-blue-500 to-cyan-400",
   },
   analytical: {
-    label: "Analytical Reasoning",
-    desc: "Data-driven problem solving, metrics, logic",
+    label: "Analytical & Logic",
+    desc: "Data-driven deduction, metrics, pattern recognition",
     color: "from-indigo-500 to-purple-400",
   },
   creative: {
-    label: "Creative Expression",
-    desc: "Design, aesthetic intuition, visual communication",
+    label: "Creative & Design",
+    desc: "Aesthetic intuition, visual thinking, original concepts",
     color: "from-amber-400 to-orange-400",
   },
   business: {
-    label: "Business Acumen",
-    desc: "Strategy, market dynamics, monetization, ROI",
+    label: "Business & Strategy",
+    desc: "Market opportunities, commercial viability, growth ROI",
     color: "from-emerald-400 to-teal-400",
   },
-  social: {
-    label: "People & Empathy",
-    desc: "Interpersonal warmth, relationship-building, team harmony",
-    color: "from-rose-400 to-pink-400",
+  communication: {
+    label: "Clear Communication",
+    desc: "Storytelling, clarity, stakeholder persuasion, writing",
+    color: "from-sky-400 to-blue-500",
   },
   leadership: {
     label: "Strategic Leadership",
-    desc: "Vision, team motivation, decision-making under uncertainty",
+    desc: "Inspiring teams, driving execution, ownership of vision",
     color: "from-amber-500 to-yellow-400",
   },
   research: {
     label: "In-depth Research",
-    desc: "Methodological inquiry, literature exploration, rigor",
+    desc: "Methodological inquiry, literature exploration, scientific rigor",
     color: "from-violet-400 to-purple-500",
   },
-  helping: {
-    label: "Mentorship & Helping",
-    desc: "Service, teaching, patient care, community uplift",
+  people: {
+    label: "People & Empathy",
+    desc: "Interpersonal warmth, relationship-building, psychological care",
+    color: "from-rose-400 to-pink-400",
+  },
+  structured: {
+    label: "Structure & Process",
+    desc: "Disciplined execution, order, procedural reliability, compliance",
     color: "from-teal-400 to-cyan-500",
   },
-  communication: {
-    label: "Clear Communication",
-    desc: "Storytelling, writing, stakeholder alignment",
-    color: "from-sky-400 to-blue-500",
+  riskTaking: {
+    label: "Innovation & Risk",
+    desc: "Embracing ambiguity, bold experimentation, venture creation",
+    color: "from-orange-500 to-rose-500",
   },
+};
+
+const FAMILY_LABELS = {
+  technology: "Technology & Software",
+  data: "Data & AI",
+  design: "Design & Creative",
+  business: "Business & Strategy",
+  marketing: "Marketing & Growth",
+  finance: "Finance & Accounting",
+  healthcare: "Healthcare & Medicine",
+  legal: "Law & Governance",
+  media: "Media & Arts",
+  engineering: "Core Engineering",
+  education: "Education & Training",
+  social: "Social Sciences",
+  science: "Science & Research",
+  operations: "Operations & Logistics",
+  wellness: "Health & Wellness",
+  hospitality: "Aviation & Hospitality",
 };
 
 export function CareerResults({ resultData, onRetake }) {
@@ -79,11 +102,11 @@ export function CareerResults({ resultData, onRetake }) {
   const [copied, setCopied] = useState(false);
 
   // Normalize data whether it's from submission response or fetched assessment document
-  const traits = resultData?.normalizedScores || resultData?.traitScores || {};
+  const traits = resultData?.traitScores || resultData?.normalizedScores || {};
   const recommendations =
-    resultData?.recommendations || resultData?.topRecommendations || [];
+    resultData?.topRecommendations || resultData?.recommendations || [];
   const topCareer =
-    resultData?.topMatch || resultData?.topCareer || recommendations[0] || {};
+    resultData?.topMatch || recommendations[0] || {};
   const aiAnalysis = resultData?.aiAnalysis || {};
 
   // Confetti on mount
@@ -122,6 +145,10 @@ export function CareerResults({ resultData, onRetake }) {
     return { label: "Developing", color: "text-muted-foreground" };
   };
 
+  const getTopSlug = (career) => {
+    return career?.roadmapId || career?.careerId || career?.id || "engineer";
+  };
+
   return (
     <div className="space-y-12 py-4">
       {/* ── HEADER ────────────────────────────────────────── */}
@@ -135,11 +162,11 @@ export function CareerResults({ resultData, onRetake }) {
           <Sparkles className="w-3.5 h-3.5" /> Assessment Complete
         </div>
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-          Your Career DNA Profile
+          Your Career Recommendation Profile
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base mt-3 leading-relaxed">
-          Synthesized across 10 multi-dimensional assessments, deterministic trait models,
-          and Growvia&apos;s live career taxonomy.
+          Synthesized across 10 core dimensions, diversity-aware family matching,
+          and Growvia&apos;s verified database roadmaps.
         </p>
       </motion.div>
 
@@ -155,10 +182,15 @@ export function CareerResults({ resultData, onRetake }) {
 
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative z-10">
           <div className="flex-1">
-            <div className="flex items-center gap-3 mb-3">
+            <div className="flex flex-wrap items-center gap-2.5 mb-3">
               <span className="flex items-center gap-1.5 bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                <Trophy className="w-3.5 h-3.5" /> #1 Recommended Path
+                <Trophy className="w-3.5 h-3.5" /> #1 Top Match
               </span>
+              {topCareer.family && (
+                <span className="text-xs text-primary/90 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 font-medium">
+                  {FAMILY_LABELS[topCareer.family] || topCareer.family}
+                </span>
+              )}
               {topCareer.category && (
                 <span className="text-xs text-muted-foreground px-2.5 py-1 rounded-full bg-white/5 border border-white/10">
                   {topCareer.category}
@@ -167,22 +199,37 @@ export function CareerResults({ resultData, onRetake }) {
             </div>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3 leading-tight">
-              {topCareer.title || "Software Engineering"}
+              {topCareer.title || "Software Engineer"}
             </h2>
 
-            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl mb-6">
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl mb-5">
               {topCareer.description ||
+                aiAnalysis?.topCareer?.explanation ||
                 aiAnalysis?.summary ||
-                "Your responses show an outstanding affinity for structured problem-solving, algorithmic thinking, and building high-impact technology systems."}
+                "Your responses demonstrate outstanding synergy with this career path."}
             </p>
 
-            {/* Quick badges */}
+            {/* Strengths tags */}
+            {topCareer.keyStrengths && topCareer.keyStrengths.length > 0 && (
+              <div className="flex flex-wrap items-center gap-2 mb-6">
+                {topCareer.keyStrengths.map((str, idx) => (
+                  <span
+                    key={idx}
+                    className="text-xs bg-white/5 border border-white/10 text-white/80 px-2.5 py-1 rounded-lg"
+                  >
+                    ✓ {str}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {/* Quick buttons */}
             <div className="flex flex-wrap items-center gap-3">
               <Button
                 asChild
-                className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-xl px-6 shadow-md shadow-primary/20"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-xl px-6 shadow-md shadow-primary/20 cursor-pointer"
               >
-                <Link href={topCareer.roadmapUrl || `/roadmaps/${topCareer.careerId || "software-engineer"}`}>
+                <Link href={topCareer.roadmapUrl || `/roadmaps/${getTopSlug(topCareer)}`}>
                   View Complete Roadmap <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
@@ -190,7 +237,7 @@ export function CareerResults({ resultData, onRetake }) {
               <Button
                 variant="outline"
                 onClick={handleCopyLink}
-                className="border-white/10 hover:bg-white/5 text-white rounded-xl text-xs sm:text-sm"
+                className="border-white/10 hover:bg-white/5 text-white rounded-xl text-xs sm:text-sm cursor-pointer"
               >
                 {copied ? (
                   <>
@@ -208,10 +255,10 @@ export function CareerResults({ resultData, onRetake }) {
           {/* Compatibility Score Circle / Indicator */}
           <div className="flex-shrink-0 flex flex-col items-center justify-center p-6 rounded-2xl bg-white/[0.04] border border-white/10 w-full sm:w-auto min-w-[200px] text-center">
             <div className="text-xs text-muted-foreground uppercase font-bold tracking-widest mb-1">
-              Compatibility Match
+              Alignment Score
             </div>
             <div className="text-5xl font-black text-primary font-mono tracking-tight my-1">
-              {topCareer.matchPercentage || topCareer.compatibilityScore || 92}%
+              {topCareer.matchPercentage || topCareer.score || 92}%
             </div>
             <div className="text-xs text-emerald-400 font-medium flex items-center gap-1 mt-1">
               <TrendingUp className="w-3.5 h-3.5" /> High Confidence Fit
@@ -220,42 +267,47 @@ export function CareerResults({ resultData, onRetake }) {
         </div>
       </motion.div>
 
-      {/* ── TOP 3 CAREER RECOMMENDATIONS ───────────────────── */}
+      {/* ── 3–5 DIVERSE RECOMMENDED CAREER PATHS ────────────── */}
       <div>
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h3 className="text-xl sm:text-2xl font-bold text-white">
-              Top 3 Career Matches
+            <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+              <Layers className="w-5 h-5 text-primary" /> Top Recommended Career Directions
             </h3>
             <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
-              Ranked by multi-trait compatibility across your profile
+              Curated across distinct career families to offer diverse, viable paths with active roadmaps
             </p>
           </div>
           <Link
             href="/roadmaps"
             className="text-xs sm:text-sm text-primary hover:underline font-medium hidden sm:inline-block"
           >
-            Explore all roadmaps →
+            Explore all 48 roadmaps →
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {recommendations.slice(0, 3).map((item, idx) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {recommendations.slice(0, 5).map((item, idx) => {
             const isTop = idx === 0;
-            const rankLabel = idx === 0 ? "1st" : idx === 1 ? "2nd" : "3rd";
+            const rankLabel =
+              idx === 0 ? "1st" : idx === 1 ? "2nd" : idx === 2 ? "3rd" : `${idx + 1}th`;
             const badgeBg =
               idx === 0
                 ? "bg-amber-400/20 text-amber-300 border-amber-400/30"
                 : idx === 1
                 ? "bg-slate-400/20 text-slate-200 border-slate-400/30"
-                : "bg-amber-700/20 text-amber-200 border-amber-700/30";
+                : idx === 2
+                ? "bg-amber-700/20 text-amber-200 border-amber-700/30"
+                : "bg-white/10 text-white/80 border-white/20";
+
+            const slug = item.roadmapId || item.careerId || item.id;
 
             return (
               <motion.div
-                key={item.careerId || idx}
+                key={slug || idx}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1 + 0.2 }}
+                transition={{ delay: idx * 0.08 + 0.15 }}
                 className={`rounded-2xl border p-6 flex flex-col justify-between transition-all ${
                   isTop
                     ? "bg-card border-primary/30 ring-1 ring-primary/20 shadow-lg shadow-primary/5"
@@ -263,34 +315,60 @@ export function CareerResults({ resultData, onRetake }) {
                 }`}
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span
-                      className={`text-xs font-extrabold px-2.5 py-1 rounded-full border ${badgeBg}`}
-                    >
+                  <div className="flex items-center justify-between mb-3">
+                    <span className={`text-xs font-extrabold px-2.5 py-1 rounded-full border ${badgeBg}`}>
                       {rankLabel} Match
                     </span>
                     <span className="font-mono text-sm font-bold text-primary">
-                      {item.matchPercentage || item.compatibilityScore}%
+                      {item.matchPercentage || item.score}%
                     </span>
                   </div>
 
-                  <h4 className="text-lg font-bold text-white mb-1.5 leading-snug">
+                  {item.family && (
+                    <div className="mb-2">
+                      <span className="text-[11px] font-medium text-primary/80 uppercase tracking-wider bg-primary/10 px-2 py-0.5 rounded-md border border-primary/20">
+                        {FAMILY_LABELS[item.family] || item.family}
+                      </span>
+                    </div>
+                  )}
+
+                  <h4 className="text-lg font-bold text-white mb-2 leading-snug">
                     {item.title}
                   </h4>
+
                   <p className="text-xs text-muted-foreground mb-4 line-clamp-3 leading-relaxed">
                     {item.description}
                   </p>
+
+                  {/* Strengths */}
+                  {item.keyStrengths && item.keyStrengths.length > 0 && (
+                    <div className="mb-4">
+                      <span className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider block mb-1.5">
+                        Key Strengths Needed
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {item.keyStrengths.slice(0, 2).map((str, sIdx) => (
+                          <span
+                            key={sIdx}
+                            className="text-[11px] bg-white/[0.03] border border-white/10 text-white/70 px-2 py-0.5 rounded-md"
+                          >
+                            • {str}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 <div>
-                  {/* Match Bar */}
+                  {/* Match Progress Bar */}
                   <div className="w-full h-1.5 bg-white/[0.06] rounded-full overflow-hidden mb-4">
                     <div
                       className={`h-full rounded-full ${
                         isTop ? "bg-primary" : "bg-white/40"
                       }`}
                       style={{
-                        width: `${item.matchPercentage || item.compatibilityScore}%`,
+                        width: `${item.matchPercentage || item.score}%`,
                       }}
                     />
                   </div>
@@ -298,14 +376,14 @@ export function CareerResults({ resultData, onRetake }) {
                   <Button
                     asChild
                     variant={isTop ? "default" : "outline"}
-                    className={`w-full rounded-xl text-xs font-semibold ${
+                    className={`w-full rounded-xl text-xs font-semibold h-10 cursor-pointer ${
                       isTop
                         ? "bg-primary text-primary-foreground hover:bg-primary/90"
                         : "border-white/15 text-white hover:bg-white/5"
                     }`}
                   >
-                    <Link href={item.roadmapUrl || `/roadmaps/${item.careerId}`}>
-                      Explore Roadmap <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                    <Link href={item.roadmapUrl || `/roadmaps/${slug}`}>
+                      View Roadmap <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
                     </Link>
                   </Button>
                 </div>
@@ -326,10 +404,10 @@ export function CareerResults({ resultData, onRetake }) {
               </div>
               <div>
                 <h3 className="text-lg font-bold text-white">
-                  Identified Strengths & Focus Areas
+                  Profile Strengths & Focus Areas
                 </h3>
                 <p className="text-xs text-muted-foreground">
-                  Synthesized from your response patterns
+                  Synthesized qualitative analysis of your response patterns
                 </p>
               </div>
             </div>
@@ -341,9 +419,9 @@ export function CareerResults({ resultData, onRetake }) {
               </h4>
               <ul className="space-y-2.5">
                 {(aiAnalysis.strengths || [
-                  "High capacity for structured logical and analytical reasoning",
-                  "Enjoys architecting complex solutions and hands-on implementation",
-                  "Persistent problem-solving mindset when facing technical roadblocks",
+                  "Strong orientation toward structured analytical problem solving",
+                  "Enjoys designing mechanisms and seeing practical implementations",
+                  "Persistent approach when untangling multi-stage challenges",
                 ]).map((strength, i) => (
                   <li
                     key={i}
@@ -389,16 +467,16 @@ export function CareerResults({ resultData, onRetake }) {
                     Actionable Next Steps
                   </h3>
                   <p className="text-xs text-muted-foreground">
-                    Recommended immediate milestones for your journey
+                    Recommended milestones to turn assessment insights into progress
                   </p>
                 </div>
               </div>
 
               <div className="space-y-4">
                 {(aiAnalysis.nextSteps || [
-                  "Review the recommended roadmap timeline and bookmark stage 1 foundational concepts.",
-                  "Build a small hands-on starter project to validate your interest and day-to-day engagement.",
-                  "Browse mentor masterclasses to understand how industry practitioners navigate this domain.",
+                  "Review the recommended roadmap timeline and explore foundational concepts.",
+                  "Complete an introductory starter tutorial to test day-to-day engagement.",
+                  "Compare real-world work environments and compensation trajectories across your matches.",
                 ]).map((step, idx) => (
                   <div
                     key={idx}
@@ -418,16 +496,16 @@ export function CareerResults({ resultData, onRetake }) {
             <div className="mt-6 pt-5 border-t border-white/10 flex flex-col gap-2.5">
               <Button
                 asChild
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-xl h-10 sm:h-11 text-xs sm:text-sm shadow-sm"
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-xl h-10 sm:h-11 text-xs sm:text-sm shadow-sm cursor-pointer"
               >
-                <Link href={topCareer.roadmapUrl || `/roadmaps/${topCareer.careerId || "software-engineer"}`}>
-                  Begin Step 1 on Roadmap <ArrowRight className="w-4 h-4 ml-1.5" />
+                <Link href={topCareer.roadmapUrl || `/roadmaps/${getTopSlug(topCareer)}`}>
+                  Start Recommended Roadmap <ArrowRight className="w-4 h-4 ml-1.5" />
                 </Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
-                className="w-full border-white/15 text-white hover:bg-white/5 rounded-xl h-9 sm:h-10 text-xs sm:text-sm"
+                className="w-full border-white/15 text-white hover:bg-white/5 rounded-xl h-9 sm:h-10 text-xs sm:text-sm cursor-pointer"
               >
                 <Link href="/videos">Browse Mentor Masterclasses</Link>
               </Button>
@@ -436,27 +514,27 @@ export function CareerResults({ resultData, onRetake }) {
         </div>
       )}
 
-      {/* ── 9-TRAIT PERSONALITY & SKILL BREAKDOWN ───────────── */}
+      {/* ── 10-DIMENSION PROFILE BREAKDOWN ─────────────────── */}
       <div className="glass-card p-6 sm:p-8 rounded-3xl border border-white/10">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div>
             <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-              <Brain className="w-6 h-6 text-primary" /> Trait & Aptitude Breakdown
+              <Brain className="w-6 h-6 text-primary" /> Multi-Dimensional Profile Breakdown
             </h3>
             <p className="text-xs sm:text-sm text-muted-foreground mt-1">
-              Normalized scoring across 9 primary career-fitness dimensions (0–100 scale)
+              Normalized scores across the 10 standardized career dimensions (0–100 scale)
             </p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {Object.entries(TRAIT_INFO).map(([traitKey, info]) => {
-            const score = Math.min(100, Math.max(0, traits[traitKey] || 0));
+          {Object.entries(DIMENSION_INFO).map(([dimKey, info]) => {
+            const score = Math.min(100, Math.max(0, traits[dimKey] || 0));
             const level = getTraitLevel(score);
 
             return (
               <div
-                key={traitKey}
+                key={dimKey}
                 className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/15 transition-all"
               >
                 <div className="flex items-center justify-between gap-2 mb-1.5">
@@ -500,14 +578,14 @@ export function CareerResults({ resultData, onRetake }) {
               </h4>
               <p className="text-xs sm:text-sm text-muted-foreground max-w-xl">
                 You took this quiz as a guest. Create a free Growvia account or sign in
-                so you can revisit these results anytime on your dashboard.
+                so you can revisit these results anytime on your student dashboard.
               </p>
             </div>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0 w-full md:w-auto">
             <Button
               asChild
-              className="bg-primary text-primary-foreground font-bold rounded-xl w-full sm:w-auto"
+              className="bg-primary text-primary-foreground font-bold rounded-xl w-full sm:w-auto cursor-pointer"
             >
               <Link href={`/login?redirect=${encodeURIComponent(typeof window !== "undefined" ? window.location.pathname + window.location.search : "/career-quiz")}`}>
                 Sign in / Register
@@ -522,16 +600,16 @@ export function CareerResults({ resultData, onRetake }) {
         <Button
           variant="outline"
           onClick={onRetake}
-          className="border-white/15 hover:bg-white/5 text-white rounded-xl px-6 w-full sm:w-auto"
+          className="border-white/15 hover:bg-white/5 text-white rounded-xl px-6 w-full sm:w-auto cursor-pointer"
         >
           <RotateCcw className="w-4 h-4 mr-2" /> Retake Assessment
         </Button>
 
         <Button
           asChild
-          className="bg-primary text-primary-foreground font-bold rounded-xl px-8 w-full sm:w-auto"
+          className="bg-primary text-primary-foreground font-bold rounded-xl px-8 w-full sm:w-auto cursor-pointer"
         >
-          <Link href="/roadmaps">Explore All 18 Roadmaps</Link>
+          <Link href="/roadmaps">Explore All 48 Roadmaps</Link>
         </Button>
       </div>
     </div>

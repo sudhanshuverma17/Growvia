@@ -9,44 +9,47 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 dotenv.config();
 
-// Ensure Node.js resolves MongoDB Atlas SRV records reliably across all network environments
-if (!process.env.VERCEL) {
-  try {
-    dns.setServers(["8.8.8.8", "1.1.1.1"]);
-  } catch (dnsErr) {
-    // Ignore if running in an environment where setServers is restricted
-  }
-}
+ 
 
 // Disable Mongoose query buffering so operations fail fast if disconnected instead of hanging serverless functions
 mongoose.set("bufferCommands", false);
 
 let cachedPromise = null;
+let lastConnectionError = null;
+
+export const getLastConnectionError = () => lastConnectionError;
 
 export const connectDB = async () => {
   if (mongoose.connection.readyState === 1) {
+    lastConnectionError = null;
     return mongoose.connection;
   }
 
   if (cachedPromise) {
     try {
-      return await cachedPromise;
+      const conn = await cachedPromise;
+      lastConnectionError = null;
+      return conn;
     } catch {
       cachedPromise = null;
     }
   }
 
-  const uri = process.env.MONGO_URI;
+  let uri = process.env.MONGO_URI ? process.env.MONGO_URI.trim() : "";
+  if ((uri.startsWith('"') && uri.endsWith('"')) || (uri.startsWith("'") && uri.endsWith("'"))) {
+    uri = uri.slice(1, -1).trim();
+  }
 
   if (!uri) {
+    lastConnectionError = "MONGO_URI is not set in environment variables. Please configure MONGO_URI in Vercel Project Settings.";
     console.error("\n❌ [MongoDB Error]: MONGO_URI is not set in environment variables!");
     return null;
   }
 
   try {
     const connectOptions = {
-      serverSelectionTimeoutMS: 5000,
-      socketTimeoutMS: 30000,
+      serverSelectionTimeoutMS: 8000,
+      socketTimeoutMS: 45000,
       maxPoolSize: 10,
     };
 
@@ -58,10 +61,12 @@ export const connectDB = async () => {
     cachedPromise = mongoose.connect(uri, connectOptions);
 
     const conn = await cachedPromise;
+    lastConnectionError = null;
 
     console.log("[MongoDB]: Connected successfully.");
 
     mongoose.connection.on("error", (err) => {
+      lastConnectionError = err.message;
       console.error(`[MongoDB Runtime Error]: ${err.message}`);
     });
 
@@ -72,6 +77,7 @@ export const connectDB = async () => {
     return conn;
   } catch (error) {
     cachedPromise = null;
+    lastConnectionError = error.message;
     console.error(`\n❌ [MongoDB Connection Error]: ${error.message}`);
     return null;
   }

@@ -25,28 +25,46 @@ Growvia is architected for maximum deployment flexibility:
 
 ---
 
-## 🚀 Option 1: Deploy Only the Backend Folder (Self-Contained Full-Stack)
+## 🚀 Option 1: Deploy Backend on Vercel (Serves Frontend from `backend/public`)
 
-The production React frontend is compiled directly into `backend/public/`. This means the `backend/` folder is 100% self-contained—it serves both the client application and all API endpoints from a single Node process!
+Because Vite compiles the production React app directly into `backend/public/`, the `backend/` directory is 100% self-contained! Vercel's global Edge CDN serves the static React application from `backend/public/` at CDN speed, rewrites SPA routes to `index.html`, and executes all `/api/*` requests through the Express Serverless Function (`backend/api/index.js`).
 
-### Steps on Render / Railway / Heroku / DigitalOcean:
-1. Push your repository to GitHub.
-2. In your cloud dashboard (e.g. Render), create a **New Web Service**.
-3. Point **Root Directory** to `backend` (or deploy the repository directly).
-4. Configure:
+### Step-by-Step on Vercel:
+1. Push your repository to **GitHub**.
+2. Go to [Vercel Dashboard](https://vercel.com) and click **"Add New..." > "Project"**.
+3. Import your **Growvia** repository.
+4. In the configuration screen:
+   - **Root Directory**: Click **Edit** and select **`backend`**.
+   - **Framework Preset**: Leave as **Other** (Vercel will detect `package.json` and `vercel.json` automatically).
+   - **Build Command**: `echo "Backend ready"` (or default).
+   - **Output Directory**: Leave empty.
+5. Under **Environment Variables**, add:
+   | Key | Value | Notes |
+   |---|---|---|
+   | `MONGO_URI` | `mongodb+srv://...` | Your MongoDB Atlas connection string |
+   | `JWT_SECRET` | `your_strong_secret_key` | Min 32 characters |
+   | `ADMIN_EMAIL` | `admin@growvia.com` | Default admin user email |
+   | `NODE_ENV` | `production` | Production mode |
+6. Click **Deploy**.
+
+Once deployed:
+- `https://<your-app>.vercel.app/` loads the React frontend directly from `public/`
+- `https://<your-app>.vercel.app/api/health` queries the live Express health endpoint
+- Direct URL refreshes (e.g. `/roadmaps`, `/dashboard`, `/login`) work automatically via SPA rewrites.
+
+---
+
+## ☁️ Option 2: Deploy Backend on Render / Railway / VPS (Standalone Node)
+
+The same self-contained `backend/` folder can also be deployed as a traditional long-running Node service:
+1. In your cloud dashboard (e.g. Render/Railway), create a **New Web Service**.
+2. Point **Root Directory** to `backend`.
+3. Configure:
    - **Environment**: `Node`
    - **Build Command**: `npm install`
-   - **Start Command**: `npm start` (or `node src/server.js`)
-5. Add Environment Variables:
-   | Key | Value |
-   |---|---|
-   | `NODE_ENV` | `production` |
-   | `PORT` | `5000` (or leave default assigned by platform) |
-   | `MONGO_URI` | *(Your MongoDB Atlas connection string from `backend/.env`)* |
-   | `JWT_SECRET` | *(A strong random 32+ character secret string)* |
-   | `ADMIN_EMAIL` | `admin@growvia.com` *(or your administrator email)* |
-   | `CLIENT_URL` | `https://<your-app-name>.onrender.com` |
-6. Click **Deploy Web Service**. That's it! Express will serve the React frontend at `/` and the API at `/api/*`.
+   - **Start Command**: `npm start`
+4. Add Environment Variables (`MONGO_URI`, `JWT_SECRET`, `NODE_ENV=production`, `PORT=5000`).
+5. Click **Deploy**. Express serves the static React files from `/public` and all `/api/*` endpoints.
 
 ---
 

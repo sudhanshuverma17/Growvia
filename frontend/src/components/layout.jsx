@@ -21,6 +21,7 @@ export function Layout({ children }) {
 
   useEffect(() => {
     setMobileMenuOpen(false);
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [location]);
 
   const navLinks = isAuthenticated

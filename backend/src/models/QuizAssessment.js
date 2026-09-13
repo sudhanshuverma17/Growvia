@@ -3,12 +3,19 @@ import mongoose from "mongoose";
 const careerMatchSchema = new mongoose.Schema(
   {
     id: { type: String, required: true },
+    careerId: { type: String, default: "" },
+    roadmapId: { type: String, default: "" },
     title: { type: String, required: true },
     category: { type: String, default: "" },
+    family: { type: String, default: "" },
     score: { type: Number, required: true },
+    matchPercentage: { type: Number, default: 0 },
     icon: { type: String, default: "Briefcase" },
     description: { type: String, default: "" },
+    roadmapUrl: { type: String, default: "" },
     keyStrengths: { type: [String], default: [] },
+    skillsToDevelop: { type: [String], default: [] },
+    reason: { type: String, default: "" },
   },
   { _id: false }
 );
@@ -23,7 +30,7 @@ const quizAssessmentSchema = new mongoose.Schema(
     },
     quizVersion: {
       type: String,
-      default: "career-assessment-v1",
+      default: "career-assessment-v2",
       required: true,
       index: true,
     },
@@ -36,11 +43,12 @@ const quizAssessmentSchema = new mongoose.Schema(
       analytical: { type: Number, default: 50 },
       creative: { type: Number, default: 50 },
       business: { type: Number, default: 50 },
-      social: { type: Number, default: 50 },
+      communication: { type: Number, default: 50 },
       leadership: { type: Number, default: 50 },
       research: { type: Number, default: 50 },
-      helping: { type: Number, default: 50 },
-      communication: { type: Number, default: 50 },
+      people: { type: Number, default: 50 },
+      structured: { type: Number, default: 50 },
+      riskTaking: { type: Number, default: 50 },
     },
     careerScores: {
       type: [careerMatchSchema],

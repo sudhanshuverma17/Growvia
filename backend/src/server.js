@@ -8,7 +8,7 @@ import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
 
-import { connectDB, disconnectDB } from "./config/db.js";
+import { connectDB, disconnectDB, getLastConnectionError } from "./config/db.js";
 import courseRoutes from "./routes/courseRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import videoRoutes from "./routes/videoRoutes.js";
@@ -109,7 +109,12 @@ app.use("/api/auth/register", authLimiter);
 app.use("/api", apiLimiter);
 
 // 6. API Health Check Endpoint
-app.get("/api/health", (req, res) => {
+app.get("/api/health", async (req, res) => {
+  if (mongoose.connection.readyState !== 1) {
+    try {
+      await connectDB();
+    } catch {}
+  }
   const dbState = mongoose.connection.readyState;
   const stateMap = { 0: "disconnected", 1: "connected", 2: "connecting", 3: "disconnecting" };
   res.status(200).json({
@@ -117,6 +122,8 @@ app.get("/api/health", (req, res) => {
     environment: process.env.NODE_ENV || "development",
     service: "Growvia API Backend",
     database: stateMap[dbState] || "unknown",
+    hasMongoUri: Boolean(process.env.MONGO_URI),
+    lastDbError: getLastConnectionError(),
     uptime: process.uptime(),
     timestamp: new Date().toISOString(),
   });
@@ -178,6 +185,7 @@ app.use(async (req, res, next) => {
   if (req.path.startsWith("/api") && mongoose.connection.readyState !== 1) {
     try {
       await connectDB();
+      await seedInitialData();
     } catch (err) {
       console.warn("[Serverless DB Warning]:", err.message);
     }

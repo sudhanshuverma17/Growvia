@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import User from "../models/User.js";
-import { connectDB } from "../config/db.js";
+import { connectDB, getLastConnectionError } from "../config/db.js";
 import { generateToken } from "../middleware/authMiddleware.js";
 
 // @desc    Register a new user
@@ -32,6 +32,7 @@ export const registerUser = async (req, res) => {
       return res.status(503).json({
         success: false,
         message: "Database connection temporarily unavailable. Please try again in a few moments.",
+        details: getLastConnectionError() || "Database is offline or unreachable",
       });
     }
 
@@ -106,6 +107,7 @@ export const loginUser = async (req, res) => {
       return res.status(503).json({
         success: false,
         message: "Database connection temporarily unavailable. Please try again in a few moments.",
+        details: getLastConnectionError() || "Database is offline or unreachable",
       });
     }
 
