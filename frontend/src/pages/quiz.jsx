@@ -10,6 +10,7 @@ import { QuizProgress } from "@/components/quiz/QuizProgress";
 import { QuestionRenderer } from "@/components/quiz/QuestionRenderer";
 import { QuizLoading } from "@/components/quiz/QuizLoading";
 import { CareerResults } from "@/components/quiz/CareerResults";
+import { PageLoader } from "@/components/page-loader";
 import {
   ArrowLeft,
   ArrowRight,
@@ -23,7 +24,7 @@ const STORAGE_KEY = "growvia_quiz_answers_v1";
 const RESULT_STORAGE_KEY = "growvia_last_quiz_result";
 
 export default function Quiz() {
-  const { token, isAuthenticated } = useAuth();
+  const { token, isAuthenticated, loading: authLoading } = useAuth();
   const { toast } = useToast();
 
   const [currentStep, setCurrentStep] = useState(0);
@@ -37,15 +38,73 @@ export default function Quiz() {
   });
 
   const [isEvaluating, setIsEvaluating] = useState(false);
+  const [checkingExisting, setCheckingExisting] = useState(true);
   const [resultData, setResultData] = useState(() => {
     try {
-      const savedResult = sessionStorage.getItem(RESULT_STORAGE_KEY);
+      const savedResult =
+        localStorage.getItem(RESULT_STORAGE_KEY) ||
+        sessionStorage.getItem(RESULT_STORAGE_KEY);
       return savedResult ? JSON.parse(savedResult) : null;
     } catch {
       return null;
     }
   });
   const [errorMessage, setErrorMessage] = useState(null);
+
+  // Check if user has already taken the quiz (backend for members, localStorage for guests)
+  useEffect(() => {
+    if (authLoading) return;
+
+    let isMounted = true;
+
+    const checkExistingAssessment = async () => {
+      // 1. If user is logged in, query the backend for their latest saved assessment
+      if (token) {
+        try {
+          const res = await fetch(apiUrl("/api/career-quiz/latest"), {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          if (res.ok) {
+            const data = await res.json();
+            if (data.success && data.data && isMounted) {
+              setResultData(data.data);
+              try {
+                localStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify(data.data));
+              } catch {}
+              setCheckingExisting(false);
+              return;
+            }
+          }
+        } catch (err) {
+          console.warn("[Quiz]: Could not fetch latest assessment from backend:", err);
+        }
+      }
+
+      // 2. If guest or no server record found, check localStorage
+      try {
+        const saved =
+          localStorage.getItem(RESULT_STORAGE_KEY) ||
+          sessionStorage.getItem(RESULT_STORAGE_KEY);
+        if (saved && isMounted) {
+          setResultData(JSON.parse(saved));
+        }
+      } catch (err) {
+        console.warn("[Quiz]: Local storage parse error:", err);
+      } finally {
+        if (isMounted) {
+          setCheckingExisting(false);
+        }
+      }
+    };
+
+    checkExistingAssessment();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [token, authLoading]);
 
   // Save answers to localStorage whenever they change
   useEffect(() => {
@@ -136,6 +195,7 @@ export default function Quiz() {
       // Successful assessment response
       setResultData(data.data);
       try {
+        localStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify(data.data));
         sessionStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify(data.data));
         localStorage.removeItem(STORAGE_KEY);
       } catch {
@@ -169,6 +229,7 @@ export default function Quiz() {
     setErrorMessage(null);
     try {
       localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(RESULT_STORAGE_KEY);
       sessionStorage.removeItem(RESULT_STORAGE_KEY);
     } catch {
       // Ignore
@@ -185,7 +246,10 @@ export default function Quiz() {
             : "max-w-2xl mx-auto px-3 sm:px-6 py-2 sm:py-4"
         }
       >
-        {isEvaluating ? (
+        {checkingExisting ? (
+          /* Checking previous assessment profile */
+          <PageLoader label="Retrieving your career assessment profile..." />
+        ) : isEvaluating ? (
           /* Evaluating state */
           <QuizLoading />
         ) : resultData ? (
