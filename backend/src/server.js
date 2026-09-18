@@ -123,8 +123,8 @@ app.use("/api/auth/login", authLimiter);
 app.use("/api/auth/register", authLimiter);
 app.use("/api", apiLimiter);
 
-// 6. API Health Check Endpoint
-app.get("/api/health", async (req, res) => {
+// 6. API Health Check Endpoint (supports both /api/health and /health)
+app.get(["/api/health", "/health"], async (req, res) => {
   if (mongoose.connection.readyState !== 1) {
     try {
       await connectDB();
@@ -199,8 +199,10 @@ export const seedInitialData = async () => {
 app.use(async (req, res, next) => {
   if (req.path.startsWith("/api") && mongoose.connection.readyState !== 1) {
     try {
-      await connectDB();
-      await seedInitialData();
+      const conn = await connectDB();
+      if (conn && mongoose.connection.readyState === 1) {
+        await seedInitialData();
+      }
     } catch (err) {
       console.warn("[Serverless DB Warning]:", err.message);
     }
@@ -291,7 +293,14 @@ process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
 process.on("SIGINT", () => gracefulShutdown("SIGINT"));
 
 // Only run standalone HTTP listener if not running in a serverless environment (like Vercel)
-if (!process.env.VERCEL) {
+const isServerless = Boolean(
+  process.env.VERCEL ||
+  process.env.VERCEL_ENV ||
+  process.env.NOW_REGION ||
+  process.env.AWS_LAMBDA_FUNCTION_NAME
+);
+
+if (!isServerless) {
   startServer();
 }
 
