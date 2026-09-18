@@ -1,336 +1,262 @@
 import {
-  DIMENSION_KEYS,
-  DIMENSION_LABELS,
-  DIMENSION_WEIGHTS,
+  CAREER_CATEGORIES,
+  CATEGORY_KEYS,
   QUIZ_QUESTIONS,
   CAREER_PROFILES,
   inferCourseProfile,
 } from "../config/quizConfig.js";
 
 /**
- * Computes the theoretical maximum possible points for each dimension
- * across all 10 questions for accurate percentage normalization (0–100).
+ * Computes maximum theoretical points achievable for each category across all questions
+ * taking into account the 0.8x academic and 1.2x interest question multipliers.
  */
-const computeDimensionMaxPoints = () => {
+export const computeCategoryMaxPoints = () => {
   const maxPoints = {};
-  DIMENSION_KEYS.forEach((k) => {
-    maxPoints[k] = 0;
+  CATEGORY_KEYS.forEach((cat) => {
+    maxPoints[cat] = 0;
   });
 
   QUIZ_QUESTIONS.forEach((q) => {
-    if (q.type === "single" || q.type === "scenario") {
-      const questionMax = {};
-      q.options.forEach((opt) => {
-        Object.entries(opt.dimensions || {}).forEach(([dim, pts]) => {
-          questionMax[dim] = Math.max(questionMax[dim] || 0, pts);
-        });
+    const multiplier = q.typeCategory === "academic" ? 0.8 : 1.2;
+    const categoryMax = {};
+    (q.options || []).forEach((opt) => {
+      Object.entries(opt.scores || {}).forEach(([cat, pts]) => {
+        categoryMax[cat] = Math.max(categoryMax[cat] || 0, pts);
       });
-      Object.entries(questionMax).forEach(([d, pts]) => {
-        maxPoints[d] = (maxPoints[d] || 0) + pts;
-      });
-    } else if (q.type === "multiple") {
-      if (q.maxSelect) {
-        DIMENSION_KEYS.forEach((d) => {
-          const sortedPts = q.options
-            .map((o) => (o.dimensions && o.dimensions[d]) || 0)
-            .sort((a, b) => b - a);
-          const topNPts = sortedPts.slice(0, q.maxSelect).reduce((a, b) => a + b, 0);
-          maxPoints[d] = (maxPoints[d] || 0) + topNPts;
-        });
-      } else {
-        q.options.forEach((opt) => {
-          Object.entries(opt.dimensions || {}).forEach(([d, pts]) => {
-            maxPoints[d] = (maxPoints[d] || 0) + pts;
-          });
-        });
+    });
+
+    Object.entries(categoryMax).forEach(([cat, pts]) => {
+      if (maxPoints[cat] !== undefined) {
+        maxPoints[cat] += pts * multiplier;
       }
-    } else if (q.type === "rating") {
-      const ratingOptions = Object.values(q.ratingDimensions || {});
-      const ratingMax = {};
-      ratingOptions.forEach((dimMap) => {
-        Object.entries(dimMap).forEach(([dim, pts]) => {
-          ratingMax[dim] = Math.max(ratingMax[dim] || 0, pts);
-        });
-      });
-      Object.entries(ratingMax).forEach(([d, pts]) => {
-        maxPoints[d] = (maxPoints[d] || 0) + pts;
-      });
-    }
+    });
   });
 
-  // Ensure minimum divisor to avoid division-by-zero or excessive inflation
-  DIMENSION_KEYS.forEach((d) => {
-    if (!maxPoints[d] || maxPoints[d] < 8) maxPoints[d] = 16;
+  // Ensure minimum threshold to avoid divide-by-zero or extreme spikes
+  CATEGORY_KEYS.forEach((cat) => {
+    if (!maxPoints[cat] || maxPoints[cat] < 4) {
+      maxPoints[cat] = 12;
+    }
   });
 
   return maxPoints;
 };
 
-const DIMENSION_MAX_POINTS = computeDimensionMaxPoints();
+const CATEGORY_MAX_POINTS = computeCategoryMaxPoints();
 
 /**
- * 1. Calculate Raw Dimension Scores from User Answers
- * @param {Object} answers - e.g. { q1: "q1_opt1", q5: ["q5_opt1", "q5_opt2"], q9: 4, ... }
- * @returns {Object} rawScores - Map of accumulated points for each of the 10 dimensions
+ * 1. Accumulate Weighted Score Vectors across the 8 Career Categories
+ * - Academic questions (Q1–Q4): 40% weight (Multiplier: 0.8)
+ * - Interest questions (Q5–Q10): 60% weight (Multiplier: 1.2)
+ *
+ * @param {Object} answers - Map of { q1: "q1_opt1", ... }
+ * @returns {Object} categoryTotals - Raw weighted sums per category
  */
-export const calculateRawDimensionScores = (answers = {}) => {
-  const rawScores = {};
-  DIMENSION_KEYS.forEach((k) => {
-    rawScores[k] = 0;
+export const calculateWeightedCategoryVectors = (answers = {}) => {
+  const categoryTotals = {};
+  CATEGORY_KEYS.forEach((cat) => {
+    categoryTotals[cat] = 0;
   });
 
   QUIZ_QUESTIONS.forEach((q) => {
-    const userAnswer = answers[q.id];
-    if (userAnswer === undefined || userAnswer === null) return;
+    const userAns = answers[q.id];
+    if (!userAns) return;
 
-    if (q.type === "single" || q.type === "scenario") {
-      const option = q.options.find((o) => o.id === userAnswer);
-      if (option && option.dimensions) {
-        Object.entries(option.dimensions).forEach(([dim, pts]) => {
-          if (rawScores[dim] !== undefined) {
-            rawScores[dim] += pts;
-          }
-        });
-      }
-    } else if (q.type === "multiple") {
-      const selectedArr = Array.isArray(userAnswer) ? userAnswer : [userAnswer];
-      const validArr = q.maxSelect ? selectedArr.slice(0, q.maxSelect) : selectedArr;
-
-      validArr.forEach((optId) => {
-        const option = q.options.find((o) => o.id === optId);
-        if (option && option.dimensions) {
-          Object.entries(option.dimensions).forEach(([dim, pts]) => {
-            if (rawScores[dim] !== undefined) {
-              rawScores[dim] += pts;
-            }
-          });
+    const multiplier = q.typeCategory === "academic" ? 0.8 : 1.2;
+    const opt = (q.options || []).find((o) => o.id === userAns);
+    if (opt && opt.scores) {
+      Object.entries(opt.scores).forEach(([cat, pts]) => {
+        if (categoryTotals[cat] !== undefined) {
+          categoryTotals[cat] += pts * multiplier;
         }
       });
-    } else if (q.type === "rating") {
-      const numericVal = Math.min(5, Math.max(1, Math.round(Number(userAnswer) || 3)));
-      const ratingMap = q.ratingDimensions && q.ratingDimensions[numericVal];
-      if (ratingMap) {
-        Object.entries(ratingMap).forEach(([dim, pts]) => {
-          if (rawScores[dim] !== undefined) {
-            rawScores[dim] += pts;
-          }
-        });
-      }
     }
   });
 
-  return rawScores;
+  return categoryTotals;
 };
 
+// Global maximum achievable points for a fully dominant category (4 * 3 * 0.8 + 6 * 3 * 1.2 = 31.2)
+export const GLOBAL_MAX_POINTS = 31.2;
+
 /**
- * 2. Normalize Dimension Scores into clean 0–100 integer range
- * @param {Object} rawScores
- * @returns {Object} normalizedScores - Map of { [dim]: 0..100 }
+ * 2. Normalize Category Scores to 0–100%
+ * Calibrated against the global max achievable score so secondary categories
+ * don't falsely inflate into ties.
+ *
+ * @param {Object} categoryTotals
+ * @returns {Object} normalizedScores - Map of { [category]: 25..98 }
  */
-export const normalizeDimensionScores = (rawScores = {}) => {
+export const normalizeCategoryScores = (categoryTotals = {}) => {
   const normalized = {};
-
-  DIMENSION_KEYS.forEach((dim) => {
-    const raw = rawScores[dim] || 0;
-    const max = DIMENSION_MAX_POINTS[dim] || 20;
-
-    // Scale linearly and bound between 15% and 98%
-    const calculated = Math.round((raw / max) * 100);
-    normalized[dim] = Math.min(98, Math.max(15, calculated));
+  CATEGORY_KEYS.forEach((cat) => {
+    const raw = categoryTotals[cat] || 0;
+    const pct = Math.round((raw / GLOBAL_MAX_POINTS) * 100);
+    normalized[cat] = Math.min(98, Math.max(25, pct));
   });
-
   return normalized;
 };
 
 /**
- * 3. Calculate Multidimensional Compatibility Score
- * Uses career-defining importance weighting and deficit penalization.
+ * 3. Rank Categories Descending and Detect Tie-Breakers
+ * If the difference between #1 and #2 is within the marginThreshold (e.g. 5%),
+ * both are flagged as top matches.
  *
- * Each career's defining traits (careerVal >= 70) carry higher weight.
- * If a user is severely deficient in a defining trait, an appropriate deficit penalty
- * prevents mismatched careers from scoring artificially high.
- *
- * @param {Object} userProfile - Normalized 0–100 dimensions
- * @param {Object} careerDimensions - Target career 0–100 dimensions
- * @returns {number} matchPercentage (40–96)
+ * @param {Object} normalizedScores
+ * @param {Object} categoryTotals - Raw sums for precise tie-breaking
+ * @param {number} marginThreshold - Score margin to trigger a tie-breaker (default 5%)
+ * @returns {Object} { ranked, isTie, margin, topCategories }
  */
-export const calculateSimilarity = (userProfile = {}, careerDimensions = {}) => {
-  let weightedSimSum = 0;
-  let weightSum = 0;
-
-  DIMENSION_KEYS.forEach((dim) => {
-    const userVal = userProfile[dim] ?? 50;
-    const careerVal = careerDimensions[dim] ?? 50;
-
-    // Career-importance exponent: traits central to this career carry higher decision weight
-    const careerImportance = Math.pow(careerVal / 50, 1.8);
-    const weight = (DIMENSION_WEIGHTS[dim] ?? 1.0) * careerImportance;
-
-    const diff = Math.abs(userVal - careerVal);
-
-    // Deficit penalty: if a career requires high competence (>=68) and user is significantly below it
-    let deficitPenalty = 0;
-    if (careerVal >= 68 && userVal < careerVal - 20) {
-      deficitPenalty = (careerVal - userVal - 20) * 0.5;
-    }
-
-    const sim = Math.max(0, 100 - diff - deficitPenalty);
-
-    weightedSimSum += sim * weight;
-    weightSum += weight;
-  });
-
-  const rawScore = weightSum > 0 ? weightedSimSum / weightSum : weightedSimSum;
-  // Scaled linearly for human-readable compatibility range (42% to 96%)
-  const scaledScore = Math.round(40 + (rawScore / 100) * 58);
-  return Math.min(96, Math.max(42, scaledScore));
-};
-
-/**
- * 4. Match User Profile against Available Database Roadmaps
- * Strictly matches against the courses actually provided from the database.
- * If a course is not in the database, it CANNOT be recommended.
- *
- * @param {Object} userProfile - Normalized user dimensions
- * @param {Array} availableCourses - Array of Course documents/objects from MongoDB
- * @returns {Array} scoredCandidates - All evaluated courses with scores, sorted descending
- */
-export const matchProfileAgainstRoadmaps = (userProfile = {}, availableCourses = []) => {
-  if (!Array.isArray(availableCourses) || availableCourses.length === 0) {
-    return [];
-  }
-
-  const candidates = availableCourses.map((course) => {
-    const roadmapId = course.id;
-    // Look up curated profile or infer dynamically for newly added courses
-    const profile = CAREER_PROFILES[roadmapId] || inferCourseProfile(course);
-
-    const score = calculateSimilarity(userProfile, profile.dimensions);
-
+export const rankCategoriesAndDetectTies = (normalizedScores = {}, categoryTotals = {}, marginThreshold = 5) => {
+  const ranked = CATEGORY_KEYS.map((catKey) => {
+    const meta = CAREER_CATEGORIES[catKey] || {};
+    const score = normalizedScores[catKey] || 0;
+    const raw = categoryTotals[catKey] || 0;
     return {
-      id: roadmapId,
-      careerId: roadmapId,
-      roadmapId: roadmapId,
-      title: course.title || profile.title,
-      category: course.category || profile.category,
-      family: profile.family || "technology",
-      icon: course.icon || profile.icon || "Briefcase",
-      description: course.description || profile.description,
+      category: catKey,
+      label: meta.label || catKey,
+      family: meta.family || "general",
+      icon: meta.icon || "Briefcase",
+      rawScore: raw,
       score,
       matchPercentage: score,
-      dimensions: profile.dimensions,
-      roadmapUrl: `/roadmaps/${roadmapId}`,
-      keyStrengths: profile.keyStrengths || course.skills?.slice(0, 3) || [],
-      skillsToDevelop: profile.skillsToDevelop || ["Foundational concepts", "Guided projects"],
+      defaultRoadmapId: meta.defaultRoadmapId,
+      roadmaps: meta.roadmaps || [],
+      description: meta.description || "",
+      isTie: false,
     };
-  });
-
-  // Deterministic sort: score descending, tie-break by title alphabetical
-  candidates.sort((a, b) => {
+  }).sort((a, b) => {
     if (b.score !== a.score) return b.score - a.score;
-    return a.title.localeCompare(b.title);
+    if (b.rawScore !== a.rawScore) return b.rawScore - a.rawScore;
+    return a.label.localeCompare(b.label);
   });
 
-  return candidates;
+  const margin = ranked.length >= 2 ? (ranked[0].score - ranked[1].score) : 0;
+  const isTie = margin <= marginThreshold && ranked[0].score > 30;
+
+  if (isTie && ranked.length >= 2) {
+    ranked[0].isTie = true;
+    ranked[1].isTie = true;
+  }
+
+  return {
+    ranked,
+    isTie,
+    margin,
+    topCategories: ranked.slice(0, 3),
+  };
 };
 
 /**
- * 5. Diversity-Aware Recommendation Ranking Algorithm
- * Selects 3–5 diverse recommendations, preventing family over-representation.
+ * 4. Match Ranked Categories to Live MongoDB Roadmaps
+ * Picks the best matching course per top category to guarantee diversity.
  *
- * Rules:
- * - Deterministic, explainable, zero Math.random()
- * - Penalizes candidates whose family is already represented in the selected set
- * - Enforces max 2 careers per family unless pool is exhausted
- * - Preserves high-scoring matches: an exceptional 95% match won't be replaced by a 45% match
- *
- * @param {Array} rankedCandidates - Candidates sorted by score descending
- * @param {Object} options - { targetCount: 4, diversityPenalty: 8, maxPerFamily: 2 }
- * @returns {Array} selected - Top diverse recommendations (3 to 5 items)
+ * @param {Array} rankedCategories - Output from rankCategoriesAndDetectTies
+ * @param {Array} availableCourses - Live courses from MongoDB
+ * @param {boolean} isTie - Whether top 2 are tied
+ * @returns {Array} selectedRoadmaps - Array of enriched roadmap recommendations
  */
-export const applyDiversityRanking = (rankedCandidates = [], options = {}) => {
-  const { targetCount = 4, diversityPenalty = 8, maxPerFamily = 2 } = options;
-
-  if (rankedCandidates.length <= targetCount) {
-    return [...rankedCandidates];
+export const matchCategoriesToRoadmaps = (rankedCategories = [], availableCourses = [], isTie = false) => {
+  const courseMap = new Map();
+  if (Array.isArray(availableCourses)) {
+    availableCourses.forEach((c) => courseMap.set(c.id, c));
   }
 
-  const selected = [];
-  const selectedFamilies = {};
-  const remaining = [...rankedCandidates];
+  const selectedRoadmaps = [];
+  const addedIds = new Set();
 
-  while (selected.length < targetCount && remaining.length > 0) {
-    let bestIdx = -1;
-    let bestAdjustedScore = -Infinity;
+  rankedCategories.forEach((catObj, rankIdx) => {
+    const candidateSlugs = catObj.roadmaps || [catObj.defaultRoadmapId];
 
-    for (let i = 0; i < remaining.length; i++) {
-      const candidate = remaining[i];
-      const familyCount = selectedFamilies[candidate.family] || 0;
+    for (const slug of candidateSlugs) {
+      if (!slug || addedIds.has(slug)) continue;
 
-      // Calculate diversity penalty based on current family representation
-      let penalty = 0;
-      if (familyCount >= maxPerFamily) {
-        // If family is already at max capacity, heavily penalize to prefer other families
-        penalty = 35;
-      } else if (familyCount > 0) {
-        // Moderate penalty for 2nd career in same family
-        penalty = diversityPenalty * familyCount;
-      }
+      const dbCourse = courseMap.get(slug);
+      const profile = CAREER_PROFILES[slug] || (dbCourse ? inferCourseProfile(dbCourse) : null);
+      if (!dbCourse && !profile) continue;
 
-      const adjustedScore = candidate.score - penalty;
+      const title = dbCourse?.title || profile?.title || slug;
+      const category = dbCourse?.category || profile?.category || catObj.label;
+      const family = dbCourse?.family || profile?.family || catObj.family;
+      const icon = dbCourse?.icon || profile?.icon || catObj.icon;
+      const description = dbCourse?.description || profile?.description || catObj.description;
+      const keyStrengths = profile?.keyStrengths || dbCourse?.skills?.slice(0, 3) || [];
+      const skillsToDevelop = profile?.skillsToDevelop || ["Core Foundations", "Real-world projects"];
 
-      if (adjustedScore > bestAdjustedScore) {
-        bestAdjustedScore = adjustedScore;
-        bestIdx = i;
-      }
-    }
+      const score = Math.max(45, Math.min(98, catObj.score - (selectedRoadmaps.length >= 3 ? 3 : 0)));
 
-    if (bestIdx >= 0) {
-      const [chosen] = remaining.splice(bestIdx, 1);
-      selected.push(chosen);
-      selectedFamilies[chosen.family] = (selectedFamilies[chosen.family] || 0) + 1;
-    } else {
+      selectedRoadmaps.push({
+        id: slug,
+        careerId: slug,
+        roadmapId: slug,
+        title,
+        category,
+        family,
+        icon,
+        description,
+        score,
+        matchPercentage: score,
+        roadmapUrl: `/roadmaps/${slug}`,
+        keyStrengths,
+        skillsToDevelop,
+        categoryKey: catObj.category,
+        isTie: (rankIdx === 0 || rankIdx === 1) && isTie,
+        reason: `Matches your strong interest in ${catObj.label} (${score}% compatibility).`,
+      });
+
+      addedIds.add(slug);
       break;
     }
-  }
+  });
 
-  return selected;
+  return selectedRoadmaps;
 };
 
 /**
- * 6. Master Assessment Processor
- * Integrates dimension calculation, normalization, roadmap matching, and diversity ranking.
+ * Backward compatibility helpers for older tests or controllers
+ */
+export const calculateRawDimensionScores = (answers = {}) => calculateWeightedCategoryVectors(answers);
+export const normalizeDimensionScores = (rawScores = {}) => normalizeCategoryScores(rawScores);
+
+/**
+ * 5. Master Assessment Processor
+ * Integrates weighted score vectors, 60/40 interest/academic weighting,
+ * category normalization, ranking, tie-breaking, and roadmap selection.
  *
  * @param {Object} answers - User answers from frontend
  * @param {Array} availableCourses - Courses fetched from MongoDB
- * @param {Object} config - { recommendationCount: 4 }
- * @returns {Object} { traitScores, careerScores, topRecommendations, topMatch }
+ * @param {Object} config - { recommendationCount: 4, marginThreshold: 5 }
+ * @returns {Object} Comprehensive assessment result
  */
 export const processAssessment = (answers = {}, availableCourses = [], config = {}) => {
-  const rawTraits = calculateRawDimensionScores(answers);
-  const traitScores = normalizeDimensionScores(rawTraits);
+  const categoryTotals = calculateWeightedCategoryVectors(answers);
+  const categoryScores = normalizeCategoryScores(categoryTotals);
+  const { ranked, isTie, margin, topCategories } = rankCategoriesAndDetectTies(
+    categoryScores,
+    categoryTotals,
+    config.marginThreshold || 5
+  );
 
-  // If no courses passed (e.g. offline test), fall back to CAREER_PROFILES keys
   const coursePool = Array.isArray(availableCourses) && availableCourses.length > 0
     ? availableCourses
     : Object.entries(CAREER_PROFILES).map(([id, p]) => ({ id, ...p }));
 
-  const allCareerScores = matchProfileAgainstRoadmaps(traitScores, coursePool);
-
-  const recommendationCount = Math.min(5, Math.max(3, config.recommendationCount || 4));
-  const topRecommendations = applyDiversityRanking(allCareerScores, {
-    targetCount: recommendationCount,
-    diversityPenalty: 8,
-    maxPerFamily: 2,
-  });
-
+  const topRecommendations = matchCategoriesToRoadmaps(ranked, coursePool, isTie);
   const topMatch = topRecommendations[0] || null;
 
   return {
-    rawTraits,
-    traitScores,
-    careerScores: allCareerScores,
-    topRecommendations,
+    categoryTotals,
+    categoryScores,
+    rankedCategories: ranked,
+    tieBreaker: {
+      isTie,
+      margin,
+      tiedCategories: isTie ? [ranked[0], ranked[1]] : [ranked[0]],
+    },
+    // traitScores mapped to categoryScores for AI Service and legacy consumers
+    traitScores: categoryScores,
+    careerScores: topRecommendations,
+    topRecommendations: topRecommendations.slice(0, config.recommendationCount || 4),
     topMatch,
   };
 };

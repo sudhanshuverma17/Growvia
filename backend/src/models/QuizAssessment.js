@@ -59,6 +59,12 @@ const quizAssessmentSchema = new mongoose.Schema(
       default: [],
     },
     aiAnalysis: {
+      logicalProfile: {
+        primaryStyle: { type: String, default: "" },
+        reasoningStrength: { type: String, default: "" },
+        decisionStrategy: { type: String, default: "" },
+        cognitiveSummary: { type: String, default: "" },
+      },
       summary: { type: String, default: "" },
       strengths: { type: [String], default: [] },
       topCareer: {

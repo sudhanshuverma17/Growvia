@@ -169,182 +169,234 @@ export default function Quiz() {
 
 // Client-side fallback generator in case network or serverless function is temporarily offline
 const generateClientFallbackResult = (userAnswers = {}) => {
-  // Candidate pool directly matching verified MongoDB Growvia roadmap slugs
-  const candidates = [
-    {
-      id: "engineer",
-      careerId: "engineer",
-      roadmapId: "engineer",
-      title: "Software Engineer",
-      family: "technology",
-      category: "Technology",
-      description: "Design, develop, and maintain robust web platforms, distributed systems, and software applications.",
-      roadmapUrl: "/roadmaps/engineer",
-      dimensions: { technical: 92, analytical: 86, creative: 50, business: 36, communication: 48, leadership: 40, research: 62, people: 28, structured: 78, riskTaking: 42 },
-      keyStrengths: ["Algorithmic problem solving", "System architecture & design", "Clean code craftsmanship"],
-    },
-    {
-      id: "data-scientist",
-      careerId: "data-scientist",
-      roadmapId: "data-scientist",
-      title: "Data Scientist",
-      family: "data",
-      category: "Technology",
-      description: "Transform multi-dimensional datasets into predictive models, business intelligence, and scientific insights.",
-      roadmapUrl: "/roadmaps/data-scientist",
-      dimensions: { technical: 78, analytical: 95, creative: 48, business: 62, communication: 58, leadership: 38, research: 90, people: 30, structured: 76, riskTaking: 38 },
-      keyStrengths: ["Statistical inference & hypothesis testing", "Data storytelling & visualization", "Analytical rigor"],
-    },
-    {
-      id: "product-manager",
-      careerId: "product-manager",
-      roadmapId: "product-manager",
-      title: "Product Manager",
-      family: "business",
-      category: "Technology",
-      description: "Guide products from inception to scale, bridging engineering, user research, and executive strategy.",
-      roadmapUrl: "/roadmaps/product-manager",
-      dimensions: { technical: 56, analytical: 78, creative: 72, business: 92, communication: 90, leadership: 90, research: 66, people: 78, structured: 68, riskTaking: 68 },
-      keyStrengths: ["Product roadmap prioritization", "Cross-functional team leadership", "Data-informed decision making"],
-    },
-    {
-      id: "designer",
-      careerId: "designer",
-      roadmapId: "designer",
-      title: "UI/UX Designer",
-      family: "design",
-      category: "Design",
-      description: "Craft seamless, human-centered digital experiences, wireframes, visual hierarchies, and interactive prototypes.",
-      roadmapUrl: "/roadmaps/designer",
-      dimensions: { technical: 44, analytical: 62, creative: 95, business: 52, communication: 78, leadership: 45, research: 68, people: 82, structured: 60, riskTaking: 52 },
-      keyStrengths: ["User empathy & behavior observation", "Visual systems & UI craftsmanship", "Interactive prototyping"],
-    },
-    {
-      id: "digital-marketer",
-      careerId: "digital-marketer",
-      roadmapId: "digital-marketer",
-      title: "Digital Marketer",
-      family: "marketing",
-      category: "Marketing",
-      description: "Drive digital audience acquisition, paid growth campaigns, performance marketing, and conversion optimization.",
-      roadmapUrl: "/roadmaps/digital-marketer",
-      dimensions: { technical: 48, analytical: 78, creative: 82, business: 86, communication: 86, leadership: 60, research: 58, people: 68, structured: 62, riskTaking: 65 },
-      keyStrengths: ["Campaign ROI optimization", "Multi-channel funnel analysis", "Audience persona targeting"],
-    },
-    {
-      id: "cybersecurity",
-      careerId: "cybersecurity",
-      roadmapId: "cybersecurity",
-      title: "Cybersecurity Analyst",
-      family: "technology",
-      category: "Technology",
-      description: "Defend enterprise systems, protocols, and confidential data against malicious intrusions and vulnerabilities.",
-      roadmapUrl: "/roadmaps/cybersecurity",
-      dimensions: { technical: 88, analytical: 88, creative: 40, business: 46, communication: 50, leadership: 42, research: 76, people: 28, structured: 92, riskTaking: 36 },
-      keyStrengths: ["Threat intelligence & reconnaissance", "Network protocol security", "Meticulous defense protocols"],
-    },
-  ];
-
-  // Calculate 10-dimension traits based on submitted answers
-  const traitScores = {
-    technical: 50,
-    analytical: 50,
-    creative: 50,
-    business: 50,
-    communication: 50,
-    leadership: 50,
-    research: 50,
-    people: 50,
-    structured: 50,
-    riskTaking: 50,
+  const categoryTotals = {
+    medicine: 0,
+    law: 0,
+    technology: 0,
+    design: 0,
+    business: 0,
+    finance: 0,
+    engineering: 0,
+    education: 0,
   };
 
-  const q1 = String(userAnswers["q1"] || "");
-  if (q1.includes("opt1")) { traitScores.technical += 30; traitScores.analytical += 15; traitScores.structured += 15; }
-  else if (q1.includes("opt2")) { traitScores.analytical += 30; traitScores.research += 20; traitScores.structured += 15; }
-  else if (q1.includes("opt3")) { traitScores.creative += 30; traitScores.people += 20; traitScores.riskTaking += 15; }
-  else if (q1.includes("opt4")) { traitScores.leadership += 30; traitScores.business += 25; traitScores.communication += 20; }
+  const categoryMeta = {
+    medicine: {
+      label: "Healthcare & Medicine",
+      family: "healthcare",
+      icon: "HeartPulse",
+      slug: "doctor",
+      title: "General Physician / Doctor",
+      style: "Clinical Diagnostic & Healthcare Healer",
+      reasoning: "Symptom diagnosis, patient care, and healing medicine",
+      strategy: "Compassionate patient well-being and clinical accuracy",
+    },
+    law: {
+      label: "Law & Governance",
+      family: "legal",
+      icon: "Scale",
+      slug: "lawyer",
+      title: "Advocate / Lawyer",
+      style: "Analytical Legal & Justice Advocate",
+      reasoning: "Policy research, rights advocacy, and ethical negotiation",
+      strategy: "Principled fairness, truth, and systematic legal reasoning",
+    },
+    technology: {
+      label: "Software & Technology",
+      family: "technology",
+      icon: "Code",
+      slug: "engineer",
+      title: "Software Engineer",
+      style: "Deductive Systems & Software Architect",
+      reasoning: "Algorithmic logic, computational problem solving, and software engineering",
+      strategy: "Deterministic verification and scalable architecture",
+    },
+    design: {
+      label: "Design & Creative Arts",
+      family: "design",
+      icon: "Palette",
+      slug: "designer",
+      title: "UI/UX & Product Designer",
+      style: "Human-Centered Creative & Visual Designer",
+      reasoning: "Visual storytelling, aesthetic intuition, and design imagination",
+      strategy: "Harmonizing functional beauty with emotional resonance",
+    },
+    business: {
+      label: "Business & Management",
+      family: "business",
+      icon: "Briefcase",
+      slug: "product-manager",
+      title: "Product & Business Manager",
+      style: "Strategic Commercial & Enterprise Leader",
+      reasoning: "Organizational leadership, strategic growth, and capital allocation",
+      strategy: "Value creation, risk-adjusted returns, and team alignment",
+    },
+    finance: {
+      label: "Finance & Accounting",
+      family: "finance",
+      icon: "TrendingUp",
+      slug: "chartered-accountant",
+      title: "Chartered Accountant (CA)",
+      style: "Quantitative Financial & Risk Analyst",
+      reasoning: "Financial auditing, capital governance, and tax optimization",
+      strategy: "Fiscal accuracy, disciplined compliance, and risk mitigation",
+    },
+    engineering: {
+      label: "Core Engineering",
+      family: "engineering",
+      icon: "Wrench",
+      slug: "mechanical-engineer",
+      title: "Mechanical Engineer",
+      style: "Applied Engineering & Infrastructure Specialist",
+      reasoning: "Physical mechanics, structural durability, and precision engineering",
+      strategy: "Fail-safe engineering standards and reliable execution",
+    },
+    education: {
+      label: "Education & Care",
+      family: "education",
+      icon: "GraduationCap",
+      slug: "teacher",
+      title: "Educator & Mentor",
+      style: "Empathetic Educator & Transformational Mentor",
+      reasoning: "Pedagogical communication, talent guidance, and teaching",
+      strategy: "Holistic human development and values-driven encouragement",
+    },
+  };
 
-  const q2 = String(userAnswers["q2"] || "");
-  if (q2.includes("opt1")) { traitScores.technical += 25; traitScores.structured += 15; }
-  else if (q2.includes("opt2")) { traitScores.research += 30; traitScores.analytical += 20; }
-  else if (q2.includes("opt3")) { traitScores.creative += 30; traitScores.communication += 15; }
-  else if (q2.includes("opt4")) { traitScores.business += 30; traitScores.leadership += 20; }
+  // 1. Accumulate weighted vectors with 60/40 interest vs academic split
+  QUIZ_QUESTIONS.forEach((q) => {
+    const userAns = userAnswers[q.id];
+    if (!userAns) return;
 
-  const q6 = String(userAnswers["q6"] || "");
-  if (q6.includes("opt1")) { traitScores.technical += 15; }
-  else if (q6.includes("opt2")) { traitScores.creative += 15; }
-  else if (q6.includes("opt3")) { traitScores.leadership += 15; }
-  else if (q6.includes("opt4")) { traitScores.people += 20; }
-
-  // Bound traits between 20 and 96
-  Object.keys(traitScores).forEach((k) => {
-    traitScores[k] = Math.min(96, Math.max(20, traitScores[k]));
-  });
-
-  // Calculate similarity for each candidate
-  const scored = candidates.map((c) => {
-    let diffSum = 0;
-    Object.keys(traitScores).forEach((k) => {
-      diffSum += Math.abs(traitScores[k] - (c.dimensions[k] || 50));
-    });
-    const avgDiff = diffSum / 10;
-    const match = Math.min(96, Math.max(45, Math.round(100 - avgDiff)));
-    return {
-      ...c,
-      score: match,
-      matchPercentage: match,
-    };
-  });
-
-  scored.sort((a, b) => b.score - a.score);
-
-  // Diversity filter: max 1 per family in top 4
-  const selected = [];
-  const families = new Set();
-  for (const item of scored) {
-    if (!families.has(item.family) || selected.length >= 3) {
-      selected.push(item);
-      families.add(item.family);
-      if (selected.length === 4) break;
+    const multiplier = q.typeCategory === "academic" ? 0.8 : 1.2;
+    const opt = (q.options || []).find((o) => o.id === userAns);
+    if (opt && opt.scores) {
+      Object.entries(opt.scores).forEach(([cat, pts]) => {
+        if (categoryTotals[cat] !== undefined) {
+          categoryTotals[cat] += pts * multiplier;
+        }
+      });
     }
+  });
+
+  // 2. Normalize to 0-100%
+  const categoryScores = {};
+  Object.keys(categoryTotals).forEach((cat) => {
+    const raw = categoryTotals[cat] || 0;
+    const max = 18;
+    categoryScores[cat] = Math.min(98, Math.max(25, Math.round((raw / max) * 100)));
+  });
+
+  // 3. Rank categories descending & check for tie
+  const ranked = Object.keys(categoryScores)
+    .map((catKey) => ({
+      category: catKey,
+      ...categoryMeta[catKey],
+      score: categoryScores[catKey],
+      matchPercentage: categoryScores[catKey],
+      isTie: false,
+    }))
+    .sort((a, b) => b.score - a.score);
+
+  const margin = ranked.length >= 2 ? ranked[0].score - ranked[1].score : 0;
+  const isTie = margin <= 5 && ranked[0].score > 30;
+
+  if (isTie && ranked.length >= 2) {
+    ranked[0].isTie = true;
+    ranked[1].isTie = true;
   }
 
-  const topMatch = selected[0] || scored[0];
+  // 4. Map top categories to recommendations
+  const selected = ranked.slice(0, 4).map((item, idx) => ({
+    id: item.slug,
+    careerId: item.slug,
+    roadmapId: item.slug,
+    title: item.title,
+    category: item.label,
+    family: item.family,
+    icon: item.icon,
+    score: item.score,
+    matchPercentage: item.matchPercentage,
+    isTie: (idx === 0 || idx === 1) && isTie,
+    roadmapUrl: `/roadmaps/${item.slug}`,
+    keyStrengths: [
+      `Strong aptitude in ${item.label}`,
+      "Applied real-world problem solving",
+      "Goal-driven disciplined execution",
+    ],
+    reason: isTie && idx < 2
+      ? `Top match (Tie) with ${item.score}% compatibility based on your balanced problem-solving preferences.`
+      : `High compatibility (${item.score}%) reflecting your natural preference for ${item.label}.`,
+  }));
+
+  const topMatch = selected[0] || {};
+  const primaryStyle = topMatch.style || "Analytical Problem Solver";
+  const reasoningStrength = topMatch.reasoning || "Structured problem deconstruction";
+  const decisionStrategy = topMatch.strategy || "Evidence-based evaluation";
+
+  const logicalProfile = {
+    primaryStyle,
+    reasoningStrength,
+    decisionStrategy,
+    cognitiveSummary: `Your responses highlight strong capability as a ${primaryStyle}. You excel at ${reasoningStrength.toLowerCase()} to solve complex challenges.`,
+  };
+
+  const topExplanation = isTie && selected[1]
+    ? `You have a dual top match in both ${topMatch.title} and ${selected[1].title} (${topMatch.matchPercentage}% vs ${selected[1].matchPercentage}%), reflecting balanced strengths across both fields.`
+    : `Your ${primaryStyle.toLowerCase()} mindset aligns naturally with the core problem-solving demands of ${topMatch.title}.`;
 
   return {
     id: `local-${Date.now()}`,
     quizVersion: "career-assessment-v2",
-    traitScores,
+    categoryScores,
+    traitScores: categoryScores,
     careerScores: selected,
     topRecommendations: selected,
     topMatch,
+    tieBreaker: {
+      isTie,
+      margin,
+      tiedCategories: isTie ? [ranked[0], ranked[1]] : [ranked[0]],
+    },
     aiAnalysis: {
-      summary: `Your responses reflect high capability in structured problem-solving, analytical deduction, and domain curiosity.`,
+      logicalProfile,
+      summary: isTie && selected[1]
+        ? `Your assessment shows a dual top affinity: you are tied between ${topMatch.title} and ${selected[1].title}, combining strengths in ${topMatch.category} and ${selected[1].category}.`
+        : `Your profile highlights strong aptitude as a ${primaryStyle.toLowerCase()} with primary strength in ${topMatch.category} (${topMatch.matchPercentage}% match).`,
       strengths: [
-        "Strong capacity for logical deduction and problem deconstruction",
-        "Enjoys translating requirements into tangible deliverables",
-        "Methodical approach to complex challenges",
+        `Strong compatibility in ${topMatch.category}`,
+        `Natural aptitude for ${reasoningStrength.toLowerCase()}`,
+        "Structured problem deconstruction and systematic execution",
+        "Disciplined approach to high-responsibility decisions",
       ],
       topCareer: {
         name: topMatch.title,
-        explanation: `Your profile indicates high alignment with the core responsibilities of ${topMatch.title}.`,
+        explanation: topExplanation,
       },
+      topRecommendations: selected.map((item) => ({
+        id: item.id,
+        title: item.title,
+        category: item.category,
+        matchPercentage: item.matchPercentage,
+        isTie: item.isTie,
+        reason: item.reason,
+      })),
       alternativeCareers: selected.slice(1).map((item) => ({
         name: item.title,
         explanation: `A strong alternative in the ${item.family} domain with ${item.matchPercentage}% compatibility.`,
       })),
       developmentAreas: [
-        "Broadening practical hands-on project implementations",
-        "Deepening cross-functional stakeholder collaboration",
+        "Deepening practical hands-on project implementations",
+        "Exploring industry certifications and professional networking",
       ],
       nextSteps: [
-        `Explore the verified step-by-step roadmap for ${topMatch.title} on Growvia`,
-        "Master the essential foundational toolings and concepts",
-        "Browse related video masterclasses from industry mentors",
+        `Explore the step-by-step roadmap for ${topMatch.title} on Growvia`,
+        isTie && selected[1]
+          ? `Compare day-to-day milestones with ${selected[1].title} to see which projects excite you most`
+          : "Review core skill milestones and prerequisite foundations",
+        "Start a guided real-world project to test your day-to-day interest",
       ],
     },
-    createdAt: new Date().toISOString(),
   };
 };
 

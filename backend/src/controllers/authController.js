@@ -70,6 +70,7 @@ export const registerUser = async (req, res) => {
         email: user.email,
         role: user.role,
         savedRoadmaps: user.savedRoadmaps,
+        purchasedRoadmaps: user.purchasedRoadmaps || [],
         createdAt: user.createdAt,
       },
     });
@@ -151,6 +152,7 @@ export const loginUser = async (req, res) => {
         email: user.email,
         role: user.role,
         savedRoadmaps: user.savedRoadmaps,
+        purchasedRoadmaps: user.purchasedRoadmaps || [],
         createdAt: user.createdAt,
       },
     });
@@ -200,6 +202,7 @@ export const getMe = async (req, res) => {
         email: user.email,
         role: user.role,
         savedRoadmaps: user.savedRoadmaps,
+        purchasedRoadmaps: user.purchasedRoadmaps || [],
         createdAt: user.createdAt,
       },
     });

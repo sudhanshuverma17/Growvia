@@ -158,6 +158,45 @@ export function AuthProvider({ children }) {
     return false;
   };
 
+  // Refresh user profile from backend
+  const refreshUser = async () => {
+    const savedToken = token || localStorage.getItem("growvia_token");
+    if (!savedToken) return null;
+    try {
+      const res = await fetch(apiUrl("/api/auth/me"), {
+        headers: {
+          Authorization: `Bearer ${savedToken}`,
+        },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setUser(data.user);
+        return data.user;
+      }
+    } catch (err) {
+      console.error("[Refresh User Error]:", err);
+    }
+    return null;
+  };
+
+  // Add purchased roadmap locally and sync state (ensuring it is removed from saved roadmaps)
+  const addPurchasedRoadmap = (careerId) => {
+    setUser((prev) => {
+      if (!prev) return prev;
+      const currentPurchased = Array.isArray(prev.purchasedRoadmaps) ? prev.purchasedRoadmaps : [];
+      const currentSaved = Array.isArray(prev.savedRoadmaps) ? prev.savedRoadmaps : [];
+      const updatedPurchased = currentPurchased.includes(careerId)
+        ? currentPurchased
+        : [...currentPurchased, careerId];
+      const updatedSaved = currentSaved.filter((id) => id !== careerId);
+      return {
+        ...prev,
+        purchasedRoadmaps: updatedPurchased,
+        savedRoadmaps: updatedSaved,
+      };
+    });
+  };
+
   const isAuthenticated = !!user;
   const isAdmin = user?.role === "admin";
 
@@ -173,6 +212,8 @@ export function AuthProvider({ children }) {
         register,
         logout,
         toggleSaveRoadmap,
+        refreshUser,
+        addPurchasedRoadmap,
       }}
     >
       {children}

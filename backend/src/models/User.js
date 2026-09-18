@@ -35,6 +35,10 @@ const userSchema = new mongoose.Schema(
       type: [String],
       default: [],
     },
+    purchasedRoadmaps: {
+      type: [String],
+      default: [],
+    },
     isVerified: {
       type: Boolean,
       default: true,

@@ -18,6 +18,8 @@ import {
   Sparkles,
   Trophy,
   Compass,
+  CheckCircle2,
+  Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -66,6 +68,8 @@ export default function Dashboard() {
       const searchParams = new URLSearchParams(window.location.search);
       const saveCareerId = searchParams.get("save");
       if (saveCareerId) {
+        const isPurchased = Array.isArray(user?.purchasedRoadmaps) && user.purchasedRoadmaps.includes(saveCareerId);
+        if (isPurchased) return;
         const isAlreadySaved = Array.isArray(user?.savedRoadmaps) && user.savedRoadmaps.includes(saveCareerId);
         if (!isAlreadySaved) {
           toggleSaveRoadmap(saveCareerId).then((saved) => {
@@ -84,9 +88,15 @@ export default function Dashboard() {
     }
   }, [token, user, courses]);
 
-  // Load only roadmaps explicitly saved by the user
+  // Load roadmaps purchased/unlocked by the user
+  const userPurchasedIds = Array.isArray(user?.purchasedRoadmaps) ? user.purchasedRoadmaps : [];
+  const purchasedCareers = courses.filter((c) => userPurchasedIds.includes(c.id));
+
+  // Load only roadmaps explicitly saved by the user that are NOT already purchased
   const userSavedIds = Array.isArray(user?.savedRoadmaps) ? user.savedRoadmaps : [];
-  const savedCareers = courses.filter((c) => userSavedIds.includes(c.id));
+  const savedCareers = courses.filter(
+    (c) => userSavedIds.includes(c.id) && !userPurchasedIds.includes(c.id)
+  );
 
   // Extract quiz recommendation details if assessment exists
   const topQuizRecommendation = latestAssessment?.topRecommendations?.[0];
@@ -144,6 +154,12 @@ export default function Dashboard() {
 
               <nav className="space-y-1.5">
                 {[
+                  {
+                    icon: ShieldCheck,
+                    label: `Purchased (${purchasedCareers.length})`,
+                    href: "#purchased-section",
+                    highlight: purchasedCareers.length > 0,
+                  },
                   { icon: Bookmark, label: "Saved Roadmaps", active: true },
                   { icon: Target, label: "Quiz Results", href: "/career-quiz" },
                   { icon: Award, label: "Certificates", active: false },
@@ -215,6 +231,108 @@ export default function Dashboard() {
               </div>
             </div>
 
+            {/* Purchased Roadmaps Section */}
+            <div id="purchased-section" className="mb-10">
+              <div className="flex justify-between items-end mb-6">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full flex items-center gap-1.5 w-fit">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                      Lifetime Access
+                    </span>
+                  </div>
+                  <h2 className="text-xl font-bold text-white flex items-center gap-2.5">
+                    Purchased Roadmaps
+                    {purchasedCareers.length > 0 && (
+                      <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-mono font-bold">
+                        {purchasedCareers.length} Unlocked
+                      </span>
+                    )}
+                  </h2>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    Your unlocked career roadmaps with full step-by-step clarity, college benchmarks, and mentor guides.
+                  </p>
+                </div>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-primary/30 text-primary hover:bg-primary/10 rounded-xl text-xs h-9"
+                >
+                  <Link href="/pricing">
+                    <Zap className="w-3.5 h-3.5 mr-1.5 text-primary" /> Unlock More Careers
+                  </Link>
+                </Button>
+              </div>
+
+              {purchasedCareers.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {purchasedCareers.map((career) => (
+                    <div
+                      key={career.id}
+                      className="group relative bg-gradient-to-br from-card via-card to-emerald-950/20 border border-emerald-500/30 rounded-2xl p-6 shadow-lg shadow-emerald-500/5 hover:border-emerald-400/50 transition-all"
+                    >
+                      <div className="flex justify-between items-start mb-4">
+                        <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
+                          <CareerIcon icon={career.icon} size={22} />
+                        </div>
+                        <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
+                          <CheckCircle2 className="w-3 h-3 text-emerald-400" /> Unlocked
+                        </span>
+                      </div>
+
+                      <h3 className="text-xl font-bold text-white mb-1.5 group-hover:text-emerald-300 transition-colors">
+                        {career.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground line-clamp-2 mb-4 leading-relaxed">
+                        {career.description || "Comprehensive career curriculum with stages, colleges, and salary expectations."}
+                      </p>
+
+                      <div className="flex items-center justify-between pt-4 border-t border-white/10 text-xs">
+                        <span className="text-muted-foreground font-medium">
+                          {career.category} • {career.timeline?.length || 0} Stages
+                        </span>
+                        <Button
+                          asChild
+                          size="sm"
+                          className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-xl text-xs shadow-md shadow-emerald-600/20"
+                        >
+                          <Link href={`/roadmaps/${career.id}`}>
+                            Open Roadmap <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="bg-card/60 border border-dashed border-white/15 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary flex-shrink-0 mt-0.5">
+                      <Zap className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white mb-1">
+                        No Purchased Roadmaps Yet
+                      </h3>
+                      <p className="text-xs sm:text-sm text-muted-foreground max-w-xl leading-relaxed">
+                        Unlock lifetime access to any career path for just ₹99. Get uncompromised honest insights, semester breakdown, tier-1 vs budget colleges, and curated mentors.
+                      </p>
+                    </div>
+                  </div>
+
+                  <Button
+                    asChild
+                    className="bg-primary text-primary-foreground font-bold rounded-xl text-xs sm:text-sm px-5 py-2.5 h-auto flex-shrink-0 shadow-lg shadow-primary/20"
+                  >
+                    <Link href="/pricing">
+                      Explore Pricing & Unlock — ₹99 <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                    </Link>
+                  </Button>
+                </div>
+              )}
+            </div>
+
             {/* Saved Roadmaps */}
             <div className="mb-8">
               <div className="flex justify-between items-end mb-6">
@@ -234,8 +352,8 @@ export default function Dashboard() {
                 </Link>
               </div>
 
-              {/* Quiz Result Highlight inside Saved Roadmaps */}
-              {latestAssessment && topQuizRecommendation && (
+              {/* Quiz Result Highlight inside Saved Roadmaps (only if not already purchased) */}
+              {latestAssessment && topQuizRecommendation && !userPurchasedIds.includes(topQuizCareerId) && (
                 <div className="mb-6 rounded-2xl border border-primary/30 bg-gradient-to-r from-card via-card to-primary/[0.05] p-5 sm:p-6 relative overflow-hidden shadow-lg shadow-primary/5">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
 

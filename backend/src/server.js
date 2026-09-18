@@ -13,6 +13,8 @@ import courseRoutes from "./routes/courseRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import videoRoutes from "./routes/videoRoutes.js";
 import quizRoutes from "./routes/quizRoutes.js";
+import paymentRoutes from "./routes/paymentRoutes.js";
+import chatRoutes from "./routes/chatRoutes.js";
 import { authLimiter, apiLimiter } from "./middleware/rateLimiter.js";
 import { Course } from "./models/Course.js";
 import User from "./models/User.js";
@@ -44,7 +46,7 @@ app.use(
       ? {
           directives: {
             defaultSrc: ["'self'"],
-            scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https:"],
+            scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https:", "https://checkout.razorpay.com"],
             styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
             fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
             imgSrc: [
@@ -55,14 +57,17 @@ app.use(
               "https://img.youtube.com",
               "https://i.ytimg.com",
               "https://*.ytimg.com",
+              "https://*.razorpay.com",
             ],
             frameSrc: [
               "'self'",
+              "https://api.razorpay.com",
+              "https://*.razorpay.com",
               "https://www.youtube.com",
               "https://www.youtube-nocookie.com",
               "https://player.vimeo.com",
             ],
-            connectSrc: ["'self'", "*"],
+            connectSrc: ["'self'", "https://api.razorpay.com", "https://*.razorpay.com", "*"],
           },
         }
       : false,
@@ -99,8 +104,18 @@ app.use(
   })
 );
 
-// 4. Body Parser
-app.use(express.json({ limit: "2mb" }));
+// Trust first proxy (essential for reverse proxies like Render, Vercel, Nginx, Cloudflare to preserve HTTPS headers)
+app.set("trust proxy", 1);
+
+// 4. Body Parser (with rawBody retention for cryptographically verifying Razorpay Webhooks)
+app.use(
+  express.json({
+    limit: "2mb",
+    verify: (req, res, buf) => {
+      req.rawBody = buf;
+    },
+  })
+);
 app.use(express.urlencoded({ extended: true, limit: "2mb" }));
 
 // 5. Rate Limiting (Brute-force & DDoS protection)
@@ -198,6 +213,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/videos", videoRoutes);
 app.use("/api/career-quiz", quizRoutes);
+app.use("/api/payment", paymentRoutes);
+app.use("/api/chat", chatRoutes);
 
 // 8. Unified Serving (Express serves compiled React frontend from backend/public)
 const staticServingPath = fs.existsSync(path.join(backendPublicPath, "index.html"))

@@ -35,6 +35,7 @@ import { VideoProvider } from "@/context/video-context";
 import { AdminRoute, UserRoute } from "@/components/protected-route";
 import { PageLoader } from "@/components/page-loader";
 import { ErrorBoundary } from "@/components/error-boundary";
+import { ChatWidget } from "@/components/chat/ChatWidget";
 import NotFound from "@/pages/not-found";
 
 // Lazy-loaded Student Pages
@@ -141,6 +142,7 @@ function App() {
                 <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
                   <ScrollToTop />
                   <Router />
+                  <ChatWidget />
                 </WouterRouter>
                 <Toaster />
               </TooltipProvider>

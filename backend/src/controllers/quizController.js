@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { connectDB } from "../config/db.js";
-import { QUIZ_QUESTIONS } from "../config/quizConfig.js";
+import { QUIZ_QUESTIONS, CAREER_PROFILES } from "../config/quizConfig.js";
 import { processAssessment } from "../services/scoringEngine.js";
 import { generateCareerAnalysis } from "../services/aiService.js";
 import { QuizAssessment } from "../models/QuizAssessment.js";
@@ -92,19 +92,66 @@ export const submitCareerQuiz = async (req, res) => {
       console.warn("[Quiz Controller DB Warning]: Could not fetch courses from DB:", dbErr.message);
     }
 
-    // 3. Multidimensional scoring and diversity-aware ranking
-    const scoredData = processAssessment(answers, availableCourses, {
+    // Build complete course pool from DB and static registry
+    const coursePool = availableCourses.length > 0
+      ? availableCourses
+      : Object.entries(CAREER_PROFILES).map(([id, p]) => ({ id, ...p }));
+
+    // 3. Multidimensional scoring and diversity-aware algorithmic baseline
+    const scoredData = processAssessment(answers, coursePool, {
       recommendationCount: 4, // 3 to 5 recommendations
     });
 
-    // 4. Generate structured qualitative AI analysis
+    // 4. Generate structured cognitive AI analysis (LLM evaluates logical thinking and selects from catalog)
     const aiAnalysis = await generateCareerAnalysis({
       traitScores: scoredData.traitScores,
       careerMatches: scoredData.topRecommendations,
       answers,
+      availableCourses: coursePool,
     });
 
-    // 5. Persist to MongoDB Atlas (fault-tolerant)
+    // 5. LLM Response directly determines career recommendations if returned
+    let finalRecommendations = scoredData.topRecommendations;
+    let finalTopMatch = scoredData.topMatch;
+
+    if (aiAnalysis && Array.isArray(aiAnalysis.topRecommendations) && aiAnalysis.topRecommendations.length >= 3) {
+      const courseMap = new Map();
+      coursePool.forEach((c) => courseMap.set(c.id, c));
+      Object.entries(CAREER_PROFILES).forEach(([id, p]) => {
+        if (!courseMap.has(id)) courseMap.set(id, { id, ...p });
+      });
+
+      // Filter to recommendations that match valid roadmaps
+      const validLlmRecs = aiAnalysis.topRecommendations.filter((rec) => courseMap.has(rec.id));
+
+      if (validLlmRecs.length >= 3) {
+        finalRecommendations = validLlmRecs.slice(0, 5).map((rec) => {
+          const dbCourse = courseMap.get(rec.id) || {};
+          const profile = CAREER_PROFILES[rec.id] || {};
+          const matchPercentage = Math.min(98, Math.max(50, Number(rec.matchPercentage) || 85));
+
+          return {
+            id: rec.id,
+            careerId: rec.id,
+            roadmapId: rec.id,
+            title: dbCourse.title || profile.title || rec.title,
+            category: dbCourse.category || profile.category || rec.category || "Technology",
+            family: dbCourse.family || profile.family || "technology",
+            icon: dbCourse.icon || profile.icon || "Briefcase",
+            description: rec.reason || dbCourse.description || profile.description,
+            score: matchPercentage,
+            matchPercentage,
+            roadmapUrl: `/roadmaps/${rec.id}`,
+            keyStrengths: profile.keyStrengths || dbCourse.skills?.slice(0, 3) || ["Logical deduction", "Systems thinking"],
+            skillsToDevelop: profile.skillsToDevelop || ["Foundational concepts", "Hands-on projects"],
+            reason: rec.reason,
+          };
+        });
+        finalTopMatch = finalRecommendations[0];
+      }
+    }
+
+    // 6. Persist to MongoDB Atlas (fault-tolerant)
     let assessmentDoc = null;
     try {
       if (mongoose.connection.readyState === 1) {
@@ -115,7 +162,7 @@ export const submitCareerQuiz = async (req, res) => {
           answers,
           traitScores: scoredData.traitScores,
           careerScores: scoredData.careerScores,
-          topRecommendations: scoredData.topRecommendations,
+          topRecommendations: finalRecommendations,
           aiAnalysis,
         });
       }
@@ -129,10 +176,12 @@ export const submitCareerQuiz = async (req, res) => {
       data: {
         id: assessmentDoc?._id || `temp-${Date.now()}`,
         quizVersion: assessmentDoc?.quizVersion || "career-assessment-v2",
+        categoryScores: scoredData.categoryScores,
         traitScores: scoredData.traitScores,
         careerScores: scoredData.careerScores,
-        topRecommendations: scoredData.topRecommendations,
-        topMatch: scoredData.topMatch,
+        topRecommendations: finalRecommendations,
+        topMatch: finalTopMatch,
+        tieBreaker: scoredData.tieBreaker,
         aiAnalysis,
         createdAt: assessmentDoc?.createdAt || new Date().toISOString(),
       },

@@ -1,13 +1,44 @@
 import { useState, useEffect } from "react";
-import { Check, ChevronRight, Zap, ShieldCheck } from "lucide-react";
+import { Link, useLocation } from "wouter";
+import { Check, ChevronRight, Zap, ShieldCheck, Loader2, Sparkles } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { Button } from "@/components/ui/button";
 import { careers, pricingFeatures } from "@/lib/mock-data";
 import { useCourses } from "@/context/course-context";
+import { useAuth } from "@/context/auth-context";
+import { useToast } from "@/hooks/use-toast";
+import { apiUrl } from "@/lib/api-config";
 import { CareerIcon } from "@/components/career-icon";
+
+// Helper to dynamically load the Razorpay checkout script
+const loadRazorpayScript = () => {
+  return new Promise((resolve) => {
+    if (typeof window === "undefined") return resolve(false);
+    if (window.Razorpay) return resolve(true);
+
+    const existingScript = document.querySelector('script[src="https://checkout.razorpay.com/v1/checkout.js"]');
+    if (existingScript) {
+      existingScript.addEventListener("load", () => resolve(true));
+      existingScript.addEventListener("error", () => resolve(false));
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.async = true;
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+    document.body.appendChild(script);
+  });
+};
 
 export default function Pricing() {
   const { courses } = useCourses();
+  const { user, token, isAuthenticated, refreshUser, addPurchasedRoadmap } = useAuth();
+  const { toast } = useToast();
+  const [, setLocation] = useLocation();
+
+  const [loadingPayment, setLoadingPayment] = useState(false);
 
   const allCareers = courses && courses.length > 0 ? courses : careers;
 
@@ -20,6 +51,11 @@ export default function Pricing() {
     return allCareers[0]?.id || "";
   });
 
+  // Pre-load Razorpay checkout script on page mount for instant modal opening
+  useEffect(() => {
+    loadRazorpayScript();
+  }, []);
+
   // Synchronize default selection when courses load
   useEffect(() => {
     if (!selectedCareer && allCareers.length > 0) {
@@ -28,9 +64,71 @@ export default function Pricing() {
   }, [allCareers, selectedCareer]);
 
   const currentCareer = allCareers.find((c) => c.id === selectedCareer) || allCareers[0];
+  const isAlreadyPurchased = Boolean(
+    user &&
+    Array.isArray(user.purchasedRoadmaps) &&
+    selectedCareer &&
+    user.purchasedRoadmaps.includes(selectedCareer)
+  );
 
-  const handleUnlockClick = () => {
-    // Action intentionally omitted for now; will be integrated later
+  const handleUnlockClick = async () => {
+    if (!selectedCareer) return;
+
+    // 1. If not logged in, redirect to login with return path
+    if (!isAuthenticated || !token) {
+      toast({
+        title: "Sign in required",
+        description: "Please log in or create an account to unlock your career roadmap.",
+      });
+      setLocation(`/login?redirect=${encodeURIComponent(`/pricing?career=${selectedCareer}`)}`);
+      return;
+    }
+
+    // 2. If already purchased, take straight to dashboard
+    if (isAlreadyPurchased) {
+      setLocation(`/roadmaps/${selectedCareer}`);
+      return;
+    }
+
+    setLoadingPayment(true);
+
+    try {
+      // Direct bypass mode: instantly add roadmap to user's profile on backend
+      const unlockRes = await fetch(apiUrl("/api/payment/bypass-unlock"), {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ careerId: selectedCareer }),
+      });
+
+      const data = await unlockRes.json();
+
+      if (!unlockRes.ok) {
+        throw new Error(data.message || "Failed to unlock roadmap");
+      }
+
+      // Update client context and user state
+      addPurchasedRoadmap(selectedCareer);
+      await refreshUser();
+
+      toast({
+        title: "Roadmap Unlocked! 🎉",
+        description: `You now have lifetime access to the ${currentCareer?.title} roadmap.`,
+      });
+
+      setLocation(`/dashboard?unlocked=${selectedCareer}`);
+    } catch (err) {
+      console.error("[Unlock Error]:", err);
+      toast({
+        title: "Unlock Failed",
+        description: err.message || "Something went wrong while unlocking. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoadingPayment(false);
+    }
   };
 
   return (
@@ -94,37 +192,51 @@ export default function Pricing() {
 
               {/* Career Selector */}
               <div className="mb-7">
-                <label className="block text-sm font-semibold text-white mb-3">
-                  Choose your career to unlock:
-                  <span className="ml-1 text-primary">*</span>
-                </label>
+                <div className="flex items-center justify-between mb-3">
+                  <label className="text-sm font-semibold text-white">
+                    Choose your career to unlock:
+                    <span className="ml-1 text-primary">*</span>
+                  </label>
+                  {isAlreadyPurchased && (
+                    <span className="text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full font-medium flex items-center gap-1">
+                      <Check className="w-3 h-3" /> Already Unlocked
+                    </span>
+                  )}
+                </div>
                 <div className="grid grid-cols-2 gap-2 max-h-72 overflow-y-auto pr-1">
-                  {allCareers.map((career) => (
-                    <button
-                      key={career.id}
-                      type="button"
-                      onClick={() => setSelectedCareer(career.id)}
-                      className={`flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl border text-left text-sm font-medium transition-all ${
-                        selectedCareer === career.id
-                          ? "border-primary bg-primary/10 text-white"
-                          : "border-white/10 bg-white/[0.03] text-muted-foreground hover:border-white/25 hover:text-white"
-                      }`}
-                    >
-                      <CareerIcon
-                        icon={career.icon}
-                        size={16}
-                        className={`flex-shrink-0 ${
+                  {allCareers.map((career) => {
+                    const isPurchased = Array.isArray(user?.purchasedRoadmaps) && user.purchasedRoadmaps.includes(career.id);
+                    return (
+                      <button
+                        key={career.id}
+                        type="button"
+                        onClick={() => setSelectedCareer(career.id)}
+                        className={`flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl border text-left text-sm font-medium transition-all ${
                           selectedCareer === career.id
-                            ? "text-primary"
-                            : "text-muted-foreground"
+                            ? "border-primary bg-primary/10 text-white shadow-sm"
+                            : "border-white/10 bg-white/[0.03] text-muted-foreground hover:border-white/25 hover:text-white"
                         }`}
-                      />
-                      <span className="truncate">{career.title}</span>
-                      {selectedCareer === career.id && (
-                        <Check className="w-3.5 h-3.5 text-primary ml-auto flex-shrink-0" />
-                      )}
-                    </button>
-                  ))}
+                      >
+                        <CareerIcon
+                          icon={career.icon}
+                          size={16}
+                          className={`flex-shrink-0 ${
+                            selectedCareer === career.id
+                              ? "text-primary"
+                              : "text-muted-foreground"
+                          }`}
+                        />
+                        <span className="truncate">{career.title}</span>
+                        {isPurchased ? (
+                          <span className="ml-auto text-[10px] text-emerald-400 bg-emerald-500/20 px-1.5 py-0.5 rounded font-bold">
+                            ✓ Unlocked
+                          </span>
+                        ) : selectedCareer === career.id ? (
+                          <Check className="w-3.5 h-3.5 text-primary ml-auto flex-shrink-0" />
+                        ) : null}
+                      </button>
+                    );
+                  })}
                 </div>
                 {!selectedCareer && (
                   <p className="text-xs text-muted-foreground mt-2.5">
@@ -134,28 +246,46 @@ export default function Pricing() {
               </div>
 
               {/* CTA Unlock Button */}
-              <Button
-                size="lg"
-                disabled={!selectedCareer}
-                onClick={handleUnlockClick}
-                className={`w-full font-bold h-14 text-lg flex items-center justify-center gap-2 transition-all rounded-2xl ${
-                  selectedCareer
-                    ? "bg-primary text-primary-foreground hover:opacity-90 shadow-lg shadow-primary/20 cursor-pointer"
-                    : "bg-white/10 text-white/40 cursor-not-allowed"
-                }`}
-              >
-                {selectedCareer ? (
-                  <>
-                    <span>Unlock {currentCareer?.title} Roadmap — ₹99</span>
+              {isAlreadyPurchased ? (
+                <Button
+                  size="lg"
+                  asChild
+                  className="w-full font-bold h-14 text-base sm:text-lg flex items-center justify-center gap-2 transition-all rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/20 cursor-pointer"
+                >
+                  <Link href={`/roadmaps/${selectedCareer}`}>
+                    <span>View Unlocked Roadmap</span>
                     <ChevronRight className="w-5 h-5 ml-1" />
-                  </>
-                ) : (
-                  <span>Select a Career to Continue</span>
-                )}
-              </Button>
+                  </Link>
+                </Button>
+              ) : (
+                <Button
+                  size="lg"
+                  disabled={!selectedCareer || loadingPayment}
+                  onClick={handleUnlockClick}
+                  className={`w-full font-bold h-14 text-base sm:text-lg flex items-center justify-center gap-2 transition-all rounded-2xl ${
+                    selectedCareer && !loadingPayment
+                      ? "bg-primary text-primary-foreground hover:opacity-90 shadow-lg shadow-primary/20 cursor-pointer"
+                      : "bg-white/10 text-white/40 cursor-not-allowed"
+                  }`}
+                >
+                  {loadingPayment ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span>Unlocking Roadmap...</span>
+                    </>
+                  ) : selectedCareer ? (
+                    <>
+                      <span>Unlock {currentCareer?.title} Roadmap</span>
+                      <ChevronRight className="w-5 h-5 ml-1" />
+                    </>
+                  ) : (
+                    <span>Select a Career to Continue</span>
+                  )}
+                </Button>
+              )}
 
               <p className="text-center text-xs text-muted-foreground mt-4">
-                Secure payment via Razorpay / UPI · No subscription
+                Instant lifetime access · Added directly to your profile
               </p>
             </div>
           </div>

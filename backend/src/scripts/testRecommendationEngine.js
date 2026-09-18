@@ -1,21 +1,18 @@
 /**
- * Comprehensive Automated Verification Suite for Growvia Diverse Career Recommendation Engine
- * Tests Profiles A, B, C, D, Diversity Filtering, Determinism, and Database Roadmap Binding.
+ * Automated Verification Suite for Growvia Career Recommendation Engine
+ * Tests Medicine, Law, Technology, Design, and Tie-Breaker profiles with Weighted Score Vectors.
  */
 
 import {
-  calculateRawDimensionScores,
-  normalizeDimensionScores,
-  calculateSimilarity,
-  matchProfileAgainstRoadmaps,
-  applyDiversityRanking,
+  calculateWeightedCategoryVectors,
+  normalizeCategoryScores,
+  rankCategoriesAndDetectTies,
   processAssessment,
 } from "../services/scoringEngine.js";
-import { CAREER_PROFILES, DIMENSION_KEYS } from "../config/quizConfig.js";
 import { seedCareers } from "../data/seedData.js";
 
 console.log("\n==================================================================");
-console.log("🚀 Starting Growvia Career Recommendation Engine Test Suite");
+console.log("🚀 Starting Growvia Weighted Score Vector Recommendation Test Suite");
 console.log("==================================================================\n");
 
 let passedTests = 0;
@@ -32,239 +29,123 @@ const assert = (condition, testName) => {
   }
 };
 
-// ─────────────────────────────────────────────────────────────────
-// TEST 1: PROFILE A — High Technical Specialist
-// ─────────────────────────────────────────────────────────────────
-console.log("--- 1. Testing Profile A: Technical Specialist ---");
-const profileA_Answers = {
-  q1: "q1_opt1", // Architecting technical system
-  q2: "q2_opt1", // Coding, debugging systems
-  q3: "q3_opt2", // Technical feasibility
-  q4: "q4_opt1", // Scalable software platform
-  q5: ["q5_opt1", "q5_opt2"], // CS, AI, Math
-  q6: "q6_opt1", // Technical architect
-  q7: ["q7_opt1", "q7_opt7"], // Complex tech challenge, stable processes
-  q8: "q8_opt1", // High autonomy, deep individual focus
-  q9: 2,         // Moderate structure
-  q10: "q10_opt1", // Engineered mission-critical tech
+// 1. Profile: Healthcare & Medicine
+console.log("--- 1. Testing Profile: Healthcare & Medicine ---");
+const medAnswers = {
+  q1: "q1_opt1", // Biology and human anatomy
+  q2: "q2_opt1", // Diagnosing real medical or biological examples
+  q3: "q3_opt1", // A health survey or biology experiment
+  q4: "q4_opt1", // Medical breakthroughs and health tips
+  q5: "q5_opt1", // Treat an injured pet or someone hurting
+  q6: "q6_opt1", // Volunteer at a community health camp
+  q7: "q7_opt1", // A modern hospital or wellness clinic
+  q8: "q8_opt1", // Finding why someone feels unwell or sick
+  q9: "q9_opt1", // Caring for everyone and helping them succeed
+  q10: "q10_opt1", // Helping patients heal and recover their health
 };
+const medResult = processAssessment(medAnswers, seedCareers, { recommendationCount: 4 });
+console.log(`   Top Match: ${medResult.topMatch.title} (${medResult.topMatch.matchPercentage}%)`);
+console.log(`   #1 Category: ${medResult.rankedCategories[0].category} (${medResult.rankedCategories[0].score}%)`);
+assert(medResult.rankedCategories[0].category === "medicine", "Medical profile ranks medicine as #1");
+assert(medResult.topMatch.roadmapId === "doctor" || medResult.topMatch.categoryKey === "medicine", "Top match is a medical profession");
 
-const resultA = processAssessment(profileA_Answers, seedCareers, { recommendationCount: 4 });
-console.log("Profile A Top 4 Recommendations:");
-resultA.topRecommendations.forEach((r, i) => {
-  console.log(`   ${i + 1}. ${r.title} (${r.family}) — ${r.matchPercentage}% match [slug: ${r.roadmapId}]`);
-});
-
-assert(
-  resultA.traitScores.technical >= 75,
-  "Profile A has high technical trait score (>=75%)"
-);
-assert(
-  resultA.topRecommendations[0].family === "technology" ||
-  resultA.topRecommendations[0].family === "data",
-  "Profile A #1 recommendation is Technology or Data family"
-);
-assert(
-  seedCareers.some((c) => c.id === resultA.topRecommendations[0].roadmapId),
-  "Profile A #1 recommendation is a valid course in the Growvia database"
-);
-
-// ─────────────────────────────────────────────────────────────────
-// TEST 2: PROFILE B — Creative & Design Innovator
-// ─────────────────────────────────────────────────────────────────
-console.log("\n--- 2. Testing Profile B: Creative & Design Innovator ---");
-const profileB_Answers = {
-  q1: "q1_opt3", // Creative approach & UX
-  q2: "q2_opt3", // Visual layouts & storyboarding
-  q3: "q3_opt3", // Human impact & empathy
-  q4: "q4_opt3", // Iconic creative campaign & multimedia
-  q5: ["q5_opt3", "q5_opt5"], // Design, Media, Psychology
-  q6: "q6_opt2", // Creative visionary
-  q7: ["q7_opt2", "q7_opt4"], // Tangible artistic works, human lives
-  q8: "q8_opt3", // Collaborative empathetic setting
-  q9: 4,         // Energized by exploration
-  q10: "q10_opt3", // Iconic design works & artistic productions
+// 2. Profile: Law & Governance
+console.log("\n--- 2. Testing Profile: Law & Governance ---");
+const lawAnswers = {
+  q1: "q1_opt2", // History, civics, and political debate
+  q2: "q2_opt2", // Finding legal or ethical arguments in texts
+  q3: "q3_opt2", // A mock court trial or debate
+  q4: "q4_opt2", // Court trials and human rights cases
+  q5: "q5_opt2", // Settle a dispute and defend fair rules
+  q6: "q6_opt2", // Watch court trials and legal documentaries
+  q7: "q7_opt2", // A high-court room or law office
+  q8: "q8_opt2", // Settling an argument between two opposing sides
+  q9: "q9_opt2", // Defending our points and arguing for fairness
+  q10: "q10_opt2", // Defending an innocent person in court
 };
+const lawResult = processAssessment(lawAnswers, seedCareers, { recommendationCount: 4 });
+console.log(`   Top Match: ${lawResult.topMatch.title} (${lawResult.topMatch.matchPercentage}%)`);
+console.log(`   #1 Category: ${lawResult.rankedCategories[0].category} (${lawResult.rankedCategories[0].score}%)`);
+assert(lawResult.rankedCategories[0].category === "law", "Law profile ranks law as #1");
+assert(lawResult.topMatch.roadmapId === "lawyer" || lawResult.topMatch.categoryKey === "law", "Top match is a legal profession");
 
-const resultB = processAssessment(profileB_Answers, seedCareers, { recommendationCount: 4 });
-console.log("Profile B Top 4 Recommendations:");
-resultB.topRecommendations.forEach((r, i) => {
-  console.log(`   ${i + 1}. ${r.title} (${r.family}) — ${r.matchPercentage}% match [slug: ${r.roadmapId}]`);
-});
-
-assert(
-  resultB.traitScores.creative >= 75,
-  "Profile B has high creative trait score (>=75%)"
-);
-assert(
-  resultB.topRecommendations[0].family === "design" ||
-  resultB.topRecommendations[0].family === "media",
-  "Profile B #1 recommendation is Design or Media family"
-);
-assert(
-  resultB.topRecommendations[0].roadmapId !== resultA.topRecommendations[0].roadmapId,
-  "Profile B #1 career differs meaningfully from Profile A"
-);
-
-// ─────────────────────────────────────────────────────────────────
-// TEST 3: PROFILE C — Business & Executive Leadership
-// ─────────────────────────────────────────────────────────────────
-console.log("\n--- 3. Testing Profile C: Business & Leadership Leader ---");
-const profileC_Answers = {
-  q1: "q1_opt4", // Aligning stakeholders, strategic solution
-  q2: "q2_opt4", // Market growth plans & financial models
-  q3: "q3_opt4", // Market opportunity & business upside
-  q4: "q4_opt4", // Building entrepreneurial venture
-  q5: ["q5_opt4", "q5_opt8"], // Business Strategy & Ventures
-  q6: "q6_opt3", // Strategist & Organizer
-  q7: ["q7_opt3", "q7_opt6"], // Scaling business & directing strategy
-  q8: "q8_opt2", // Dynamic fast-evolving startup setting
-  q9: 5,         // Thrive in high ambiguity
-  q10: "q10_opt4", // Founded and scaled successful enterprises
+// 3. Profile: Software & Technology
+console.log("\n--- 3. Testing Profile: Software & Technology ---");
+const techAnswers = {
+  q1: "q1_opt3", // Computer science and coding logic
+  q2: "q2_opt3", // Writing code or step-by-step logic formulas
+  q3: "q3_opt3", // A working website or computer app
+  q4: "q4_opt3", // Code snippets and algorithm charts
+  q5: "q5_opt3", // Fix computer software or write new code
+  q6: "q6_opt3", // Build a video game or website
+  q7: "q7_opt3", // A software company building smart apps
+  q8: "q8_opt3", // Finding and fixing bugs in a program
+  q9: "q9_opt3", // Managing the computer code and tech tools
+  q10: "q10_opt3", // Building an app downloaded by millions
 };
+const techResult = processAssessment(techAnswers, seedCareers, { recommendationCount: 4 });
+console.log(`   Top Match: ${techResult.topMatch.title} (${techResult.topMatch.matchPercentage}%)`);
+console.log(`   #1 Category: ${techResult.rankedCategories[0].category} (${techResult.rankedCategories[0].score}%)`);
+assert(techResult.rankedCategories[0].category === "technology", "Tech profile ranks technology as #1");
+assert(techResult.topMatch.roadmapId === "engineer" || techResult.topMatch.categoryKey === "technology", "Top match is a technology profession");
 
-const resultC = processAssessment(profileC_Answers, seedCareers, { recommendationCount: 4 });
-console.log("Profile C Top 4 Recommendations:");
-resultC.topRecommendations.forEach((r, i) => {
-  console.log(`   ${i + 1}. ${r.title} (${r.family}) — ${r.matchPercentage}% match [slug: ${r.roadmapId}]`);
-});
-
-assert(
-  resultC.traitScores.business >= 75 && resultC.traitScores.leadership >= 75,
-  "Profile C has high business and leadership trait scores (>=75%)"
-);
-assert(
-  resultC.topRecommendations[0].family === "business" ||
-  resultC.topRecommendations[0].family === "operations" ||
-  resultC.topRecommendations[0].family === "marketing",
-  "Profile C #1 recommendation is Business, Operations, or Marketing family"
-);
-
-// ─────────────────────────────────────────────────────────────────
-// TEST 4: PROFILE D — Analytical Researcher & Healthcare
-// ─────────────────────────────────────────────────────────────────
-console.log("\n--- 4. Testing Profile D: Analytical Researcher & Healthcare ---");
-const profileD_Answers = {
-  q1: "q1_opt2", // Analyzing data & root causes
-  q2: "q2_opt2", // Scientific literature & experiments
-  q3: "q3_opt1", // Objective metrics & statistics
-  q4: "q4_opt2", // Scientific insights & health breakthroughs
-  q5: ["q5_opt2", "q5_opt5"], // Data/Math & Healthcare
-  q6: "q6_opt1", // Problem solver
-  q7: ["q7_opt4", "q7_opt5"], // Directly improving human health & scientific truths
-  q8: "q8_opt4", // Methodical institution
-  q9: 2,         // Moderate structure preferred
-  q10: "q10_opt2", // Scientific discoveries & healthcare advances
+// 4. Profile: Creative & Design
+console.log("\n--- 4. Testing Profile: Creative & Design ---");
+const designAnswers = {
+  q1: "q1_opt4", // Art, drafting, and graphic design
+  q2: "q2_opt4", // Drawing diagrams, sketches, and visual mind-maps
+  q3: "q3_opt4", // An art portfolio or fashion showcase
+  q4: "q4_opt4", // Visual photos, typography, and page layout
+  q5: "q5_opt4", // Sketch a logo, room layout, or outfit
+  q6: "q6_opt4", // Paint, take photos, or edit creative videos
+  q7: "q7_opt4", // A design studio or film set
+  q8: "q8_opt4", // Redesigning an ugly poster or messy room
+  q9: "q9_opt4", // Designing the slides, graphics, and visual look
+  q10: "q10_opt4", // Creating an iconic artwork or building
 };
+const designResult = processAssessment(designAnswers, seedCareers, { recommendationCount: 4 });
+console.log(`   Top Match: ${designResult.topMatch.title} (${designResult.topMatch.matchPercentage}%)`);
+console.log(`   #1 Category: ${designResult.rankedCategories[0].category} (${designResult.rankedCategories[0].score}%)`);
+assert(designResult.rankedCategories[0].category === "design", "Design profile ranks design as #1");
+assert(designResult.topMatch.roadmapId === "designer" || designResult.topMatch.categoryKey === "design", "Top match is a design profession");
 
-const resultD = processAssessment(profileD_Answers, seedCareers, { recommendationCount: 4 });
-console.log("Profile D Top 4 Recommendations:");
-resultD.topRecommendations.forEach((r, i) => {
-  console.log(`   ${i + 1}. ${r.title} (${r.family}) — ${r.matchPercentage}% match [slug: ${r.roadmapId}]`);
-});
+// 5. Profile: Tie-Breaker Profile (Business & Finance)
+console.log("\n--- 5. Testing Profile: Tie-Breaker (Business & Finance) ---");
+const tieAnswers = {
+  q1: "q1_opt5", // Math, business studies, and economics (finance: 3, business: 2)
+  q2: "q2_opt5", // Calculating numbers and spreadsheets for business
+  q3: "q3_opt5", // A business plan selling a product
+  q4: "q4_opt5", // Company revenue tables and market trends
+  q5: "q5_opt5", // Sell items online to make a profit
+  q6: "q6_opt5", // Research stock prices or startup ideas
+  q7: "q7_opt5", // A stock exchange or corporate office
+  q8: "q8_opt5", // Finding ways to invest and grow money
+  q9: "q9_opt5", // Leading the team and planning the budget
+  q10: "q10_opt5", // Growing a company into a thriving business
+};
+const tieResult = processAssessment(tieAnswers, seedCareers, { recommendationCount: 4, marginThreshold: 10 });
+console.log(`   #1 Category: ${tieResult.rankedCategories[0].category} (${tieResult.rankedCategories[0].score}%)`);
+console.log(`   #2 Category: ${tieResult.rankedCategories[1].category} (${tieResult.rankedCategories[1].score}%)`);
+console.log(`   Score Margin: ${tieResult.tieBreaker.margin}%`);
+console.log(`   Is Tie: ${tieResult.tieBreaker.isTie}`);
+assert(tieResult.tieBreaker.isTie === true, "Tie-breaker triggers when two categories are within margin");
+assert(tieResult.topRecommendations[0].isTie === true, "Top recommendation 1 is flagged as isTie");
+assert(tieResult.topRecommendations[1].isTie === true, "Top recommendation 2 is flagged as isTie");
 
-assert(
-  resultD.traitScores.analytical >= 70 && resultD.traitScores.research >= 70,
-  "Profile D has high analytical and research trait scores (>=70%)"
-);
-assert(
-  resultD.topRecommendations.some((r) => r.family === "science" || r.family === "data" || r.family === "healthcare"),
-  "Profile D includes Science, Data, or Healthcare recommendations"
-);
-
-// ─────────────────────────────────────────────────────────────────
-// TEST 5: DIVERSITY TEST — Family Saturation & Non-Duplication
-// ─────────────────────────────────────────────────────────────────
-console.log("\n--- 5. Testing Diversity Filtering (Family Saturation) ---");
-// Simulate candidate pool where technology has top raw scores
-const mockCandidates = [
-  { id: "eng1", title: "Software Engineer", family: "technology", score: 91 },
-  { id: "eng2", title: "Frontend Developer", family: "technology", score: 89 },
-  { id: "eng3", title: "Backend Developer", family: "technology", score: 88 },
-  { id: "eng4", title: "DevOps Engineer", family: "technology", score: 87 },
-  { id: "ds1",  title: "Data Scientist", family: "data", score: 85 },
-  { id: "pm1",  title: "Product Manager", family: "business", score: 84 },
-  { id: "ux1",  title: "UI/UX Designer", family: "design", score: 82 },
-  { id: "sec1", title: "Cybersecurity Analyst", family: "technology", score: 80 },
-];
-
-const diverseSelected = applyDiversityRanking(mockCandidates, {
-  targetCount: 4,
-  diversityPenalty: 8,
-  maxPerFamily: 2,
-});
-
-console.log("Diversity-Filtered Output for 4 Slots:");
-diverseSelected.forEach((c, idx) => {
-  console.log(`   Slot ${idx + 1}: ${c.title} (${c.family}) - score: ${c.score}`);
-});
-
-// Count family occurrences in selected list
-const familyDistribution = {};
-diverseSelected.forEach((c) => {
-  familyDistribution[c.family] = (familyDistribution[c.family] || 0) + 1;
-});
-
-assert(
-  (familyDistribution["technology"] || 0) <= 2,
-  "Technology family does not exceed max limit of 2 in diverse recommendations"
-);
-assert(
-  Object.keys(familyDistribution).length >= 3,
-  "Selected recommendations span at least 3 distinct career families"
-);
-assert(
-  diverseSelected.some((c) => c.family === "data" || c.family === "business"),
-  "High-scoring candidates from alternative families (Data/Business) are elevated"
-);
-
-// ─────────────────────────────────────────────────────────────────
-// TEST 6: DETERMINISM & REPEATABILITY TEST (Zero Math.random())
-// ─────────────────────────────────────────────────────────────────
-console.log("\n--- 6. Testing Result Consistency Across 50 Repeated Runs ---");
-const baselineResult = processAssessment(profileA_Answers, seedCareers, { recommendationCount: 4 });
-const baselineIds = baselineResult.topRecommendations.map((r) => `${r.roadmapId}:${r.matchPercentage}`).join(",");
-
+// 6. Determinism & Repeatability Test
+console.log("\n--- 6. Testing Determinism Across 50 Repeated Runs ---");
+const baselineResult = processAssessment(techAnswers, seedCareers, { recommendationCount: 4 });
+const baselineKey = baselineResult.topRecommendations.map((r) => `${r.roadmapId}:${r.matchPercentage}`).join(",");
 let isIdentical = true;
 for (let run = 1; run <= 50; run++) {
-  const current = processAssessment(profileA_Answers, seedCareers, { recommendationCount: 4 });
-  const currentIds = current.topRecommendations.map((r) => `${r.roadmapId}:${r.matchPercentage}`).join(",");
-  if (currentIds !== baselineIds) {
+  const current = processAssessment(techAnswers, seedCareers, { recommendationCount: 4 });
+  const currentKey = current.topRecommendations.map((r) => `${r.roadmapId}:${r.matchPercentage}`).join(",");
+  if (currentKey !== baselineKey) {
     isIdentical = false;
     break;
   }
 }
-
-assert(
-  isIdentical,
-  "Recommendations are 100% deterministic across 50 runs with identical inputs"
-);
-
-// ─────────────────────────────────────────────────────────────────
-// TEST 7: ROADMAP DATABASE INTEGRATION (No Non-Existent Careers)
-// ─────────────────────────────────────────────────────────────────
-console.log("\n--- 7. Testing Roadmap Database Binding ---");
-// Pass only a subset of 3 courses
-const subsetCourses = [
-  seedCareers.find((c) => c.id === "doctor"),
-  seedCareers.find((c) => c.id === "lawyer"),
-  seedCareers.find((c) => c.id === "designer"),
-];
-
-const restrictedResult = processAssessment(profileA_Answers, subsetCourses, { recommendationCount: 4 });
-console.log("Restricted Pool Recommendations:");
-restrictedResult.topRecommendations.forEach((r, idx) => {
-  console.log(`   ${idx + 1}. ${r.title} [id: ${r.roadmapId}]`);
-});
-
-assert(
-  restrictedResult.topRecommendations.length === 3,
-  "When only 3 roadmaps exist in DB, exactly 3 are returned (no phantom careers invented)"
-);
-assert(
-  restrictedResult.topRecommendations.every((r) => subsetCourses.some((sc) => sc.id === r.roadmapId)),
-  "Every single recommendation corresponds to a provided database roadmap"
-);
+assert(isIdentical, "Scoring results are 100% deterministic across 50 runs with identical inputs");
 
 console.log("\n==================================================================");
 console.log(`🎉 All ${passedTests} / ${totalTests} Automated Tests Passed Successfully!`);

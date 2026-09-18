@@ -21,6 +21,7 @@ import {
   Lock,
   Layers,
   GraduationCap,
+  Zap,
 } from "lucide-react";
 
 // The 10 standardized career dimensions
@@ -108,6 +109,7 @@ export function CareerResults({ resultData, onRetake }) {
   const topCareer =
     resultData?.topMatch || recommendations[0] || {};
   const aiAnalysis = resultData?.aiAnalysis || {};
+  const logicalProfile = aiAnalysis?.logicalProfile || resultData?.logicalProfile;
 
   // Confetti on mount
   useEffect(() => {
@@ -149,7 +151,9 @@ export function CareerResults({ resultData, onRetake }) {
     return career?.roadmapId || career?.careerId || career?.id || "engineer";
   };
 
-  return (
+    const isTie = resultData?.tieBreaker?.isTie || topCareer?.isTie;
+
+    return (
     <div className="space-y-12 py-4">
       {/* ── HEADER ────────────────────────────────────────── */}
       <motion.div
@@ -165,10 +169,78 @@ export function CareerResults({ resultData, onRetake }) {
           Your Career Recommendation Profile
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base mt-3 leading-relaxed">
-          Synthesized across 10 core dimensions, diversity-aware family matching,
-          and Growvia&apos;s verified database roadmaps.
+          Evaluated via cognitive reasoning analysis, multi-dimensional logical scoring,
+          and verified Growvia database roadmaps.
         </p>
       </motion.div>
+
+      {/* ── EVALUATED COGNITIVE PROFILE BANNER ─────────────────── */}
+      {logicalProfile && (
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.05 }}
+          className="rounded-3xl p-6 sm:p-8 border border-primary/20 bg-card/70 backdrop-blur-md shadow-xl relative overflow-hidden"
+        >
+          {/* Subtle Background Glow */}
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/[0.04] rounded-full blur-[100px] pointer-events-none" />
+
+          {/* Top Row: Badge & Category */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-white/10 relative z-10">
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] uppercase font-bold tracking-wider text-primary bg-primary/10 border border-primary/25 px-3 py-1 rounded-full flex items-center gap-1.5">
+                <Brain className="w-3.5 h-3.5" /> Evaluated Cognitive Profile
+              </span>
+            </div>
+            <span className="text-xs text-muted-foreground font-mono bg-white/[0.03] px-3 py-1 rounded-full border border-white/5">
+              Multi-Dimensional Cognitive Synthesis
+            </span>
+          </div>
+
+          {/* Middle Row: Primary Style & Summary */}
+          <div className="py-5 relative z-10 space-y-2.5">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
+              {logicalProfile.primaryStyle || "Deductive Systems Thinker"}
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground/90 leading-relaxed max-w-3xl">
+              {logicalProfile.cognitiveSummary || aiAnalysis?.summary || "Your responses demonstrate an agile, structured approach to analyzing complex scenarios and executing decisive solutions."}
+            </p>
+          </div>
+
+          {/* Bottom Row: Symmetrical 2-Column Reasoning & Strategy Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 relative z-10">
+            {/* Reasoning Card */}
+            <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-primary/30 transition-all duration-200">
+              <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 text-primary mt-0.5">
+                <Target className="w-4 h-4" />
+              </div>
+              <div className="space-y-1 min-w-0 flex-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-primary block">
+                  Primary Reasoning Style
+                </span>
+                <p className="text-sm text-foreground/90 font-medium leading-snug">
+                  {logicalProfile.reasoningStrength || "First-principles deconstruction"}
+                </p>
+              </div>
+            </div>
+
+            {/* Decision Strategy Card */}
+            <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amber-400/30 transition-all duration-200">
+              <div className="w-9 h-9 rounded-xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center flex-shrink-0 text-amber-400 mt-0.5">
+                <Zap className="w-4 h-4" />
+              </div>
+              <div className="space-y-1 min-w-0 flex-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-400 block">
+                  Decision-Making Strategy
+                </span>
+                <p className="text-sm text-foreground/90 font-medium leading-snug">
+                  {logicalProfile.decisionStrategy || "Deterministic verification"}
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      )}
 
       {/* ── #1 TOP CAREER MATCH HIGHLIGHT ─────────────────── */}
       <motion.div
@@ -184,7 +256,7 @@ export function CareerResults({ resultData, onRetake }) {
           <div className="flex-1">
             <div className="flex flex-wrap items-center gap-2.5 mb-3">
               <span className="flex items-center gap-1.5 bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                <Trophy className="w-3.5 h-3.5" /> #1 Top Match
+                <Trophy className="w-3.5 h-3.5" /> {isTie ? "Top Match (Tie)" : "#1 Top Match"}
               </span>
               {topCareer.family && (
                 <span className="text-xs text-primary/90 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 font-medium">
@@ -203,7 +275,9 @@ export function CareerResults({ resultData, onRetake }) {
             </h2>
 
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl mb-5">
-              {topCareer.description ||
+              {topCareer.reason ||
+                topCareer.llmReason ||
+                topCareer.description ||
                 aiAnalysis?.topCareer?.explanation ||
                 aiAnalysis?.summary ||
                 "Your responses demonstrate outstanding synergy with this career path."}
@@ -289,16 +363,19 @@ export function CareerResults({ resultData, onRetake }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {recommendations.slice(0, 5).map((item, idx) => {
             const isTop = idx === 0;
-            const rankLabel =
-              idx === 0 ? "1st" : idx === 1 ? "2nd" : idx === 2 ? "3rd" : `${idx + 1}th`;
-            const badgeBg =
-              idx === 0
-                ? "bg-amber-400/20 text-amber-300 border-amber-400/30"
-                : idx === 1
-                ? "bg-slate-400/20 text-slate-200 border-slate-400/30"
-                : idx === 2
-                ? "bg-amber-700/20 text-amber-200 border-amber-700/30"
-                : "bg-white/10 text-white/80 border-white/20";
+            const isItemTie = item.isTie || (isTie && (idx === 0 || idx === 1));
+            const rankText = isItemTie
+              ? "Top Match (Tie)"
+              : `${idx === 0 ? "1st" : idx === 1 ? "2nd" : idx === 2 ? "3rd" : `${idx + 1}th`} Match`;
+            const badgeBg = isItemTie
+              ? "bg-amber-400/20 text-amber-300 border-amber-400/30 ring-1 ring-amber-400/20"
+              : idx === 0
+              ? "bg-amber-400/20 text-amber-300 border-amber-400/30"
+              : idx === 1
+              ? "bg-slate-400/20 text-slate-200 border-slate-400/30"
+              : idx === 2
+              ? "bg-amber-700/20 text-amber-200 border-amber-700/30"
+              : "bg-white/10 text-white/80 border-white/20";
 
             const slug = item.roadmapId || item.careerId || item.id;
 
@@ -309,7 +386,7 @@ export function CareerResults({ resultData, onRetake }) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.08 + 0.15 }}
                 className={`rounded-2xl border p-6 flex flex-col justify-between transition-all ${
-                  isTop
+                  isTop || isItemTie
                     ? "bg-card border-primary/30 ring-1 ring-primary/20 shadow-lg shadow-primary/5"
                     : "bg-card/60 border-white/10 hover:border-white/20 hover:bg-card"
                 }`}
@@ -317,7 +394,7 @@ export function CareerResults({ resultData, onRetake }) {
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <span className={`text-xs font-extrabold px-2.5 py-1 rounded-full border ${badgeBg}`}>
-                      {rankLabel} Match
+                      {rankText}
                     </span>
                     <span className="font-mono text-sm font-bold text-primary">
                       {item.matchPercentage || item.score}%
@@ -337,7 +414,7 @@ export function CareerResults({ resultData, onRetake }) {
                   </h4>
 
                   <p className="text-xs text-muted-foreground mb-4 line-clamp-3 leading-relaxed">
-                    {item.description}
+                    {item.reason || item.llmReason || item.description}
                   </p>
 
                   {/* Strengths */}

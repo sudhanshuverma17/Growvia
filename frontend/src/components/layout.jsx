@@ -113,16 +113,18 @@ export function Layout({ children }) {
                   </span>
                 </Link>
 
-                <button
-                  onClick={() => {
-                    logout();
-                    setLocation("/");
-                  }}
-                  title="Log out"
-                  className="p-1.5 rounded-full text-muted-foreground hover:text-red-400 hover:bg-red-500/10 transition-colors"
-                >
-                  <LogOut className="w-4 h-4" />
-                </button>
+                {!location.startsWith("/dashboard") && (
+                  <button
+                    onClick={() => {
+                      logout();
+                      setLocation("/");
+                    }}
+                    title="Log out"
+                    className="p-1.5 rounded-full text-muted-foreground hover:text-red-400 hover:bg-red-500/10 transition-colors"
+                  >
+                    <LogOut className="w-4 h-4" />
+                  </button>
+                )}
               </div>
             ) : (
               <>

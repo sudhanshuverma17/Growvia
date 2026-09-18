@@ -24,4 +24,23 @@ export const apiLimiter = rateLimit({
   skip: (req) => process.env.NODE_ENV === "test",
 });
 
-export default { authLimiter, apiLimiter };
+// Per-user rate limiter for AI chatbot interactions (prevent abuse & manage LLM costs)
+export const chatLimiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: parseInt(process.env.CHAT_RATE_LIMIT || "20", 10), // Default: 20 messages per minute per user
+  standardHeaders: true,
+  legacyHeaders: false,
+  keyGenerator: (req) => {
+    // Rate limit specifically per authenticated user ID; fallback to client IP
+    return req.user?._id ? `user_${req.user._id.toString()}` : `ip_${req.ip}`;
+  },
+  validate: {
+    keyGeneratorIpFallback: false,
+  },
+  message: {
+    error: "You have sent too many messages in a short time. Please wait a moment before sending another message.",
+  },
+  skip: (req) => process.env.NODE_ENV === "test",
+});
+
+export default { authLimiter, apiLimiter, chatLimiter };
