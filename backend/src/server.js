@@ -181,8 +181,8 @@ app.use(async (req, res, next) => {
   next();
 });
 
-// 8. Mount Core API Routes (supports both /api prefix and direct serverless rewrites)
-const mountCoreRoutes = (prefix = "") => {
+// 8. Mount Core API Routes under /api prefix
+const mountCoreRoutes = (prefix = "/api") => {
   app.use(`${prefix}/auth`, authRoutes);
   app.use(`${prefix}/courses`, courseRoutes);
   app.use(`${prefix}/videos`, videoRoutes);
@@ -192,7 +192,6 @@ const mountCoreRoutes = (prefix = "") => {
 };
 
 mountCoreRoutes("/api");
-mountCoreRoutes("");
 
 // 8. Static Frontend Serving from public folder
 const candidatePublicPaths = [
@@ -218,27 +217,23 @@ if (staticServingPath) {
 
   // Client-side SPA routing fallback: serve index.html for page navigation
   app.get("*", (req, res, next) => {
-    // Skip API routes so API handlers and 404 can catch them
-    if (
-      req.originalUrl.startsWith("/api") ||
-      req.originalUrl.startsWith("/auth") ||
-      req.originalUrl.startsWith("/courses") ||
-      req.originalUrl.startsWith("/videos") ||
-      req.originalUrl.startsWith("/career-quiz") ||
-      req.originalUrl.startsWith("/payment") ||
-      req.originalUrl.startsWith("/chat") ||
-      req.originalUrl.startsWith("/health")
-    ) {
+    // Skip API routes and health endpoint so API handlers and 404 can catch them
+    if (req.originalUrl.startsWith("/api") || req.originalUrl.startsWith("/health")) {
       return next();
     }
 
     // If requesting a missing asset/file (has an extension like .js, .css, .svg, .png), return 404
-    if (path.extname(req.path)) {
+    // Allow /index.html to be served rather than being blocked as a missing asset
+    if (path.extname(req.path) && req.path !== "/index.html") {
       return res.status(404).json({ error: `Asset not found: ${req.path}` });
     }
 
     // Otherwise serve index.html for SPA routes (e.g. /, /roadmaps, /dashboard, /pricing, /quiz)
-    res.sendFile(path.join(staticServingPath, "index.html"));
+    res.sendFile(path.join(staticServingPath, "index.html"), (err) => {
+      if (err && !res.headersSent) {
+        res.status(500).json({ error: "Failed to render application page", message: err.message });
+      }
+    });
   });
 } else {
   // Fallback root endpoint if public frontend bundle is not found
