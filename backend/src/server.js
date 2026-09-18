@@ -39,38 +39,10 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const isProduction = process.env.NODE_ENV === "production";
 
-// 1. Security Headers (Helmet) with tailored CSP for YouTube embeds & image sources
+// 1. Security Headers (Helmet) configured for JSON API
 app.use(
   helmet({
-    contentSecurityPolicy: isProduction
-      ? {
-          directives: {
-            defaultSrc: ["'self'"],
-            scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https:", "https://checkout.razorpay.com"],
-            styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-            fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
-            imgSrc: [
-              "'self'",
-              "data:",
-              "blob:",
-              "https://images.unsplash.com",
-              "https://img.youtube.com",
-              "https://i.ytimg.com",
-              "https://*.ytimg.com",
-              "https://*.razorpay.com",
-            ],
-            frameSrc: [
-              "'self'",
-              "https://api.razorpay.com",
-              "https://*.razorpay.com",
-              "https://www.youtube.com",
-              "https://www.youtube-nocookie.com",
-              "https://player.vimeo.com",
-            ],
-            connectSrc: ["'self'", "https://api.razorpay.com", "https://*.razorpay.com", "*"],
-          },
-        }
-      : false,
+    contentSecurityPolicy: false,
     crossOriginEmbedderPolicy: false,
     crossOriginResourcePolicy: { policy: "cross-origin" },
   })
@@ -79,7 +51,7 @@ app.use(
 // 2. Response Compression (Gzip)
 app.use(compression());
 
-// 3. Flexible CORS
+// 3. Flexible CORS supporting separate frontend deployment
 const allowedOrigins = [
   "http://localhost:3000",
   "http://127.0.0.1:3000",
@@ -93,14 +65,13 @@ app.use(
     origin: (origin, callback) => {
       if (!origin) return callback(null, true);
       if (allowedOrigins.includes("*") || allowedOrigins.includes(origin)) {
-        return callback(null, true);
+        return callback(null, origin);
       }
-      if (!isProduction && /^http:\/\/localhost(:\d+)?$/.test(origin)) {
-        return callback(null, true);
-      }
-      return callback(null, true);
+      return callback(null, origin);
     },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"],
   })
 );
 
@@ -223,27 +194,21 @@ const mountCoreRoutes = (prefix = "") => {
 mountCoreRoutes("/api");
 mountCoreRoutes("");
 
-// Fallback root endpoint for direct Serverless API function invocations
-app.get("/", (req, res, next) => {
-  if (staticServingPath && fs.existsSync(path.join(staticServingPath, "index.html"))) {
-    return next();
-  }
-  res.status(200).json({
-    status: "ok",
-    service: "Growvia Serverless API",
-    environment: process.env.NODE_ENV || "production",
-    timestamp: new Date().toISOString(),
-  });
-});
+// 8. Static Frontend Serving from public folder
+const candidatePublicPaths = [
+  path.resolve(__dirname, "../public"),
+  path.resolve(process.cwd(), "backend/public"),
+  path.resolve(process.cwd(), "public"),
+  path.resolve(__dirname, "../../frontend/dist"),
+  path.resolve(process.cwd(), "dist"),
+];
 
-// 8. Unified Serving (Express serves compiled React frontend from backend/public)
-const staticServingPath = fs.existsSync(path.join(backendPublicPath, "index.html"))
-  ? backendPublicPath
-  : fs.existsSync(path.join(fallbackDistPath, "index.html"))
-  ? fallbackDistPath
-  : null;
+const staticServingPath = candidatePublicPaths.find((p) =>
+  fs.existsSync(path.join(p, "index.html"))
+);
 
 if (staticServingPath) {
+  // Serve static assets (JS, CSS, images) from the public folder
   app.use(
     express.static(staticServingPath, {
       maxAge: isProduction ? "1d" : 0,
@@ -251,23 +216,49 @@ if (staticServingPath) {
     })
   );
 
-  // Client-side SPA routing fallback (return index.html for page routes)
+  // Client-side SPA routing fallback: serve index.html for page navigation
   app.get("*", (req, res, next) => {
-    // Skip API routes so API 404 handler can catch them
-    if (req.originalUrl.startsWith("/api")) return next();
+    // Skip API routes so API handlers and 404 can catch them
+    if (
+      req.originalUrl.startsWith("/api") ||
+      req.originalUrl.startsWith("/auth") ||
+      req.originalUrl.startsWith("/courses") ||
+      req.originalUrl.startsWith("/videos") ||
+      req.originalUrl.startsWith("/career-quiz") ||
+      req.originalUrl.startsWith("/payment") ||
+      req.originalUrl.startsWith("/chat") ||
+      req.originalUrl.startsWith("/health")
+    ) {
+      return next();
+    }
 
-    // If requesting a missing asset/file (has an extension like .js, .css, .svg, .png), return 404 instead of index.html
+    // If requesting a missing asset/file (has an extension like .js, .css, .svg, .png), return 404
     if (path.extname(req.path)) {
       return res.status(404).json({ error: `Asset not found: ${req.path}` });
     }
 
+    // Otherwise serve index.html for SPA routes (e.g. /, /roadmaps, /dashboard, /pricing, /quiz)
     res.sendFile(path.join(staticServingPath, "index.html"));
+  });
+} else {
+  // Fallback root endpoint if public frontend bundle is not found
+  app.get("/", (req, res) => {
+    res.status(200).json({
+      status: "ok",
+      service: "Growvia API Backend",
+      message: "Growvia Backend API is online. Frontend static files were not located.",
+      database: mongoose.connection.readyState === 1 ? "connected" : "connecting",
+      timestamp: new Date().toISOString(),
+    });
   });
 }
 
 // 9. 404 Handler for undefined API routes
-app.use("/api/*", (req, res) => {
-  res.status(404).json({ error: `API endpoint not found: ${req.originalUrl}` });
+app.use("*", (req, res) => {
+  res.status(404).json({
+    success: false,
+    error: `API route not found: ${req.method} ${req.originalUrl}`,
+  });
 });
 
 // 10. Global Error Handler (Sanitized for production)
