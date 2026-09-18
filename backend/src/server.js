@@ -210,13 +210,31 @@ app.use(async (req, res, next) => {
   next();
 });
 
-// 8. Mount Core API Routes
-app.use("/api/auth", authRoutes);
-app.use("/api/courses", courseRoutes);
-app.use("/api/videos", videoRoutes);
-app.use("/api/career-quiz", quizRoutes);
-app.use("/api/payment", paymentRoutes);
-app.use("/api/chat", chatRoutes);
+// 8. Mount Core API Routes (supports both /api prefix and direct serverless rewrites)
+const mountCoreRoutes = (prefix = "") => {
+  app.use(`${prefix}/auth`, authRoutes);
+  app.use(`${prefix}/courses`, courseRoutes);
+  app.use(`${prefix}/videos`, videoRoutes);
+  app.use(`${prefix}/career-quiz`, quizRoutes);
+  app.use(`${prefix}/payment`, paymentRoutes);
+  app.use(`${prefix}/chat`, chatRoutes);
+};
+
+mountCoreRoutes("/api");
+mountCoreRoutes("");
+
+// Fallback root endpoint for direct Serverless API function invocations
+app.get("/", (req, res, next) => {
+  if (staticServingPath && fs.existsSync(path.join(staticServingPath, "index.html"))) {
+    return next();
+  }
+  res.status(200).json({
+    status: "ok",
+    service: "Growvia Serverless API",
+    environment: process.env.NODE_ENV || "production",
+    timestamp: new Date().toISOString(),
+  });
+});
 
 // 8. Unified Serving (Express serves compiled React frontend from backend/public)
 const staticServingPath = fs.existsSync(path.join(backendPublicPath, "index.html"))
