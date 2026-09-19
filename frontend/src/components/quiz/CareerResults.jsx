@@ -242,108 +242,9 @@ export function CareerResults({ resultData, onRetake }) {
         </motion.div>
       )}
 
-      {/* ── #1 TOP CAREER MATCH HIGHLIGHT ─────────────────── */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.45, delay: 0.1 }}
-        className="relative rounded-3xl p-6 sm:p-10 border border-primary/30 bg-gradient-to-b from-primary/[0.12] via-primary/[0.04] to-card/50 overflow-hidden shadow-[0_0_50px_rgba(232,224,208,0.08)]"
-      >
-        {/* Glow Accent */}
-        <div className="absolute -top-24 -right-24 w-72 h-72 bg-primary/10 rounded-full blur-[90px] pointer-events-none" />
-
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative z-10">
-          <div className="flex-1">
-            <div className="flex flex-wrap items-center gap-2.5 mb-3">
-              <span className="flex items-center gap-1.5 bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                <Trophy className="w-3.5 h-3.5" /> {isTie ? "Top Match (Tie)" : "#1 Top Match"}
-              </span>
-              {topCareer.family && (
-                <span className="text-xs text-primary/90 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 font-medium">
-                  {FAMILY_LABELS[topCareer.family] || topCareer.family}
-                </span>
-              )}
-              {topCareer.category && (
-                <span className="text-xs text-muted-foreground px-2.5 py-1 rounded-full bg-white/5 border border-white/10">
-                  {topCareer.category}
-                </span>
-              )}
-            </div>
-
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3 leading-tight">
-              {topCareer.title || "Software Engineer"}
-            </h2>
-
-            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl mb-5">
-              {topCareer.reason ||
-                topCareer.llmReason ||
-                topCareer.description ||
-                aiAnalysis?.topCareer?.explanation ||
-                aiAnalysis?.summary ||
-                "Your responses demonstrate outstanding synergy with this career path."}
-            </p>
-
-            {/* Strengths tags */}
-            {topCareer.keyStrengths && topCareer.keyStrengths.length > 0 && (
-              <div className="flex flex-wrap items-center gap-2 mb-6">
-                {topCareer.keyStrengths.map((str, idx) => (
-                  <span
-                    key={idx}
-                    className="text-xs bg-white/5 border border-white/10 text-white/80 px-2.5 py-1 rounded-lg"
-                  >
-                    ✓ {str}
-                  </span>
-                ))}
-              </div>
-            )}
-
-            {/* Quick buttons */}
-            <div className="flex flex-wrap items-center gap-3">
-              <Button
-                asChild
-                className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-xl px-6 shadow-md shadow-primary/20 cursor-pointer"
-              >
-                <Link href={topCareer.roadmapUrl || `/roadmaps/${getTopSlug(topCareer)}`}>
-                  View Complete Roadmap <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-
-              <Button
-                variant="outline"
-                onClick={handleCopyLink}
-                className="border-white/10 hover:bg-white/5 text-white rounded-xl text-xs sm:text-sm cursor-pointer"
-              >
-                {copied ? (
-                  <>
-                    <Check className="w-4 h-4 mr-2 text-emerald-400" /> Copied
-                  </>
-                ) : (
-                  <>
-                    <Share2 className="w-4 h-4 mr-2" /> Share Profile
-                  </>
-                )}
-              </Button>
-            </div>
-          </div>
-
-          {/* Compatibility Score Circle / Indicator */}
-          <div className="flex-shrink-0 flex flex-col items-center justify-center p-6 rounded-2xl bg-white/[0.04] border border-white/10 w-full sm:w-auto min-w-[200px] text-center">
-            <div className="text-xs text-muted-foreground uppercase font-bold tracking-widest mb-1">
-              Alignment Score
-            </div>
-            <div className="text-5xl font-black text-primary font-mono tracking-tight my-1">
-              {topCareer.matchPercentage || topCareer.score || 92}%
-            </div>
-            <div className="text-xs text-emerald-400 font-medium flex items-center gap-1 mt-1">
-              <TrendingUp className="w-3.5 h-3.5" /> High Confidence Fit
-            </div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* ── 3–5 DIVERSE RECOMMENDED CAREER PATHS ────────────── */}
+      {/* ── ALL RECOMMENDED CAREER PATHS (SINGLE ROW) ────────────── */}
       <div>
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
           <div>
             <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
               <Layers className="w-5 h-5 text-primary" /> Top Recommended Career Directions
@@ -352,23 +253,45 @@ export function CareerResults({ resultData, onRetake }) {
               Curated across distinct career families to offer diverse, viable paths with active roadmaps
             </p>
           </div>
-          <Link
-            href="/roadmaps"
-            className="text-xs sm:text-sm text-primary hover:underline font-medium hidden sm:inline-block"
-          >
-            Explore all 48 roadmaps →
-          </Link>
+          <div className="flex items-center gap-2.5">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleCopyLink}
+              className="border-white/10 hover:bg-white/5 text-white rounded-xl text-xs cursor-pointer h-9 px-3"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-3.5 h-3.5 mr-1.5 text-emerald-400" /> Copied
+                </>
+              ) : (
+                <>
+                  <Share2 className="w-3.5 h-3.5 mr-1.5" /> Share Profile
+                </>
+              )}
+            </Button>
+            <Link
+              href="/roadmaps"
+              className="text-xs sm:text-sm text-primary hover:underline font-medium hidden sm:inline-block"
+            >
+              Explore all 48 roadmaps →
+            </Link>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {recommendations.slice(0, 5).map((item, idx) => {
-            const isTop = idx === 0;
+        <div
+          className={`grid grid-cols-1 sm:grid-cols-2 ${
+            recommendations.length <= 3 ? "lg:grid-cols-3" : "lg:grid-cols-4"
+          } gap-4 sm:gap-5`}
+        >
+          {recommendations.slice(0, 4).map((item, idx) => {
             const isItemTie = item.isTie || (isTie && (idx === 0 || idx === 1));
             const rankText = isItemTie
               ? "Top Match (Tie)"
               : `${idx === 0 ? "1st" : idx === 1 ? "2nd" : idx === 2 ? "3rd" : `${idx + 1}th`} Match`;
+
             const badgeBg = isItemTie
-              ? "bg-amber-400/20 text-amber-300 border-amber-400/30 ring-1 ring-amber-400/20"
+              ? "bg-amber-400/20 text-amber-300 border-amber-400/30"
               : idx === 0
               ? "bg-amber-400/20 text-amber-300 border-amber-400/30"
               : idx === 1
@@ -385,15 +308,11 @@ export function CareerResults({ resultData, onRetake }) {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.08 + 0.15 }}
-                className={`rounded-2xl border p-6 flex flex-col justify-between transition-all ${
-                  isTop || isItemTie
-                    ? "bg-card border-primary/30 ring-1 ring-primary/20 shadow-lg shadow-primary/5"
-                    : "bg-card/60 border-white/10 hover:border-white/20 hover:bg-card"
-                }`}
+                className="rounded-2xl border border-white/10 bg-card/60 hover:border-primary/30 hover:bg-card p-5 sm:p-6 flex flex-col justify-between transition-all duration-200 shadow-md shadow-black/20"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className={`text-xs font-extrabold px-2.5 py-1 rounded-full border ${badgeBg}`}>
+                    <span className={`text-[11px] font-extrabold px-2.5 py-0.5 rounded-full border ${badgeBg}`}>
                       {rankText}
                     </span>
                     <span className="font-mono text-sm font-bold text-primary">
@@ -403,13 +322,13 @@ export function CareerResults({ resultData, onRetake }) {
 
                   {item.family && (
                     <div className="mb-2">
-                      <span className="text-[11px] font-medium text-primary/80 uppercase tracking-wider bg-primary/10 px-2 py-0.5 rounded-md border border-primary/20">
+                      <span className="text-[10px] font-semibold text-primary/90 uppercase tracking-wider bg-primary/10 px-2 py-0.5 rounded-md border border-primary/20">
                         {FAMILY_LABELS[item.family] || item.family}
                       </span>
                     </div>
                   )}
 
-                  <h4 className="text-lg font-bold text-white mb-2 leading-snug">
+                  <h4 className="text-base sm:text-lg font-bold text-white mb-2 leading-snug">
                     {item.title}
                   </h4>
 
@@ -441,9 +360,7 @@ export function CareerResults({ resultData, onRetake }) {
                   {/* Match Progress Bar */}
                   <div className="w-full h-1.5 bg-white/[0.06] rounded-full overflow-hidden mb-4">
                     <div
-                      className={`h-full rounded-full ${
-                        isTop ? "bg-primary" : "bg-white/40"
-                      }`}
+                      className="h-full rounded-full bg-primary"
                       style={{
                         width: `${item.matchPercentage || item.score}%`,
                       }}
@@ -452,12 +369,7 @@ export function CareerResults({ resultData, onRetake }) {
 
                   <Button
                     asChild
-                    variant={isTop ? "default" : "outline"}
-                    className={`w-full rounded-xl text-xs font-semibold h-10 cursor-pointer ${
-                      isTop
-                        ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                        : "border-white/15 text-white hover:bg-white/5"
-                    }`}
+                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl text-xs font-semibold h-10 cursor-pointer shadow-sm shadow-primary/10"
                   >
                     <Link href={item.roadmapUrl || `/roadmaps/${slug}`}>
                       View Roadmap <ArrowRight className="w-3.5 h-3.5 ml-1.5" />

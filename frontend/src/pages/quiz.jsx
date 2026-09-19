@@ -529,7 +529,7 @@ const generateClientFallbackResult = (userAnswers = {}) => {
       <div
         className={
           resultData
-            ? "max-w-3xl mx-auto px-4 sm:px-6 py-8 md:py-12 min-h-[80vh]"
+            ? "max-w-6xl mx-auto px-4 sm:px-6 py-8 md:py-12 min-h-[80vh]"
             : "max-w-2xl mx-auto px-3 sm:px-6 py-2 sm:py-4"
         }
       >
