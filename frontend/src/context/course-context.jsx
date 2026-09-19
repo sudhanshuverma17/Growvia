@@ -4,7 +4,7 @@ import { careers as defaultCareers } from "@/lib/mock-data";
 import { ICON_MAP } from "@/components/career-icon";
 
 const CourseContext = createContext(null);
-const STORAGE_KEY = "growvia_courses_v1";
+const STORAGE_KEY = "growvia_courses_v2";
 
 // Helper to sanitize courses for JSON storage (turn function icons into string keys)
 function serializeCourses(coursesList) {
@@ -60,11 +60,22 @@ export function CourseProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isBackendConnected, setIsBackendConnected] = useState(false);
 
+  const getAuthHeaders = useCallback(() => {
+    const token = localStorage.getItem("growvia_token");
+    const headers = { "Content-Type": "application/json" };
+    if (token) {
+      headers["Authorization"] = `Bearer ${token}`;
+    }
+    return headers;
+  }, []);
+
   // 1. Fetch live courses from Express + MongoDB backend on mount
   const fetchCoursesFromBackend = useCallback(async () => {
     try {
       setIsLoading(true);
-      const res = await fetch(apiUrl("/api/courses"));
+      const res = await fetch(apiUrl("/api/courses"), {
+        headers: getAuthHeaders(),
+      });
       if (res.ok) {
         const data = await res.json();
         if (Array.isArray(data) && data.length > 0) {
@@ -81,11 +92,35 @@ export function CourseProvider({ children }) {
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  }, [getAuthHeaders]);
 
   useEffect(() => {
     fetchCoursesFromBackend();
   }, [fetchCoursesFromBackend]);
+
+  // Re-fetch individual course with auth token (to unlock paid stage guide data)
+  const refreshCourse = useCallback(async (id) => {
+    if (!id) return;
+    try {
+      const res = await fetch(apiUrl(`/api/courses/${encodeURIComponent(id)}`), {
+        headers: getAuthHeaders(),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        const [deserialized] = deserializeCourses([data]);
+        setCourses((prev) =>
+          prev.map((c) =>
+            String(c.id).toLowerCase() === String(data.id).toLowerCase()
+              ? { ...c, ...deserialized }
+              : c
+          )
+        );
+        return deserialized;
+      }
+    } catch (e) {
+      // Fail silently
+    }
+  }, [getAuthHeaders]);
 
   // Sync to localStorage on state change
   useEffect(() => {
@@ -102,15 +137,6 @@ export function CourseProvider({ children }) {
     return courses.find(
       (c) => String(c.id).toLowerCase() === String(id).toLowerCase()
     );
-  };
-
-  const getAuthHeaders = () => {
-    const token = localStorage.getItem("growvia_token");
-    const headers = { "Content-Type": "application/json" };
-    if (token) {
-      headers["Authorization"] = `Bearer ${token}`;
-    }
-    return headers;
   };
 
   const addCourse = async (courseData) => {
@@ -253,30 +279,6 @@ export function CourseProvider({ children }) {
     updateCourse(courseId, { timeline: newTimeline });
   };
 
-  const resetToDefault = async () => {
-    // 1. Reset backend MongoDB with auth header
-    try {
-      const res = await fetch(apiUrl("/api/courses/reset"), {
-        method: "POST",
-        headers: getAuthHeaders(),
-      });
-      if (res.ok) {
-        await fetchCoursesFromBackend();
-        return;
-      }
-    } catch (e) {
-      // Reset locally
-    }
-
-    // 2. Fallback to default
-    try {
-      localStorage.removeItem(STORAGE_KEY);
-    } catch (e) {
-      console.error(e);
-    }
-    setCourses(defaultCareers);
-  };
-
   return (
     <CourseContext.Provider
       value={{
@@ -286,10 +288,10 @@ export function CourseProvider({ children }) {
         updateCourse,
         deleteCourse,
         updateRoadmapStages,
-        resetToDefault,
         isLoading,
         isBackendConnected,
         refreshCourses: fetchCoursesFromBackend,
+        refreshCourse,
       }}
     >
       {children}

@@ -32,16 +32,21 @@ const runSeed = async () => {
     }
 
     const adminEmail = (process.env.ADMIN_EMAIL || "admin@growvia.com").trim().toLowerCase();
+    const adminPassword = process.env.ADMIN_PASSWORD;
     const adminUser = await User.findOne({ email: adminEmail });
     if (!adminUser) {
-      console.log(`[Seed]: Creating default Admin user for ${adminEmail}...`);
-      await User.create({
-        name: "Growvia Administrator",
-        email: adminEmail,
-        password: "Admin@1234",
-        role: "admin",
-      });
-      console.log(`✅ Default Admin user created: ${adminEmail} / Admin@1234`);
+      if (!adminPassword) {
+        console.error("❌ Cannot seed admin user: ADMIN_PASSWORD environment variable is not set. Please set ADMIN_PASSWORD in your .env or environment.");
+      } else {
+        console.log(`[Seed]: Creating default Admin user for ${adminEmail}...`);
+        await User.create({
+          name: "Growvia Administrator",
+          email: adminEmail,
+          password: adminPassword,
+          role: "admin",
+        });
+        console.log(`✅ Default Admin user created: ${adminEmail}`);
+      }
     } else {
       if (adminUser.role !== "admin") {
         adminUser.role = "admin";

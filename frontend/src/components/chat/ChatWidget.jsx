@@ -19,39 +19,60 @@ import {
   Lightbulb,
 } from "lucide-react";
 import { useAuth } from "@/context/auth-context";
+import { useCourses } from "@/context/course-context";
 import { apiUrl } from "@/lib/api-config";
 
-const STARTER_PROMPTS = [
-  {
-    icon: Compass,
-    text: "How does the Career Assessment Quiz work?",
-  },
-  {
-    icon: Map,
-    text: "How do I unlock and track career roadmaps?",
-  },
-  {
-    icon: Lightbulb,
-    text: "What career paths does Growvia support?",
-  },
-  {
-    icon: Sparkles,
-    text: "What features are on Growvia's product roadmap?",
-  },
-];
-
 export function ChatWidget() {
-  const { user, token, isAuthenticated } = useAuth();
+  const { user, token, isAuthenticated, isAdmin } = useAuth();
+  const [location] = useLocation();
 
   // Authentication check before rendering or mounting the component at all
   if (!isAuthenticated || !user) {
     return null;
   }
 
-  return <ChatWidgetContent user={user} token={token} />;
+  // Inspect path: Chatbot is exclusively accessible on career roadmaps (/roadmaps/:career)
+  const match = location.match(/^\/roadmaps\/([^/?#]+)/);
+  const currentCareerId = match ? decodeURIComponent(match[1]) : null;
+
+  // Not on a roadmap page -> do not display the chatbot
+  if (!currentCareerId) {
+    return null;
+  }
+
+  // Check if current roadmap is purchased by the user (or user is an admin)
+  const isPurchased =
+    isAdmin ||
+    (Array.isArray(user.purchasedRoadmaps) &&
+      user.purchasedRoadmaps.some(
+        (id) => id.toLowerCase() === currentCareerId.toLowerCase()
+      ));
+
+  // Roadmap is not purchased -> do not display the chatbot
+  if (!isPurchased) {
+    return null;
+  }
+
+  return (
+    <ChatWidgetContent
+      key={currentCareerId}
+      user={user}
+      token={token}
+      careerId={currentCareerId}
+    />
+  );
 }
 
-function ChatWidgetContent({ user, token }) {
+function ChatWidgetContent({ user, token, careerId }) {
+  const { getCourseById } = useCourses();
+  const currentCourse = getCourseById ? getCourseById(careerId) : null;
+  const careerTitle =
+    currentCourse?.title ||
+    careerId
+      .split("-")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
+
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -64,7 +85,14 @@ function ChatWidgetContent({ user, token }) {
   const inputRef = useRef(null);
   const abortControllerRef = useRef(null);
 
-  const storageKey = `growvia_chat_${user._id || user.id || "guest"}`;
+  const storageKey = `growvia_chat_${user._id || user.id || "user"}_${careerId}`;
+
+  // Listen for custom event so page buttons can trigger the AI Advisor window
+  useEffect(() => {
+    const handleOpen = () => setIsOpen(true);
+    window.addEventListener("growvia:open-chat", handleOpen);
+    return () => window.removeEventListener("growvia:open-chat", handleOpen);
+  }, []);
 
   // Auto-scroll to bottom of messages container
   const scrollToBottom = (behavior = "smooth") => {
@@ -83,18 +111,21 @@ function ChatWidgetContent({ user, token }) {
     }
   }, [messages, isStreaming]);
 
-  // Load chat history from backend on mount, falling back to localStorage
+  // Load chat history from backend for this purchased roadmap
   useEffect(() => {
     let isMounted = true;
 
     const fetchHistory = async () => {
       setIsLoadingHistory(true);
       try {
-        const res = await fetch(apiUrl("/api/chat/history"), {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const res = await fetch(
+          apiUrl(`/api/chat/history?careerId=${encodeURIComponent(careerId)}`),
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
         if (res.ok) {
           const data = await res.json();
@@ -133,7 +164,7 @@ function ChatWidgetContent({ user, token }) {
         abortControllerRef.current.abort();
       }
     };
-  }, [token, storageKey]);
+  }, [token, storageKey, careerId]);
 
   // Synchronize messages state with localStorage as offline backup
   useEffect(() => {
@@ -190,7 +221,7 @@ function ChatWidgetContent({ user, token }) {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ message: query }),
+        body: JSON.stringify({ message: query, careerId }),
         signal: abortControllerRef.current.signal,
       });
 
@@ -294,16 +325,19 @@ function ChatWidgetContent({ user, token }) {
     }
   };
 
-  // Clear conversation history
+  // Clear conversation history for this roadmap
   const handleClearHistory = async () => {
-    if (window.confirm("Clear your conversation history with Growvia AI?")) {
+    if (window.confirm(`Clear your conversation history for ${careerTitle}?`)) {
       try {
-        await fetch(apiUrl("/api/chat/history"), {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        await fetch(
+          apiUrl(`/api/chat/history?careerId=${encodeURIComponent(careerId)}`),
+          {
+            method: "DELETE",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
       } catch (err) {
         console.warn("[Clear Chat]: Could not clear remote history:", err);
       }
@@ -312,6 +346,25 @@ function ChatWidgetContent({ user, token }) {
       setStreamError(null);
     }
   };
+
+  const roadmapPrompts = [
+    {
+      icon: Compass,
+      text: `What are the core skills and milestones for ${careerTitle}?`,
+    },
+    {
+      icon: Map,
+      text: `Can you walk me through the step-by-step roadmap stages?`,
+    },
+    {
+      icon: Lightbulb,
+      text: `Which top colleges and entrance exams should I target?`,
+    },
+    {
+      icon: Sparkles,
+      text: `Can you give me a structured 6-month study and prep schedule?`,
+    },
+  ];
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -332,7 +385,7 @@ function ChatWidgetContent({ user, token }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            aria-label="Open Growvia AI Assistant"
+            aria-label={`Open ${careerTitle} AI Assistant`}
             className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-emerald-500 via-teal-500 to-cyan-500 text-white shadow-xl shadow-teal-500/25 hover:shadow-teal-500/40 border border-white/20 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-slate-900"
           >
             {/* Pulsing beacon glow */}
@@ -345,7 +398,7 @@ function ChatWidgetContent({ user, token }) {
 
             {/* Desktop Tooltip */}
             <span className="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-lg bg-slate-900/90 backdrop-blur-md px-3 py-1.5 text-xs font-medium text-slate-200 shadow-lg border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity hidden sm:block">
-              Ask Growvia AI
+              Ask {careerTitle} AI Advisor
             </span>
           </motion.button>
         )}
@@ -366,31 +419,31 @@ function ChatWidgetContent({ user, token }) {
           >
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3.5 bg-slate-900/90 border-b border-white/10 select-none">
-              <div className="flex items-center gap-2.5">
-                <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 to-teal-400 text-white shadow-sm">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 to-teal-400 text-white shadow-sm shrink-0">
                   <Bot className="w-4 h-4" />
                   <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-slate-900" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <div className="flex items-center gap-1.5">
-                    <h3 className="text-sm font-semibold text-white tracking-tight">
+                    <h3 className="text-sm font-semibold text-white tracking-tight truncate">
                       Growvia AI Advisor
                     </h3>
-                    <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                      Live
+                    <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+                      Purchased
                     </span>
                   </div>
-                  <p className="text-[11px] text-slate-400">
-                    Careers · Roadmaps · Platform Help
+                  <p className="text-[11px] text-slate-400 truncate max-w-[210px]">
+                    {careerTitle} · Dedicated AI Guide
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-1 text-slate-400">
+              <div className="flex items-center gap-1 text-slate-400 shrink-0">
                 {messages.length > 0 && (
                   <button
                     onClick={handleClearHistory}
-                    title="Clear conversation"
+                    title={`Clear conversation for ${careerTitle}`}
                     disabled={isStreaming}
                     className="p-1.5 rounded-lg hover:bg-white/10 hover:text-rose-400 transition-colors cursor-pointer disabled:opacity-50"
                   >
@@ -416,17 +469,17 @@ function ChatWidgetContent({ user, token }) {
                     <Sparkles className="w-6 h-6" />
                   </div>
                   <h4 className="text-sm font-semibold text-slate-200 mb-1">
-                    Welcome to Growvia AI!
+                    Welcome to your {careerTitle} AI Advisor!
                   </h4>
-                  <p className="text-xs text-slate-400 max-w-[260px] mb-5">
-                    Ask me anything about career options, roadmaps, quiz insights, or using Growvia.
+                  <p className="text-xs text-slate-400 max-w-[280px] mb-5 leading-relaxed">
+                    You have lifetime access to this roadmap. Ask me anything about milestone stages, recommended colleges, exam strategies, or skill progression.
                   </p>
 
                   <div className="w-full space-y-2 text-left">
                     <p className="text-[11px] uppercase tracking-wider font-semibold text-slate-500 px-1">
-                      Suggested questions
+                      Suggested questions for this roadmap
                     </p>
-                    {STARTER_PROMPTS.map((prompt, idx) => {
+                    {roadmapPrompts.map((prompt, idx) => {
                       const Icon = prompt.icon;
                       return (
                         <button
@@ -531,7 +584,7 @@ function ChatWidgetContent({ user, token }) {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    placeholder="Ask about careers, roadmaps, features..."
+                    placeholder={`Ask about ${careerTitle}, milestones, skills, colleges...`}
                     rows={1}
                     disabled={isStreaming}
                     className="w-full resize-none rounded-xl bg-slate-950/80 border border-white/10 px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-teal-500/60 focus:ring-1 focus:ring-teal-500/40 transition-all disabled:opacity-50 max-h-24 scrollbar-none"

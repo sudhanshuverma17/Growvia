@@ -12,6 +12,57 @@ const slugify = (text) => {
     .replace(/^-+|-+$/g, "");
 };
 
+// Helper to strip paid-tier rich stage guidance for unauthorized/free requests
+const filterCourseForUser = (courseDoc, user) => {
+  if (!courseDoc) return null;
+  const course =
+    typeof courseDoc.toObject === "function"
+      ? courseDoc.toObject()
+      : JSON.parse(JSON.stringify(courseDoc));
+
+  const isAdmin = user && user.role === "admin";
+  const isPurchased =
+    isAdmin ||
+    Boolean(
+      user &&
+      Array.isArray(user.purchasedRoadmaps) &&
+      course.id &&
+      user.purchasedRoadmaps.some(
+        (pid) => String(pid).toLowerCase() === String(course.id).toLowerCase()
+      )
+    );
+
+  course.isUnlocked = isPurchased;
+
+  // If user has not purchased this roadmap and is not an admin, strip all 8 rich fields
+  if (!isPurchased && Array.isArray(course.timeline)) {
+    course.timeline = course.timeline.map((stage) => {
+      const hasStageGuide = Boolean(
+        (stage.actionItems && stage.actionItems.length > 0) ||
+        (stage.resources && stage.resources.length > 0) ||
+        (stage.investment && (stage.investment.time || stage.investment.cost)) ||
+        (stage.checkpoint && (stage.checkpoint.criteria || stage.checkpoint.deliverable)) ||
+        (stage.decisionPoints &&
+          (Array.isArray(stage.decisionPoints)
+            ? stage.decisionPoints.length > 0
+            : Boolean(stage.decisionPoints.title || stage.decisionPoints.question))) ||
+        stage.warning ||
+        stage.fallbackPlan ||
+        (stage.realWorldStats && stage.realWorldStats.length > 0)
+      );
+
+      return {
+        year: stage.year,
+        title: stage.title,
+        desc: stage.desc,
+        hasStageGuide,
+      };
+    });
+  }
+
+  return course;
+};
+
 // @desc    Get all courses / roadmaps with optional filters
 // @route   GET /api/courses
 export const getAllCourses = async (req, res) => {
@@ -59,13 +110,13 @@ export const getAllCourses = async (req, res) => {
             (Array.isArray(c.skills) && c.skills.some((sk) => sk.toLowerCase().includes(s)))
         );
       }
-      return res.json(filtered);
+      return res.json(filtered.map((c) => filterCourseForUser(c, req.user)));
     }
 
-    res.json(courses);
+    res.json(courses.map((c) => filterCourseForUser(c, req.user)));
   } catch (error) {
     console.error("Error in getAllCourses:", error);
-    res.json(seedCareers);
+    res.json(seedCareers.map((c) => filterCourseForUser(c, req.user)));
   }
 };
 
@@ -98,11 +149,11 @@ export const getCourseById = async (req, res) => {
       return res.status(404).json({ error: `Course not found with id: ${id}` });
     }
 
-    res.json(course);
+    res.json(filterCourseForUser(course, req.user));
   } catch (error) {
     console.error("Error in getCourseById:", error);
     const fallback = seedCareers.find((c) => c.id === req.params.id?.toLowerCase());
-    if (fallback) return res.json(fallback);
+    if (fallback) return res.json(filterCourseForUser(fallback, req.user));
     res.status(500).json({ error: "Failed to fetch course details" });
   }
 };
@@ -199,21 +250,5 @@ export const deleteCourse = async (req, res) => {
   } catch (error) {
     console.error("Error in deleteCourse:", error);
     res.status(500).json({ error: "Failed to delete course" });
-  }
-};
-
-// @desc    Reset all courses to initial 48+ careers seed data
-// @route   POST /api/courses/reset
-export const resetCourses = async (req, res) => {
-  try {
-    await Course.deleteMany({});
-    const inserted = await Course.insertMany(seedCareers);
-    res.json({
-      message: "Database reset to original seed data successfully",
-      count: inserted.length,
-    });
-  } catch (error) {
-    console.error("Error in resetCourses:", error);
-    res.status(500).json({ error: "Failed to reset courses" });
   }
 };

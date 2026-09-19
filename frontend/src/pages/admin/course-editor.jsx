@@ -33,6 +33,14 @@ import {
   Play,
   Film,
   FolderPlus,
+  ChevronDown,
+  ChevronUp,
+  Clock,
+  Target,
+  GitBranch,
+  ShieldAlert,
+  TrendingUp,
+  IndianRupee,
 } from "lucide-react";
 
 const STANDARD_CATEGORIES = [
@@ -70,6 +78,12 @@ export default function CourseEditor() {
   const [pickerSearch, setPickerSearch] = useState("");
   const [pickerFilter, setPickerFilter] = useState("all"); // "all" | "career" | "free" | "paid"
 
+  // Roadmap Stage Guides Accordion state (admin)
+  const [expandedStageGuides, setExpandedStageGuides] = useState({});
+  const toggleStageGuide = (idx) => {
+    setExpandedStageGuides((prev) => ({ ...prev, [idx]: !prev[idx] }));
+  };
+
   // Form State
   const [formData, setFormData] = useState({
     title: "",
@@ -89,21 +103,53 @@ export default function CourseEditor() {
         year: "Stage 1",
         title: "Foundation & Core Basics",
         desc: "Master the fundamental concepts, tools, and prerequisite skills.",
+        actionItems: [],
+        resources: [],
+        investment: { time: "", cost: "" },
+        checkpoint: { criteria: "", deliverable: "" },
+        decisionPoints: [],
+        fallbackPlan: "",
+        warning: "",
+        realWorldStats: [],
       },
       {
         year: "Stage 2",
         title: "Hands-on Practical Training",
         desc: "Build real projects, practice standard workflows, and gain hands-on proficiency.",
+        actionItems: [],
+        resources: [],
+        investment: { time: "", cost: "" },
+        checkpoint: { criteria: "", deliverable: "" },
+        decisionPoints: [],
+        fallbackPlan: "",
+        warning: "",
+        realWorldStats: [],
       },
       {
         year: "Stage 3",
         title: "Specialization & Portfolio",
         desc: "Develop advanced domain depth, earn certifications, and assemble proof of work.",
+        actionItems: [],
+        resources: [],
+        investment: { time: "", cost: "" },
+        checkpoint: { criteria: "", deliverable: "" },
+        decisionPoints: [],
+        fallbackPlan: "",
+        warning: "",
+        realWorldStats: [],
       },
       {
         year: "Stage 4",
         title: "Industry Entry & Growth",
         desc: "Target entry-level roles, internships, campus placements, and continuous upskilling.",
+        actionItems: [],
+        resources: [],
+        investment: { time: "", cost: "" },
+        checkpoint: { criteria: "", deliverable: "" },
+        decisionPoints: [],
+        fallbackPlan: "",
+        warning: "",
+        realWorldStats: [],
       },
     ],
     // Optional Related Courses / Certifications for this Roadmap
@@ -139,12 +185,9 @@ export default function CourseEditor() {
   // Populate form if editing
   useEffect(() => {
     if (isEditing && existingCourse) {
-      let iconName = "Briefcase";
-      if (typeof existingCourse.icon === "string") {
-        iconName = existingCourse.icon;
-      } else if (existingCourse.icon?.name) {
-        iconName = existingCourse.icon.name;
-      }
+      // Find matching icon
+      const iconKey = existingCourse.icon;
+      const iconName = ICON_OPTIONS[iconKey] ? iconKey : "Code";
 
       setFormData({
         title: existingCourse.title || "",
@@ -164,12 +207,43 @@ export default function CourseEditor() {
         },
         timeline:
           existingCourse.timeline && existingCourse.timeline.length > 0
-            ? existingCourse.timeline
+            ? existingCourse.timeline.map((st, idx) => ({
+                year: st.year || `Stage ${idx + 1}`,
+                title: st.title || "",
+                desc: st.desc || "",
+                actionItems: Array.isArray(st.actionItems) ? st.actionItems : [],
+                resources: Array.isArray(st.resources) ? st.resources : [],
+                investment: {
+                  time: st.investment?.time || "",
+                  cost: st.investment?.cost || "",
+                },
+                checkpoint: {
+                  criteria: st.checkpoint?.criteria || "",
+                  deliverable: st.checkpoint?.deliverable || "",
+                },
+                decisionPoints: Array.isArray(st.decisionPoints)
+                  ? st.decisionPoints.map((dp) => ({
+                      question: dp.question || "",
+                      options: Array.isArray(dp.options) ? dp.options : [],
+                    }))
+                  : [],
+                fallbackPlan: st.fallbackPlan || "",
+                warning: st.warning || "",
+                realWorldStats: Array.isArray(st.realWorldStats) ? st.realWorldStats : [],
+              }))
             : [
                 {
                   year: "Stage 1",
                   title: "Foundation",
                   desc: "Start with core concepts and prerequisites.",
+                  actionItems: [],
+                  resources: [],
+                  investment: { time: "", cost: "" },
+                  checkpoint: { criteria: "", deliverable: "" },
+                  decisionPoints: [],
+                  fallbackPlan: "",
+                  warning: "",
+                  realWorldStats: [],
                 },
               ],
         courses: Array.isArray(existingCourse.courses) ? existingCourse.courses : [],
@@ -228,6 +302,14 @@ export default function CourseEditor() {
           year: `Stage ${nextStageNum}`,
           title: "New Milestones & Practical Execution",
           desc: "Key tasks, skills, and deliverables for this phase.",
+          actionItems: [],
+          resources: [],
+          investment: { time: "", cost: "" },
+          checkpoint: { criteria: "", deliverable: "" },
+          decisionPoints: [],
+          fallbackPlan: "",
+          warning: "",
+          realWorldStats: [],
         },
       ],
     }));
@@ -237,6 +319,94 @@ export default function CourseEditor() {
     setFormData((prev) => {
       const newTimeline = [...prev.timeline];
       newTimeline[index] = { ...newTimeline[index], [field]: value };
+      return { ...prev, timeline: newTimeline };
+    });
+  };
+
+  const handleUpdateStageNested = (stageIdx, parentField, field, value) => {
+    setFormData((prev) => {
+      const newTimeline = [...prev.timeline];
+      newTimeline[stageIdx] = {
+        ...newTimeline[stageIdx],
+        [parentField]: {
+          ...(newTimeline[stageIdx][parentField] || {}),
+          [field]: value,
+        },
+      };
+      return { ...prev, timeline: newTimeline };
+    });
+  };
+
+  const handleAddStageListItem = (stageIdx, listName, defaultItem) => {
+    setFormData((prev) => {
+      const newTimeline = [...prev.timeline];
+      const currentList = Array.isArray(newTimeline[stageIdx][listName])
+        ? newTimeline[stageIdx][listName]
+        : [];
+      newTimeline[stageIdx] = {
+        ...newTimeline[stageIdx],
+        [listName]: [...currentList, defaultItem],
+      };
+      return { ...prev, timeline: newTimeline };
+    });
+  };
+
+  const handleUpdateStageListItem = (stageIdx, listName, itemIdx, field, value) => {
+    setFormData((prev) => {
+      const newTimeline = [...prev.timeline];
+      const currentList = [...(newTimeline[stageIdx][listName] || [])];
+      currentList[itemIdx] = { ...currentList[itemIdx], [field]: value };
+      newTimeline[stageIdx] = {
+        ...newTimeline[stageIdx],
+        [listName]: currentList,
+      };
+      return { ...prev, timeline: newTimeline };
+    });
+  };
+
+  const handleRemoveStageListItem = (stageIdx, listName, itemIdx) => {
+    setFormData((prev) => {
+      const newTimeline = [...prev.timeline];
+      const currentList = (newTimeline[stageIdx][listName] || []).filter((_, i) => i !== itemIdx);
+      newTimeline[stageIdx] = {
+        ...newTimeline[stageIdx],
+        [listName]: currentList,
+      };
+      return { ...prev, timeline: newTimeline };
+    });
+  };
+
+  const handleAddDecisionOption = (stageIdx, dpIdx) => {
+    setFormData((prev) => {
+      const newTimeline = [...prev.timeline];
+      const dps = [...(newTimeline[stageIdx].decisionPoints || [])];
+      const opts = [...(dps[dpIdx]?.options || [])];
+      opts.push({ choice: "", pros: "", cons: "" });
+      dps[dpIdx] = { ...dps[dpIdx], options: opts };
+      newTimeline[stageIdx] = { ...newTimeline[stageIdx], decisionPoints: dps };
+      return { ...prev, timeline: newTimeline };
+    });
+  };
+
+  const handleUpdateDecisionOption = (stageIdx, dpIdx, optIdx, field, value) => {
+    setFormData((prev) => {
+      const newTimeline = [...prev.timeline];
+      const dps = [...(newTimeline[stageIdx].decisionPoints || [])];
+      const opts = [...(dps[dpIdx]?.options || [])];
+      opts[optIdx] = { ...opts[optIdx], [field]: value };
+      dps[dpIdx] = { ...dps[dpIdx], options: opts };
+      newTimeline[stageIdx] = { ...newTimeline[stageIdx], decisionPoints: dps };
+      return { ...prev, timeline: newTimeline };
+    });
+  };
+
+  const handleRemoveDecisionOption = (stageIdx, dpIdx, optIdx) => {
+    setFormData((prev) => {
+      const newTimeline = [...prev.timeline];
+      const dps = [...(newTimeline[stageIdx].decisionPoints || [])];
+      const opts = (dps[dpIdx]?.options || []).filter((_, i) => i !== optIdx);
+      dps[dpIdx] = { ...dps[dpIdx], options: opts };
+      newTimeline[stageIdx] = { ...newTimeline[stageIdx], decisionPoints: dps };
       return { ...prev, timeline: newTimeline };
     });
   };
@@ -457,7 +627,51 @@ export default function CourseEditor() {
       icon: formData.icon,
       description: formData.description.trim(),
       stats: formData.stats,
-      timeline: formData.timeline,
+      timeline: (formData.timeline || []).map((st) => ({
+        year: st.year?.trim() || "",
+        title: st.title?.trim() || "",
+        desc: st.desc?.trim() || "",
+        actionItems: (st.actionItems || [])
+          .filter((a) => a && a.task && a.task.trim())
+          .map((a) => ({ task: a.task.trim(), detail: a.detail?.trim() || "" })),
+        resources: (st.resources || [])
+          .filter((r) => r && r.name && r.name.trim())
+          .map((r) => ({
+            name: r.name.trim(),
+            type: r.type || "course",
+            url: r.url?.trim() || "",
+            note: r.note?.trim() || "",
+          })),
+        investment: {
+          time: st.investment?.time?.trim() || "",
+          cost: st.investment?.cost?.trim() || "",
+        },
+        checkpoint: {
+          criteria: st.checkpoint?.criteria?.trim() || "",
+          deliverable: st.checkpoint?.deliverable?.trim() || "",
+        },
+        decisionPoints: (st.decisionPoints || [])
+          .filter((dp) => dp && dp.question && dp.question.trim())
+          .map((dp) => ({
+            question: dp.question.trim(),
+            options: (dp.options || [])
+              .filter((o) => o && o.choice && o.choice.trim())
+              .map((o) => ({
+                choice: o.choice.trim(),
+                pros: o.pros?.trim() || "",
+                cons: o.cons?.trim() || "",
+              })),
+          })),
+        fallbackPlan: st.fallbackPlan?.trim() || "",
+        warning: st.warning?.trim() || "",
+        realWorldStats: (st.realWorldStats || [])
+          .filter((s) => s && s.label && s.label.trim())
+          .map((s) => ({
+            label: s.label.trim(),
+            value: s.value?.trim() || "",
+            context: s.context?.trim() || "",
+          })),
+      })),
       // Filter out any empty course items
       courses: formData.courses.filter((c) => c.title && c.title.trim()),
       // Filter out any empty video items
@@ -949,6 +1163,487 @@ export default function CourseEditor() {
                         }
                         className="bg-neutral-900 border-white/10 text-white text-sm"
                       />
+                    </div>
+
+                    {/* Paid Tier Stage Deep Dive Content */}
+                    <div className="mt-4 pt-4 border-t border-white/10">
+                      <button
+                        type="button"
+                        onClick={() => toggleStageGuide(idx)}
+                        className="w-full flex items-center justify-between p-3 rounded-xl bg-primary/10 hover:bg-primary/15 border border-primary/25 text-left transition-colors"
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <Sparkles className="w-4 h-4 text-primary flex-shrink-0" />
+                          <div>
+                            <div className="text-xs font-bold text-white flex items-center gap-2">
+                              Paid Tier Stage Content (Advanced Guidance)
+                              <span className="text-[10px] uppercase font-semibold px-2 py-0.5 rounded bg-primary/20 text-primary">
+                                Paid Feature
+                              </span>
+                            </div>
+                            <div className="text-[11px] text-muted-foreground mt-0.5">
+                              Add action items, resources, checkpoints, branching choices, pitfalls, fallback & salary metrics.
+                            </div>
+                          </div>
+                        </div>
+                        <div className="text-xs text-primary font-medium flex items-center gap-1">
+                          {expandedStageGuides[idx] ? (
+                            <>Collapse <ChevronUp className="w-4 h-4" /></>
+                          ) : (
+                            <>Expand Editor <ChevronDown className="w-4 h-4" /></>
+                          )}
+                        </div>
+                      </button>
+
+                      {expandedStageGuides[idx] && (
+                        <div className="mt-4 space-y-5 p-4 rounded-xl bg-black/40 border border-white/10">
+                          {/* 1. Time & Cost Investment */}
+                          <div>
+                            <h5 className="text-xs font-bold text-white uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                              <Clock className="w-3.5 h-3.5 text-sky-400" /> Stage Investment & Time Commitment
+                            </h5>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                              <div>
+                                <label className="block text-[11px] text-muted-foreground mb-1">
+                                  Estimated Time Commitment
+                                </label>
+                                <Input
+                                  type="text"
+                                  placeholder="e.g. 6-9 Months (15-20 hrs/week)"
+                                  value={stage.investment?.time || ""}
+                                  onChange={(e) =>
+                                    handleUpdateStageNested(idx, "investment", "time", e.target.value)
+                                  }
+                                  className="bg-neutral-900 border-white/10 text-white text-xs"
+                                />
+                              </div>
+                              <div>
+                                <label className="block text-[11px] text-muted-foreground mb-1">
+                                  Estimated Cost
+                                </label>
+                                <Input
+                                  type="text"
+                                  placeholder="e.g. Free - ₹5,000 (Certifications optional)"
+                                  value={stage.investment?.cost || ""}
+                                  onChange={(e) =>
+                                    handleUpdateStageNested(idx, "investment", "cost", e.target.value)
+                                  }
+                                  className="bg-neutral-900 border-white/10 text-white text-xs"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* 2. Action Items & Exercises */}
+                          <div className="pt-3 border-t border-white/5">
+                            <div className="flex items-center justify-between mb-2">
+                              <h5 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Action Items & Exercises
+                              </h5>
+                              <Button
+                                type="button"
+                                variant="outline"
+                                size="sm"
+                                onClick={() =>
+                                  handleAddStageListItem(idx, "actionItems", { task: "", detail: "" })
+                                }
+                                className="h-7 text-[11px] border-white/15 text-white"
+                              >
+                                <Plus className="w-3 h-3 mr-1" /> Add Task
+                              </Button>
+                            </div>
+                            {(!stage.actionItems || stage.actionItems.length === 0) ? (
+                              <p className="text-xs text-muted-foreground italic py-1">
+                                No specific action items added yet. Click &quot;Add Task&quot; above.
+                              </p>
+                            ) : (
+                              <div className="space-y-2">
+                                {stage.actionItems.map((item, aIdx) => (
+                                  <div key={aIdx} className="p-3 rounded-lg bg-neutral-900/80 border border-white/10 space-y-2">
+                                    <div className="flex items-center gap-2">
+                                      <Input
+                                        type="text"
+                                        placeholder="Task title (e.g. Build 3 full-stack applications)"
+                                        value={item.task}
+                                        onChange={(e) =>
+                                          handleUpdateStageListItem(idx, "actionItems", aIdx, "task", e.target.value)
+                                        }
+                                        className="bg-black/50 border-white/10 text-white text-xs flex-1 font-medium"
+                                      />
+                                      <Button
+                                        type="button"
+                                        variant="ghost"
+                                        size="sm"
+                                        onClick={() => handleRemoveStageListItem(idx, "actionItems", aIdx)}
+                                        className="h-8 w-8 p-0 text-destructive hover:bg-destructive/10"
+                                      >
+                                        <Trash2 className="w-3.5 h-3.5" />
+                                      </Button>
+                                    </div>
+                                    <Textarea
+                                      rows={2}
+                                      placeholder="Specific guidance, requirements, or instructions for this exercise..."
+                                      value={item.detail || ""}
+                                      onChange={(e) =>
+                                        handleUpdateStageListItem(idx, "actionItems", aIdx, "detail", e.target.value)
+                                      }
+                                      className="bg-black/50 border-white/10 text-white text-xs"
+                                    />
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+
+                          {/* 3. Helpful Resources */}
+                          <div className="pt-3 border-t border-white/5">
+                            <div className="flex items-center justify-between mb-2">
+                              <h5 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                                <BookOpen className="w-3.5 h-3.5 text-sky-400" /> Helpful Resources (Courses, Books, Tools, Docs)
+                              </h5>
+                              <Button
+                                type="button"
+                                variant="outline"
+                                size="sm"
+                                onClick={() =>
+                                  handleAddStageListItem(idx, "resources", {
+                                    name: "",
+                                    type: "course",
+                                    url: "",
+                                    note: "",
+                                  })
+                                }
+                                className="h-7 text-[11px] border-white/15 text-white"
+                              >
+                                <Plus className="w-3 h-3 mr-1" /> Add Resource
+                              </Button>
+                            </div>
+                            {(!stage.resources || stage.resources.length === 0) ? (
+                              <p className="text-xs text-muted-foreground italic py-1">
+                                No stage resources added yet. Click &quot;Add Resource&quot; above.
+                              </p>
+                            ) : (
+                              <div className="space-y-2">
+                                {stage.resources.map((res, rIdx) => (
+                                  <div key={rIdx} className="p-3 rounded-lg bg-neutral-900/80 border border-white/10 space-y-2">
+                                    <div className="grid grid-cols-1 sm:grid-cols-12 gap-2">
+                                      <div className="sm:col-span-6">
+                                        <Input
+                                          type="text"
+                                          placeholder="Resource name (e.g. CS50x Harvard)"
+                                          value={res.name}
+                                          onChange={(e) =>
+                                            handleUpdateStageListItem(idx, "resources", rIdx, "name", e.target.value)
+                                          }
+                                          className="bg-black/50 border-white/10 text-white text-xs font-medium"
+                                        />
+                                      </div>
+                                      <div className="sm:col-span-3">
+                                        <select
+                                          value={res.type || "course"}
+                                          onChange={(e) =>
+                                            handleUpdateStageListItem(idx, "resources", rIdx, "type", e.target.value)
+                                          }
+                                          className="w-full bg-black/50 border border-white/10 text-white text-xs rounded-md px-2.5 py-2 outline-none h-9"
+                                        >
+                                          <option value="course">Course</option>
+                                          <option value="book">Book</option>
+                                          <option value="tool">Tool</option>
+                                          <option value="documentation">Documentation</option>
+                                          <option value="other">Other</option>
+                                        </select>
+                                      </div>
+                                      <div className="sm:col-span-3 flex items-center gap-1">
+                                        <Input
+                                          type="text"
+                                          placeholder="URL (https://...)"
+                                          value={res.url || ""}
+                                          onChange={(e) =>
+                                            handleUpdateStageListItem(idx, "resources", rIdx, "url", e.target.value)
+                                          }
+                                          className="bg-black/50 border-white/10 text-white text-xs flex-1"
+                                        />
+                                        <Button
+                                          type="button"
+                                          variant="ghost"
+                                          size="sm"
+                                          onClick={() => handleRemoveStageListItem(idx, "resources", rIdx)}
+                                          className="h-8 w-8 p-0 text-destructive hover:bg-destructive/10 flex-shrink-0"
+                                        >
+                                          <Trash2 className="w-3.5 h-3.5" />
+                                        </Button>
+                                      </div>
+                                    </div>
+                                    <Input
+                                      type="text"
+                                      placeholder="Short note or tip (e.g. Best for algorithmic fundamentals, completely free)"
+                                      value={res.note || ""}
+                                      onChange={(e) =>
+                                        handleUpdateStageListItem(idx, "resources", rIdx, "note", e.target.value)
+                                      }
+                                      className="bg-black/50 border-white/10 text-white text-xs"
+                                    />
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+
+                          {/* 4. Readiness Checkpoint */}
+                          <div className="pt-3 border-t border-white/5">
+                            <h5 className="text-xs font-bold text-white uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                              <Target className="w-3.5 h-3.5 text-emerald-400" /> Milestone Readiness Checkpoint
+                            </h5>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                              <div>
+                                <label className="block text-[11px] text-muted-foreground mb-1">
+                                  How to know you&apos;re ready to move to next stage
+                                </label>
+                                <Textarea
+                                  rows={2}
+                                  placeholder="e.g. Can solve LeetCode medium problems and explain time complexity without looking at solutions"
+                                  value={stage.checkpoint?.criteria || ""}
+                                  onChange={(e) =>
+                                    handleUpdateStageNested(idx, "checkpoint", "criteria", e.target.value)
+                                  }
+                                  className="bg-neutral-900 border-white/10 text-white text-xs"
+                                />
+                              </div>
+                              <div>
+                                <label className="block text-[11px] text-muted-foreground mb-1">
+                                  Core Deliverable / Proof of Work
+                                </label>
+                                <Textarea
+                                  rows={2}
+                                  placeholder="e.g. Deployed web project with user auth and persistent PostgreSQL database"
+                                  value={stage.checkpoint?.deliverable || ""}
+                                  onChange={(e) =>
+                                    handleUpdateStageNested(idx, "checkpoint", "deliverable", e.target.value)
+                                  }
+                                  className="bg-neutral-900 border-white/10 text-white text-xs"
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* 5. Branching & Decision Points */}
+                          <div className="pt-3 border-t border-white/5">
+                            <div className="flex items-center justify-between mb-2">
+                              <h5 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                                <GitBranch className="w-3.5 h-3.5 text-purple-400" /> Branching & Decision Points
+                              </h5>
+                              <Button
+                                type="button"
+                                variant="outline"
+                                size="sm"
+                                onClick={() =>
+                                  handleAddStageListItem(idx, "decisionPoints", {
+                                    question: "",
+                                    options: [{ choice: "", pros: "", cons: "" }],
+                                  })
+                                }
+                                className="h-7 text-[11px] border-white/15 text-white"
+                              >
+                                <Plus className="w-3 h-3 mr-1" /> Add Decision Point
+                              </Button>
+                            </div>
+                            {(!stage.decisionPoints || stage.decisionPoints.length === 0) ? (
+                              <p className="text-xs text-muted-foreground italic py-1">
+                                No branching decisions added yet. (Optional)
+                              </p>
+                            ) : (
+                              <div className="space-y-3">
+                                {stage.decisionPoints.map((dp, dpIdx) => (
+                                  <div key={dpIdx} className="p-3 rounded-lg bg-neutral-900/80 border border-purple-500/20 space-y-3">
+                                    <div className="flex items-center gap-2">
+                                      <Input
+                                        type="text"
+                                        placeholder="Decision question (e.g. Choose Specialization: Frontend vs Backend vs Full-Stack)"
+                                        value={dp.question}
+                                        onChange={(e) =>
+                                          handleUpdateStageListItem(idx, "decisionPoints", dpIdx, "question", e.target.value)
+                                        }
+                                        className="bg-black/50 border-white/10 text-white text-xs flex-1 font-semibold"
+                                      />
+                                      <Button
+                                        type="button"
+                                        variant="ghost"
+                                        size="sm"
+                                        onClick={() => handleRemoveStageListItem(idx, "decisionPoints", dpIdx)}
+                                        className="h-8 w-8 p-0 text-destructive hover:bg-destructive/10"
+                                      >
+                                        <Trash2 className="w-3.5 h-3.5" />
+                                      </Button>
+                                    </div>
+
+                                    {/* Decision Options */}
+                                    <div className="pl-3 border-l-2 border-purple-500/30 space-y-2">
+                                      <div className="flex items-center justify-between">
+                                        <span className="text-[11px] uppercase tracking-wider text-muted-foreground font-semibold">
+                                          Options / Paths:
+                                        </span>
+                                        <Button
+                                          type="button"
+                                          variant="ghost"
+                                          size="sm"
+                                          onClick={() => handleAddDecisionOption(idx, dpIdx)}
+                                          className="h-6 text-[10px] text-purple-300 hover:text-white"
+                                        >
+                                          <Plus className="w-3 h-3 mr-1" /> Add Option
+                                        </Button>
+                                      </div>
+                                      {(dp.options || []).map((opt, optIdx) => (
+                                        <div key={optIdx} className="p-2.5 rounded bg-black/40 border border-white/5 space-y-2">
+                                          <div className="flex items-center gap-2">
+                                            <Input
+                                              type="text"
+                                              placeholder="Option name (e.g. Backend Engineering)"
+                                              value={opt.choice}
+                                              onChange={(e) =>
+                                                handleUpdateDecisionOption(idx, dpIdx, optIdx, "choice", e.target.value)
+                                              }
+                                              className="bg-black/50 border-white/10 text-white text-xs flex-1 font-medium"
+                                            />
+                                            <Button
+                                              type="button"
+                                              variant="ghost"
+                                              size="sm"
+                                              onClick={() => handleRemoveDecisionOption(idx, dpIdx, optIdx)}
+                                              className="h-7 w-7 p-0 text-destructive"
+                                            >
+                                              <Trash2 className="w-3 h-3" />
+                                            </Button>
+                                          </div>
+                                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                            <Input
+                                              type="text"
+                                              placeholder="Pros (e.g. High salary, architectural depth)"
+                                              value={opt.pros || ""}
+                                              onChange={(e) =>
+                                                handleUpdateDecisionOption(idx, dpIdx, optIdx, "pros", e.target.value)
+                                              }
+                                              className="bg-black/50 border-emerald-500/30 text-emerald-300 text-xs"
+                                            />
+                                            <Input
+                                              type="text"
+                                              placeholder="Cons (e.g. Abstract, less visual feedback)"
+                                              value={opt.cons || ""}
+                                              onChange={(e) =>
+                                                handleUpdateDecisionOption(idx, dpIdx, optIdx, "cons", e.target.value)
+                                              }
+                                              className="bg-black/50 border-amber-500/30 text-amber-300 text-xs"
+                                            />
+                                          </div>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+
+                          {/* 6. Pitfalls & Warning Callout */}
+                          <div className="pt-3 border-t border-white/5">
+                            <h5 className="text-xs font-bold text-amber-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                              <AlertTriangle className="w-3.5 h-3.5 text-amber-400" /> Common Pitfalls / Things People Get Wrong
+                            </h5>
+                            <Textarea
+                              rows={2}
+                              placeholder="e.g. Getting trapped in tutorial hell without writing code from scratch, or memorizing syntax instead of problem solving..."
+                              value={stage.warning || ""}
+                              onChange={(e) => handleUpdateStage(idx, "warning", e.target.value)}
+                              className="bg-neutral-900 border-amber-500/20 text-white text-xs"
+                            />
+                          </div>
+
+                          {/* 7. Fallback / Backup Plan */}
+                          <div className="pt-3 border-t border-white/5">
+                            <h5 className="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                              <ShieldAlert className="w-3.5 h-3.5 text-indigo-400" /> Fallback / Pivot Plan (What if stuck or failing this stage)
+                            </h5>
+                            <Textarea
+                              rows={2}
+                              placeholder="e.g. If DSA proves too hard right now, pivot to QA Automation, Salesforce, or low-code development while studying fundamentals part-time..."
+                              value={stage.fallbackPlan || ""}
+                              onChange={(e) => handleUpdateStage(idx, "fallbackPlan", e.target.value)}
+                              className="bg-neutral-900 border-indigo-500/20 text-white text-xs"
+                            />
+                          </div>
+
+                          {/* 8. Real-World Metrics & Market Data */}
+                          <div className="pt-3 border-t border-white/5">
+                            <div className="flex items-center justify-between mb-2">
+                              <h5 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                                <TrendingUp className="w-3.5 h-3.5 text-primary" /> Real-World Data Points & Benchmarks
+                              </h5>
+                              <Button
+                                type="button"
+                                variant="outline"
+                                size="sm"
+                                onClick={() =>
+                                  handleAddStageListItem(idx, "realWorldStats", {
+                                    label: "",
+                                    value: "",
+                                    context: "",
+                                  })
+                                }
+                                className="h-7 text-[11px] border-white/15 text-white"
+                              >
+                                <Plus className="w-3 h-3 mr-1" /> Add Metric
+                              </Button>
+                            </div>
+                            {(!stage.realWorldStats || stage.realWorldStats.length === 0) ? (
+                              <p className="text-xs text-muted-foreground italic py-1">
+                                No real-world stats added yet. (Optional)
+                              </p>
+                            ) : (
+                              <div className="space-y-2">
+                                {stage.realWorldStats.map((stat, sIdx) => (
+                                  <div key={sIdx} className="p-2.5 rounded-lg bg-neutral-900/80 border border-white/10 flex flex-col sm:flex-row items-center gap-2">
+                                    <Input
+                                      type="text"
+                                      placeholder="Metric (e.g. Avg Time Taken)"
+                                      value={stat.label}
+                                      onChange={(e) =>
+                                        handleUpdateStageListItem(idx, "realWorldStats", sIdx, "label", e.target.value)
+                                      }
+                                      className="bg-black/50 border-white/10 text-white text-xs sm:w-1/3"
+                                    />
+                                    <Input
+                                      type="text"
+                                      placeholder="Value (e.g. 6-9 Months)"
+                                      value={stat.value}
+                                      onChange={(e) =>
+                                        handleUpdateStageListItem(idx, "realWorldStats", sIdx, "value", e.target.value)
+                                      }
+                                      className="bg-black/50 border-white/10 text-white text-xs sm:w-1/3 font-semibold"
+                                    />
+                                    <Input
+                                      type="text"
+                                      placeholder="Context (e.g. Consistent 15 hrs/wk)"
+                                      value={stat.context || ""}
+                                      onChange={(e) =>
+                                        handleUpdateStageListItem(idx, "realWorldStats", sIdx, "context", e.target.value)
+                                      }
+                                      className="bg-black/50 border-white/10 text-white text-xs flex-1"
+                                    />
+                                    <Button
+                                      type="button"
+                                      variant="ghost"
+                                      size="sm"
+                                      onClick={() => handleRemoveStageListItem(idx, "realWorldStats", sIdx)}
+                                      className="h-8 w-8 p-0 text-destructive hover:bg-destructive/10 flex-shrink-0"
+                                    >
+                                      <Trash2 className="w-3.5 h-3.5" />
+                                    </Button>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}

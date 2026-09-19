@@ -6,6 +6,7 @@ import helmet from "helmet";
 import compression from "compression";
 import path from "path";
 import fs from "fs";
+import crypto from "crypto";
 import { fileURLToPath } from "url";
 
 import { connectDB, disconnectDB, getLastConnectionError } from "./config/db.js";
@@ -22,12 +23,20 @@ import Video from "./models/Video.js";
 import { seedCareers } from "./data/seedData.js";
 import { seedVideos } from "./data/seedVideos.js";
 
-dotenv.config();
+dotenv.config({ path: process.env.DOTENV_CONFIG_PATH || undefined });
 
-// Ensure JWT_SECRET fallback is always available across all deployment environments
+const isProduction = process.env.NODE_ENV === "production";
+
+// 1. JWT_SECRET Validation
 if (!process.env.JWT_SECRET) {
-  console.warn("⚠️ [Security Warning]: JWT_SECRET is not set in environment variables! Using dev fallback.");
-  process.env.JWT_SECRET = "growvia_dev_fallback_secret_key_2026";
+  if (isProduction) {
+    console.error("FATAL: JWT_SECRET environment variable is not set. Refusing to start in production without it.");
+    process.exit(1);
+  } else {
+    // In development only: generate a cryptographically random secret at runtime if .env is missing
+    process.env.JWT_SECRET = crypto.randomBytes(32).toString("hex");
+    console.warn("⚠️ [Dev Warning]: JWT_SECRET is not set in environment variables! Generated temporary runtime secret for development.");
+  }
 }
 
 const __filename = fileURLToPath(import.meta.url);
@@ -37,7 +46,6 @@ const fallbackDistPath = path.resolve(__dirname, "../../frontend/dist");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const isProduction = process.env.NODE_ENV === "production";
 
 // 1. Security Headers (Helmet) configured for JSON API
 app.use(
@@ -133,21 +141,53 @@ export const seedInitialData = async () => {
   }
 
   try {
-    const adminEmail = (process.env.ADMIN_EMAIL || "admin@growvia.com").trim().toLowerCase();
-    const adminUser = await User.findOne({ email: adminEmail });
-    if (!adminUser) {
-      console.log(`[Auto-Seeder]: Creating default Admin user for ${adminEmail}...`);
-      await User.create({
-        name: "Growvia Administrator",
-        email: adminEmail,
-        password: "Admin@1234",
-        role: "admin",
-      });
-      console.log(`[Auto-Seeder]: Default Admin created: ${adminEmail} / Admin@1234`);
+    const configuredAdminEmail = (process.env.ADMIN_EMAIL || "").trim().toLowerCase();
+    const configuredAdminPassword = process.env.ADMIN_PASSWORD;
+
+    // Check if an admin user already exists in the database
+    const existingAdmin = await User.findOne({ role: "admin" });
+
+    if (!existingAdmin) {
+      if (isProduction) {
+        if (!configuredAdminEmail || !configuredAdminPassword) {
+          console.warn(
+            "⚠️ [Security Notice]: No admin user exists in the database, and ADMIN_EMAIL / ADMIN_PASSWORD are not both set. Auto-seeding skipped. Provision an admin user securely via 'npm run seed'."
+          );
+        } else {
+          console.log(`[Auto-Seeder]: Provisioning initial Admin user for ${configuredAdminEmail}...`);
+          await User.create({
+            name: "Growvia Administrator",
+            email: configuredAdminEmail,
+            password: configuredAdminPassword,
+            role: "admin",
+          });
+          console.log(`[Auto-Seeder]: Initial Admin created: ${configuredAdminEmail}`);
+        }
+      } else {
+        // Development mode: use credentials from .env, or generate temporary dev password
+        const devAdminEmail = configuredAdminEmail || "admin@growvia.com";
+        const devAdminPassword = configuredAdminPassword || crypto.randomBytes(8).toString("hex") + "!A1";
+
+        console.log(`[Dev Auto-Seeder]: Creating default Admin user for ${devAdminEmail}...`);
+        await User.create({
+          name: "Growvia Administrator",
+          email: devAdminEmail,
+          password: devAdminPassword,
+          role: "admin",
+        });
+        if (!configuredAdminPassword) {
+          console.log(`[Dev Auto-Seeder]: Generated temporary dev admin credentials: ${devAdminEmail} / ${devAdminPassword}`);
+        } else {
+          console.log(`[Dev Auto-Seeder]: Default Admin created from .env: ${devAdminEmail}`);
+        }
+      }
     } else {
-      if (adminUser.role !== "admin") {
-        adminUser.role = "admin";
-        await adminUser.save();
+      if (configuredAdminEmail) {
+        const targetAdmin = await User.findOne({ email: configuredAdminEmail });
+        if (targetAdmin && targetAdmin.role !== "admin") {
+          targetAdmin.role = "admin";
+          await targetAdmin.save();
+        }
       }
     }
   } catch (userErr) {

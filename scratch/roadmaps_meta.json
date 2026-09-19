@@ -1,0 +1,1424 @@
+{
+  "doctor": {
+    "title": "Medical Doctor",
+    "category": "Healthcare",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCB Stream",
+        "desc": "Focus on Physics, Chemistry, Biology."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-5",
+        "title": "MBBS",
+        "desc": "Clear NEET, complete rigorous medical schooling."
+      },
+      {
+        "index": 2,
+        "year": "Year 6",
+        "title": "Internship",
+        "desc": "One year mandatory clinical rotation."
+      },
+      {
+        "index": 3,
+        "year": "Year 7-9",
+        "title": "MD/MS (Postgrad)",
+        "desc": "Specialize in a specific field."
+      }
+    ]
+  },
+  "engineer": {
+    "title": "Software Engineer",
+    "category": "Technology",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCM Stream",
+        "desc": "Physics, Chemistry, Math."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-4",
+        "title": "B.Tech / B.E.",
+        "desc": "Computer Science or related field."
+      },
+      {
+        "index": 2,
+        "year": "Year 4",
+        "title": "Internships & Projects",
+        "desc": "Crucial for securing the first job."
+      },
+      {
+        "index": 3,
+        "year": "Post-grad",
+        "title": "Specialization (Optional)",
+        "desc": "M.Tech or MS abroad."
+      }
+    ]
+  },
+  "lawyer": {
+    "title": "Corporate Lawyer",
+    "category": "Legal",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Any Stream",
+        "desc": "Arts/Humanities is advantageous but not mandatory."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-5",
+        "title": "BA LLB / BBA LLB",
+        "desc": "Integrated 5-year law degree."
+      },
+      {
+        "index": 2,
+        "year": "Year 5",
+        "title": "Bar Council Exam",
+        "desc": "Clear AIBE to practice."
+      },
+      {
+        "index": 3,
+        "year": "Post-grad",
+        "title": "LLM (Optional)",
+        "desc": "For specialized knowledge or academia."
+      }
+    ]
+  },
+  "startup-founder": {
+    "title": "Startup Founder",
+    "category": "Business",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Phase 1",
+        "title": "Idea & Validation",
+        "desc": "Find a problem, talk to users."
+      },
+      {
+        "index": 1,
+        "year": "Phase 2",
+        "title": "MVP & Traction",
+        "desc": "Build a basic product, get first paying customers."
+      },
+      {
+        "index": 2,
+        "year": "Phase 3",
+        "title": "Funding (Optional)",
+        "desc": "Raise from Angels/VCs if scaling requires capital."
+      },
+      {
+        "index": 3,
+        "year": "Phase 4",
+        "title": "Scaling",
+        "desc": "Hiring, marketing, expanding."
+      }
+    ]
+  },
+  "data-scientist": {
+    "title": "Data Scientist",
+    "category": "Technology",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCM/Commerce with Math",
+        "desc": "Strong foundation in Mathematics."
+      },
+      {
+        "index": 1,
+        "year": "Undergrad",
+        "title": "B.Tech/B.Sc Stats",
+        "desc": "CS, Statistics, or Math degree."
+      },
+      {
+        "index": 2,
+        "year": "Self-Study",
+        "title": "Kaggle & Projects",
+        "desc": "Build a portfolio of data projects."
+      }
+    ]
+  },
+  "product-manager": {
+    "title": "Product Manager",
+    "category": "Technology",
+    "stages": [
+      {
+        "index": 0,
+        "year": "College",
+        "title": "Any Degree",
+        "desc": "B.Tech and MBA are most common."
+      },
+      {
+        "index": 1,
+        "year": "Early Career",
+        "title": "Engineer/Analyst",
+        "desc": "Most PMs transition from other roles."
+      },
+      {
+        "index": 2,
+        "year": "Transition",
+        "title": "APM Role",
+        "desc": "Associate Product Manager programs."
+      }
+    ]
+  },
+  "content-creator": {
+    "title": "Content Creator",
+    "category": "Media",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Start",
+        "title": "Pick a Niche",
+        "desc": "Tech, Finance, Comedy, Education."
+      },
+      {
+        "index": 1,
+        "year": "Growth",
+        "title": "Consistent Publishing",
+        "desc": "Post 1-2 times a week without fail."
+      },
+      {
+        "index": 2,
+        "year": "Monetization",
+        "title": "Brand Deals",
+        "desc": "Sponsorships, Adsense, Merchandise."
+      }
+    ]
+  },
+  "designer": {
+    "title": "UI/UX Designer",
+    "category": "Design",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Foundation",
+        "title": "Learn Design Principles",
+        "desc": "Color theory, typography."
+      },
+      {
+        "index": 1,
+        "year": "Tools",
+        "title": "Master Figma",
+        "desc": "Learn the industry standard tool."
+      },
+      {
+        "index": 2,
+        "year": "Portfolio",
+        "title": "Build Case Studies",
+        "desc": "Redesign existing apps or create new ones."
+      }
+    ]
+  },
+  "digital-marketer": {
+    "title": "Digital Marketer",
+    "category": "Marketing",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Month 1-3",
+        "title": "Learn the Basics",
+        "desc": "Google Digital Garage, Meta Blueprint, HubSpot courses."
+      },
+      {
+        "index": 1,
+        "year": "Month 3-6",
+        "title": "Hands-on Practice",
+        "desc": "Run small campaigns, manage social accounts."
+      },
+      {
+        "index": 2,
+        "year": "Month 6-12",
+        "title": "Freelancing / Internship",
+        "desc": "Real clients = real experience + portfolio."
+      },
+      {
+        "index": 3,
+        "year": "Year 1+",
+        "title": "Full-time Role",
+        "desc": "Join a startup, agency, or go full freelance."
+      }
+    ]
+  },
+  "chartered-accountant": {
+    "title": "Chartered Accountant",
+    "category": "Finance",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Commerce Stream",
+        "desc": "Focus on Accounts, Economics, Maths."
+      },
+      {
+        "index": 1,
+        "year": "After 12th",
+        "title": "CA Foundation",
+        "desc": "Register with ICAI, clear 4-paper exam."
+      },
+      {
+        "index": 2,
+        "year": "Year 1-2",
+        "title": "CA Intermediate",
+        "desc": "8 papers across 2 groups, harder stage."
+      },
+      {
+        "index": 3,
+        "year": "Year 2-5",
+        "title": "Articleship (3 Years)",
+        "desc": "Mandatory 3-year practical training under a CA."
+      },
+      {
+        "index": 4,
+        "year": "Year 5+",
+        "title": "CA Final",
+        "desc": "8 papers — the hardest exam in India."
+      }
+    ]
+  },
+  "architect": {
+    "title": "Architect",
+    "category": "Design & Construction",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCM or Arts",
+        "desc": "Both work — good drawing skills help."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-5",
+        "title": "B.Arch (5 Years)",
+        "desc": "5-year professional architecture degree."
+      },
+      {
+        "index": 2,
+        "year": "Year 5-6",
+        "title": "Internship",
+        "desc": "Mandatory internship at a firm or with a licensed architect."
+      },
+      {
+        "index": 3,
+        "year": "Post-grad",
+        "title": "M.Arch (Optional)",
+        "desc": "Specialize in sustainable, urban, or heritage architecture."
+      }
+    ]
+  },
+  "psychologist": {
+    "title": "Psychologist",
+    "category": "Mental Health",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Arts / Science",
+        "desc": "Either stream works. Psychology as a subject is helpful."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "BA/B.Sc Psychology",
+        "desc": "3-year undergraduate degree."
+      },
+      {
+        "index": 2,
+        "year": "Year 4-5",
+        "title": "MA/M.Sc Psychology",
+        "desc": "Master's is practically mandatory for practice."
+      },
+      {
+        "index": 3,
+        "year": "Year 6+",
+        "title": "M.Phil / PhD (For Clinical)",
+        "desc": "RCI-recognized M.Phil needed to practice as Clinical Psychologist in India."
+      }
+    ]
+  },
+  "ai-ml-engineer": {
+    "title": "AI / ML Engineer",
+    "category": "Technology",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCM + Computers",
+        "desc": "Strong maths foundation is non-negotiable."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-4",
+        "title": "B.Tech (CS/AI/Math)",
+        "desc": "IIT, BITS, or NIT with focus on ML electives."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-4",
+        "title": "Projects & Research",
+        "desc": "Kaggle competitions, open-source, internships at AI labs."
+      },
+      {
+        "index": 3,
+        "year": "Post-grad",
+        "title": "M.Tech / MS / PhD",
+        "desc": "Research-focused Master's or PhD for deep specialization."
+      }
+    ]
+  },
+  "cybersecurity": {
+    "title": "Cybersecurity Analyst",
+    "category": "Technology",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCM / CS",
+        "desc": "Strong computer science and networking basics."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-4",
+        "title": "B.Tech (CS) or BCA",
+        "desc": "Core degree + certifications like CEH, CompTIA Security+."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-4",
+        "title": "Bug Bounties & CTFs",
+        "desc": "Participate in HackerOne, Bugcrowd, Capture The Flag competitions."
+      },
+      {
+        "index": 3,
+        "year": "Year 4+",
+        "title": "CISSP / OSCP",
+        "desc": "Advanced certifications for senior roles."
+      }
+    ]
+  },
+  "cloud-architect": {
+    "title": "Cloud Architect",
+    "category": "Technology",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCM / CS",
+        "desc": "Strong math and CS fundamentals."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-4",
+        "title": "B.Tech (CS/ECE)",
+        "desc": "Focus on networking and systems courses."
+      },
+      {
+        "index": 2,
+        "year": "Year 3+",
+        "title": "Cloud Certifications",
+        "desc": "AWS Solutions Architect, GCP Professional — these are highly valued."
+      },
+      {
+        "index": 3,
+        "year": "Year 5+",
+        "title": "Senior Roles",
+        "desc": "5+ years experience to become an Architect."
+      }
+    ]
+  },
+  "graphic-designer": {
+    "title": "Graphic Designer",
+    "category": "Creative & Design",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Any Stream",
+        "desc": "Arts stream preferred, but not mandatory."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "B.Des / BFA",
+        "desc": "Formal design education from NID, NIFT, or equivalent."
+      },
+      {
+        "index": 2,
+        "year": "Year 2-3",
+        "title": "Portfolio Building",
+        "desc": "Work on real briefs, competitions, freelance projects."
+      },
+      {
+        "index": 3,
+        "year": "Year 3+",
+        "title": "Specialize",
+        "desc": "Brand design, illustration, motion graphics, etc."
+      }
+    ]
+  },
+  "film-director": {
+    "title": "Film Director / Filmmaker",
+    "category": "Creative & Media",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Any Stream",
+        "desc": "Start watching films critically. Write short scripts."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "Film School / BFA",
+        "desc": "FTII, Satyajit Ray Film Institute, or Whistling Woods."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-5",
+        "title": "Short Films & ADs",
+        "desc": "Work as an Assistant Director on productions."
+      },
+      {
+        "index": 3,
+        "year": "Year 6+",
+        "title": "First Feature",
+        "desc": "Debut with an independent short or web project."
+      }
+    ]
+  },
+  "dentist": {
+    "title": "Dentist (BDS)",
+    "category": "Healthcare",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCB Stream",
+        "desc": "Biology, Chemistry, Physics — NEET preparation."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-5",
+        "title": "BDS Degree",
+        "desc": "5-year degree including 1-year internship."
+      },
+      {
+        "index": 2,
+        "year": "Year 6-8",
+        "title": "MDS (Optional)",
+        "desc": "Post-grad specialization via NEET-PG."
+      },
+      {
+        "index": 3,
+        "year": "Year 6+",
+        "title": "Own Clinic",
+        "desc": "Many dentists open their own practice after BDS."
+      }
+    ]
+  },
+  "physiotherapist": {
+    "title": "Physiotherapist",
+    "category": "Healthcare",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCB Stream",
+        "desc": "Biology and chemistry focus."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-4.5",
+        "title": "BPT Degree",
+        "desc": "Bachelor of Physiotherapy — 4.5 years including internship."
+      },
+      {
+        "index": 2,
+        "year": "Year 5-6",
+        "title": "MPT (Optional)",
+        "desc": "Specialization in sports, neuro, or ortho physio."
+      },
+      {
+        "index": 3,
+        "year": "Year 5+",
+        "title": "Clinical Practice",
+        "desc": "Join hospitals, clinics, or start own practice."
+      }
+    ]
+  },
+  "investment-banker": {
+    "title": "Investment Banker",
+    "category": "Finance",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Commerce / PCM",
+        "desc": "Build math and analytical foundations."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "B.Com / B.Tech / Economics",
+        "desc": "Top college matters a lot in IB recruitment."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-5",
+        "title": "MBA (IIM/Top MBA)",
+        "desc": "Most IBankers enter through top MBA programs."
+      },
+      {
+        "index": 3,
+        "year": "Post-MBA",
+        "title": "Analyst / Associate",
+        "desc": "2-year analyst program at a bank."
+      }
+    ]
+  },
+  "financial-analyst": {
+    "title": "Financial Analyst",
+    "category": "Finance",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Commerce / PCM",
+        "desc": "Math and accounts are critical foundations."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "B.Com / BBA / Economics",
+        "desc": "SRCC, St. Xavier's, or reputed commerce colleges."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-5",
+        "title": "MBA / CFA",
+        "desc": "CFA is highly respected globally. IIM MBA is the premium path."
+      },
+      {
+        "index": 3,
+        "year": "Year 4+",
+        "title": "Analyst Roles",
+        "desc": "Join banks, AMCs, or corporate finance teams."
+      }
+    ]
+  },
+  "civil-services": {
+    "title": "Civil Services (IAS / IPS)",
+    "category": "Government & Public Service",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Any Stream",
+        "desc": "UPSC has no stream restriction — build reading habit early."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "Graduation",
+        "desc": "Any degree works. History, Political Science, or Public Admin is useful."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-5",
+        "title": "UPSC Preparation",
+        "desc": "2-3 years of dedicated preparation is the average."
+      },
+      {
+        "index": 3,
+        "year": "Year 5+",
+        "title": "Training at LBSNAA",
+        "desc": "Selected candidates train at the elite academy in Mussoorie."
+      }
+    ]
+  },
+  "army-officer": {
+    "title": "Army Officer",
+    "category": "Government & Defence",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCM / Any Stream",
+        "desc": "NDA requires PCM. CDS is open to all graduates."
+      },
+      {
+        "index": 1,
+        "year": "After Class 12",
+        "title": "NDA Exam",
+        "desc": "Clear NDA written exam + SSB interview for direct entry."
+      },
+      {
+        "index": 2,
+        "year": "Year 1-3",
+        "title": "NDA Training",
+        "desc": "3-year joint training at NDA, Pune."
+      },
+      {
+        "index": 3,
+        "year": "Year 4+",
+        "title": "IMA Training",
+        "desc": "1-year officer training at Indian Military Academy, Dehradun."
+      }
+    ]
+  },
+  "civil-engineer": {
+    "title": "Civil Engineer",
+    "category": "Engineering",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCM Stream",
+        "desc": "Physics, Chemistry, Math — strong foundation needed."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-4",
+        "title": "B.Tech Civil Engineering",
+        "desc": "IIT, NIT, or government engineering colleges."
+      },
+      {
+        "index": 2,
+        "year": "Year 4",
+        "title": "GATE / Campus Placements",
+        "desc": "GATE for PSU or M.Tech. Campus for consulting/construction firms."
+      },
+      {
+        "index": 3,
+        "year": "Year 5+",
+        "title": "Site Experience",
+        "desc": "2-3 years of site work is essential for growth."
+      }
+    ]
+  },
+  "mechanical-engineer": {
+    "title": "Mechanical Engineer",
+    "category": "Engineering",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCM Stream",
+        "desc": "Physics and Math are critical."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-4",
+        "title": "B.Tech Mechanical",
+        "desc": "IIT, NIT, or BITS. Core engineering curriculum."
+      },
+      {
+        "index": 2,
+        "year": "Year 4",
+        "title": "GATE / Placements",
+        "desc": "GATE for PSU or M.Tech. Campus for auto/manufacturing firms."
+      },
+      {
+        "index": 3,
+        "year": "Year 5+",
+        "title": "Specialization",
+        "desc": "Robotics, automotive, aerospace, or industrial design."
+      }
+    ]
+  },
+  "mba-manager": {
+    "title": "MBA / Business Manager",
+    "category": "Business & Management",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Any Stream",
+        "desc": "MBA is a post-graduate degree — stream doesn't matter."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3/4",
+        "title": "Any Graduation",
+        "desc": "Engineering is the most popular pre-MBA path in India."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-5",
+        "title": "Work Experience",
+        "desc": "2-3 years of work ex before MBA is ideal."
+      },
+      {
+        "index": 3,
+        "year": "MBA (2 years)",
+        "title": "IIM / Top B-School",
+        "desc": "CAT is the gateway to IIMs. GMAT for abroad."
+      }
+    ]
+  },
+  "marketing-manager": {
+    "title": "Marketing Manager",
+    "category": "Business & Management",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Any Stream",
+        "desc": "Commerce or arts preferred, but engineers also excel in marketing."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "BBA / B.Com / BA",
+        "desc": "Undergraduate degree + marketing internships."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-5",
+        "title": "MBA (Marketing)",
+        "desc": "MICA Ahmedabad is India's top specialized marketing school."
+      },
+      {
+        "index": 3,
+        "year": "Year 3+",
+        "title": "Digital Certifications",
+        "desc": "Google, Meta, HubSpot certifications add real value."
+      }
+    ]
+  },
+  "human-resources": {
+    "title": "Human Resources (HR)",
+    "category": "Business & Management",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Any Stream",
+        "desc": "Commerce or arts with good communication skills."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "BBA / BA / B.Com",
+        "desc": "Undergraduate with HR-focused subjects."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-5",
+        "title": "MBA (HR)",
+        "desc": "XLRI Jamshedpur is India's top HR-focused B-school."
+      },
+      {
+        "index": 3,
+        "year": "Year 4+",
+        "title": "Specialization",
+        "desc": "Recruitment, L&D, compensation, or HR analytics."
+      }
+    ]
+  },
+  "pilot": {
+    "title": "Commercial Pilot",
+    "category": "Aviation & Transport",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCM Stream",
+        "desc": "Physics and Math are mandatory. Perfect eyesight required."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-2",
+        "title": "Student Pilot License",
+        "desc": "SPL from DGCA-approved flying school."
+      },
+      {
+        "index": 2,
+        "year": "Year 2-3",
+        "title": "Commercial Pilot License (CPL)",
+        "desc": "250+ flying hours required for CPL."
+      },
+      {
+        "index": 3,
+        "year": "Year 3+",
+        "title": "Type Rating + Airline",
+        "desc": "Airlines sponsor type rating — join as First Officer."
+      }
+    ]
+  },
+  "fashion-designer": {
+    "title": "Fashion Designer",
+    "category": "Creative & Design",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Any Stream",
+        "desc": "Arts preferred. Build portfolio of sketches and designs."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-4",
+        "title": "B.Des (Fashion)",
+        "desc": "NIFT, NID, or Pearl Academy degree."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-4",
+        "title": "Internships",
+        "desc": "Work with established designers like Manish Malhotra, Sabyasachi."
+      },
+      {
+        "index": 3,
+        "year": "Year 5+",
+        "title": "Own Label or Brand",
+        "desc": "Many designers launch their own label within 5 years."
+      }
+    ]
+  },
+  "photographer": {
+    "title": "Photographer / Videographer",
+    "category": "Creative & Media",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Any Stream",
+        "desc": "Start shooting immediately — camera is the best classroom."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "Formal Education (Optional)",
+        "desc": "NID, FTII, or photography schools — portfolio is key."
+      },
+      {
+        "index": 2,
+        "year": "Year 2-3",
+        "title": "Assisting + Portfolio",
+        "desc": "Work as a photo assistant to a known photographer."
+      },
+      {
+        "index": 3,
+        "year": "Year 3+",
+        "title": "Own Clientele",
+        "desc": "Build client base via Instagram and word-of-mouth."
+      }
+    ]
+  },
+  "event-manager": {
+    "title": "Event Manager",
+    "category": "Business & Hospitality",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Any Stream",
+        "desc": "Organize college events — great practical training."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "BBA / Event Management Diploma",
+        "desc": "NIEM, Amity, or hospitality management programs."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-4",
+        "title": "Internships & Coordination",
+        "desc": "Work as event coordinator with an established agency."
+      },
+      {
+        "index": 3,
+        "year": "Year 5+",
+        "title": "Own Agency",
+        "desc": "Many event managers start their own firm after 5-6 years."
+      }
+    ]
+  },
+  "hotel-management": {
+    "title": "Hotel Management / Hospitality",
+    "category": "Business & Hospitality",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Any Stream",
+        "desc": "Good communication skills matter more than stream."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "B.Sc Hotel Management",
+        "desc": "NCHMCT JEE for IHMs. 3-year program."
+      },
+      {
+        "index": 2,
+        "year": "Year 2-3",
+        "title": "Industrial Training",
+        "desc": "6-month training at a 5-star hotel — very important."
+      },
+      {
+        "index": 3,
+        "year": "Year 4+",
+        "title": "Management Trainee",
+        "desc": "Fast-track management program at hotel chains."
+      }
+    ]
+  },
+  "social-worker": {
+    "title": "Social Worker / NGO",
+    "category": "Social Sciences",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Any Stream",
+        "desc": "Arts and social sciences preferred."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "BA Social Work / Sociology",
+        "desc": "Undergraduate in social work, sociology, or related fields."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-5",
+        "title": "MSW (Master of Social Work)",
+        "desc": "TISS is the gold standard for social work in India."
+      },
+      {
+        "index": 3,
+        "year": "Year 5+",
+        "title": "Field Work",
+        "desc": "Ground-level implementation with NGOs or UN agencies."
+      }
+    ]
+  },
+  "teacher": {
+    "title": "Teacher / Educator",
+    "category": "Education",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Any Stream",
+        "desc": "Master your chosen subject deeply."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "Graduation (Subject-specific)",
+        "desc": "B.Sc, B.A., B.Com in your teaching subject."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-4",
+        "title": "B.Ed Degree",
+        "desc": "Bachelor of Education — mandatory for school teaching."
+      },
+      {
+        "index": 3,
+        "year": "Year 4+",
+        "title": "TET / CTET / School",
+        "desc": "Clear Teacher Eligibility Test for government or private schools."
+      }
+    ]
+  },
+  "ed-tech": {
+    "title": "Ed-Tech / Online Educator",
+    "category": "Education & Technology",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Year 1",
+        "title": "Subject Mastery",
+        "desc": "Deep expertise in your teaching domain."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-2",
+        "title": "Content Creation Start",
+        "desc": "Begin a YouTube channel or create a pilot course."
+      },
+      {
+        "index": 2,
+        "year": "Year 2-3",
+        "title": "Audience Building",
+        "desc": "Consistent content → community → paid subscribers."
+      },
+      {
+        "index": 3,
+        "year": "Year 3+",
+        "title": "Monetization",
+        "desc": "Platform deals, sponsorships, courses, or consultancy."
+      }
+    ]
+  },
+  "journalist": {
+    "title": "Journalist / Media",
+    "category": "Media & Communication",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Humanities Stream",
+        "desc": "English, Political Science — start reading newspapers daily."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "BA English / Journalism",
+        "desc": "Undergraduate degree in mass communication or journalism."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-5",
+        "title": "PG Diploma / Masters",
+        "desc": "IIMC, ACJ, or Symbiosis postgraduate programs."
+      },
+      {
+        "index": 3,
+        "year": "Year 4+",
+        "title": "Beat Coverage",
+        "desc": "Cover a specific beat — politics, business, sports, or tech."
+      }
+    ]
+  },
+  "public-relations": {
+    "title": "Public Relations (PR)",
+    "category": "Media & Communication",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Any Stream",
+        "desc": "Humanities preferred. English writing must be excellent."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "BA / B.Com + Communications",
+        "desc": "Mass communication or journalism undergraduate."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-5",
+        "title": "MBA / PG in PR / IIMC",
+        "desc": "Postgraduate specialization in communications or PR."
+      },
+      {
+        "index": 3,
+        "year": "Year 4+",
+        "title": "Client Management",
+        "desc": "Build a portfolio of clients and media relationships."
+      }
+    ]
+  },
+  "nutritionist": {
+    "title": "Nutritionist / Dietitian",
+    "category": "Health & Wellness",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCB Stream",
+        "desc": "Biology and chemistry are essential foundations."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "B.Sc Nutrition / Dietetics",
+        "desc": "3-year undergraduate degree from recognized college."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-5",
+        "title": "M.Sc Dietetics",
+        "desc": "Specialization in clinical, sports, or community nutrition."
+      },
+      {
+        "index": 3,
+        "year": "Year 5+",
+        "title": "Practice",
+        "desc": "Private practice, hospital, or corporate wellness roles."
+      }
+    ]
+  },
+  "fitness-trainer": {
+    "title": "Fitness Trainer / Sports Coach",
+    "category": "Health & Wellness",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Any Stream + Sports",
+        "desc": "Be physically active. Represent school or district level sports."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "B.P.Ed / B.Sc Sports Science",
+        "desc": "NIS Patiala, LNUPE, or sports science degree."
+      },
+      {
+        "index": 2,
+        "year": "Year 2-3",
+        "title": "Certifications",
+        "desc": "ACE, NSCA-CSCS, or CrossFit certifications — internationally valued."
+      },
+      {
+        "index": 3,
+        "year": "Year 4+",
+        "title": "Client Building",
+        "desc": "Build clientele through gym, Instagram, or referrals."
+      }
+    ]
+  },
+  "game-developer": {
+    "title": "Game Developer",
+    "category": "Technology & Gaming",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCM / CS",
+        "desc": "Programming fundamentals are non-negotiable."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "B.Tech CS or Game Design Degree",
+        "desc": "Specialized game design from ICAT, Arena, or Arena Animation."
+      },
+      {
+        "index": 2,
+        "year": "Year 2-3",
+        "title": "Build Games",
+        "desc": "Create 3-5 personal games as portfolio — more important than degree."
+      },
+      {
+        "index": 3,
+        "year": "Year 3+",
+        "title": "Studio or Indie",
+        "desc": "Join a game studio or launch an independent game."
+      }
+    ]
+  },
+  "blockchain-developer": {
+    "title": "Blockchain Developer",
+    "category": "Technology",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Year 1-2",
+        "title": "CS Fundamentals",
+        "desc": "Strong programming background — Python, JS, computer science basics."
+      },
+      {
+        "index": 1,
+        "year": "Year 2-3",
+        "title": "Blockchain Certifications",
+        "desc": "Coursera Blockchain, ConsenSys Academy, B9Lab."
+      },
+      {
+        "index": 2,
+        "year": "Year 2-3",
+        "title": "Build on Testnet",
+        "desc": "Deploy real smart contracts on Ethereum testnet — portfolio builder."
+      },
+      {
+        "index": 3,
+        "year": "Year 3+",
+        "title": "Web3 Projects",
+        "desc": "Contribute to open-source DeFi or NFT projects on GitHub."
+      }
+    ]
+  },
+  "environmental-scientist": {
+    "title": "Environmental Scientist",
+    "category": "Science & Environment",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCB or PCM",
+        "desc": "Science stream — biology, geography, environmental studies."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "B.Sc Environmental Science",
+        "desc": "IIT, JNU, or state universities."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-5",
+        "title": "M.Sc / M.Tech Environment",
+        "desc": "Specialization in climate, ecology, or environmental engineering."
+      },
+      {
+        "index": 3,
+        "year": "Year 5+",
+        "title": "Research / Consulting",
+        "desc": "PhD, policy work, or environmental consulting firms."
+      }
+    ]
+  },
+  "biotechnologist": {
+    "title": "Biotechnologist",
+    "category": "Science & Research",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCB Stream",
+        "desc": "Biology and chemistry are core foundations."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "B.Sc / B.Tech Biotechnology",
+        "desc": "IISc, IIT, JNU, or specialized biotech programs."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-5",
+        "title": "M.Sc / M.Tech",
+        "desc": "Research-focused master's in molecular biology, bioinformatics, etc."
+      },
+      {
+        "index": 3,
+        "year": "Year 5+",
+        "title": "PhD / Industry",
+        "desc": "PhD for research roles. Industry roles in pharma or diagnostics."
+      }
+    ]
+  },
+  "supply-chain": {
+    "title": "Supply Chain / Logistics Manager",
+    "category": "Operations & Logistics",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Any Stream",
+        "desc": "Math and geography — understanding movement of goods."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "B.Tech / BBA / B.Com",
+        "desc": "Any technical or management undergraduate degree."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-5",
+        "title": "MBA / PGDM (SCM)",
+        "desc": "NITIE Mumbai is India's top supply chain B-school."
+      },
+      {
+        "index": 3,
+        "year": "Year 4+",
+        "title": "SAP Certification",
+        "desc": "SAP MM/WM/SD certifications are highly valued by employers."
+      }
+    ]
+  },
+  "interior-designer": {
+    "title": "Interior Designer",
+    "category": "Design & Built Environment",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "Any Stream",
+        "desc": "Arts preferred. Start sketching spaces and studying design."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-4",
+        "title": "B.Des Interior Design",
+        "desc": "NID, CEPT, JJ School, Pearl Academy, or Raffles."
+      },
+      {
+        "index": 2,
+        "year": "Year 3-4",
+        "title": "Portfolio + Internships",
+        "desc": "Work with established design firms on real projects."
+      },
+      {
+        "index": 3,
+        "year": "Year 5+",
+        "title": "Own Projects",
+        "desc": "Take independent client projects while building reputation."
+      }
+    ]
+  },
+  "actuary": {
+    "title": "Actuary",
+    "category": "Finance",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCM Stream",
+        "desc": "Exceptional math skills — this is a math-first career."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-3",
+        "title": "B.Sc Math / Stats / B.Com",
+        "desc": "Actuarial-friendly undergrad: math, stats, or commerce."
+      },
+      {
+        "index": 2,
+        "year": "Year 2-7",
+        "title": "IAI Exams (India)",
+        "desc": "Institute of Actuaries of India — CT, CA, SA exam series. Takes 5-8 years typically."
+      },
+      {
+        "index": 3,
+        "year": "Year 4+",
+        "title": "Associate / Fellow Actuary",
+        "desc": "Associate (100+ exam points) and Fellow (full qualification)."
+      }
+    ]
+  },
+  "pharmacist": {
+    "title": "Pharmacist",
+    "category": "Healthcare",
+    "stages": [
+      {
+        "index": 0,
+        "year": "Class 11-12",
+        "title": "PCB or PCM",
+        "desc": "Biology and chemistry are essential."
+      },
+      {
+        "index": 1,
+        "year": "Year 1-4",
+        "title": "B.Pharm Degree",
+        "desc": "4-year pharmacy degree from a PCI-approved college."
+      },
+      {
+        "index": 2,
+        "year": "Year 4-5",
+        "title": "M.Pharm (Optional)",
+        "desc": "Post-grad specialization in clinical, industrial, or regulatory pharmacy."
+      },
+      {
+        "index": 3,
+        "year": "Year 4+",
+        "title": "Licensing & Practice",
+        "desc": "Register with State Pharmacy Council to practice."
+      }
+    ]
+  }
+}

@@ -3,10 +3,10 @@ import { getChatModel, buildMessageHistory } from "../services/llmService.js";
 
 /**
  * Streams AI responses token-by-token using Server-Sent Events (SSE).
- * Handles persistent message storage in MongoDB and multi-turn conversational context.
+ * Enforces that the user has purchased the roadmap (or has admin privileges).
  */
 export const streamChat = async (req, res) => {
-  const { message } = req.body;
+  const { message, careerId } = req.body;
 
   if (!message || typeof message !== "string" || !message.trim()) {
     return res.status(400).json({ error: "Message content is required." });
@@ -17,6 +17,37 @@ export const streamChat = async (req, res) => {
   }
 
   const userId = req.user._id;
+  const isAdmin = req.user.role === "admin";
+  const purchasedRoadmaps = Array.isArray(req.user.purchasedRoadmaps)
+    ? req.user.purchasedRoadmaps
+    : [];
+
+  const targetCareerId = typeof careerId === "string" && careerId.trim() ? careerId.trim() : null;
+
+  // Authorization check: User must have purchased this specific roadmap (or be an admin)
+  if (targetCareerId) {
+    const hasAccess =
+      isAdmin ||
+      purchasedRoadmaps.some(
+        (id) => id.toLowerCase() === targetCareerId.toLowerCase()
+      );
+
+    if (!hasAccess) {
+      return res.status(403).json({
+        error: "Access denied. The AI Chatbot is only accessible for purchased roadmaps.",
+        code: "ROADMAP_NOT_PURCHASED",
+      });
+    }
+  } else {
+    // If no careerId provided, ensure user has at least one purchased roadmap or is admin
+    const hasAnyAccess = isAdmin || purchasedRoadmaps.length > 0;
+    if (!hasAnyAccess) {
+      return res.status(403).json({
+        error: "Access denied. The AI Chatbot is only accessible for purchased roadmaps.",
+        code: "NO_PURCHASED_ROADMAPS",
+      });
+    }
+  }
 
   // 1. Establish Server-Sent Events (SSE) headers
   res.setHeader("Content-Type", "text/event-stream");
@@ -35,7 +66,16 @@ export const streamChat = async (req, res) => {
 
   try {
     // 2. Fetch past conversation memory from MongoDB for context (chronological order)
-    const pastDocs = await ChatMessage.find({ userId })
+    const historyQuery = { userId };
+    if (targetCareerId) {
+      historyQuery.$or = [
+        { careerId: targetCareerId },
+        { careerId: null },
+        { careerId: { $exists: false } },
+      ];
+    }
+
+    const pastDocs = await ChatMessage.find(historyQuery)
       .sort({ timestamp: -1 })
       .limit(10)
       .lean();
@@ -50,11 +90,12 @@ export const streamChat = async (req, res) => {
       userId,
       role: "user",
       content: message.trim(),
+      careerId: targetCareerId,
     });
 
     // 4. Instantiate swappable LangChain model and construct message chain
     const model = getChatModel();
-    const promptMessages = buildMessageHistory(message.trim(), history);
+    const promptMessages = buildMessageHistory(message.trim(), history, targetCareerId);
 
     // 5. Stream tokens
     let fullResponse = "";
@@ -76,6 +117,7 @@ export const streamChat = async (req, res) => {
         userId,
         role: "assistant",
         content: fullResponse.trim(),
+        careerId: targetCareerId,
       });
     }
 
@@ -98,15 +140,52 @@ export const streamChat = async (req, res) => {
 };
 
 /**
- * Retrieves persistent chat history for the authenticated user.
+ * Retrieves persistent chat history for the authenticated user and optional roadmap.
  */
 export const getChatHistory = async (req, res) => {
   try {
     const userId = req.user._id;
-    const messages = await ChatMessage.find({ userId })
+    const isAdmin = req.user.role === "admin";
+    const purchasedRoadmaps = Array.isArray(req.user.purchasedRoadmaps)
+      ? req.user.purchasedRoadmaps
+      : [];
+
+    const { careerId } = req.query;
+    const targetCareerId = typeof careerId === "string" && careerId.trim() ? careerId.trim() : null;
+
+    if (targetCareerId) {
+      const hasAccess =
+        isAdmin ||
+        purchasedRoadmaps.some(
+          (id) => id.toLowerCase() === targetCareerId.toLowerCase()
+        );
+
+      if (!hasAccess) {
+        return res.status(403).json({
+          success: false,
+          error: "Access denied. The AI Chatbot is only accessible for purchased roadmaps.",
+        });
+      }
+    } else if (!isAdmin && purchasedRoadmaps.length === 0) {
+      return res.status(403).json({
+        success: false,
+        error: "Access denied. The AI Chatbot is only accessible for purchased roadmaps.",
+      });
+    }
+
+    const query = { userId };
+    if (targetCareerId) {
+      query.$or = [
+        { careerId: targetCareerId },
+        { careerId: null },
+        { careerId: { $exists: false } },
+      ];
+    }
+
+    const messages = await ChatMessage.find(query)
       .sort({ timestamp: 1 })
       .limit(60)
-      .select("role content timestamp _id");
+      .select("role content timestamp _id careerId");
 
     return res.status(200).json({
       success: true,
@@ -115,6 +194,7 @@ export const getChatHistory = async (req, res) => {
         role: m.role,
         content: m.content,
         timestamp: m.timestamp,
+        careerId: m.careerId,
       })),
     });
   } catch (error) {
@@ -127,12 +207,44 @@ export const getChatHistory = async (req, res) => {
 };
 
 /**
- * Clears persistent chat history for the authenticated user.
+ * Clears persistent chat history for the authenticated user and optional roadmap.
  */
 export const clearChatHistory = async (req, res) => {
   try {
     const userId = req.user._id;
-    await ChatMessage.deleteMany({ userId });
+    const isAdmin = req.user.role === "admin";
+    const purchasedRoadmaps = Array.isArray(req.user.purchasedRoadmaps)
+      ? req.user.purchasedRoadmaps
+      : [];
+
+    const { careerId } = req.query;
+    const targetCareerId = typeof careerId === "string" && careerId.trim() ? careerId.trim() : null;
+
+    if (targetCareerId) {
+      const hasAccess =
+        isAdmin ||
+        purchasedRoadmaps.some(
+          (id) => id.toLowerCase() === targetCareerId.toLowerCase()
+        );
+
+      if (!hasAccess) {
+        return res.status(403).json({
+          success: false,
+          error: "Access denied. The AI Chatbot is only accessible for purchased roadmaps.",
+        });
+      }
+
+      await ChatMessage.deleteMany({ userId, careerId: targetCareerId });
+    } else {
+      if (!isAdmin && purchasedRoadmaps.length === 0) {
+        return res.status(403).json({
+          success: false,
+          error: "Access denied. The AI Chatbot is only accessible for purchased roadmaps.",
+        });
+      }
+
+      await ChatMessage.deleteMany({ userId });
+    }
 
     return res.status(200).json({
       success: true,

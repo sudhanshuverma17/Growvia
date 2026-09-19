@@ -22,14 +22,21 @@ const chatMessageSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
+    careerId: {
+      type: String,
+      default: null,
+      trim: true,
+      index: true,
+    },
   },
   {
     timestamps: true,
   }
 );
 
-// Compound index for efficient user conversation history retrieval ordered by time
+// Compound indices for efficient user and roadmap conversation history retrieval
 chatMessageSchema.index({ userId: 1, timestamp: 1 });
+chatMessageSchema.index({ userId: 1, careerId: 1, timestamp: 1 });
 
 const ChatMessage = mongoose.model("ChatMessage", chatMessageSchema);
 

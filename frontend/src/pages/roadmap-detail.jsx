@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link, useLocation } from "wouter";
 import { Layout } from "@/components/layout";
 import { useToast } from "@/hooks/use-toast";
@@ -25,9 +25,15 @@ import {
   Pencil,
   ExternalLink,
   Bookmark,
+  ChevronDown,
+  ChevronUp,
+  Target,
+  GitBranch,
+  ShieldAlert,
+  Wrench,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/context/auth-context";
 import { useVideos } from "@/context/video-context";
 import { VideoPlayerModal } from "@/components/video-player-modal";
@@ -52,6 +58,14 @@ const TAG_COLORS = {
   "Income & Monetization": "bg-emerald-500/15 text-emerald-400 border-emerald-500/20",
 };
 
+const RESOURCE_TYPE_STYLES = {
+  course: "bg-sky-500/15 text-sky-400 border-sky-500/30",
+  book: "bg-amber-500/15 text-amber-400 border-amber-500/30",
+  tool: "bg-purple-500/15 text-purple-400 border-purple-500/30",
+  documentation: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
+  other: "bg-white/10 text-white/80 border-white/20",
+};
+
 function SectionHeading({ icon: Icon, title }) {
   return (
     <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
@@ -65,14 +79,28 @@ function SectionHeading({ icon: Icon, title }) {
 
 export default function RoadmapDetail() {
   const { career: careerId } = useParams();
-  const { getCourseById } = useCourses();
+  const { getCourseById, refreshCourse } = useCourses();
   const { videos: allDbVideos } = useVideos();
   const { user, isAuthenticated, isAdmin, toggleSaveRoadmap } = useAuth();
   const { toast } = useToast();
   const [, setLocation] = useLocation();
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [expandedStages, setExpandedStages] = useState({ 0: true });
+
+  const toggleStage = (idx) => {
+    setExpandedStages((prev) => ({
+      ...prev,
+      [idx]: !prev[idx],
+    }));
+  };
 
   const career = getCourseById(careerId);
+
+  useEffect(() => {
+    if (careerId && (isAdmin || isAuthenticated)) {
+      refreshCourse?.(careerId);
+    }
+  }, [careerId, isAdmin, isAuthenticated, refreshCourse]);
 
   const attachedVideos = Array.isArray(career?.videos) && career.videos.length > 0
     ? career.videos
@@ -81,6 +109,13 @@ export default function RoadmapDetail() {
   const roadmapVideos = attachedVideos.length > 0 ? attachedVideos : dbVideos;
 
   const isSaved = Array.isArray(user?.savedRoadmaps) && user.savedRoadmaps.includes(careerId);
+  const isPurchased =
+    isAdmin ||
+    (Array.isArray(user?.purchasedRoadmaps) &&
+      careerId &&
+      user.purchasedRoadmaps.some(
+        (id) => id.toLowerCase() === careerId.toLowerCase()
+      ));
 
   const handleSaveRoadmap = async () => {
     if (!isAuthenticated) {
@@ -149,6 +184,17 @@ export default function RoadmapDetail() {
           </Link>
 
           <div className="flex items-center gap-2">
+            {isPurchased && (
+              <Button
+                size="sm"
+                onClick={() => window.dispatchEvent(new CustomEvent("growvia:open-chat"))}
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs rounded-xl shadow-md shadow-emerald-600/25 flex items-center gap-1.5 transition-all cursor-pointer"
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                Ask AI Advisor
+              </Button>
+            )}
+
             <Button
               variant="outline"
               size="sm"
@@ -189,8 +235,19 @@ export default function RoadmapDetail() {
             <CareerIcon icon={career.icon} size={38} />
           </div>
           <div>
-            <div className="text-sm text-primary font-semibold mb-1 uppercase tracking-widest">
-              {career.category}
+            <div className="flex items-center gap-2 mb-1 flex-wrap">
+              <span className="text-sm text-primary font-semibold uppercase tracking-widest">
+                {career.category}
+              </span>
+              {isPurchased ? (
+                <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3" /> Roadmap Unlocked · AI Advisor Active
+                </span>
+              ) : (
+                <span className="text-[10px] uppercase font-medium tracking-wider px-2 py-0.5 rounded-full bg-white/5 text-slate-400 border border-white/10 flex items-center gap-1">
+                  <Lock className="w-2.5 h-2.5" /> AI Advisor with Purchase
+                </span>
+              )}
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">
               {career.title}
@@ -247,24 +304,475 @@ export default function RoadmapDetail() {
             </div>
           ) : (
             <div className="space-y-4 relative before:absolute before:left-5 before:top-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
-              {timeline.map((step, i) => (
-                <div key={i} className="relative flex items-start gap-5 pl-14">
-                  <div className="absolute left-0 w-10 h-10 rounded-full border border-primary/40 bg-card flex items-center justify-center text-primary text-sm font-bold shadow z-10">
-                    {i + 1}
-                  </div>
-                  <div className="glass-card p-5 rounded-xl flex-1 hover:border-primary/30 transition-colors">
-                    <div className="text-xs text-primary font-bold tracking-widest uppercase mb-1">
-                      {step.year}
+              {timeline.map((step, i) => {
+                const decisionPointsList = Array.isArray(step.decisionPoints)
+                  ? step.decisionPoints.map((dp) =>
+                      typeof dp === "string" ? { question: dp, options: [] } : dp
+                    )
+                  : step.decisionPoints && typeof step.decisionPoints === "object"
+                  ? [
+                      {
+                        question:
+                          step.decisionPoints.title ||
+                          step.decisionPoints.question ||
+                          "Path Decision",
+                        options: (step.decisionPoints.options || []).map((o) => ({
+                          choice: o.choice || o.name || o.title || "",
+                          pros:
+                            o.pros ||
+                            (o.prosCons
+                              ? o.prosCons
+                                  .split("Cons:")[0]
+                                  ?.replace("Pros:", "")
+                                  .trim()
+                              : ""),
+                          cons:
+                            o.cons ||
+                            (o.prosCons ? o.prosCons.split("Cons:")[1]?.trim() : ""),
+                          description: o.description || o.desc || "",
+                        })),
+                      },
+                    ]
+                  : [];
+
+                const statsList = Array.isArray(step.realWorldStats)
+                  ? step.realWorldStats
+                  : step.realWorldStats && typeof step.realWorldStats === "object"
+                  ? [
+                      step.realWorldStats.avgSalary && {
+                        label: "Average Compensation",
+                        value: step.realWorldStats.avgSalary,
+                      },
+                      step.realWorldStats.timelineToHire && {
+                        label: "Timeline to Placement / Hire",
+                        value: step.realWorldStats.timelineToHire,
+                      },
+                      step.realWorldStats.competitionRatio && {
+                        label: "Competition / Selection Ratio",
+                        value: step.realWorldStats.competitionRatio,
+                      },
+                    ].filter(Boolean)
+                  : [];
+
+                const hasRichContent = Boolean(
+                  (step.actionItems && step.actionItems.length > 0) ||
+                  (step.resources && step.resources.length > 0) ||
+                  (step.investment && (step.investment.time || step.investment.cost || step.investment.difficulty)) ||
+                  Boolean(step.checkpoint) ||
+                  decisionPointsList.length > 0 ||
+                  step.warning ||
+                  step.fallbackPlan ||
+                  statsList.length > 0
+                );
+                const isExpanded = Boolean(expandedStages[i]);
+
+                return (
+                  <div key={i} className="relative flex items-start gap-5 pl-14">
+                    <div className="absolute left-0 w-10 h-10 rounded-full border border-primary/40 bg-card flex items-center justify-center text-primary text-sm font-bold shadow z-10">
+                      {i + 1}
                     </div>
-                    <h4 className="text-base font-bold text-white mb-1">
-                      {step.title}
-                    </h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {step.desc}
-                    </p>
+                    <div className="glass-card p-5 rounded-xl flex-1 hover:border-primary/30 transition-colors">
+                      {/* 1. Bold Heading (e.g. "CLASS 11-12") */}
+                      <div className="text-xs text-primary font-bold tracking-widest uppercase mb-1">
+                        {step.year || `Stage ${i + 1}`}
+                      </div>
+
+                      {/* 2. Bold Subtitle Line (e.g. "Any Stream") */}
+                      <h4 className="text-base font-bold text-white mb-1">
+                        {step.title || ""}
+                      </h4>
+
+                      {/* 3. Regular-weight one-line description */}
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {step.desc || ""}
+                      </p>
+
+                      {/* ── PAID TIER: EXPANDABLE STAGE DEEP DIVE ── */}
+                      {isPurchased ? (
+                        hasRichContent && (
+                          <div className="mt-3.5 pt-3 border-t border-white/5 space-y-2.5">
+                            <div className="flex items-center">
+                              <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 inline-flex items-center gap-1">
+                                <Sparkles className="w-2.5 h-2.5" /> Stage Guide Available
+                              </span>
+                            </div>
+
+                            <button
+                              type="button"
+                              onClick={() => toggleStage(i)}
+                              className="flex items-center justify-between w-full px-3.5 py-2.5 rounded-lg bg-primary/10 hover:bg-primary/15 border border-primary/25 text-xs font-semibold text-primary transition-all group"
+                            >
+                              <span className="flex items-center gap-2">
+                                <Sparkles className="w-3.5 h-3.5 text-primary" />
+                                {isExpanded
+                                  ? "Hide Detailed Stage Guide"
+                                  : "View Detailed Stage Guide & Resources"}
+                              </span>
+                              <span className="text-[11px] opacity-80 group-hover:opacity-100 flex items-center gap-1 font-normal">
+                                {isExpanded ? (
+                                  <>
+                                    Collapse <ChevronUp className="w-3.5 h-3.5" />
+                                  </>
+                                ) : (
+                                  <>
+                                    Expand Guide <ChevronDown className="w-3.5 h-3.5" />
+                                  </>
+                                )}
+                              </span>
+                            </button>
+
+                            <AnimatePresence>
+                              {isExpanded && (
+                                <motion.div
+                                  initial={{ opacity: 0, height: 0 }}
+                                  animate={{ opacity: 1, height: "auto" }}
+                                  exit={{ opacity: 0, height: 0 }}
+                                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                                  className="overflow-hidden"
+                                >
+                                  <div className="pt-4 space-y-4">
+                                    {/* 1. Time & Cost Investment */}
+                                    {step.investment &&
+                                      (step.investment.time || step.investment.cost || step.investment.difficulty) && (
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+                                          {step.investment.time && (
+                                            <div className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/10 text-xs">
+                                              <Clock className="w-4 h-4 text-sky-400 flex-shrink-0" />
+                                              <div>
+                                                <span className="text-muted-foreground block text-[10px] uppercase font-semibold">
+                                                  Estimated Time
+                                                </span>
+                                                <span className="text-white font-medium">
+                                                  {step.investment.time}
+                                                </span>
+                                              </div>
+                                            </div>
+                                          )}
+                                          {step.investment.cost && (
+                                            <div className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/10 text-xs">
+                                              <IndianRupee className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                                              <div>
+                                                <span className="text-muted-foreground block text-[10px] uppercase font-semibold">
+                                                  Expected Cost
+                                                </span>
+                                                <span className="text-white font-medium">
+                                                  {step.investment.cost}
+                                                </span>
+                                              </div>
+                                            </div>
+                                          )}
+                                          {step.investment.difficulty && (
+                                            <div className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/10 text-xs sm:col-span-2 lg:col-span-1">
+                                              <Target className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                                              <div>
+                                                <span className="text-muted-foreground block text-[10px] uppercase font-semibold">
+                                                  Stage Difficulty
+                                                </span>
+                                                <span className="text-white font-medium">
+                                                  {step.investment.difficulty}
+                                                </span>
+                                              </div>
+                                            </div>
+                                          )}
+                                        </div>
+                                      )}
+
+                                    {/* 2. Key Action Items & Exercises */}
+                                    {step.actionItems && step.actionItems.length > 0 && (
+                                      <div className="space-y-2">
+                                        <h5 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                                          Key Action Items &amp; Practical Exercises
+                                        </h5>
+                                        <div className="space-y-2">
+                                          {step.actionItems.map((item, aIdx) => (
+                                            <div
+                                              key={aIdx}
+                                              className="p-3 rounded-lg bg-white/[0.02] border border-white/10 hover:border-white/20 transition-colors"
+                                            >
+                                              <div className="text-xs font-semibold text-white flex items-start gap-2.5">
+                                                <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px] font-bold mt-0.5 flex-shrink-0">
+                                                  {aIdx + 1}
+                                                </span>
+                                                <span>{typeof item === "string" ? item : item.task || item.title || ""}</span>
+                                              </div>
+                                              {typeof item === "object" && item.detail && (
+                                                <p className="text-xs text-muted-foreground mt-1.5 pl-6 leading-relaxed">
+                                                  {item.detail}
+                                                </p>
+                                              )}
+                                            </div>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    )}
+
+                                    {/* 3. Helpful Resources */}
+                                    {step.resources && step.resources.length > 0 && (
+                                      <div className="space-y-2">
+                                        <h5 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                                          <BookOpen className="w-3.5 h-3.5 text-sky-400" />
+                                          Curated Stage Resources &amp; Tools
+                                        </h5>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                          {step.resources.map((res, rIdx) => {
+                                            const rName = res.name || res.title || "Resource";
+                                            const rType = (res.type || "course").toLowerCase();
+                                            const rNote = res.note || res.notes || "";
+                                            const rUrl = res.url || res.link || "";
+
+                                            return (
+                                              <div
+                                                key={rIdx}
+                                                className="p-3 rounded-lg bg-white/[0.02] border border-white/10 hover:border-primary/30 transition-colors flex flex-col justify-between"
+                                              >
+                                                <div>
+                                                  <div className="flex items-center justify-between gap-2 mb-1.5">
+                                                    <span
+                                                      className={`text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded border ${
+                                                        RESOURCE_TYPE_STYLES[rType] ||
+                                                        RESOURCE_TYPE_STYLES.other
+                                                      }`}
+                                                    >
+                                                      {rType}
+                                                    </span>
+                                                    {rUrl && (
+                                                      <a
+                                                        href={rUrl}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="text-primary hover:text-primary/80 transition-colors"
+                                                        title="Open resource"
+                                                      >
+                                                        <ExternalLink className="w-3.5 h-3.5" />
+                                                      </a>
+                                                    )}
+                                                  </div>
+                                                  <div className="text-xs font-bold text-white mb-1">
+                                                    {rName}
+                                                  </div>
+                                                  {rNote && (
+                                                    <p className="text-[11px] text-muted-foreground leading-relaxed">
+                                                      {rNote}
+                                                    </p>
+                                                  )}
+                                                </div>
+                                                {rUrl && (
+                                                  <div className="mt-2.5 pt-2 border-t border-white/5">
+                                                    <a
+                                                      href={rUrl}
+                                                      target="_blank"
+                                                      rel="noopener noreferrer"
+                                                      className="text-[11px] text-primary hover:underline font-medium inline-flex items-center gap-1"
+                                                    >
+                                                      Open Link <ExternalLink className="w-3 h-3" />
+                                                    </a>
+                                                  </div>
+                                                )}
+                                              </div>
+                                            );
+                                          })}
+                                        </div>
+                                      </div>
+                                    )}
+
+                                    {/* 4. Milestone Readiness Checkpoint */}
+                                    {step.checkpoint && (
+                                      <div className="p-3.5 rounded-xl bg-emerald-500/[0.04] border border-emerald-500/20 space-y-2">
+                                        <div className="text-xs font-bold text-emerald-400 flex items-center gap-1.5 uppercase tracking-wider">
+                                          <Target className="w-3.5 h-3.5 text-emerald-400" />
+                                          Milestone Readiness Checkpoint
+                                        </div>
+                                        {typeof step.checkpoint === "string" ? (
+                                          <div className="text-xs text-slate-300 leading-relaxed">
+                                            <strong className="text-white font-semibold">Requirement: </strong>
+                                            {step.checkpoint}
+                                          </div>
+                                        ) : (
+                                          <>
+                                            {step.checkpoint.criteria && (
+                                              <div className="text-xs text-slate-300 leading-relaxed">
+                                                <strong className="text-white font-semibold">
+                                                  Ready to advance when:
+                                                </strong>
+                                                {Array.isArray(step.checkpoint.criteria) ? (
+                                                  <ul className="list-disc list-inside space-y-1 mt-1 pl-1 text-slate-300">
+                                                    {step.checkpoint.criteria.map((c, cIdx) => (
+                                                      <li key={cIdx}>{c}</li>
+                                                    ))}
+                                                  </ul>
+                                                ) : (
+                                                  <span className="ml-1.5">{step.checkpoint.criteria}</span>
+                                                )}
+                                              </div>
+                                            )}
+                                            {step.checkpoint.deliverable && (
+                                              <div className="text-xs text-slate-300 leading-relaxed pt-1">
+                                                <strong className="text-emerald-300 font-semibold">
+                                                  Core Deliverable / Proof of Work:{" "}
+                                                </strong>
+                                                {step.checkpoint.deliverable}
+                                              </div>
+                                            )}
+                                          </>
+                                        )}
+                                      </div>
+                                    )}
+
+                                    {/* 5. Branching & Decision Points */}
+                                    {decisionPointsList.length > 0 && (
+                                      <div className="space-y-2">
+                                        <h5 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                                          <GitBranch className="w-3.5 h-3.5 text-purple-400" />
+                                          Branching Options &amp; Path Decisions
+                                        </h5>
+                                        <div className="space-y-3">
+                                          {decisionPointsList.map((dp, dpIdx) => (
+                                            <div
+                                              key={dpIdx}
+                                              className="p-3.5 rounded-xl bg-purple-500/[0.04] border border-purple-500/20 space-y-2.5"
+                                            >
+                                              <div className="text-xs font-bold text-white flex items-center gap-1.5">
+                                                <span className="text-purple-400 font-semibold">
+                                                  Decision:
+                                                </span>{" "}
+                                                {dp.question}
+                                              </div>
+                                              {dp.options && dp.options.length > 0 && (
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                                                  {dp.options.map((opt, oIdx) => (
+                                                    <div
+                                                      key={oIdx}
+                                                      className="p-2.5 rounded-lg bg-black/40 border border-white/5 space-y-1.5"
+                                                    >
+                                                      <div className="text-xs font-bold text-purple-300">
+                                                        {opt.choice}
+                                                      </div>
+                                                      {opt.description && (
+                                                        <p className="text-[11px] text-muted-foreground leading-snug">
+                                                          {opt.description}
+                                                        </p>
+                                                      )}
+                                                      {opt.pros && (
+                                                        <div className="text-[11px] text-emerald-300 leading-snug">
+                                                          <span className="font-semibold text-emerald-400">
+                                                            ✓ Pros:{" "}
+                                                          </span>
+                                                          {opt.pros}
+                                                        </div>
+                                                      )}
+                                                      {opt.cons && (
+                                                        <div className="text-[11px] text-amber-300 leading-snug">
+                                                          <span className="font-semibold text-amber-400">
+                                                            ⚠ Cons:{" "}
+                                                          </span>
+                                                          {opt.cons}
+                                                        </div>
+                                                      )}
+                                                    </div>
+                                                  ))}
+                                                </div>
+                                              )}
+                                            </div>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    )}
+
+                                    {/* 6. Common Pitfalls & Mistakes */}
+                                    {step.warning && (
+                                      <div className="p-3.5 rounded-xl bg-amber-500/[0.06] border border-amber-500/25 flex items-start gap-2.5">
+                                        <AlertTriangle className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                                        <div className="text-xs space-y-1">
+                                          <span className="font-bold text-amber-300 block uppercase tracking-wider text-[10px]">
+                                            Common Pitfalls to Avoid
+                                          </span>
+                                          <p className="text-slate-300 leading-relaxed">
+                                            {step.warning}
+                                          </p>
+                                        </div>
+                                      </div>
+                                    )}
+
+                                    {/* 7. Fallback & Backup Plan */}
+                                    {step.fallbackPlan && (
+                                      <div className="p-3.5 rounded-xl bg-indigo-500/[0.05] border border-indigo-500/20 flex items-start gap-2.5">
+                                        <ShieldAlert className="w-4 h-4 text-indigo-400 flex-shrink-0 mt-0.5" />
+                                        <div className="text-xs space-y-1">
+                                          <span className="font-bold text-indigo-300 block uppercase tracking-wider text-[10px]">
+                                            Fallback &amp; Pivot Strategy (If Stuck or Overwhelmed)
+                                          </span>
+                                          <p className="text-slate-300 leading-relaxed">
+                                            {step.fallbackPlan}
+                                          </p>
+                                        </div>
+                                      </div>
+                                    )}
+
+                                    {/* 8. Real-World Data Points & Benchmarks */}
+                                    {statsList.length > 0 && (
+                                      <div className="space-y-2">
+                                        <h5 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                                          <TrendingUp className="w-3.5 h-3.5 text-primary" />
+                                          Real-World Stage Benchmarks
+                                        </h5>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                                          {statsList.map((stat, sIdx) => (
+                                            <div
+                                              key={sIdx}
+                                              className="p-2.5 rounded-lg bg-white/[0.02] border border-white/10"
+                                            >
+                                              <div className="text-[10px] uppercase font-semibold text-muted-foreground">
+                                                {stat.label}
+                                              </div>
+                                              <div className="text-sm font-bold text-white mt-0.5">
+                                                {stat.value}
+                                              </div>
+                                              {stat.context && (
+                                                <div className="text-[11px] text-slate-400 mt-0.5 leading-tight">
+                                                  {stat.context}
+                                                </div>
+                                              )}
+                                            </div>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    )}
+                                  </div>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        )
+                      ) : (
+                        /* ── FREE TIER: LOCKED TEASER PREVIEW ── */
+                        <div className="mt-3.5 p-3 rounded-lg bg-white/[0.02] border border-dashed border-white/15 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                          <div className="flex items-center gap-2.5 text-muted-foreground">
+                            <div className="w-6 h-6 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 flex-shrink-0">
+                              <Lock className="w-3 h-3 text-primary/70" />
+                            </div>
+                            <span className="leading-snug">
+                              <strong className="text-white font-medium">
+                                Detailed Stage Guide &amp; Resources Locked:
+                              </strong>{" "}
+                              Exercises, curated tools, milestone checkpoints &amp; salary benchmarks unlocked in full roadmap.
+                            </span>
+                          </div>
+                          <Button
+                            asChild
+                            size="sm"
+                            className="bg-primary/20 hover:bg-primary/30 text-primary border border-primary/30 text-xs h-7 px-3 flex-shrink-0"
+                          >
+                            <Link href={`/pricing?career=${career.id}`}>
+                              <Sparkles className="w-3 h-3 mr-1.5" /> Unlock Guide
+                            </Link>
+                          </Button>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
         </motion.section>
@@ -739,37 +1247,66 @@ export default function RoadmapDetail() {
           </motion.section>
         )}
 
-        {/* ── PREMIUM TEASER ─────────────────────────────────────── */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="relative overflow-hidden rounded-2xl p-8 bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 text-center"
-        >
-          <Lock className="w-10 h-10 text-primary mx-auto mb-4" />
-          <h3 className="text-2xl font-bold text-white mb-2">
-            Want the Complete Roadmap?
-          </h3>
-          <p className="text-muted-foreground mb-6 max-w-lg mx-auto text-sm">
-            Unlock printable step-by-step guides, curated resource lists,
-            preparation strategies, and personalised tips — all for just ₹99.
-          </p>
-          <Button
-            asChild
-            className="bg-primary text-primary-foreground font-bold rounded-full px-8"
+        {/* ── UNLOCKED BANNER OR PREMIUM TEASER ──────────────────── */}
+        {isPurchased ? (
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-2xl p-8 bg-gradient-to-br from-emerald-950/40 via-card to-teal-950/20 border border-emerald-500/30 text-center shadow-xl shadow-emerald-500/5"
           >
-            <Link
-              href={
-                isAuthenticated
-                  ? `/pricing?career=${career.id}`
-                  : `/login?redirect=${encodeURIComponent(`/pricing?career=${career.id}`)}`
-              }
+            <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mx-auto mb-4">
+              <Sparkles className="w-6 h-6" />
+            </div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-2">
+              <CheckCircle2 className="w-3.5 h-3.5" /> Lifetime Access Active
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-2">
+              {career.title} Roadmap is Unlocked
+            </h3>
+            <p className="text-muted-foreground mb-6 max-w-lg mx-auto text-sm leading-relaxed">
+              Your full step-by-step curriculum and dedicated 24/7 AI Career Advisor are active. Ask specific questions about colleges, milestones, or study plans anytime.
+            </p>
+            <Button
+              onClick={() => window.dispatchEvent(new CustomEvent("growvia:open-chat"))}
+              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-full px-8 shadow-lg shadow-emerald-600/25 cursor-pointer"
             >
-              Unlock for ₹99
-            </Link>
-          </Button>
-        </motion.div>
+              <Sparkles className="w-4 h-4 mr-2" /> Chat with AI Advisor
+            </Button>
+          </motion.div>
+        ) : (
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-2xl p-8 bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 text-center"
+          >
+            <Lock className="w-10 h-10 text-primary mx-auto mb-4" />
+            <h3 className="text-2xl font-bold text-white mb-2">
+              Want the Complete Roadmap & AI Advisor?
+            </h3>
+            <p className="text-muted-foreground mb-6 max-w-lg mx-auto text-sm">
+              Unlock printable step-by-step guides, curated resource lists,
+              preparation strategies, and your dedicated 24/7 AI Career Advisor — all for just ₹99.
+            </p>
+            <Button
+              asChild
+              className="bg-primary text-primary-foreground font-bold rounded-full px-8"
+            >
+              <Link
+                href={
+                  isAuthenticated
+                    ? `/pricing?career=${career.id}`
+                    : `/login?redirect=${encodeURIComponent(`/pricing?career=${career.id}`)}`
+                }
+              >
+                Unlock for ₹99
+              </Link>
+            </Button>
+          </motion.div>
+        )}
       </div>
 
       {/* Video Player / Paid Unlock Modal */}

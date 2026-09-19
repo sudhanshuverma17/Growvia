@@ -1,9 +1,49 @@
 import mongoose from "mongoose";
 
+const stageActionItemSchema = new mongoose.Schema({
+  task: { type: String, default: "" },
+  detail: { type: String, default: "" },
+}, { _id: false });
+
+const stageResourceSchema = new mongoose.Schema({
+  title: { type: String, default: "" },
+  name: { type: String, default: "" },
+  type: { type: String, default: "Course" },
+  url: { type: String, default: "" },
+  notes: { type: String, default: "" },
+  note: { type: String, default: "" },
+}, { _id: false });
+
+const stageBranchOptionSchema = new mongoose.Schema({
+  name: { type: String, default: "" },
+  choice: { type: String, default: "" },
+  description: { type: String, default: "" },
+  prosCons: { type: String, default: "" },
+  pros: { type: String, default: "" },
+  cons: { type: String, default: "" },
+}, { _id: false });
+
+const stageRealWorldStatSchema = new mongoose.Schema({
+  label: { type: String, default: "" },
+  value: { type: String, default: "" },
+  context: { type: String, default: "" },
+}, { _id: false });
+
 const timelineStageSchema = new mongoose.Schema({
+  // Base fields (Visible to free & paid users)
   year: { type: String, required: true },
   title: { type: String, required: true },
   desc: { type: String, default: "" },
+
+  // Tiered rich fields (Visible to paid / unlocked users)
+  actionItems: { type: mongoose.Schema.Types.Mixed, default: [] },
+  resources: { type: mongoose.Schema.Types.Mixed, default: [] },
+  investment: { type: mongoose.Schema.Types.Mixed, default: {} },
+  checkpoint: { type: mongoose.Schema.Types.Mixed, default: "" },
+  decisionPoints: { type: mongoose.Schema.Types.Mixed, default: [] },
+  fallbackPlan: { type: String, default: "" },
+  warning: { type: String, default: "" },
+  realWorldStats: { type: mongoose.Schema.Types.Mixed, default: {} },
 }, { _id: false });
 
 const relatedCourseSchema = new mongoose.Schema({

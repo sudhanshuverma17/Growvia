@@ -153,10 +153,16 @@ export function getChatModel() {
  * Builds the LangChain message payload from system prompt, conversation history, and latest input.
  * @param {string} userMessage - Latest user question
  * @param {Array<{role: string, content: string}>} history - Previous messages
+ * @param {string|null} careerContext - Optional purchased roadmap identifier/name for tailored guidance
  * @returns {Array<SystemMessage|HumanMessage|AIMessage>}
  */
-export function buildMessageHistory(userMessage, history = []) {
-  const messages = [new SystemMessage(SYSTEM_PROMPT)];
+export function buildMessageHistory(userMessage, history = [], careerContext = null) {
+  let systemText = SYSTEM_PROMPT;
+  if (careerContext && typeof careerContext === "string" && careerContext.trim()) {
+    systemText += `\n\n### ACTIVE PURCHASED ROADMAP CONTEXT:\nThe student has unlocked and is currently viewing their purchased roadmap for: **${careerContext.trim()}**.\nWhen relevant, provide targeted advice, milestones, study frameworks, college benchmarks, and skill recommendations tailored specifically to support their success in this career path.`;
+  }
+
+  const messages = [new SystemMessage(systemText)];
 
   // Add the last 12 history turns for contextual session memory without exceeding context limits
   const recentHistory = history.slice(-12);

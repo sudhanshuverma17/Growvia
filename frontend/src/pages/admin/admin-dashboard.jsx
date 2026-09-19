@@ -15,7 +15,6 @@ import {
   ExternalLink,
   BookOpen,
   Milestone,
-  RotateCcw,
   Sparkles,
   Layers,
   ArrowRight,
@@ -26,7 +25,7 @@ import {
 } from "lucide-react";
 
 export default function AdminDashboard() {
-  const { courses, deleteCourse, resetToDefault } = useCourses();
+  const { courses, deleteCourse } = useCourses();
   const { videos } = useVideos();
   const [, setLocation] = useLocation();
   const [search, setSearch] = useState("");
@@ -82,16 +81,6 @@ export default function AdminDashboard() {
     }
   };
 
-  const handleReset = async () => {
-    if (
-      window.confirm(
-        "Are you sure you want to reset all courses and roadmaps back to the initial defaults? Any custom added roadmaps will be removed."
-      )
-    ) {
-      await resetToDefault();
-    }
-  };
-
   return (
     <Layout>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -120,17 +109,6 @@ export default function AdminDashboard() {
                 <VideoIcon className="w-4 h-4 mr-2" />
                 Manage Videos ({videos.length})
               </Link>
-            </Button>
-
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleReset}
-              className="border-white/15 text-muted-foreground hover:text-white hover:border-white/30 text-xs rounded-xl h-10"
-              title="Reset all courses to initial defaults"
-            >
-              <RotateCcw className="w-3.5 h-3.5 mr-1.5" />
-              Reset Defaults
             </Button>
 
             <Button
