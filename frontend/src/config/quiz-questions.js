@@ -491,3 +491,79 @@ export const QUIZ_QUESTIONS = [
     ],
   },
 ];
+
+/**
+ * Performs an unbiased Fisher-Yates (Knuth) shuffle on an array without mutating the original.
+ * @param {Array<T>} array
+ * @returns {Array<T>} A new shuffled array
+ */
+export function shuffleArray(array) {
+  if (!Array.isArray(array) || array.length <= 1) {
+    return Array.isArray(array) ? [...array] : [];
+  }
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+/**
+ * Generates an independent randomized option order map for each question in the quiz.
+ * Maps questionId -> array of optionIds in their shuffled display order.
+ * @param {Array} questions
+ * @returns {Record<string, string[]>}
+ */
+export function generateQuizOptionOrder(questions = QUIZ_QUESTIONS) {
+  const orderMap = {};
+  questions.forEach((q) => {
+    if (Array.isArray(q.options) && q.options.length > 1) {
+      const shuffledOptions = shuffleArray(q.options);
+      orderMap[q.id] = shuffledOptions.map((opt) => opt.id);
+    }
+  });
+  return orderMap;
+}
+
+/**
+ * Reorders each question's options according to an option order map.
+ * Ensures underlying option objects (and their score mappings) are preserved intact.
+ * @param {Array} questions - Original or cloned question array
+ * @param {Record<string, string[]>} orderMap - Map of questionId -> ordered array of optionIds
+ * @returns {Array} New questions array with options reordered according to the orderMap
+ */
+export function applyQuizOptionOrder(questions = QUIZ_QUESTIONS, orderMap = {}) {
+  if (!Array.isArray(questions)) return [];
+  if (!orderMap || typeof orderMap !== "object" || Object.keys(orderMap).length === 0) {
+    return questions;
+  }
+
+  return questions.map((q) => {
+    if (!Array.isArray(q.options) || !orderMap[q.id]) {
+      return q;
+    }
+
+    const savedOrder = orderMap[q.id];
+    const optionMap = new Map(q.options.map((opt) => [opt.id, opt]));
+
+    // Place options in the specified order
+    const reordered = [];
+    savedOrder.forEach((optId) => {
+      if (optionMap.has(optId)) {
+        reordered.push(optionMap.get(optId));
+        optionMap.delete(optId);
+      }
+    });
+
+    // Safety fallback: append any options that weren't present in savedOrder
+    optionMap.forEach((opt) => {
+      reordered.push(opt);
+    });
+
+    return {
+      ...q,
+      options: reordered,
+    };
+  });
+}

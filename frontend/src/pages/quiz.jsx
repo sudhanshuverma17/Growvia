@@ -5,7 +5,11 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/context/auth-context";
 import { apiUrl } from "@/lib/api-config";
-import { QUIZ_QUESTIONS } from "@/config/quiz-questions";
+import {
+  QUIZ_QUESTIONS,
+  generateQuizOptionOrder,
+  applyQuizOptionOrder,
+} from "@/config/quiz-questions";
 import { QuizProgress } from "@/components/quiz/QuizProgress";
 import { QuestionRenderer } from "@/components/quiz/QuestionRenderer";
 import { QuizLoading } from "@/components/quiz/QuizLoading";
@@ -22,12 +26,41 @@ import {
 
 const STORAGE_KEY = "growvia_quiz_answers_v1";
 const RESULT_STORAGE_KEY = "growvia_last_quiz_result";
+const SHUFFLE_ORDER_KEY = "growvia_quiz_option_order_v1";
 
 export default function Quiz() {
   const { token, isAuthenticated, loading: authLoading } = useAuth();
   const { toast } = useToast();
 
   const [currentStep, setCurrentStep] = useState(0);
+  const [questions, setQuestions] = useState(() => {
+    try {
+      const savedOrder =
+        sessionStorage.getItem(SHUFFLE_ORDER_KEY) ||
+        localStorage.getItem(SHUFFLE_ORDER_KEY);
+
+      if (savedOrder) {
+        const parsedOrder = JSON.parse(savedOrder);
+        if (parsedOrder && typeof parsedOrder === "object" && Object.keys(parsedOrder).length > 0) {
+          return applyQuizOptionOrder(QUIZ_QUESTIONS, parsedOrder);
+        }
+      }
+    } catch {
+      // Fallback on storage read error
+    }
+
+    // Generate fresh randomized option order per question for this quiz session
+    const freshOrder = generateQuizOptionOrder(QUIZ_QUESTIONS);
+    try {
+      const serialized = JSON.stringify(freshOrder);
+      sessionStorage.setItem(SHUFFLE_ORDER_KEY, serialized);
+      localStorage.setItem(SHUFFLE_ORDER_KEY, serialized);
+    } catch {
+      // Ignore storage write error
+    }
+    return applyQuizOptionOrder(QUIZ_QUESTIONS, freshOrder);
+  });
+
   const [answers, setAnswers] = useState(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
@@ -117,8 +150,8 @@ export default function Quiz() {
     }
   }, [answers]);
 
-  const currentQuestion = QUIZ_QUESTIONS[currentStep];
-  const totalSteps = QUIZ_QUESTIONS.length;
+  const currentQuestion = questions[currentStep] || QUIZ_QUESTIONS[0];
+  const totalSteps = questions.length;
   const isLastQuestion = currentStep === totalSteps - 1;
 
   // Answer validation for current question
@@ -443,6 +476,8 @@ const generateClientFallbackResult = (userAnswers = {}) => {
         localStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify(assessmentData));
         sessionStorage.setItem(RESULT_STORAGE_KEY, JSON.stringify(assessmentData));
         localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(SHUFFLE_ORDER_KEY);
+        sessionStorage.removeItem(SHUFFLE_ORDER_KEY);
       } catch {
         // Ignore storage errors
       }
@@ -469,9 +504,23 @@ const generateClientFallbackResult = (userAnswers = {}) => {
       localStorage.removeItem(STORAGE_KEY);
       localStorage.removeItem(RESULT_STORAGE_KEY);
       sessionStorage.removeItem(RESULT_STORAGE_KEY);
+      localStorage.removeItem(SHUFFLE_ORDER_KEY);
+      sessionStorage.removeItem(SHUFFLE_ORDER_KEY);
     } catch {
       // Ignore
     }
+
+    // Generate a fresh shuffle for the new quiz session
+    const freshOrder = generateQuizOptionOrder(QUIZ_QUESTIONS);
+    try {
+      const serialized = JSON.stringify(freshOrder);
+      sessionStorage.setItem(SHUFFLE_ORDER_KEY, serialized);
+      localStorage.setItem(SHUFFLE_ORDER_KEY, serialized);
+    } catch {
+      // Ignore
+    }
+    setQuestions(applyQuizOptionOrder(QUIZ_QUESTIONS, freshOrder));
+
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
