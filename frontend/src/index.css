@@ -327,4 +327,18 @@
   .section-tag {
     @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03];
   }
+
+  /* Cashfree Dropin container sizing - display all payment methods without inner scrolling */
+  #cf_checkout_mount {
+    width: 100% !important;
+    min-height: 660px !important;
+  }
+
+  #cf_checkout_mount iframe {
+    width: 100% !important;
+    min-height: 660px !important;
+    height: 660px !important;
+    border: none !important;
+  }
 }
+

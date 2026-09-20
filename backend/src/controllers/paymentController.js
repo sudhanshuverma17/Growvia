@@ -91,6 +91,7 @@ export const createOrder = async (req, res) => {
       frontendBaseUrl = clientOrigin;
     }
 
+    // Direct Cashfree return_url back to /pricing on the same tab where the user clicked unlock
     const returnUrl = `${frontendBaseUrl}/pricing?order_id={order_id}&career=${encodeURIComponent(careerId)}`;
 
     const orderMeta = {
@@ -461,4 +462,90 @@ export const handleCashfreeWebhook = async (req, res) => {
       error: error.message,
     });
   }
+};
+
+// @desc    Handle Cashfree return_url callback, auto-close popup window, and sync with parent window
+// @route   GET /api/payment/callback
+// @access  Public (Called by Cashfree post-payment redirection)
+export const paymentCallback = async (req, res) => {
+  const { order_id, career } = req.query;
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Payment Completed - Growvia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #0b0f17;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      border-top-color: #38bdf8;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    h2 { margin: 0 0 8px; font-size: 18px; color: #fff; font-weight: 600; }
+    p { margin: 0; font-size: 13px; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <div class="spinner"></div>
+  <h2>Payment Processed</h2>
+  <p>Returning to your Growvia session...</p>
+  <script>
+    (function() {
+      const orderId = ${JSON.stringify(order_id || "")};
+      const career = ${JSON.stringify(career || "")};
+
+      // 1. Broadcast success through localStorage for cross-window sync
+      try {
+        localStorage.setItem("growvia_cf_payment_event", JSON.stringify({
+          type: "GROWVIA_PAYMENT_SUCCESS",
+          orderId: orderId,
+          careerId: career,
+          timestamp: Date.now()
+        }));
+      } catch (e) {}
+
+      // 2. If opened in a popup window, post message to parent window and close this window immediately!
+      if (window.opener && !window.opener.closed) {
+        try {
+          window.opener.postMessage({
+            type: "GROWVIA_PAYMENT_SUCCESS",
+            orderId: orderId,
+            careerId: career
+          }, "*");
+        } catch (e) {}
+
+        setTimeout(function() {
+          window.close();
+        }, 150);
+      } else {
+        // Fallback for same-window navigation (mobile or full redirect)
+        window.location.replace("/pricing?order_id=" + encodeURIComponent(orderId) + "&career=" + encodeURIComponent(career));
+      }
+    })();
+  </script>
+</body>
+</html>`;
+
+  res.setHeader("Content-Type", "text/html");
+  return res.status(200).send(html);
 };

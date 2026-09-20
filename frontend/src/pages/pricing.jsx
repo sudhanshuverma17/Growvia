@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Check, ChevronRight, Zap, ShieldCheck, Loader2, Sparkles } from "lucide-react";
+import { Check, ChevronRight, Loader2 } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { Button } from "@/components/ui/button";
 import { careers, pricingFeatures } from "@/lib/mock-data";
@@ -77,12 +77,23 @@ export default function Pricing() {
   // Helper to verify payment with backend and fulfill user access
   const verifyAndFulfill = async (orderId, careerId) => {
     setLoadingPayment(true);
+    const activeToken = token || (typeof window !== "undefined" ? localStorage.getItem("growvia_token") : null);
+    if (!activeToken) {
+      toast({
+        title: "Session Expired",
+        description: "Please log in to finalize your purchase confirmation.",
+        variant: "destructive",
+      });
+      setLoadingPayment(false);
+      return;
+    }
+
     try {
       const verifyRes = await fetch(apiUrl("/api/payment/verify"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${activeToken}`,
         },
         body: JSON.stringify({
           orderId,
@@ -118,9 +129,49 @@ export default function Pricing() {
     }
   };
 
-  // Check for return redirect parameters (e.g. from return_url after 3DS authentication)
+  // 1. Cross-window listeners (postMessage & localStorage) when popup completes payment and self-closes
   useEffect(() => {
-    if (typeof window === "undefined" || !token) return;
+    if (typeof window === "undefined") return;
+
+    const handleSuccessEvent = (orderId, careerId) => {
+      if (!orderId) return;
+      verifyAndFulfill(orderId, careerId);
+    };
+
+    // A. postMessage listener from popup window
+    const handlePostMessage = (event) => {
+      if (event.data && event.data.type === "GROWVIA_PAYMENT_SUCCESS") {
+        handleSuccessEvent(event.data.orderId, event.data.careerId);
+      }
+    };
+
+    // B. localStorage cross-window sync listener
+    const handleStorageEvent = (event) => {
+      if (event.key === "growvia_cf_payment_event" && event.newValue) {
+        try {
+          const payload = JSON.parse(event.newValue);
+          if (payload && payload.type === "GROWVIA_PAYMENT_SUCCESS") {
+            handleSuccessEvent(payload.orderId, payload.careerId);
+          }
+        } catch (e) {}
+      }
+    };
+
+    window.addEventListener("message", handlePostMessage);
+    window.addEventListener("storage", handleStorageEvent);
+
+    return () => {
+      window.removeEventListener("message", handlePostMessage);
+      window.removeEventListener("storage", handleStorageEvent);
+    };
+  }, [token]);
+
+  // 2. Check for return redirect parameters (e.g. from return_url after 3DS authentication)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const activeToken = token || localStorage.getItem("growvia_token");
+    if (!activeToken) return;
 
     const searchParams = new URLSearchParams(window.location.search);
     const orderIdFromUrl = searchParams.get("order_id");
@@ -185,25 +236,15 @@ export default function Pricing() {
         throw new Error("Cashfree Checkout SDK failed to load. Please check your internet connection.");
       }
 
-      // 4. Initialize Cashfree Drop-in SDK with environment mode returned by server (sandbox vs production)
+      // 4. Redirect on the SAME TAB where user clicked unlock (no extra window, no popup)
       const cashfree = window.Cashfree({
         mode: orderData.environment || "sandbox",
       });
 
-      const checkoutOptions = {
+      await cashfree.checkout({
         paymentSessionId: orderData.paymentSessionId,
-        redirectTarget: "_modal",
-      };
-
-      // 5. Open Cashfree Drop-in Modal
-      const checkoutResult = await cashfree.checkout(checkoutOptions);
-
-      if (checkoutResult?.error) {
-        throw new Error(checkoutResult.error.message || "Payment cancelled or failed.");
-      }
-
-      // 6. Modal completed: Verify payment status on backend
-      await verifyAndFulfill(orderData.orderId, selectedCareer);
+        redirectTarget: "_self", // Directly navigates the same tab where the user clicked unlock!
+      });
     } catch (err) {
       console.error("[Cashfree Checkout Error]:", err);
       toast({
@@ -237,8 +278,7 @@ export default function Pricing() {
               {/* Plan Header */}
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <Zap className="w-4 h-4 text-primary" />
+                  <div className="mb-1">
                     <span className="text-xs font-semibold text-primary uppercase tracking-widest">
                       Growvia Starter
                     </span>
