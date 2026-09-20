@@ -64,32 +64,31 @@ export const createOrder = async (req, res) => {
       ""
     ).trim().replace(/\/+$/, "");
 
-    // Dynamic, environment-aware frontend base URL:
-    // 1. If FRONTEND_URL is explicitly set in .env, use it
-    // 2. If browsing on localhost, use the active browser port (e.g. http://localhost:5000)
-    // 3. Fall back to CLIENT_URL or current server port
-    let frontendBaseUrl = (process.env.FRONTEND_URL || "").trim().replace(/\/+$/, "");
+    // Environment-aware frontend base URL resolution:
+    // 1. Highest priority: Explicitly configured FRONTEND_URL or CLIENT_URL in .env
+    const configuredUrl = (process.env.FRONTEND_URL || process.env.CLIENT_URL || "").trim().replace(/\/+$/, "");
+    const isLocal = (url) => !url || url.includes("localhost") || url.includes("127.0.0.1");
 
-    if (!frontendBaseUrl) {
-      if (clientOrigin && (clientOrigin.includes("localhost") || clientOrigin.includes("127.0.0.1"))) {
-        frontendBaseUrl = clientOrigin;
-      } else if (process.env.CLIENT_URL) {
-        frontendBaseUrl = process.env.CLIENT_URL.trim().replace(/\/+$/, "");
-      } else {
-        frontendBaseUrl = `http://localhost:${process.env.PORT || 5000}`;
-      }
-    }
+    let frontendBaseUrl = "";
 
-    // If configured frontendBaseUrl is on localhost (e.g. :3000) but the browser request arrived from another localhost port (e.g. :5000), align with the active browser port!
-    if (
-      clientOrigin &&
-      (clientOrigin.includes("localhost") || clientOrigin.includes("127.0.0.1")) &&
-      (frontendBaseUrl.includes("localhost") || frontendBaseUrl.includes("127.0.0.1")) &&
-      frontendBaseUrl !== clientOrigin
-    ) {
-      console.log(`🔄 [Cashfree PG]: Auto-adjusting return_url origin from ${frontendBaseUrl} to active browser origin ${clientOrigin}`);
+    if (configuredUrl && !isLocal(configuredUrl)) {
+      // Production domain configured in .env (e.g. https://growvia.com) -> ALWAYS respect it!
+      frontendBaseUrl = configuredUrl;
+    } else if (clientOrigin && !isLocal(clientOrigin)) {
+      // Request arrived from a remote production origin -> use it
       frontendBaseUrl = clientOrigin;
+    } else if (clientOrigin && isLocal(clientOrigin)) {
+      // Local development -> use active browser port
+      frontendBaseUrl = clientOrigin;
+    } else if (configuredUrl) {
+      // Local development with configured localhost
+      frontendBaseUrl = configuredUrl;
+    } else {
+      // Fallback
+      frontendBaseUrl = `http://localhost:${process.env.PORT || 5000}`;
     }
+
+    console.log(`🌐 [Cashfree PG]: Resolved return_url origin: ${frontendBaseUrl} (configured: "${configuredUrl}", clientOrigin: "${clientOrigin}")`);
 
     // Direct Cashfree return_url back to /pricing on the same tab where the user clicked unlock
     const returnUrl = `${frontendBaseUrl}/pricing?order_id={order_id}&career=${encodeURIComponent(careerId)}`;
