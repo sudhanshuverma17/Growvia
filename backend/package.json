@@ -7,9 +7,11 @@
   "scripts": {
     "start": "node src/server.js",
     "build": "echo \"Backend ready\"",
-    "dev": "nodemon src/server.js",
+    "dev": "nodemon --watch src --watch .env src/server.js",
     "seed": "node src/scripts/seed.js",
-    "test-db": "node src/scripts/testDb.js"
+    "test-db": "node src/scripts/testDb.js",
+    "migrate:payment": "node src/scripts/migratePaymentFields.js",
+    "test:payment": "node src/scripts/testCashfreePayment.js"
   },
   "dependencies": {
     "@langchain/anthropic": "^1.5.10",
@@ -17,6 +19,7 @@
     "@langchain/google-genai": "^2.3.2",
     "@langchain/openai": "^1.5.13",
     "bcryptjs": "^3.0.3",
+    "cashfree-pg": "^6.0.6",
     "compression": "^1.8.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
@@ -25,8 +28,7 @@
     "helmet": "^8.3.0",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^8.9.5",
-    "morgan": "^1.10.0",
-    "razorpay": "^2.9.8"
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"

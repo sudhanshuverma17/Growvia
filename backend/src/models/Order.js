@@ -21,7 +21,7 @@ const orderSchema = new mongoose.Schema(
     },
     amount: {
       type: Number,
-      required: true, // in paise, e.g. 9900 for ₹99
+      required: true, // in INR, e.g. 99 for ₹99
     },
     currency: {
       type: String,
@@ -36,10 +36,18 @@ const orderSchema = new mongoose.Schema(
     receipt: {
       type: String,
     },
-    razorpayPaymentId: {
+    cfOrderId: {
+      type: String,
+      index: true,
+    },
+    cfPaymentId: {
+      type: String,
+      index: true,
+    },
+    cfSignature: {
       type: String,
     },
-    razorpaySignature: {
+    paymentSessionId: {
       type: String,
     },
     notes: {

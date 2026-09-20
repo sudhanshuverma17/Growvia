@@ -197,7 +197,7 @@ export const seedVideos = [
   {
     "title": "What a PM Actually Does All Day — Honest Breakdown",
     "mentor": "Shreya Kapoor",
-    "mentorRole": "Senior PM, Razorpay | Ex-McKinsey",
+    "mentorRole": "Senior PM, Cashfree | Ex-McKinsey",
     "careerId": "product-manager",
     "careerTitle": "Product Manager",
     "videoUrl": "https://www.youtube.com/watch?v=3JZ_D3ELwOQ",

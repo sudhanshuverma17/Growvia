@@ -74,7 +74,7 @@ const productManager = [
       {
         label: "Associate PM Starting CTC",
         value: "₹14L - ₹28L/yr",
-        context: "Top Indian tech startups (Flipkart, Swiggy, Razorpay, CRED)"
+        context: "Top Indian tech startups (Flipkart, Swiggy, Cashfree, CRED)"
       }
     ]
   },

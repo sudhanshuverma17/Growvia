@@ -2586,9 +2586,9 @@ export const servicesRoadmaps = {
       ],
       "resources": [
         {
-          "name": "Stripe & Razorpay Payment Gateways",
+          "name": "Stripe & Cashfree Payment Gateways",
           "type": "tool",
-          "url": "https://razorpay.com",
+          "url": "https://cashfree.com",
           "isFree": true
         },
         {

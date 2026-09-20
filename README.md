@@ -150,10 +150,65 @@ npm run dev
 | `PUT` | `/api/videos/:id` | Admin | Update video details, Free/Paid toggle, price |
 | `DELETE` | `/api/videos/:id` | Admin | Delete a video |
 
+### Payment Gateway (Cashfree) Endpoints
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| `POST` | `/api/payment/create-order` | Protected | Create Cashfree PG order & generate `payment_session_id` |
+| `POST` | `/api/payment/verify` | Protected | Verify order payment status with Cashfree & unlock roadmap |
+| `POST` | `/api/payment/webhook` | Public | Cashfree Server-to-Server webhook (HMAC-SHA256 verified) |
+
+---
+
+## 💳 Payment Gateway (Cashfree) Configuration & Go-Live Checklist
+
+Growvia uses **Cashfree Payment Gateway (PG API v5 & Drop-in SDK v3)** for career roadmap checkout.
+
+### 1. Environment Variables (`backend/.env`)
+Configure the following three variables:
+```env
+# Cashfree API Credentials
+CASHFREE_APP_ID=your_cashfree_app_id_here
+CASHFREE_SECRET_KEY=your_cashfree_secret_key_here
+
+# Runtime Environment: "TEST" (Sandbox) or "PRODUCTION" (Live)
+CASHFREE_ENV=TEST
+```
+The application dynamically toggles between Sandbox (`https://sandbox.cashfree.com/pg`) and Production (`https://api.cashfree.com/pg`) based strictly on `CASHFREE_ENV`.
+
+### 2. Testing in Sandbox / TEST Mode
+Run the built-in test suite:
+```bash
+npm --prefix backend run test:payment
+```
+**Official Cashfree Sandbox Test Credentials:**
+- **Visa Credit Card**: `4444333322221111`, Expiry: `03/2028`, CVV: `123`, OTP: `111000`
+- **Mastercard Credit Card**: `5105105105105100`, Expiry: `03/2028`, CVV: `123`, OTP: `111000`
+- **UPI Test Handles**: `success@upi` (Success), `incorrect@upi` (Failure)
+
+### 3. Database Migration
+To migrate historical order documents in MongoDB to Cashfree fields:
+```bash
+npm --prefix backend run migrate:payment
+```
+
+### 4. 🚀 Go-Live Checklist (Switching to PRODUCTION)
+When transitioning from Sandbox to Live production:
+1. **Update `.env` in your production deployment**:
+   - `CASHFREE_ENV=PRODUCTION`
+   - `CASHFREE_APP_ID=<your-production-app-id-from-merchant-dashboard>`
+   - `CASHFREE_SECRET_KEY=<your-production-secret-key-from-merchant-dashboard>`
+2. **Re-register Webhook URL in Cashfree Live Merchant Dashboard**:
+   - Go to: [Cashfree Merchant Dashboard](https://merchant.cashfree.com/) -> Developers -> Webhooks
+   - Add new webhook endpoint: `https://<your-live-domain>/api/payment/webhook`
+   - Select events: `PAYMENT_SUCCESS_WEBHOOK`, `PAYMENT_FAILED_WEBHOOK`, `PAYMENT_USER_DROPPED_WEBHOOK`
+   - Confirm active status.
+3. No code changes are required for this switch — all API URLs, SDK flags, and verification modes are driven directly by `CASHFREE_ENV`.
+
 ---
 
 ## 🏗️ Production Build
 ```bash
 npm run build
 ```
-Build output is saved to `frontend/dist/`.
+Build output is compiled into `backend/public/`, `public/`, and `dist/`.
+

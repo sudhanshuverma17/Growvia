@@ -10,13 +10,16 @@ import { useToast } from "@/hooks/use-toast";
 import { apiUrl } from "@/lib/api-config";
 import { CareerIcon } from "@/components/career-icon";
 
-// Helper to dynamically load the Razorpay checkout script
-const loadRazorpayScript = () => {
+// Centralized roadmap price constant (₹99)
+export const ROADMAP_PRICE_INR = 99;
+
+// Helper to dynamically load the Cashfree v3 JS SDK
+const loadCashfreeScript = () => {
   return new Promise((resolve) => {
     if (typeof window === "undefined") return resolve(false);
-    if (window.Razorpay) return resolve(true);
+    if (window.Cashfree) return resolve(true);
 
-    const existingScript = document.querySelector('script[src="https://checkout.razorpay.com/v1/checkout.js"]');
+    const existingScript = document.querySelector('script[src="https://sdk.cashfree.com/js/v3/cashfree.js"]');
     if (existingScript) {
       existingScript.addEventListener("load", () => resolve(true));
       existingScript.addEventListener("error", () => resolve(false));
@@ -24,7 +27,7 @@ const loadRazorpayScript = () => {
     }
 
     const script = document.createElement("script");
-    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.src = "https://sdk.cashfree.com/js/v3/cashfree.js";
     script.async = true;
     script.onload = () => resolve(true);
     script.onerror = () => resolve(false);
@@ -51,9 +54,9 @@ export default function Pricing() {
     return allCareers[0]?.id || "";
   });
 
-  // Pre-load Razorpay checkout script on page mount for instant modal opening
+  // Pre-load Cashfree checkout SDK on page mount
   useEffect(() => {
-    loadRazorpayScript();
+    loadCashfreeScript();
   }, []);
 
   // Synchronize default selection when courses load
@@ -71,6 +74,65 @@ export default function Pricing() {
     user.purchasedRoadmaps.includes(selectedCareer)
   );
 
+  // Helper to verify payment with backend and fulfill user access
+  const verifyAndFulfill = async (orderId, careerId) => {
+    setLoadingPayment(true);
+    try {
+      const verifyRes = await fetch(apiUrl("/api/payment/verify"), {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          orderId,
+          careerId,
+        }),
+      });
+
+      const verifyData = await verifyRes.json();
+
+      if (!verifyRes.ok) {
+        throw new Error(verifyData.message || "Payment verification could not be completed.");
+      }
+
+      const targetCareerId = careerId || verifyData.careerId || selectedCareer;
+      addPurchasedRoadmap(targetCareerId);
+      await refreshUser();
+
+      toast({
+        title: "Roadmap Unlocked! 🎉",
+        description: `You now have lifetime access to the ${currentCareer?.title || "career"} roadmap.`,
+      });
+
+      setLocation(`/dashboard?unlocked=${targetCareerId}`);
+    } catch (err) {
+      console.error("[Cashfree Verification Error]:", err);
+      toast({
+        title: "Payment Verification Failed",
+        description: err.message || "Unable to confirm payment with Cashfree. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoadingPayment(false);
+    }
+  };
+
+  // Check for return redirect parameters (e.g. from return_url after 3DS authentication)
+  useEffect(() => {
+    if (typeof window === "undefined" || !token) return;
+
+    const searchParams = new URLSearchParams(window.location.search);
+    const orderIdFromUrl = searchParams.get("order_id");
+    const careerFromUrl = searchParams.get("career");
+
+    if (orderIdFromUrl) {
+      // Clear URL params to avoid re-triggering on refresh
+      window.history.replaceState({}, document.title, window.location.pathname);
+      verifyAndFulfill(orderIdFromUrl, careerFromUrl);
+    }
+  }, [token]);
+
   const handleUnlockClick = async () => {
     if (!selectedCareer) return;
 
@@ -84,7 +146,7 @@ export default function Pricing() {
       return;
     }
 
-    // 2. If already purchased, take straight to dashboard
+    // 2. If already purchased, navigate straight to dashboard
     if (isAlreadyPurchased) {
       setLocation(`/roadmaps/${selectedCareer}`);
       return;
@@ -93,40 +155,62 @@ export default function Pricing() {
     setLoadingPayment(true);
 
     try {
-      // Direct bypass mode: instantly add roadmap to user's profile on backend
-      const unlockRes = await fetch(apiUrl("/api/payment/bypass-unlock"), {
+      // Ensure Cashfree Drop-in SDK is available
+      await loadCashfreeScript();
+
+      // 3. Create Cashfree Order on the backend
+      const orderRes = await fetch(apiUrl("/api/payment/create-order"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ careerId: selectedCareer }),
+        body: JSON.stringify({
+          careerId: selectedCareer,
+          frontendOrigin: typeof window !== "undefined" ? window.location.origin : undefined,
+        }),
       });
 
-      const data = await unlockRes.json();
+      const orderData = await orderRes.json();
 
-      if (!unlockRes.ok) {
-        throw new Error(data.message || "Failed to unlock roadmap");
+      if (!orderRes.ok) {
+        throw new Error(orderData.message || "Failed to initialize payment order.");
       }
 
-      // Update client context and user state
-      addPurchasedRoadmap(selectedCareer);
-      await refreshUser();
+      if (!orderData.paymentSessionId) {
+        throw new Error("No payment session received from server.");
+      }
 
-      toast({
-        title: "Roadmap Unlocked! 🎉",
-        description: `You now have lifetime access to the ${currentCareer?.title} roadmap.`,
+      if (!window.Cashfree) {
+        throw new Error("Cashfree Checkout SDK failed to load. Please check your internet connection.");
+      }
+
+      // 4. Initialize Cashfree Drop-in SDK with environment mode returned by server (sandbox vs production)
+      const cashfree = window.Cashfree({
+        mode: orderData.environment || "sandbox",
       });
 
-      setLocation(`/dashboard?unlocked=${selectedCareer}`);
+      const checkoutOptions = {
+        paymentSessionId: orderData.paymentSessionId,
+        redirectTarget: "_modal",
+      };
+
+      // 5. Open Cashfree Drop-in Modal
+      const checkoutResult = await cashfree.checkout(checkoutOptions);
+
+      if (checkoutResult?.error) {
+        throw new Error(checkoutResult.error.message || "Payment cancelled or failed.");
+      }
+
+      // 6. Modal completed: Verify payment status on backend
+      await verifyAndFulfill(orderData.orderId, selectedCareer);
     } catch (err) {
-      console.error("[Unlock Error]:", err);
+      console.error("[Cashfree Checkout Error]:", err);
       toast({
-        title: "Unlock Failed",
-        description: err.message || "Something went wrong while unlocking. Please try again.",
+        title: "Payment Not Completed",
+        description: err.message || "Something went wrong during checkout. Please try again.",
         variant: "destructive",
       });
-    } finally {
       setLoadingPayment(false);
     }
   };
@@ -166,7 +250,7 @@ export default function Pricing() {
                 </div>
                 <div className="text-right flex-shrink-0">
                   <div className="text-5xl font-extrabold text-white flex items-start">
-                    <span className="text-xl mt-2 mr-0.5">₹</span>99
+                    <span className="text-xl mt-2 mr-0.5">₹</span>{ROADMAP_PRICE_INR}
                   </div>
                   <div className="text-xs text-primary/80 mt-1 font-medium bg-primary/10 px-2 py-0.5 rounded-full inline-block">
                     One-time · Lifetime access
@@ -271,11 +355,11 @@ export default function Pricing() {
                   {loadingPayment ? (
                     <>
                       <Loader2 className="w-5 h-5 animate-spin" />
-                      <span>Unlocking Roadmap...</span>
+                      <span>Processing Payment...</span>
                     </>
                   ) : selectedCareer ? (
                     <>
-                      <span>Unlock {currentCareer?.title} Roadmap</span>
+                      <span>Unlock {currentCareer?.title} Roadmap — ₹{ROADMAP_PRICE_INR}</span>
                       <ChevronRight className="w-5 h-5 ml-1" />
                     </>
                   ) : (
@@ -285,7 +369,7 @@ export default function Pricing() {
               )}
 
               <p className="text-center text-xs text-muted-foreground mt-4">
-                Instant lifetime access · Added directly to your profile
+                Instant lifetime access · Verified via Cashfree Secure Gateway
               </p>
             </div>
           </div>
@@ -294,7 +378,7 @@ export default function Pricing() {
           <div className="mt-5 text-center">
             <p className="text-sm text-muted-foreground">
               Want more careers later?{" "}
-              <span className="text-white font-medium">Each additional career roadmap is also ₹99.</span>
+              <span className="text-white font-medium">Each additional career roadmap is also ₹{ROADMAP_PRICE_INR}.</span>
             </p>
           </div>
         </div>
@@ -302,9 +386,9 @@ export default function Pricing() {
         {/* Comparison note */}
         <div className="max-w-3xl mx-auto mt-16 rounded-2xl border border-white/10 bg-white/[0.02] p-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           {[
-            { label: "1 Career", value: "₹99", note: "One roadmap, full depth" },
-            { label: "3 Careers", value: "₹297", note: "Mix & compare paths" },
-            { label: "All Careers", value: "₹792+", note: "Explore everything" },
+            { label: "1 Career", value: `₹${ROADMAP_PRICE_INR}`, note: "One roadmap, full depth" },
+            { label: "3 Careers", value: `₹${ROADMAP_PRICE_INR * 3}`, note: "Mix & compare paths" },
+            { label: "All Careers", value: `₹${ROADMAP_PRICE_INR * 8}+`, note: "Explore everything" },
           ].map((item) => (
             <div key={item.label}>
               <div className="text-2xl font-bold text-white">{item.value}</div>
@@ -325,15 +409,15 @@ export default function Pricing() {
               },
               {
                 q: "Is this a monthly subscription?",
-                a: "No. It's a one-time payment. Pay ₹99 once, access your chosen career roadmap for life.",
+                a: `No. It's a one-time payment. Pay ₹${ROADMAP_PRICE_INR} once, access your chosen career roadmap for life.`,
               },
               {
                 q: "What if I want to explore multiple careers?",
-                a: "Each career roadmap is ₹99. Buy them one at a time as you narrow down your path. We think this is fairer than charging ₹500+ upfront.",
+                a: `Each career roadmap is ₹${ROADMAP_PRICE_INR}. Buy them one at a time as you narrow down your path. We think this is fairer than charging ₹500+ upfront.`,
               },
               {
                 q: "Do you offer refunds?",
-                a: "Due to the digital nature of content, we do not offer refunds. But we're confident the clarity you get will be worth far more than ₹99.",
+                a: `Due to the digital nature of content, we do not offer refunds. But we're confident the clarity you get will be worth far more than ₹${ROADMAP_PRICE_INR}.`,
               },
               {
                 q: "Can I take the quiz for free?",

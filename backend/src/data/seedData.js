@@ -2047,7 +2047,7 @@ export const seedCareers = [
           {
             "label": "Associate PM Starting CTC",
             "value": "₹14L - ₹28L/yr",
-            "context": "Top Indian tech startups (Flipkart, Swiggy, Razorpay, CRED)"
+            "context": "Top Indian tech startups (Flipkart, Swiggy, Cashfree, CRED)"
           }
         ]
       },
@@ -2436,7 +2436,7 @@ export const seedCareers = [
           }
         ],
         "warning": "Chasing controversial drama or sensational clickbait for short-term views: Sensationalism destroys your reputation with premium brand sponsors and attracts low-quality audiences.",
-        "fallbackPlan": "Work as an in-house Social Media Video Producer or Growth Lead for tech brands (Razorpay, Zerodha) managing corporate content channels.",
+        "fallbackPlan": "Work as an in-house Social Media Video Producer or Growth Lead for tech brands (Cashfree, Zerodha) managing corporate content channels.",
         "realWorldStats": [
           {
             "label": "Benchmark Click-Through Rate (CTR)",
@@ -13313,9 +13313,9 @@ export const seedCareers = [
         ],
         "resources": [
           {
-            "name": "Stripe & Razorpay Payment Gateways",
+            "name": "Stripe & Cashfree Payment Gateways",
             "type": "tool",
-            "url": "https://razorpay.com",
+            "url": "https://cashfree.com",
             "isFree": true
           },
           {

@@ -39,6 +39,20 @@ if (!process.env.JWT_SECRET) {
   }
 }
 
+// 2. FRONTEND_URL Validation (Required for dynamic Cashfree return_url & CORS)
+const frontendUrl = (process.env.FRONTEND_URL || process.env.CLIENT_URL)?.trim();
+if (!frontendUrl) {
+  console.error(
+    "\n❌ [FATAL CONFIG ERROR]: FRONTEND_URL environment variable is not defined!\n" +
+    "   Cashfree payment gateway return_url and CORS security require an explicit frontend URL.\n" +
+    "   Please add FRONTEND_URL to your backend/.env file:\n" +
+    "     - Local Development (Unified Server): FRONTEND_URL=http://localhost:5000\n" +
+    "     - Local Development (Vite Dev):       FRONTEND_URL=http://localhost:3000\n" +
+    "     - Production Domain:                  FRONTEND_URL=https://your-domain.com\n"
+  );
+  process.exit(1);
+}
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const backendPublicPath = path.resolve(__dirname, "../public");
@@ -61,10 +75,11 @@ app.use(compression());
 
 // 3. Flexible CORS supporting separate frontend deployment
 const allowedOrigins = [
-  "http://localhost:3000",
-  "http://127.0.0.1:3000",
   "http://localhost:5000",
   "http://127.0.0.1:5000",
+  "http://localhost:3000",
+  "http://127.0.0.1:3000",
+  ...(process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(",").map((s) => s.trim()) : []),
   ...(process.env.CLIENT_URL ? process.env.CLIENT_URL.split(",").map((s) => s.trim()) : []),
 ];
 
@@ -86,7 +101,7 @@ app.use(
 // Trust first proxy (essential for reverse proxies like Render, Vercel, Nginx, Cloudflare to preserve HTTPS headers)
 app.set("trust proxy", 1);
 
-// 4. Body Parser (with rawBody retention for cryptographically verifying Razorpay Webhooks)
+// 4. Body Parser (with rawBody retention for cryptographically verifying Cashfree Webhooks)
 app.use(
   express.json({
     limit: "2mb",

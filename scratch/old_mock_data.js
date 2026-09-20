@@ -2108,7 +2108,7 @@ export const mentorVideos = [
     careerId: "product-manager",
     title: "What a PM Actually Does All Day \u2014 Honest Breakdown",
     mentor: "Shreya Kapoor",
-    mentorRole: "Senior PM, Razorpay | Ex-McKinsey",
+    mentorRole: "Senior PM, Cashfree | Ex-McKinsey",
     duration: "38:00",
     thumbnail: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=640&q=80",
     views: "1.9L",

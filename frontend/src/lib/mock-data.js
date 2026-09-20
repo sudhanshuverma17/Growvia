@@ -2048,7 +2048,7 @@ export const careers = [
           {
             "label": "Associate PM Starting CTC",
             "value": "₹14L - ₹28L/yr",
-            "context": "Top Indian tech startups (Flipkart, Swiggy, Razorpay, CRED)"
+            "context": "Top Indian tech startups (Flipkart, Swiggy, Cashfree, CRED)"
           }
         ]
       },
@@ -2437,7 +2437,7 @@ export const careers = [
           }
         ],
         "warning": "Chasing controversial drama or sensational clickbait for short-term views: Sensationalism destroys your reputation with premium brand sponsors and attracts low-quality audiences.",
-        "fallbackPlan": "Work as an in-house Social Media Video Producer or Growth Lead for tech brands (Razorpay, Zerodha) managing corporate content channels.",
+        "fallbackPlan": "Work as an in-house Social Media Video Producer or Growth Lead for tech brands (Cashfree, Zerodha) managing corporate content channels.",
         "realWorldStats": [
           {
             "label": "Benchmark Click-Through Rate (CTR)",
@@ -13314,9 +13314,9 @@ export const careers = [
         ],
         "resources": [
           {
-            "name": "Stripe & Razorpay Payment Gateways",
+            "name": "Stripe & Cashfree Payment Gateways",
             "type": "tool",
-            "url": "https://razorpay.com",
+            "url": "https://cashfree.com",
             "isFree": true
           },
           {
@@ -18332,7 +18332,7 @@ export const mentorVideos = [
     careerId: "product-manager",
     title: "What a PM Actually Does All Day \u2014 Honest Breakdown",
     mentor: "Shreya Kapoor",
-    mentorRole: "Senior PM, Razorpay | Ex-McKinsey",
+    mentorRole: "Senior PM, Cashfree | Ex-McKinsey",
     duration: "38:00",
     thumbnail: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=640&q=80",
     views: "1.9L",

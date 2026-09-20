@@ -257,7 +257,7 @@ export const servicesPart3 = {
         "Publish comprehensive physical study books or question banks distributed via Amazon / offline book distributors"
       ],
       resources: [
-        { name: "Stripe & Razorpay Payment Gateways", type: "tool", url: "https://razorpay.com", isFree: true },
+        { name: "Stripe & Cashfree Payment Gateways", type: "tool", url: "https://cashfree.com", isFree: true },
         { name: "Kajabi / Thinkific Learning Management Systems", type: "tool", url: "https://kajabi.com", isFree: false },
         { name: "Amazon KDP (Kindle Direct Publishing for Study Guides)", type: "tool", url: "https://kdp.amazon.com", isFree: true },
         { name: "Teachfloor / Maven Platform for Cohort Bootcamps", type: "tool", url: "https://maven.com", isFree: false }

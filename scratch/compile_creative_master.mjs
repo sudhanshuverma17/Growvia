@@ -441,7 +441,7 @@ const contentCreator = [
       }
     ],
     warning: "Chasing controversial drama or sensational clickbait for short-term views: Sensationalism destroys your reputation with premium brand sponsors and attracts low-quality audiences.",
-    fallbackPlan: "Work as an in-house Social Media Video Producer or Growth Lead for tech brands (Razorpay, Zerodha) managing corporate content channels.",
+    fallbackPlan: "Work as an in-house Social Media Video Producer or Growth Lead for tech brands (Cashfree, Zerodha) managing corporate content channels.",
     realWorldStats: [
       {
         label: "Benchmark Click-Through Rate (CTR)",

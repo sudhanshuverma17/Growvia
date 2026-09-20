@@ -1,89 +1,21 @@
-import crypto from "crypto";
 import Order from "../models/Order.js";
 import User from "../models/User.js";
 import {
-  getRazorpayInstance,
+  getCashfreeInstance,
+  getCashfreeMode,
+  getCashfreeClientMode,
   isConfigured,
-  verifyRazorpaySignature,
-  verifyRazorpayWebhookSignature,
-} from "../config/razorpay.js";
+  verifyCashfreeWebhookSignature,
+  ROADMAP_PRICE_INR,
+  CASHFREE_API_VERSION,
+} from "../config/cashfree.js";
 
-// @desc    Direct Roadmap Unlock / Purchase Bypass
-// @route   POST /api/payment/bypass-unlock
-// @access  Private (Requires JWT token)
-export const bypassUnlockRoadmap = async (req, res) => {
-  try {
-    const { careerId } = req.body;
-
-    if (!careerId) {
-      return res.status(400).json({
-        success: false,
-        message: "careerId is required to unlock a roadmap",
-      });
-    }
-
-    const user = await User.findById(req.user._id);
-    if (!user) {
-      return res.status(404).json({
-        success: false,
-        message: "User not found",
-      });
-    }
-
-    if (!Array.isArray(user.purchasedRoadmaps)) {
-      user.purchasedRoadmaps = [];
-    }
-
-    // Add to purchasedRoadmaps if not already there
-    if (!user.purchasedRoadmaps.includes(careerId)) {
-      user.purchasedRoadmaps.push(careerId);
-    }
-
-    // Remove from savedRoadmaps since it is now purchased/unlocked
-    if (Array.isArray(user.savedRoadmaps) && user.savedRoadmaps.includes(careerId)) {
-      user.savedRoadmaps = user.savedRoadmaps.filter((id) => id !== careerId);
-    }
-
-    await user.save();
-
-    // Optionally record a completed free/bypassed Order in DB for consistency
-    try {
-      const bypassOrderId = `bypass_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
-      await Order.create({
-        orderId: bypassOrderId,
-        userId: user._id,
-        careerId,
-        amount: 0,
-        currency: "INR",
-        status: "paid",
-        receipt: `bypass_${user._id.toString().slice(-4)}`,
-        notes: { mode: "direct_bypass" },
-      });
-    } catch (orderErr) {
-      // Non-blocking
-    }
-
-    return res.status(200).json({
-      success: true,
-      message: "Roadmap unlocked and added to your profile! 🎉",
-      careerId,
-      purchasedRoadmaps: user.purchasedRoadmaps,
-      savedRoadmaps: user.savedRoadmaps,
-    });
-  } catch (error) {
-    console.error("[Bypass Unlock Error]:", error);
-    return res.status(500).json({
-      success: false,
-      message: "Could not unlock roadmap. Please try again.",
-      error: error.message,
-    });
-  }
-};
-
-// @desc    Create Razorpay Order
+// @desc    Create Cashfree Payment Order
 // @route   POST /api/payment/create-order
 // @access  Private (Requires JWT token)
 export const createOrder = async (req, res) => {
+  const currentMode = getCashfreeMode();
+
   try {
     const { careerId } = req.body;
 
@@ -111,66 +43,184 @@ export const createOrder = async (req, res) => {
       });
     }
 
-    // Fixed price for Growvia Starter single roadmap unlock: ₹99 = 9900 paise
-    const amountInPaise = 9900;
+    // Single source of truth for roadmap unlock price (in INR)
+    const orderAmount = ROADMAP_PRICE_INR;
     const currency = "INR";
+    const orderId = `order_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
     const receipt = `rcpt_${Date.now()}_${user._id.toString().slice(-4)}`;
 
-    let razorpayOrderId;
-    const razorpay = getRazorpayInstance();
+    // Extract actual active client origin from request
+    let refererOrigin = "";
+    try {
+      if (req.headers.referer) {
+        refererOrigin = new URL(req.headers.referer).origin;
+      }
+    } catch {}
 
-    if (razorpay) {
-      // Live / Test mode via Razorpay API
-      const rzpOrder = await razorpay.orders.create({
-        amount: amountInPaise,
-        currency,
-        receipt,
-        notes: {
-          userId: user._id.toString(),
-          careerId,
-          userEmail: user.email,
-        },
-      });
-      razorpayOrderId = rzpOrder.id;
-    } else {
-      // Dev simulation fallback when Razorpay credentials are not yet configured in .env
-      razorpayOrderId = `order_mock_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
-      console.log(`[Payment]: Created simulated dev order ${razorpayOrderId} for ${careerId}`);
+    const clientOrigin = (
+      req.body?.frontendOrigin ||
+      req.headers.origin ||
+      refererOrigin ||
+      ""
+    ).trim().replace(/\/+$/, "");
+
+    // Dynamic, environment-aware frontend base URL:
+    // 1. If FRONTEND_URL is explicitly set in .env, use it
+    // 2. If browsing on localhost, use the active browser port (e.g. http://localhost:5000)
+    // 3. Fall back to CLIENT_URL or current server port
+    let frontendBaseUrl = (process.env.FRONTEND_URL || "").trim().replace(/\/+$/, "");
+
+    if (!frontendBaseUrl) {
+      if (clientOrigin && (clientOrigin.includes("localhost") || clientOrigin.includes("127.0.0.1"))) {
+        frontendBaseUrl = clientOrigin;
+      } else if (process.env.CLIENT_URL) {
+        frontendBaseUrl = process.env.CLIENT_URL.trim().replace(/\/+$/, "");
+      } else {
+        frontendBaseUrl = `http://localhost:${process.env.PORT || 5000}`;
+      }
     }
 
-    // Save order in database
+    // If configured frontendBaseUrl is on localhost (e.g. :3000) but the browser request arrived from another localhost port (e.g. :5000), align with the active browser port!
+    if (
+      clientOrigin &&
+      (clientOrigin.includes("localhost") || clientOrigin.includes("127.0.0.1")) &&
+      (frontendBaseUrl.includes("localhost") || frontendBaseUrl.includes("127.0.0.1")) &&
+      frontendBaseUrl !== clientOrigin
+    ) {
+      console.log(`🔄 [Cashfree PG]: Auto-adjusting return_url origin from ${frontendBaseUrl} to active browser origin ${clientOrigin}`);
+      frontendBaseUrl = clientOrigin;
+    }
+
+    const returnUrl = `${frontendBaseUrl}/pricing?order_id={order_id}&career=${encodeURIComponent(careerId)}`;
+
+    const orderMeta = {
+      return_url: returnUrl,
+    };
+
+    // notify_url is Cashfree's per-order server-to-server webhook destination.
+    // Cashfree servers cannot reach localhost/127.0.0.1 directly.
+    // Only attach notify_url if BACKEND_URL is set to a publicly accessible host (e.g. ngrok or deployed domain).
+    const backendBaseUrl = (process.env.BACKEND_URL || "").trim().replace(/\/+$/, "");
+    if (backendBaseUrl && !backendBaseUrl.includes("localhost") && !backendBaseUrl.includes("127.0.0.1")) {
+      orderMeta.notify_url = `${backendBaseUrl}/api/payment/webhook`;
+    }
+
+    if (!isConfigured()) {
+      console.warn(
+        `⚠️ [Cashfree PG - ${currentMode}]: CASHFREE_APP_ID or CASHFREE_SECRET_KEY is missing or contains placeholder values in backend/.env.`
+      );
+      return res.status(400).json({
+        success: false,
+        code: "CASHFREE_NOT_CONFIGURED",
+        message:
+          "Cashfree API keys are not configured. Please add your active CASHFREE_APP_ID and CASHFREE_SECRET_KEY to backend/.env (from https://sandbox.cashfree.com/).",
+      });
+    }
+
+    const cashfree = getCashfreeInstance();
+    if (!cashfree) {
+      return res.status(500).json({
+        success: false,
+        code: "CASHFREE_INIT_ERROR",
+        message: "Failed to initialize Cashfree SDK client. Please verify your backend/.env configuration.",
+      });
+    }
+
+    let paymentSessionId = null;
+    let cfOrderId = null;
+
+    // Build Cashfree PG Order request matching API version specification
+    const cfRequest = {
+      order_id: orderId,
+      order_amount: orderAmount,
+      order_currency: currency,
+      customer_details: {
+        customer_id: user._id.toString(),
+        customer_email: user.email,
+        customer_name: user.name || "Growvia Student",
+        customer_phone: user.phone || "9999999999",
+      },
+      order_meta: orderMeta,
+      order_note: `Growvia Roadmap Unlock: ${careerId} for ${user.email}`,
+    };
+
+    try {
+      const response = await cashfree.PGCreateOrder(cfRequest);
+      const data = response.data;
+      paymentSessionId = data.payment_session_id;
+      cfOrderId = String(data.cf_order_id || "");
+
+      console.log(
+        `💳 [Cashfree PG - ${currentMode}]: Created order ${orderId} (CF Order: ${cfOrderId}, Amount: ₹${orderAmount}) for career ${careerId}`
+      );
+    } catch (sdkErr) {
+      const errDetails = sdkErr.response?.data || {};
+      const isAuthError =
+        (errDetails.message && /auth/i.test(errDetails.message)) ||
+        sdkErr.response?.status === 401;
+
+      console.error(
+        `❌ [Cashfree PG - ${currentMode}]: Create order API failed:`,
+        errDetails.message || sdkErr.message,
+        `(Code: ${errDetails.code || "UNKNOWN"})`
+      );
+
+      let userFacingMessage = errDetails.message || "Could not initialize Cashfree payment session. Please try again.";
+      if (isAuthError) {
+        console.error(
+          `👉 [Cashfree Setup Guide]: Ensure you are using credentials for ${currentMode} mode.\n` +
+          `   - Sandbox dashboard: https://sandbox.cashfree.com/ (Payment Gateway -> Developers -> API Keys)\n` +
+          `   - Copy App ID into CASHFREE_APP_ID\n` +
+          `   - Copy Secret Key into CASHFREE_SECRET_KEY\n` +
+          `   - Ensure CASHFREE_ENV=${currentMode}`
+        );
+        userFacingMessage = `Cashfree authentication failed: The API rejected your ${currentMode} App ID or Secret Key. Please check backend/.env.`;
+      }
+
+      return res.status(sdkErr.response?.status || 500).json({
+        success: false,
+        message: userFacingMessage,
+        code: errDetails.code || "CASHFREE_ORDER_ERROR",
+      });
+    }
+
+    // Save initial order in database
     await Order.create({
-      orderId: razorpayOrderId,
+      orderId,
       userId: user._id,
       careerId,
-      amount: amountInPaise,
+      amount: orderAmount,
       currency,
       receipt,
+      cfOrderId,
+      paymentSessionId,
       status: "created",
       notes: {
         userId: user._id.toString(),
         careerId,
         userEmail: user.email,
+        environmentMode: currentMode,
+        apiVersion: CASHFREE_API_VERSION,
       },
     });
 
-    const publicRazorpayKeyId = process.env.RAZORPAY_KEY_ID?.trim() || "rzp_test_GrowviaDevTestKey";
-
     return res.status(200).json({
       success: true,
-      orderId: razorpayOrderId,
-      amount: amountInPaise,
+      orderId,
+      paymentSessionId,
+      amount: orderAmount,
       currency,
-      keyId: publicRazorpayKeyId,
       careerId,
-      isMockMode: !isConfigured(),
+      environment: getCashfreeClientMode(), // "sandbox" or "production"
+      mode: currentMode, // "TEST" or "PRODUCTION"
+      isConfigured: isConfigured(),
       user: {
         name: user.name,
         email: user.email,
       },
     });
   } catch (error) {
-    console.error("[Create Order Error]:", error);
+    console.error(`❌ [Cashfree PG - ${currentMode}]: Create order error:`, error.message);
     return res.status(500).json({
       success: false,
       message: "Could not create payment order. Please try again.",
@@ -179,55 +229,108 @@ export const createOrder = async (req, res) => {
   }
 };
 
-// @desc    Verify Razorpay Payment Signature and Fulfill Order
+// @desc    Verify Cashfree Payment Status and Fulfill Roadmap Access
 // @route   POST /api/payment/verify
 // @access  Private (Requires JWT token)
 export const verifyPayment = async (req, res) => {
-  try {
-    const {
-      razorpay_order_id,
-      razorpay_payment_id,
-      razorpay_signature,
-      careerId,
-    } = req.body;
+  const currentMode = getCashfreeMode();
 
-    if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature) {
+  try {
+    const { orderId, careerId } = req.body;
+
+    if (!orderId) {
       return res.status(400).json({
         success: false,
-        message: "Missing payment verification parameters: order_id, payment_id, or signature",
+        message: "Missing orderId for payment verification",
       });
     }
 
-    const isValid = verifyRazorpaySignature({
-      orderId: razorpay_order_id,
-      paymentId: razorpay_payment_id,
-      signature: razorpay_signature,
-    });
+    const order = await Order.findOne({ orderId });
+    if (!order) {
+      return res.status(404).json({
+        success: false,
+        message: `Order ${orderId} not found in database`,
+      });
+    }
 
-    if (!isValid) {
-      console.warn(`[Payment Warning]: Signature verification failed for order ${razorpay_order_id}`);
-      await Order.findOneAndUpdate(
-        { orderId: razorpay_order_id },
-        { status: "failed" }
-      );
+    const targetCareerId = careerId || order.careerId;
+
+    // If order is already verified as paid, return idempotent success
+    if (order.status === "paid") {
+      const existingUser = await User.findById(req.user._id);
+      return res.status(200).json({
+        success: true,
+        alreadyPaid: true,
+        message: "Payment was already confirmed! Enjoy your roadmap.",
+        careerId: targetCareerId,
+        purchasedRoadmaps: existingUser?.purchasedRoadmaps || [],
+        savedRoadmaps: existingUser?.savedRoadmaps || [],
+      });
+    }
+
+    let isPaymentSuccessful = false;
+    let cfPaymentId = order.cfPaymentId || null;
+    let cfOrderId = order.cfOrderId || null;
+
+    const cashfree = getCashfreeInstance();
+
+    if (cashfree && isConfigured()) {
+      try {
+        // 1. Fetch payment attempts for this order
+        const paymentsResponse = await cashfree.PGOrderFetchPayments(orderId);
+        const payments = Array.isArray(paymentsResponse.data) ? paymentsResponse.data : [];
+
+        const successfulPayment = payments.find(
+          (p) => String(p.payment_status).toUpperCase() === "SUCCESS"
+        );
+
+        if (successfulPayment) {
+          isPaymentSuccessful = true;
+          cfPaymentId = String(successfulPayment.cf_payment_id || "");
+        } else {
+          // 2. Secondary check on order status directly
+          const orderResponse = await cashfree.PGFetchOrder(orderId);
+          const orderData = orderResponse.data || {};
+          if (String(orderData.order_status).toUpperCase() === "PAID") {
+            isPaymentSuccessful = true;
+            if (orderData.cf_order_id) cfOrderId = String(orderData.cf_order_id);
+          }
+        }
+      } catch (fetchErr) {
+        console.error(
+          `❌ [Cashfree PG - ${currentMode}]: Failed to verify payment for order ${orderId}:`,
+          fetchErr.response?.data?.message || fetchErr.message
+        );
+        return res.status(fetchErr.response?.status || 500).json({
+          success: false,
+          message: "Could not fetch payment verification from Cashfree",
+          error: fetchErr.response?.data?.message || fetchErr.message,
+        });
+      }
+    } else {
+      // In development mode with unconfigured keys, report requirement
       return res.status(400).json({
         success: false,
-        message: "Payment signature verification failed. Transaction was not credited.",
+        message: "Cashfree API keys are not configured in backend/.env. Cannot verify payment.",
+      });
+    }
+
+    if (!isPaymentSuccessful) {
+      console.warn(`⚠️ [Cashfree PG - ${currentMode}]: Order ${orderId} is not in SUCCESS/PAID status.`);
+      order.status = "failed";
+      await order.save();
+
+      return res.status(400).json({
+        success: false,
+        message: "Payment has not been completed successfully or is still pending.",
       });
     }
 
     // Mark order as paid in Database
-    const order = await Order.findOneAndUpdate(
-      { orderId: razorpay_order_id },
-      {
-        status: "paid",
-        razorpayPaymentId: razorpay_payment_id,
-        razorpaySignature: razorpay_signature,
-      },
-      { new: true }
-    );
-
-    const targetCareerId = careerId || (order ? order.careerId : null);
+    order.status = "paid";
+    if (cfPaymentId) order.cfPaymentId = cfPaymentId;
+    if (cfOrderId) order.cfOrderId = cfOrderId;
+    await order.save();
 
     // Fulfill access: Add roadmap to user's purchasedRoadmaps & remove from savedRoadmaps
     const user = await User.findById(req.user._id);
@@ -238,12 +341,15 @@ export const verifyPayment = async (req, res) => {
       if (!user.purchasedRoadmaps.includes(targetCareerId)) {
         user.purchasedRoadmaps.push(targetCareerId);
       }
-      // Remove from savedRoadmaps since it is now purchased
       if (Array.isArray(user.savedRoadmaps) && user.savedRoadmaps.includes(targetCareerId)) {
         user.savedRoadmaps = user.savedRoadmaps.filter((id) => id !== targetCareerId);
       }
       await user.save();
     }
+
+    console.log(
+      `✅ [Cashfree PG - ${currentMode}]: Order ${orderId} verified successfully. Career "${targetCareerId}" unlocked for ${user?.email}`
+    );
 
     return res.status(200).json({
       success: true,
@@ -253,7 +359,7 @@ export const verifyPayment = async (req, res) => {
       savedRoadmaps: user?.savedRoadmaps || [],
     });
   } catch (error) {
-    console.error("[Verify Payment Error]:", error);
+    console.error(`❌ [Cashfree PG - ${currentMode}]: Verify payment error:`, error.message);
     return res.status(500).json({
       success: false,
       message: "Server error during payment verification",
@@ -262,57 +368,58 @@ export const verifyPayment = async (req, res) => {
   }
 };
 
-// @desc    Razorpay Webhook Handler
+// @desc    Cashfree Webhook Handler
 // @route   POST /api/payment/webhook
-// @access  Public (Signature-verified via X-Razorpay-Signature)
-export const handleRazorpayWebhook = async (req, res) => {
+// @access  Public (Signature-verified via x-webhook-signature & x-webhook-timestamp)
+export const handleCashfreeWebhook = async (req, res) => {
+  const currentMode = getCashfreeMode();
+
   try {
-    const signature = req.headers["x-razorpay-signature"];
-    const webhookSecret = process.env.RAZORPAY_WEBHOOK_SECRET;
+    const signature = req.headers["x-webhook-signature"];
+    const timestamp = req.headers["x-webhook-timestamp"];
 
-    if (!webhookSecret) {
-      console.warn("⚠️ [Razorpay Webhook]: RAZORPAY_WEBHOOK_SECRET is not set in backend/.env.");
-      return res.status(500).json({
-        success: false,
-        message: "Webhook secret is not configured on the server",
-      });
-    }
-
-    if (!signature) {
+    if (!signature || !timestamp) {
       return res.status(400).json({
         success: false,
-        message: "Missing X-Razorpay-Signature header",
+        message: "Missing x-webhook-signature or x-webhook-timestamp header",
       });
     }
 
-    // req.rawBody must be available from the body parser
+    // req.rawBody must be retained by express.json verify hook
     const rawBody = req.rawBody || (typeof req.body === "string" ? req.body : JSON.stringify(req.body));
-    const isValid = verifyRazorpayWebhookSignature(rawBody, signature, webhookSecret);
+    const isValid = verifyCashfreeWebhookSignature(signature, rawBody, timestamp);
 
     if (!isValid) {
-      console.warn("❌ [Razorpay Webhook]: Invalid webhook signature attempt.");
+      console.warn(`❌ [Cashfree Webhook - ${currentMode}]: Invalid webhook signature attempt.`);
       return res.status(400).json({
         success: false,
         message: "Invalid webhook signature",
       });
     }
 
-    const payload = typeof req.body === "object" && !Buffer.isBuffer(req.body) ? req.body : JSON.parse(rawBody.toString("utf8"));
-    const event = payload.event;
-    console.log(`🔔 [Razorpay Webhook]: Verified event received: ${event}`);
+    const payload =
+      typeof req.body === "object" && !Buffer.isBuffer(req.body)
+        ? req.body
+        : JSON.parse(rawBody.toString("utf8"));
 
-    // Handle payment.captured or order.paid
-    if (event === "payment.captured" || event === "order.paid") {
-      const paymentEntity = payload.payload?.payment?.entity;
-      const orderId = paymentEntity?.order_id || payload.payload?.order?.entity?.id;
-      const paymentId = paymentEntity?.id;
+    const eventType = payload.type || payload.event;
+    console.log(`🔔 [Cashfree Webhook - ${currentMode}]: Verified webhook event received: ${eventType}`);
 
+    const data = payload.data || {};
+    const orderData = data.order || {};
+    const paymentData = data.payment || {};
+
+    const orderId = orderData.order_id || payload.order_id;
+    const cfPaymentId = paymentData.cf_payment_id || payload.cf_payment_id;
+    const cfOrderId = orderData.cf_order_id || payload.cf_order_id;
+
+    if (eventType === "PAYMENT_SUCCESS_WEBHOOK" || eventType === "ORDER_PAID") {
       if (orderId) {
-        // Find existing order in DB
         const order = await Order.findOne({ orderId });
         if (order) {
           order.status = "paid";
-          if (paymentId) order.razorpayPaymentId = paymentId;
+          if (cfPaymentId) order.cfPaymentId = String(cfPaymentId);
+          if (cfOrderId) order.cfOrderId = String(cfOrderId);
           await order.save();
 
           // Fulfill user roadmap access
@@ -328,23 +435,26 @@ export const handleRazorpayWebhook = async (req, res) => {
               user.savedRoadmaps = user.savedRoadmaps.filter((id) => id !== order.careerId);
             }
             await user.save();
-            console.log(`✅ [Razorpay Webhook]: Roadmap "${order.careerId}" unlocked for user ${user.email}`);
+            console.log(
+              `✅ [Cashfree Webhook - ${currentMode}]: Roadmap "${order.careerId}" unlocked for user ${user.email}`
+            );
           }
         }
       }
-    } else if (event === "payment.failed") {
-      const paymentEntity = payload.payload?.payment?.entity;
-      const orderId = paymentEntity?.order_id;
+    } else if (
+      eventType === "PAYMENT_FAILED_WEBHOOK" ||
+      eventType === "PAYMENT_USER_DROPPED_WEBHOOK"
+    ) {
       if (orderId) {
         await Order.findOneAndUpdate({ orderId }, { status: "failed" });
-        console.log(`ℹ️ [Razorpay Webhook]: Order ${orderId} marked failed.`);
+        console.log(`ℹ️ [Cashfree Webhook - ${currentMode}]: Order ${orderId} marked failed/dropped.`);
       }
     }
 
-    // Always acknowledge Razorpay promptly with 200 OK
-    return res.status(200).json({ status: "ok" });
+    // Always acknowledge Cashfree with 200 OK
+    return res.status(200).json({ status: "OK" });
   } catch (error) {
-    console.error("[Razorpay Webhook Error]:", error);
+    console.error(`❌ [Cashfree Webhook Error - ${currentMode}]:`, error.message);
     return res.status(500).json({
       success: false,
       message: "Webhook processing error",
