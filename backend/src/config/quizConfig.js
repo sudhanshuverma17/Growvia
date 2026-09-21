@@ -205,9 +205,9 @@ export const QUIZ_QUESTIONS = [
     typeCategory: "academic",
     weight: 0.8,
     category: "Learning Style",
-    question: "How do you prefer solving a difficult homework assignment?",
+    question: "How do you prefer tackling a tough problem?",
     type: "single",
-    description: "Your default problem-solving instinct when studying.",
+    description: "Your natural approach when solving something challenging.",
     options: [
       {
         id: "q2_opt1",
@@ -246,9 +246,9 @@ export const QUIZ_QUESTIONS = [
     typeCategory: "academic",
     weight: 0.8,
     category: "Class Projects",
-    question: "What kind of school project was most fun to present?",
+    question: "What kind of project would be most fun to present?",
     type: "single",
-    description: "The topic where you enjoyed sharing your work with others.",
+    description: "The kind of work you'd enjoy showing off to others.",
     options: [
       {
         id: "q3_opt1",
@@ -328,9 +328,9 @@ export const QUIZ_QUESTIONS = [
     typeCategory: "interest",
     weight: 1.2,
     category: "Daily Preference",
-    question: "Would you rather fix a broken gadget or write a story?",
+    question: "Which hands-on task would you enjoy the most?",
     type: "single",
-    description: "Choose the hands-on activity that sounds most appealing.",
+    description: "Pick the activity that sounds most fun to you right now.",
     options: [
       {
         id: "q5_opt1",
