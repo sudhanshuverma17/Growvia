@@ -24,7 +24,7 @@ export const apiLimiter = rateLimit({
   skip: (req) => process.env.NODE_ENV === "test",
 });
 
-// Per-user rate limiter for AI chatbot interactions (prevent abuse & manage LLM costs)
+// Per-user rate limiter for Vio AI chatbot interactions (prevent abuse & manage LLM costs)
 export const chatLimiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute
   max: parseInt(process.env.CHAT_RATE_LIMIT || "20", 10), // Default: 20 messages per minute per user

@@ -18181,6 +18181,7 @@ export const pricingFeatures = [
   "Unfiltered 'Harsh Reality' check for your industry",
   "Salary progression data (India & Abroad)",
   "Mentor video discussions for your chosen career",
+  "24/7 access to Vio (Personal AI Career Guide)",
   "Save roadmap to your personal dashboard"
 ];
 export const mentorVideos = [

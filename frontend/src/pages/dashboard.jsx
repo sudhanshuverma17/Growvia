@@ -316,7 +316,7 @@ export default function Dashboard() {
                         No Purchased Roadmaps Yet
                       </h3>
                       <p className="text-xs sm:text-sm text-muted-foreground max-w-xl leading-relaxed">
-                        Unlock lifetime access to any career path for just ₹99. Get uncompromised honest insights, semester breakdown, tier-1 vs budget colleges, and curated mentors.
+                        Unlock lifetime access to any career path for just ₹199. Get uncompromised honest insights, semester breakdown, tier-1 vs budget colleges, and curated mentors.
                       </p>
                     </div>
                   </div>
@@ -326,7 +326,7 @@ export default function Dashboard() {
                     className="bg-primary text-primary-foreground font-bold rounded-xl text-xs sm:text-sm px-5 py-2.5 h-auto flex-shrink-0 shadow-lg shadow-primary/20"
                   >
                     <Link href="/pricing">
-                      Explore Pricing & Unlock — ₹99 <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                      Explore Pricing & Unlock — ₹199 <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
                     </Link>
                   </Button>
                 </div>

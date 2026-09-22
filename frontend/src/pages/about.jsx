@@ -68,7 +68,7 @@ export default function About() {
     { value: "12+", label: "Career Roadmaps" },
     { value: "5,000+", label: "Students Guided" },
     { value: "100%", label: "Unfiltered Truth" },
-    { value: "\u20B999", label: "Accessible to All" }
+    { value: "₹199", label: "Accessible to All" }
   ].map((stat, i) => <motion.div
     key={i}
     variants={fadeUp}
@@ -214,8 +214,8 @@ export default function About() {
     "Structured, step-by-step roadmaps for every major career in India.",
     "Honest 'Harsh Reality' sections \u2014 we don't sugarcoat.",
     "Real mentor videos from working professionals, not coaches.",
-    "India-first \u2014 NEET, JEE, CLAT, NATA, ICAI \u2014 we cover what's relevant here.",
-    "Priced at \u20B999 so a student in Bilaspur has the same access as one in Mumbai."
+    "India-first — NEET, JEE, CLAT, NATA, ICAI — we cover what's relevant here.",
+    "Priced at ₹199 so a student in Bilaspur has the same access as one in Mumbai."
   ].map((item, i) => <li key={i} className="flex gap-2.5">
                     <span className="text-primary mt-0.5 flex-shrink-0">✓</span>
                     {item}

@@ -191,7 +191,7 @@ export default function RoadmapDetail() {
                 className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs rounded-xl shadow-md shadow-emerald-600/25 flex items-center gap-1.5 transition-all cursor-pointer"
               >
                 <Sparkles className="w-3.5 h-3.5" />
-                Ask AI Advisor
+                Ask Vio
               </Button>
             )}
 
@@ -241,11 +241,11 @@ export default function RoadmapDetail() {
               </span>
               {isPurchased ? (
                 <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
-                  <CheckCircle2 className="w-3 h-3" /> Roadmap Unlocked · AI Advisor Active
+                  <CheckCircle2 className="w-3 h-3" /> Roadmap Unlocked · Vio Active
                 </span>
               ) : (
                 <span className="text-[10px] uppercase font-medium tracking-wider px-2 py-0.5 rounded-full bg-white/5 text-slate-400 border border-white/10 flex items-center gap-1">
-                  <Lock className="w-2.5 h-2.5" /> AI Advisor with Purchase
+                  <Lock className="w-2.5 h-2.5" /> Vio AI with Purchase
                 </span>
               )}
             </div>
@@ -1266,13 +1266,13 @@ export default function RoadmapDetail() {
               {career.title} Roadmap is Unlocked
             </h3>
             <p className="text-muted-foreground mb-6 max-w-lg mx-auto text-sm leading-relaxed">
-              Your full step-by-step curriculum and dedicated 24/7 AI Career Advisor are active. Ask specific questions about colleges, milestones, or study plans anytime.
+              Your full step-by-step curriculum and dedicated 24/7 AI Career Advisor, Vio, are active. Ask specific questions about colleges, milestones, or study plans anytime.
             </p>
             <Button
               onClick={() => window.dispatchEvent(new CustomEvent("growvia:open-chat"))}
               className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-full px-8 shadow-lg shadow-emerald-600/25 cursor-pointer"
             >
-              <Sparkles className="w-4 h-4 mr-2" /> Chat with AI Advisor
+              <Sparkles className="w-4 h-4 mr-2" /> Chat with Vio
             </Button>
           </motion.div>
         ) : (
@@ -1285,11 +1285,11 @@ export default function RoadmapDetail() {
           >
             <Lock className="w-10 h-10 text-primary mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-white mb-2">
-              Want the Complete Roadmap & AI Advisor?
+              Want the Complete Roadmap & Vio AI?
             </h3>
             <p className="text-muted-foreground mb-6 max-w-lg mx-auto text-sm">
               Unlock printable step-by-step guides, curated resource lists,
-              preparation strategies, and your dedicated 24/7 AI Career Advisor — all for just ₹99.
+              preparation strategies, and your dedicated 24/7 AI Career Advisor, Vio — all for just ₹199.
             </p>
             <Button
               asChild
@@ -1302,7 +1302,7 @@ export default function RoadmapDetail() {
                     : `/login?redirect=${encodeURIComponent(`/pricing?career=${career.id}`)}`
                 }
               >
-                Unlock for ₹99
+                Unlock for ₹199
               </Link>
             </Button>
           </motion.div>

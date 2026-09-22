@@ -21,7 +21,7 @@ const orderSchema = new mongoose.Schema(
     },
     amount: {
       type: Number,
-      required: true, // in INR, e.g. 99 for ₹99
+      required: true, // in INR, e.g. 199 for ₹199
     },
     currency: {
       type: String,

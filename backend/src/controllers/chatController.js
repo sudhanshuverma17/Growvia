@@ -34,7 +34,7 @@ export const streamChat = async (req, res) => {
 
     if (!hasAccess) {
       return res.status(403).json({
-        error: "Access denied. The AI Chatbot is only accessible for purchased roadmaps.",
+        error: "Access denied. Vio is only accessible for purchased roadmaps.",
         code: "ROADMAP_NOT_PURCHASED",
       });
     }
@@ -43,7 +43,7 @@ export const streamChat = async (req, res) => {
     const hasAnyAccess = isAdmin || purchasedRoadmaps.length > 0;
     if (!hasAnyAccess) {
       return res.status(403).json({
-        error: "Access denied. The AI Chatbot is only accessible for purchased roadmaps.",
+        error: "Access denied. Vio is only accessible for purchased roadmaps.",
         code: "NO_PURCHASED_ROADMAPS",
       });
     }
@@ -163,13 +163,13 @@ export const getChatHistory = async (req, res) => {
       if (!hasAccess) {
         return res.status(403).json({
           success: false,
-          error: "Access denied. The AI Chatbot is only accessible for purchased roadmaps.",
+          error: "Access denied. Vio is only accessible for purchased roadmaps.",
         });
       }
     } else if (!isAdmin && purchasedRoadmaps.length === 0) {
       return res.status(403).json({
         success: false,
-        error: "Access denied. The AI Chatbot is only accessible for purchased roadmaps.",
+        error: "Access denied. Vio is only accessible for purchased roadmaps.",
       });
     }
 
@@ -230,7 +230,7 @@ export const clearChatHistory = async (req, res) => {
       if (!hasAccess) {
         return res.status(403).json({
           success: false,
-          error: "Access denied. The AI Chatbot is only accessible for purchased roadmaps.",
+          error: "Access denied. Vio is only accessible for purchased roadmaps.",
         });
       }
 
@@ -239,7 +239,7 @@ export const clearChatHistory = async (req, res) => {
       if (!isAdmin && purchasedRoadmaps.length === 0) {
         return res.status(403).json({
           success: false,
-          error: "Access denied. The AI Chatbot is only accessible for purchased roadmaps.",
+          error: "Access denied. Vio is only accessible for purchased roadmaps.",
         });
       }
 

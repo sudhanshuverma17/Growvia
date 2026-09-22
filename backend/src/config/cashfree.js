@@ -11,7 +11,7 @@ dotenv.config({ path: path.resolve(__dirname, "../../../.env") });
 dotenv.config();
 
 // Global single source of truth for single roadmap unlock pricing (in INR)
-export const ROADMAP_PRICE_INR = Number(process.env.ROADMAP_PRICE_INR) || 99;
+export const ROADMAP_PRICE_INR = Number(process.env.ROADMAP_PRICE_INR) || 199;
 
 // Cashfree PG API Version (Current recommended stable version is 2025-01-01)
 export const CASHFREE_API_VERSION = process.env.CASHFREE_API_VERSION || "2025-01-01";

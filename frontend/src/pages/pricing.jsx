@@ -10,8 +10,8 @@ import { useToast } from "@/hooks/use-toast";
 import { apiUrl } from "@/lib/api-config";
 import { CareerIcon } from "@/components/career-icon";
 
-// Centralized roadmap price constant (₹99)
-export const ROADMAP_PRICE_INR = 99;
+// Centralized roadmap price constant (₹199)
+export const ROADMAP_PRICE_INR = 199;
 
 // Helper to dynamically load the Cashfree v3 JS SDK
 const loadCashfreeScript = () => {

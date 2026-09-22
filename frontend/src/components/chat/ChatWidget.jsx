@@ -292,7 +292,7 @@ function ChatWidgetContent({ user, token, careerId }) {
             next[lastIdx] = {
               ...next[lastIdx],
               content:
-                "I'm here to help you navigate Growvia! Could you please clarify your career or platform question?",
+                "I'm Vio, here to help you navigate Growvia! Could you please clarify your career or platform question?",
             };
           }
           return next;
@@ -303,7 +303,7 @@ function ChatWidgetContent({ user, token, careerId }) {
         console.log("[Chat Stream]: Request aborted by user.");
       } else {
         console.error("[Chat Stream Error]:", err);
-        setStreamError(err.message || "Failed to reach Growvia AI. Please check your connection.");
+        setStreamError(err.message || "Failed to reach Vio. Please check your connection.");
         // Remove empty assistant placeholder if failed completely
         setMessages((prev) => {
           if (prev.length > 0 && prev[prev.length - 1].content === "") {
@@ -385,7 +385,7 @@ function ChatWidgetContent({ user, token, careerId }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            aria-label={`Open ${careerTitle} AI Assistant`}
+            aria-label={`Open Vio - ${careerTitle} AI Assistant`}
             className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-emerald-500 via-teal-500 to-cyan-500 text-white shadow-xl shadow-teal-500/25 hover:shadow-teal-500/40 border border-white/20 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-slate-900"
           >
             {/* Pulsing beacon glow */}
@@ -398,7 +398,7 @@ function ChatWidgetContent({ user, token, careerId }) {
 
             {/* Desktop Tooltip */}
             <span className="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-lg bg-slate-900/90 backdrop-blur-md px-3 py-1.5 text-xs font-medium text-slate-200 shadow-lg border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity hidden sm:block">
-              Ask {careerTitle} AI Advisor
+              Ask Vio · {careerTitle} AI Advisor
             </span>
           </motion.button>
         )}
@@ -427,7 +427,7 @@ function ChatWidgetContent({ user, token, careerId }) {
                 <div className="min-w-0">
                   <div className="flex items-center gap-1.5">
                     <h3 className="text-sm font-semibold text-white tracking-tight truncate">
-                      Growvia AI Advisor
+                      Vio
                     </h3>
                     <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
                       Purchased
@@ -469,7 +469,7 @@ function ChatWidgetContent({ user, token, careerId }) {
                     <Sparkles className="w-6 h-6" />
                   </div>
                   <h4 className="text-sm font-semibold text-slate-200 mb-1">
-                    Welcome to your {careerTitle} AI Advisor!
+                    Welcome to Vio, your {careerTitle} AI Advisor!
                   </h4>
                   <p className="text-xs text-slate-400 max-w-[280px] mb-5 leading-relaxed">
                     You have lifetime access to this roadmap. Ask me anything about milestone stages, recommended colleges, exam strategies, or skill progression.
@@ -604,7 +604,7 @@ function ChatWidgetContent({ user, token, careerId }) {
 
               <div className="mt-2 flex items-center justify-between text-[10px] text-slate-500 px-1">
                 <span>Shift + Enter for new line</span>
-                <span>Powered by Growvia AI</span>
+                <span>Powered by Vio · Growvia AI</span>
               </div>
             </div>
           </motion.div>
