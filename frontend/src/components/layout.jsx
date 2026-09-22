@@ -4,6 +4,7 @@ import { Menu, X, ShieldCheck, User, LogOut, LayoutDashboard } from "lucide-reac
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/auth-context";
+import { GrowviaLogo } from "@/components/GrowviaLogo";
 
 export function Layout({ children }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,19 +25,11 @@ export function Layout({ children }) {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [location]);
 
-  const navLinks = isAuthenticated
-    ? [
-        { name: "Roadmaps", href: "/roadmaps" },
-        { name: "Videos", href: "/videos" },
-        { name: "Career Quiz", href: "/career-quiz" },
-        { name: "Pricing", href: "/pricing" },
-        { name: "About", href: "/about" },
-      ]
-    : [
-        { name: "Roadmaps", href: "/roadmaps" },
-        { name: "Career Quiz", href: "/career-quiz" },
-        { name: "About", href: "/about" },
-      ];
+  const navLinks = [
+    { name: "Roadmaps", href: "/roadmaps" },
+    { name: "Career Quiz", href: "/career-quiz" },
+    { name: "About", href: "/about" },
+  ];
 
   const currentFullPath = typeof window !== "undefined" ? window.location.pathname + window.location.search : location;
   const loginHref = currentFullPath && currentFullPath !== "/" && !currentFullPath.startsWith("/login")
@@ -46,107 +39,81 @@ export function Layout({ children }) {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground font-sans selection:bg-primary/30">
       <header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-background/80 backdrop-blur-md border-white/10 py-3 shadow-lg shadow-black/20"
-            : "bg-transparent border-transparent py-5"
+            ? "bg-black/80 backdrop-blur-md border-b border-white/10 py-3.5 shadow-lg shadow-black/40"
+            : "bg-transparent border-b border-transparent py-5 md:py-6"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center text-primary-foreground font-display font-bold text-xl group-hover:scale-105 transition-transform">
-              G
-            </div>
-            <span className="font-display font-bold text-xl tracking-tight text-white group-hover:text-primary transition-colors">
-              Growvia
-            </span>
-          </Link>
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex justify-between items-center">
+          <GrowviaLogo markClassName="w-6 h-6 text-white" textClassName="text-xl font-light tracking-[0.04em] text-white" />
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-7">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location === link.href
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
+          <div className="hidden md:flex items-center gap-7">
+            <nav className="flex items-center gap-7">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`text-sm tracking-normal transition-colors ${
+                    location === link.href
+                      ? "text-white font-medium"
+                      : "text-white/80 hover:text-white"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
 
-          <div className="hidden md:flex items-center gap-3">
             {isAdmin && (
               <Link
                 href="/admin"
                 className={`flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full border transition-all font-semibold ${
                   location.startsWith("/admin")
-                    ? "border-primary bg-primary text-primary-foreground shadow-sm shadow-primary/30"
+                    ? "border-primary bg-primary text-primary-foreground"
                     : "border-primary/30 bg-primary/10 text-primary hover:bg-primary/20"
                 }`}
               >
                 <ShieldCheck className="w-3.5 h-3.5" />
-                Admin Studio
+                Admin
               </Link>
             )}
 
-            {isAuthenticated ? (
-              <div className="flex items-center gap-2">
+            {/* Vertical Divider */}
+            <div className="h-4 w-px bg-white/25 select-none mx-1" aria-hidden="true" />
+
+            {/* Auth Actions */}
+            <div className="flex items-center gap-6">
+              {isAuthenticated ? (
                 <Link
                   href="/dashboard"
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all text-xs font-medium ${
-                    location === "/dashboard"
-                      ? "border-white/30 bg-white/10 text-white"
-                      : "border-white/10 bg-white/5 text-white/90 hover:bg-white/10"
-                  }`}
+                  className="inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#F5F0E6] text-[#121212] text-sm font-medium tracking-tight hover:bg-white transition-all shadow-sm duration-200"
                 >
-                  <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-[10px]">
-                    {user?.name?.charAt(0).toUpperCase() || "U"}
-                  </div>
-                  <span className="max-w-[100px] truncate">{user?.name?.split(" ")[0]}</span>
-                  <span className="px-1.5 py-0.5 rounded text-[10px] bg-white/10 text-muted-foreground uppercase font-semibold">
-                    {user?.role}
-                  </span>
+                  Dashboard
                 </Link>
-
-                {!location.startsWith("/dashboard") && (
-                  <button
-                    onClick={() => {
-                      logout();
-                      setLocation("/");
-                    }}
-                    title="Log out"
-                    className="p-1.5 rounded-full text-muted-foreground hover:text-red-400 hover:bg-red-500/10 transition-colors"
+              ) : (
+                <>
+                  <Link
+                    href={loginHref}
+                    className="text-sm text-white/80 hover:text-white transition-colors"
                   >
-                    <LogOut className="w-4 h-4" />
-                  </button>
-                )}
-              </div>
-            ) : (
-              <>
-                <Link
-                  href={loginHref}
-                  className="text-sm font-medium text-muted-foreground hover:text-white transition-colors"
-                >
-                  Log in
-                </Link>
-                <Button
-                  asChild
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-5 text-sm"
-                >
-                  <Link href={loginHref}>Get Started</Link>
-                </Button>
-              </>
-            )}
+                    Log in
+                  </Link>
+                  <Link
+                    href={loginHref}
+                    className="inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#F5F0E6] text-[#121212] text-sm font-medium tracking-tight hover:bg-white transition-all shadow-sm duration-200"
+                  >
+                    Get Started
+                  </Link>
+                </>
+              )}
+            </div>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden text-muted-foreground hover:text-white"
+            className="md:hidden text-white/80 hover:text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -211,15 +178,8 @@ export function Layout({ children }) {
                       <div className="text-xs text-muted-foreground">{user?.email} • <span className="uppercase text-primary">{user?.role}</span></div>
                     </div>
                   </div>
-                  <Button
-                    variant="outline"
-                    onClick={() => {
-                      logout();
-                      setLocation("/");
-                    }}
-                    className="w-full border-red-500/30 text-red-400 hover:bg-red-500/10"
-                  >
-                    <LogOut className="w-4 h-4 mr-2" /> Log out
+                  <Button asChild className="w-full bg-[#F5F0E6] text-[#121212] hover:bg-white rounded-full font-medium">
+                    <Link href="/dashboard">Go to Dashboard</Link>
                   </Button>
                 </div>
               ) : (
@@ -237,20 +197,15 @@ export function Layout({ children }) {
         )}
       </AnimatePresence>
 
-      <main className="flex-1 pt-20">{children}</main>
+      <main className={`flex-1 ${location === "/" ? "pt-0" : "pt-20"}`}>{children}</main>
 
       <footer className="border-t border-white/10 bg-black py-12 mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-2">
-              <Link href="/" className="flex items-center gap-2 group mb-4">
-                <div className="w-6 h-6 rounded bg-primary flex items-center justify-center text-primary-foreground font-display font-bold text-sm">
-                  G
-                </div>
-                <span className="font-display font-bold text-lg text-white">
-                  Growvia
-                </span>
-              </Link>
+              <div className="mb-4">
+                <GrowviaLogo markClassName="w-6 h-6 text-white" textClassName="text-lg font-light tracking-[0.04em] text-white" />
+              </div>
               <p className="text-muted-foreground text-sm max-w-xs">
                 Helping Indian students find the right career path with absolute
                 clarity, honest insights, and structured roadmaps.

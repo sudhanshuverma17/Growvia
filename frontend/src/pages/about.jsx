@@ -65,7 +65,7 @@ export default function About() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-    { value: "12+", label: "Career Roadmaps" },
+    { value: "45+", label: "Career Roadmaps" },
     { value: "5,000+", label: "Students Guided" },
     { value: "100%", label: "Unfiltered Truth" },
     { value: "₹199", label: "Accessible to All" }

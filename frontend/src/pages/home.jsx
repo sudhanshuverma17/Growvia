@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { useCourses } from "@/context/course-context";
 import { useAuth } from "@/context/auth-context";
 import { CareerIcon } from "@/components/career-icon";
+import { GrowviaLogoMark } from "@/components/GrowviaLogo";
+
 function Counter({ to, suffix = "" }) {
   const [val, setVal] = useState(0);
   const ref = useRef(null);
@@ -50,115 +52,112 @@ export default function Home() {
   return <Layout>
 
     {
-      /* ── HERO ──────────────────────────────────────────────── */
+      /* ── HERO (CINEMATIC EDITORIAL) ────────────────────────── */
     }
-    <section className="relative min-h-[95vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen w-full flex flex-col justify-end overflow-hidden bg-black">
 
-      {
-        /* Dot grid background */
-      }
-      <div className="absolute inset-0 dot-grid opacity-100 pointer-events-none" />
+      {/* Atmospheric Photography Background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center pointer-events-none select-none"
+        style={{
+          backgroundImage: "url('/images/hero-cinematic.jpg')",
+          backgroundPosition: "center 32%",
+        }}
+      />
 
-      {
-        /* Radial vignette over grid */
-      }
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_100%,transparent_40%,hsl(var(--background))_100%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_40%_at_50%_0%,transparent_40%,hsl(var(--background))_100%)] pointer-events-none" />
+      {/* Cinematic Dark Gradient Overlays (40-60% opacity per user specification) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/20 to-black/85 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-transparent to-black/40 pointer-events-none" />
 
-      {
-        /* Floating orbs */
-      }
-      <div className="orb orb-1 top-[-100px] left-[-150px]" />
-      <div className="orb orb-2 bottom-[-80px] right-[-120px]" />
-      <div className="orb orb-3 top-[30%] right-[10%]" />
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-
-        {
-          /* Badge */
-        }
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] text-sm text-muted-foreground mb-8 section-tag"
-        >
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary" />
-          </span>
-          India's Honest Career Guidance Platform
-        </motion.div>
-
-        {
-          /* Headline */
-        }
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="text-5xl sm:text-6xl md:text-[5.5rem] font-extrabold tracking-[-0.03em] leading-[1.05] mb-6"
-        >
-          <span className="text-white">Find Your Path.</span>
-          <br />
-          <span className="shimmer-text">Kill It in Life.</span>
-        </motion.h1>
-
-        {
-          /* Subtext */
-        }
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.22 }}
-          className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
-        >
-          Honest roadmaps, unfiltered mentor videos, and real salary data for 12+ careers — built specifically for Indian students who deserve clarity.
-        </motion.p>
-
-        {
-          /* CTAs */
-        }
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.32 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-        >
-          <Button asChild size="lg" className="btn-premium bg-primary text-primary-foreground text-base h-13 px-8 rounded-full font-bold shadow-[0_0_50px_-10px_rgba(232,224,208,0.4)] hover:shadow-[0_0_70px_-10px_rgba(232,224,208,0.55)] hover:scale-[1.03] transition-all duration-300">
-            <Link href="/roadmaps">
-              Explore Roadmaps <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-          <Button asChild size="lg" variant="outline" className="text-base h-13 px-8 rounded-full border-white/15 hover:bg-white/5 text-white hover:border-white/30 transition-all duration-300">
-            <Link href="/quiz">Take Free Career Quiz</Link>
-          </Button>
-        </motion.div>
-
-        {
-          /* Social proof mini row */
-        }
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex items-center justify-center gap-6 text-sm text-muted-foreground"
-        >
-          <div className="flex -space-x-2">
-            {["A", "B", "C", "D", "E"].map((l, i) => <div key={i} className="w-7 h-7 rounded-full bg-gradient-to-br from-white/20 to-white/5 border border-white/20 flex items-center justify-center text-[10px] font-bold text-white/70">{l}</div>)}
-          </div>
-          <span>5,000+ students guided</span>
-          <div className="hidden sm:flex items-center gap-1 text-amber-400">
-            {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
-            <span className="text-muted-foreground ml-1">4.9/5</span>
-          </div>
-        </motion.div>
+      {/* Center Watermark: Outlined Hexagon Logo Mark from Reference Design */}
+      <div className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 flex items-center justify-center">
+        <GrowviaLogoMark
+          className="w-20 h-20 md:w-28 md:h-28 text-[#F5F0E6]/85 drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]"
+          strokeWidth={1.7}
+        />
       </div>
 
-      {
-        /* Bottom fade */
-      }
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+      {/* Hero Content (Positioned in Bottom-Left quadrant) */}
+      <div className="relative z-20 max-w-7xl w-full mx-auto px-6 sm:px-8 lg:px-12 pb-14 sm:pb-16 pt-36">
+        <div className="max-w-2xl">
+          {/* Refined Editorial Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-white mb-4 leading-[1.08] drop-shadow-[0_2px_16px_rgba(0,0,0,0.9)]"
+          >
+            Find Your Path.
+            <br />
+            <span className="font-normal text-[#F5F0E6]">Kill It in Life.</span>
+          </motion.h1>
+
+          {/* Subtext */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-sm sm:text-base md:text-lg text-white/80 mb-8 max-w-lg leading-relaxed font-light drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]"
+          >
+            Honest roadmaps, unfiltered mentor masterclasses, and real salary data for 45+ careers — built specifically for ambitious Indian students.
+          </motion.p>
+
+          {/* Primary CTAs matching reference pill button styling */}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-wrap items-center gap-4 mb-8"
+          >
+            {/* Solid light cream button */}
+            <Link
+              href="/roadmaps"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-[#F5F0E6] text-[#121212] font-medium text-sm md:text-base hover:bg-white transition-all duration-300 shadow-xl shadow-black/50 group"
+            >
+              <span>Explore Roadmaps</span>
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+            </Link>
+
+            {/* Outlined glass pill button */}
+            <Link
+              href="/career-quiz"
+              className="inline-flex items-center justify-center px-7 py-3 rounded-full border border-white/30 bg-black/25 backdrop-blur-md text-white font-medium text-sm md:text-base hover:bg-white/10 hover:border-white/50 transition-all duration-300 shadow-lg shadow-black/30"
+            >
+              Take Career Quiz
+            </Link>
+          </motion.div>
+
+          {/* Social Proof Mini Row */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.45 }}
+            className="flex items-center gap-4 text-xs sm:text-sm text-white/75 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
+          >
+            <div className="flex -space-x-2">
+              {["A", "B", "C", "D", "E"].map((l, i) => (
+                <div
+                  key={i}
+                  className="w-6 h-6 rounded-full bg-white/15 border border-white/25 backdrop-blur-sm flex items-center justify-center text-[9px] font-medium text-white"
+                >
+                  {l}
+                </div>
+              ))}
+            </div>
+            <span className="font-light">5,000+ students guided</span>
+            <span className="text-white/30 font-thin select-none">•</span>
+            <div className="flex items-center gap-1 text-amber-300">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-3 h-3 fill-current" />
+              ))}
+              <span className="text-white/80 ml-1 font-light">4.9/5</span>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Smooth gradient blend into page below */}
+      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-background via-background/60 to-transparent pointer-events-none z-10" />
     </section>
 
     {
@@ -182,7 +181,7 @@ export default function Home() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.06] rounded-2xl overflow-hidden border border-white/[0.06]">
           {[
-            { value: 12, suffix: "+", label: "Career Roadmaps" },
+            { value: 45, suffix: "+", label: "Career Roadmaps" },
             { value: 5e3, suffix: "+", label: "Students Guided" },
             { value: 199, suffix: "", label: "Rupees Only" },
             { value: 100, suffix: "%", label: "No Sugarcoating" }
@@ -262,7 +261,7 @@ export default function Home() {
         <div className="glow-line mb-12" />
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
           {[
-            { icon: MapPin, label: "12 Career Roadmaps", desc: "Step-by-step guides with exams, colleges & salary data" },
+            { icon: MapPin, label: "45+ Career Roadmaps", desc: "Step-by-step guides with exams, colleges & salary data" },
             { icon: Video, label: "Mentor Video Talks", desc: "Real professionals sharing unfiltered journeys" },
             { icon: HelpCircle, label: "Free Career Quiz", desc: "Find your best-fit career in 2 minutes" }
           ].map((f, i) => <motion.div
@@ -302,7 +301,7 @@ export default function Home() {
           <div>
             <div className="section-tag mb-4">Explore Careers</div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 leading-tight">
-              12 Deep-Dive <span className="text-gradient-primary">Roadmaps</span>
+              Deep-Dive <span className="text-gradient-primary">Roadmaps</span>
             </h2>
             <p className="text-muted-foreground max-w-xl">Every career includes salary reality, entrance exams, top colleges, and what a real day looks like.</p>
           </div>
