@@ -35,7 +35,7 @@ export function VideoPlayerModal({ video, isOpen, onClose, onUnlock }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
-      <div className="relative w-full max-w-3xl bg-[#111113] border border-white/10 rounded-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-200">
+      <div className="relative w-full max-w-3xl bg-[#131316] border border-white/10 rounded-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-200">
         {/* Modal Close Button */}
         <button
           onClick={onClose}
@@ -64,10 +64,10 @@ export function VideoPlayerModal({ video, isOpen, onClose, onUnlock }) {
               This session includes unfiltered industry insights and private guidance.
             </p>
 
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 max-w-md mx-auto mb-8 text-left space-y-3">
+            <div className="bg-white/[0.04] border border-white/10 rounded-2xl p-6 max-w-md mx-auto mb-8 text-left space-y-3">
               <div className="flex justify-between items-center pb-3 border-b border-white/10">
                 <span className="text-sm text-muted-foreground">Session Fee:</span>
-                <span className="text-2xl font-bold text-primary">{video.price || "₹299"}</span>
+                <span className="text-2xl font-bold text-[#E69D43]">{video.price || "₹299"}</span>
               </div>
               <div className="text-xs text-muted-foreground space-y-2 pt-1">
                 <div className="flex items-center gap-2">
@@ -88,7 +88,7 @@ export function VideoPlayerModal({ video, isOpen, onClose, onUnlock }) {
             <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
               <Button
                 onClick={handleSimulatedUnlock}
-                className="w-full bg-gradient-to-r from-primary to-primary/80 text-primary-foreground font-semibold h-12 rounded-xl text-base shadow-lg shadow-primary/25"
+                className="w-full bg-[#E69D43] hover:bg-[#E69D43]/90 text-black font-semibold h-12 rounded-xl text-base shadow-lg shadow-[#E69D43]/20"
               >
                 Unlock Video Access ({video.price || "₹299"})
               </Button>

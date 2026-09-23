@@ -1,0 +1,141 @@
+// Curated high-resolution thematic images matching the reference UI
+export const CAREER_IMAGES = {
+  // Top featured in reference design
+  pharmacist: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&auto=format&fit=crop&q=80",
+  actuary: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&auto=format&fit=crop&q=80",
+  "interior-designer": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&auto=format&fit=crop&q=80",
+  "supply-chain": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80",
+  biotechnologist: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&auto=format&fit=crop&q=80",
+  "environmental-scientist": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=800&auto=format&fit=crop&q=80",
+  engineer: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=80",
+  "game-developer": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=800&auto=format&fit=crop&q=80",
+
+  // Technology & Computing
+  "data-scientist": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
+  "ai-ml-engineer": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=80",
+  cybersecurity: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format&fit=crop&q=80",
+  "cloud-architect": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=80",
+  "product-manager": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&auto=format&fit=crop&q=80",
+  "blockchain-developer": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&auto=format&fit=crop&q=80",
+
+  // Healthcare & Wellness
+  doctor: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=800&auto=format&fit=crop&q=80",
+  dentist: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&auto=format&fit=crop&q=80",
+  physiotherapist: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80",
+  nutritionist: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&auto=format&fit=crop&q=80",
+  "fitness-trainer": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&auto=format&fit=crop&q=80",
+
+  // Finance & Business Management
+  "investment-banker": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&auto=format&fit=crop&q=80",
+  "chartered-accountant": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&auto=format&fit=crop&q=80",
+  "financial-analyst": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
+  "startup-founder": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&auto=format&fit=crop&q=80",
+  "mba-manager": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&auto=format&fit=crop&q=80",
+  "marketing-manager": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop&q=80",
+  "human-resources": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&auto=format&fit=crop&q=80",
+
+  // Legal & Public Services
+  lawyer: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&auto=format&fit=crop&q=80",
+  "civil-services": "https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=800&auto=format&fit=crop&q=80",
+  "army-officer": "https://images.unsplash.com/photo-1579975096649-e773152b04cb?w=800&auto=format&fit=crop&q=80",
+
+  // Architecture & Engineering
+  architect: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&auto=format&fit=crop&q=80",
+  "civil-engineer": "https://images.unsplash.com/photo-1541888946425-d0fbb18f15f7?w=800&auto=format&fit=crop&q=80",
+  "mechanical-engineer": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80",
+
+  // Creative, Design & Media
+  designer: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=800&auto=format&fit=crop&q=80",
+  "graphic-designer": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&auto=format&fit=crop&q=80",
+  "film-director": "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800&auto=format&fit=crop&q=80",
+  "content-creator": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&auto=format&fit=crop&q=80",
+  "digital-marketer": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&auto=format&fit=crop&q=80",
+  photographer: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&auto=format&fit=crop&q=80",
+  "fashion-designer": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&auto=format&fit=crop&q=80",
+  journalist: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&auto=format&fit=crop&q=80",
+  "public-relations": "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&auto=format&fit=crop&q=80",
+
+  // Aviation, Education & Hospitality
+  pilot: "https://images.unsplash.com/photo-1508672019048-805b876b67e2?w=800&auto=format&fit=crop&q=80",
+  "hotel-management": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&auto=format&fit=crop&q=80",
+  "event-manager": "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop&q=80",
+  psychologist: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80",
+  teacher: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&auto=format&fit=crop&q=80",
+  "ed-tech": "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&auto=format&fit=crop&q=80",
+  "social-worker": "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&auto=format&fit=crop&q=80",
+};
+
+// Automatic smart category fallbacks so ANY newly created career by an admin has consistent thematic photography
+export const CATEGORY_FALLBACK_IMAGES = {
+  "Technology & Computing": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80",
+  "Technology": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80",
+  "Technology & Gaming": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=1200&auto=format&fit=crop&q=80",
+  "Healthcare & Clinical": "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=1200&auto=format&fit=crop&q=80",
+  "Healthcare": "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=1200&auto=format&fit=crop&q=80",
+  "Healthcare & Medicine": "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=1200&auto=format&fit=crop&q=80",
+  "Finance, Commerce & Analytics": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=1200&auto=format&fit=crop&q=80",
+  "Finance & Business Management": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=1200&auto=format&fit=crop&q=80",
+  "Finance & Accounting": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&auto=format&fit=crop&q=80",
+  "Management, Consulting & Strategy": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&auto=format&fit=crop&q=80",
+  "Management & Business": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1200&auto=format&fit=crop&q=80",
+  "Creative, Media & Entertainment": "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=1200&auto=format&fit=crop&q=80",
+  "Design, Architecture & Built Env.": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&auto=format&fit=crop&q=80",
+  "Design & Built Environment": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&auto=format&fit=crop&q=80",
+  "Engineering, Manufacturing & Hardware": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&auto=format&fit=crop&q=80",
+  "Engineering": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&auto=format&fit=crop&q=80",
+  "Science, Research & Biotechnology": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200&auto=format&fit=crop&q=80",
+  "Science & Research": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200&auto=format&fit=crop&q=80",
+  "Legal, Government & Public Policy": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&auto=format&fit=crop&q=80",
+  "Aviation, Logistics & Operations": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&auto=format&fit=crop&q=80",
+  "Education, Psychology & Social Impact": "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200&auto=format&fit=crop&q=80",
+};
+
+export const DEFAULT_CAREER_IMAGE =
+  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&auto=format&fit=crop&q=80";
+
+// Resolves a card-sized image (for career lists, dashboard, and home)
+export function getCareerCardImage(career) {
+  if (!career) return DEFAULT_CAREER_IMAGE;
+  return (
+    career.image ||
+    career.thumbnail ||
+    (career.id && CAREER_IMAGES[career.id]) ||
+    (career.category && CATEGORY_FALLBACK_IMAGES[career.category]) ||
+    DEFAULT_CAREER_IMAGE
+  );
+}
+
+// Resolves a high-resolution hero image (for the roadmap detail banner)
+export function getCareerHeroImage(career) {
+  if (!career) return DEFAULT_CAREER_IMAGE;
+  const base =
+    career.image ||
+    career.thumbnail ||
+    (career.id && CAREER_IMAGES[career.id]) ||
+    (career.category && CATEGORY_FALLBACK_IMAGES[career.category]) ||
+    DEFAULT_CAREER_IMAGE;
+  return base.replace("w=600", "w=1600").replace("w=800", "w=1600").replace("q=70", "q=80");
+}
+
+// Concise 1-2 sentence descriptions to prevent bulkiness
+export const CONCISE_DESCRIPTIONS = {
+  pharmacist: "Ensure safe medication use, manage drug supply chains, and advise on pharmaceutical therapy.",
+  actuary: "Use mathematics and statistics to assess financial risk for insurance companies, pension funds, and banks.",
+  "interior-designer": "Transform spaces — homes, offices, hospitality, and retail — into functional and beautiful environments.",
+  "supply-chain": "Manage the end-to-end flow of goods, from raw materials to final delivery — the backbone of every business.",
+  biotechnologist: "Work on disease diagnosis, research, and development of new treatments and therapies.",
+  "environmental-scientist": "Study environmental systems and develop solutions for a sustainable future.",
+  engineer: "Design, develop, and maintain software applications that power the digital world.",
+  "game-developer": "Create immersive gaming experiences using programming, design, and creativity.",
+};
+
+// Returns a concise description safe for cards
+export function getCareerConciseDesc(career) {
+  if (!career) return "";
+  if (career.id && CONCISE_DESCRIPTIONS[career.id]) {
+    return CONCISE_DESCRIPTIONS[career.id];
+  }
+  if (!career.description) return "";
+  const firstSentence = career.description.split(". ")[0].trim();
+  return firstSentence.endsWith(".") ? firstSentence : `${firstSentence}.`;
+}

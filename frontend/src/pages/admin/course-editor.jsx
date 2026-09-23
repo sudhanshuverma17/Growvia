@@ -92,6 +92,8 @@ export default function CourseEditor() {
     customCategory: "",
     icon: "Code",
     description: "",
+    image: "",
+    thumbnail: "",
     stats: {
       salary: "₹6L - ₹20L+",
       demand: "High",
@@ -200,6 +202,8 @@ export default function CourseEditor() {
           : existingCourse.category || "",
         icon: iconName,
         description: existingCourse.description || "",
+        image: existingCourse.image || existingCourse.thumbnail || "",
+        thumbnail: existingCourse.thumbnail || existingCourse.image || "",
         stats: {
           salary: existingCourse.stats?.salary || "₹6L - ₹20L+",
           demand: existingCourse.stats?.demand || "High",
@@ -626,6 +630,8 @@ export default function CourseEditor() {
       category,
       icon: formData.icon,
       description: formData.description.trim(),
+      image: formData.image ? formData.image.trim() : "",
+      thumbnail: formData.image ? formData.image.trim() : "",
       stats: formData.stats,
       timeline: (formData.timeline || []).map((st) => ({
         year: st.year?.trim() || "",
@@ -863,7 +869,7 @@ export default function CourseEditor() {
         <form onSubmit={handleSave}>
           {/* TAB 1: GENERAL INFO */}
           {activeTab === "general" && (
-            <div className="space-y-6 bg-card border border-white/10 rounded-2xl p-6 sm:p-8">
+            <div className="space-y-6 bg-[#131316] border border-white/10 rounded-2xl p-6 sm:p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-xs font-semibold uppercase text-muted-foreground mb-2">
@@ -971,6 +977,38 @@ export default function CourseEditor() {
                   }
                   className="bg-neutral-900 border-white/10 text-white leading-relaxed"
                 />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold uppercase text-muted-foreground mb-2">
+                  Cover Photo / Thematic Image URL (Optional)
+                </label>
+                <div className="flex gap-4 items-start">
+                  <div className="flex-1">
+                    <Input
+                      type="url"
+                      placeholder="https://images.unsplash.com/... (Leave blank for automatic smart category photography)"
+                      value={formData.image || ""}
+                      onChange={(e) =>
+                        setFormData((p) => ({ ...p, image: e.target.value }))
+                      }
+                      className="bg-neutral-900 border-white/10 text-white text-xs"
+                    />
+                    <p className="text-[11px] text-muted-foreground mt-1.5 leading-snug">
+                      Displayed as the right-side faded preview on career cards and the atmospheric hero banner on the roadmap detail page.
+                    </p>
+                  </div>
+                  {formData.image && (
+                    <div className="w-20 h-14 rounded-xl border border-white/15 overflow-hidden bg-black flex-shrink-0">
+                      <img
+                        src={formData.image}
+                        alt="Preview"
+                        className="w-full h-full object-cover"
+                        onError={(e) => (e.target.style.display = "none")}
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Stats Bar */}

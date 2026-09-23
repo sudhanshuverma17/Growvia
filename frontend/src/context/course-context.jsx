@@ -35,6 +35,8 @@ function deserializeCourses(rawList) {
     const iconKey = typeof course.icon === "string" ? course.icon : "Briefcase";
     return {
       ...course,
+      image: course.image || course.thumbnail || "",
+      thumbnail: course.thumbnail || course.image || "",
       icon: ICON_MAP[iconKey] || iconKey,
       courses: Array.isArray(course.courses) ? course.courses : [],
     };
@@ -157,6 +159,8 @@ export function CourseProvider({ children }) {
       title: courseData.title || "Untitled Course",
       category: courseData.category || "Technology",
       description: courseData.description || "",
+      image: courseData.image || courseData.thumbnail || "",
+      thumbnail: courseData.thumbnail || courseData.image || "",
       icon: typeof courseData.icon === "string" ? courseData.icon : "Briefcase",
       stats: {
         salary: courseData.stats?.salary || "₹5L - ₹20L+",

@@ -31,14 +31,14 @@ import {
   GitBranch,
   ShieldAlert,
   Wrench,
+  Compass,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/context/auth-context";
 import { useVideos } from "@/context/video-context";
 import { VideoPlayerModal } from "@/components/video-player-modal";
-
-
+import { getCareerHeroImage } from "@/lib/career-media";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -66,14 +66,21 @@ const RESOURCE_TYPE_STYLES = {
   other: "bg-white/10 text-white/80 border-white/20",
 };
 
-function SectionHeading({ icon: Icon, title }) {
+function SectionHeading({ icon: Icon, title, badge }) {
   return (
-    <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-      <span className="w-8 h-8 rounded-lg bg-primary/15 border border-primary/25 flex items-center justify-center flex-shrink-0">
-        <Icon className="w-4 h-4 text-primary" />
-      </span>
-      {title}
-    </h2>
+    <div className="flex items-center justify-between gap-4 mb-6">
+      <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+        <span className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/25 flex items-center justify-center flex-shrink-0 shadow-sm shadow-amber-500/10">
+          <Icon className="w-4 h-4 text-[#E5A855]" />
+        </span>
+        <span>{title}</span>
+      </h2>
+      {badge && (
+        <span className="text-[11px] font-semibold text-[#E5A855] px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20">
+          {badge}
+        </span>
+      )}
+    </div>
   );
 }
 
@@ -140,22 +147,26 @@ export default function RoadmapDetail() {
     }
   };
 
-
   if (!career) {
     return (
       <Layout>
-        <div className="max-w-3xl mx-auto py-20 text-center">
-          <h1 className="text-3xl font-bold mb-4">Career Not Found</h1>
-          <p className="text-muted-foreground mb-8">
+        <div className="max-w-3xl mx-auto py-20 px-4 text-center">
+          <div className="w-16 h-16 rounded-2xl bg-[#131316] border border-white/10 flex items-center justify-center mx-auto mb-4 text-[#E5A855]">
+            <Compass className="w-8 h-8" />
+          </div>
+          <h1 className="text-3xl font-black text-white mb-3">Career Not Found</h1>
+          <p className="text-muted-foreground mb-8 text-sm">
             We couldn't find the roadmap you're looking for.
           </p>
-          <Button asChild>
+          <Button asChild className="bg-[#E5A855] hover:bg-[#d99640] text-black font-bold rounded-xl px-6">
             <Link href="/roadmaps">Back to Roadmaps</Link>
           </Button>
         </div>
       </Layout>
     );
   }
+
+  const heroBg = getCareerHeroImage(career);
 
   const timeline = career.timeline || [];
   const paths = career.paths || [];
@@ -173,126 +184,142 @@ export default function RoadmapDetail() {
 
   return (
     <Layout>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        {/* Navigation Bar */}
-        <div className="flex items-center justify-between mb-8">
-          <Link
-            href="/roadmaps"
-            className="inline-flex items-center text-sm text-muted-foreground hover:text-white transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" /> Back to all careers
-          </Link>
-
-          <div className="flex items-center gap-2">
-            {isPurchased && (
-              <Button
-                size="sm"
-                onClick={() => window.dispatchEvent(new CustomEvent("growvia:open-chat"))}
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs rounded-xl shadow-md shadow-emerald-600/25 flex items-center gap-1.5 transition-all cursor-pointer"
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-                Ask Vio
-              </Button>
-            )}
-
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleSaveRoadmap}
-              className={`text-xs transition-all ${
-                isSaved && isAuthenticated
-                  ? "border-primary bg-primary/10 text-primary hover:bg-primary/20"
-                  : "border-white/15 text-muted-foreground hover:text-white hover:bg-white/10"
-              }`}
-            >
-              <Bookmark className={`w-3.5 h-3.5 mr-1.5 ${isSaved && isAuthenticated ? "fill-primary text-primary" : ""}`} />
-              {isAuthenticated && isSaved ? "Saved to Dashboard" : "Save Roadmap"}
-            </Button>
-
-            {isAdmin && (
-              <Button
-                asChild
-                variant="outline"
-                size="sm"
-                className="border-primary/30 text-primary bg-primary/5 hover:bg-primary/15 text-xs"
-              >
-                <Link href={`/admin/courses/${career.id}/edit`}>
-                  <Pencil className="w-3.5 h-3.5 mr-1.5" /> Edit in Admin
-                </Link>
-              </Button>
-            )}
-          </div>
+      {/* ── ATMOSPHERIC HERO BANNER WITH THEMATIC CAREER PHOTOGRAPHY ── */}
+      <section className="relative w-full overflow-hidden bg-[#0d0d0f] border-b border-white/10">
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img
+            src={heroBg}
+            alt={career.title}
+            className="w-full h-full object-cover object-center opacity-30 md:opacity-40 scale-105"
+          />
+          {/* Seamless Dark Vignette Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d0d0f] via-[#0d0d0f]/90 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0d0d0f]/70 via-transparent to-[#0d0d0f]" />
         </div>
 
-        {/* ── HEADER ─────────────────────────────────────────────── */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="flex items-start gap-6 mb-10"
-        >
-          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center text-primary flex-shrink-0 shadow-lg shadow-primary/10">
-            <CareerIcon icon={career.icon} size={38} />
-          </div>
-          <div>
-            <div className="flex items-center gap-2 mb-1 flex-wrap">
-              <span className="text-sm text-primary font-semibold uppercase tracking-widest">
-                {career.category}
-              </span>
-              {isPurchased ? (
-                <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
-                  <CheckCircle2 className="w-3 h-3" /> Roadmap Unlocked · Vio Active
-                </span>
-              ) : (
-                <span className="text-[10px] uppercase font-medium tracking-wider px-2 py-0.5 rounded-full bg-white/5 text-slate-400 border border-white/10 flex items-center gap-1">
-                  <Lock className="w-2.5 h-2.5" /> Vio AI with Purchase
-                </span>
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 sm:pt-10 sm:pb-16">
+          {/* Top Navigation Bar */}
+          <div className="flex items-center justify-between gap-4 mb-8">
+            <Link
+              href="/roadmaps"
+              className="inline-flex items-center text-xs sm:text-sm text-muted-foreground hover:text-white transition-colors group"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2 text-[#E5A855] group-hover:-translate-x-0.5 transition-transform" /> Back to all careers
+            </Link>
+
+            <div className="flex items-center gap-2">
+              {isPurchased && (
+                <Button
+                  size="sm"
+                  onClick={() => window.dispatchEvent(new CustomEvent("growvia:open-chat"))}
+                  className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs rounded-xl shadow-md shadow-emerald-600/25 flex items-center gap-1.5 transition-all cursor-pointer h-8 px-3"
+                >
+                  <Sparkles className="w-3.5 h-3.5" />
+                  Ask Vio
+                </Button>
+              )}
+
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleSaveRoadmap}
+                className={`text-xs h-8 px-3 transition-all ${
+                  isSaved && isAuthenticated
+                    ? "border-amber-500/40 bg-amber-500/10 text-[#E5A855] hover:bg-amber-500/20"
+                    : "border-white/15 text-muted-foreground hover:text-white hover:bg-white/10"
+                }`}
+              >
+                <Bookmark className={`w-3.5 h-3.5 mr-1.5 ${isSaved && isAuthenticated ? "fill-[#E5A855] text-[#E5A855]" : ""}`} />
+                {isAuthenticated && isSaved ? "Saved to Dashboard" : "Save Roadmap"}
+              </Button>
+
+              {isAdmin && (
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="border-amber-500/30 text-[#E5A855] bg-amber-500/5 hover:bg-amber-500/15 text-xs h-8 px-3"
+                >
+                  <Link href={`/admin/courses/${career.id}/edit`}>
+                    <Pencil className="w-3.5 h-3.5 mr-1.5" /> Edit in Admin
+                  </Link>
+                </Button>
               )}
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">
-              {career.title}
-            </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              {career.description}
-            </p>
           </div>
-        </motion.div>
 
-        {/* ── QUICK STATS ────────────────────────────────────────── */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={1}
-          className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-14"
-        >
-          {[
-            { label: "Avg. Salary", value: career.stats?.salary || "N/A" },
-            { label: "Market Demand", value: career.stats?.demand || "High" },
-            { label: "Difficulty", value: career.stats?.difficulty || "Medium" },
-            { label: "Investment", value: career.investment || "Moderate" },
-          ].map((s, i) => (
-            <div key={i} className="glass-card p-4 rounded-2xl">
-              <div className="text-xs text-muted-foreground mb-1">{s.label}</div>
-              <div className="text-base font-bold text-white leading-tight">
-                {s.value}
-              </div>
+          {/* Hero Header Content */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col sm:flex-row items-start gap-6 mb-10"
+          >
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#131316] border border-amber-500/30 flex items-center justify-center text-[#E5A855] flex-shrink-0 shadow-xl shadow-amber-500/10">
+              <CareerIcon icon={career.icon} size={36} />
             </div>
-          ))}
-        </motion.div>
+            <div>
+              <div className="flex items-center gap-2 mb-2 flex-wrap">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#E5A855] px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10">
+                  {career.category}
+                </span>
+                {isPurchased ? (
+                  <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+                    <CheckCircle2 className="w-3 h-3" /> Roadmap Unlocked · Vio Active
+                  </span>
+                ) : (
+                  <span className="text-[10px] uppercase font-medium tracking-wider px-2 py-0.5 rounded-full bg-white/5 text-slate-400 border border-white/10 flex items-center gap-1">
+                    <Lock className="w-2.5 h-2.5" /> Vio AI with Purchase
+                  </span>
+                )}
+              </div>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-3">
+                {career.title}
+              </h1>
+              <p className="text-sm sm:text-base text-muted-foreground/90 leading-relaxed max-w-3xl">
+                {career.description}
+              </p>
+            </div>
+          </motion.div>
 
+          {/* Quick Stats Grid */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={1}
+            className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4"
+          >
+            {[
+              { label: "Avg. Salary", value: career.stats?.salary || "N/A" },
+              { label: "Market Demand", value: career.stats?.demand || "High" },
+              { label: "Difficulty", value: career.stats?.difficulty || "Medium" },
+              { label: "Investment", value: career.investment || "Moderate" },
+            ].map((s, i) => (
+              <div key={i} className="bg-[#131316] border border-white/10 rounded-2xl p-4 sm:p-5 shadow-lg hover:border-amber-500/30 transition-all">
+                <div className="text-[10px] sm:text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-1">{s.label}</div>
+                <div className="text-base sm:text-lg font-black text-white leading-tight">
+                  {s.value}
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── MAIN CONTENT CONTAINER ──────────────────────────────── */}
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-16">
         {/* ── STEP-BY-STEP LEARNING ROADMAP TIMELINE ──────────────── */}
         <motion.section
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mb-14"
         >
-          <SectionHeading icon={Clock} title="Step-by-Step Learning Roadmap" />
+          <SectionHeading icon={Clock} title="Step-by-Step Learning Roadmap" badge={`${timeline.length} Stages`} />
 
           {timeline.length === 0 ? (
-            <div className="p-8 text-center bg-white/[0.02] border border-white/10 rounded-2xl text-muted-foreground text-sm">
+            <div className="p-8 text-center bg-[#131316] border border-white/10 rounded-2xl text-muted-foreground text-sm">
               No roadmap stages configured yet for this career.
               <div className="mt-3">
                 <Button asChild size="sm" variant="outline" className="border-white/15 text-xs">
@@ -367,32 +394,32 @@ export default function RoadmapDetail() {
                 const isExpanded = Boolean(expandedStages[i]);
 
                 return (
-                  <div key={i} className="relative flex items-start gap-5 pl-14">
-                    <div className="absolute left-0 w-10 h-10 rounded-full border border-primary/40 bg-card flex items-center justify-center text-primary text-sm font-bold shadow z-10">
+                  <div key={i} className="relative flex items-start gap-4 sm:gap-5 pl-12 sm:pl-14">
+                    <div className="absolute left-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-amber-500/40 bg-[#131316] flex items-center justify-center text-[#E5A855] text-xs sm:text-sm font-bold shadow-lg z-10">
                       {i + 1}
                     </div>
-                    <div className="glass-card p-5 rounded-xl flex-1 hover:border-primary/30 transition-colors">
-                      {/* 1. Bold Heading (e.g. "CLASS 11-12") */}
-                      <div className="text-xs text-primary font-bold tracking-widest uppercase mb-1">
+                    <div className="bg-[#131316] border border-white/10 p-5 sm:p-6 rounded-2xl flex-1 hover:border-amber-500/30 transition-all shadow-md">
+                      {/* Bold Stage Heading */}
+                      <div className="text-[11px] text-[#E5A855] font-bold tracking-widest uppercase mb-1">
                         {step.year || `Stage ${i + 1}`}
                       </div>
 
-                      {/* 2. Bold Subtitle Line (e.g. "Any Stream") */}
-                      <h4 className="text-base font-bold text-white mb-1">
+                      {/* Subtitle / Stage Title */}
+                      <h4 className="text-base sm:text-lg font-bold text-white mb-1.5">
                         {step.title || ""}
                       </h4>
 
-                      {/* 3. Regular-weight one-line description */}
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      {/* Description */}
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                         {step.desc || ""}
                       </p>
 
                       {/* ── PAID TIER: EXPANDABLE STAGE DEEP DIVE ── */}
                       {isPurchased ? (
                         hasRichContent && (
-                          <div className="mt-3.5 pt-3 border-t border-white/5 space-y-2.5">
+                          <div className="mt-4 pt-3 border-t border-white/5 space-y-2.5">
                             <div className="flex items-center">
-                              <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 inline-flex items-center gap-1">
+                              <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-amber-500/10 text-[#E5A855] border border-amber-500/25 inline-flex items-center gap-1">
                                 <Sparkles className="w-2.5 h-2.5" /> Stage Guide Available
                               </span>
                             </div>
@@ -400,10 +427,10 @@ export default function RoadmapDetail() {
                             <button
                               type="button"
                               onClick={() => toggleStage(i)}
-                              className="flex items-center justify-between w-full px-3.5 py-2.5 rounded-lg bg-primary/10 hover:bg-primary/15 border border-primary/25 text-xs font-semibold text-primary transition-all group"
+                              className="flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/15 border border-amber-500/25 text-xs font-semibold text-[#E5A855] transition-all group cursor-pointer"
                             >
                               <span className="flex items-center gap-2">
-                                <Sparkles className="w-3.5 h-3.5 text-primary" />
+                                <Sparkles className="w-3.5 h-3.5 text-[#E5A855]" />
                                 {isExpanded
                                   ? "Hide Detailed Stage Guide"
                                   : "View Detailed Stage Guide & Resources"}
@@ -436,7 +463,7 @@ export default function RoadmapDetail() {
                                       (step.investment.time || step.investment.cost || step.investment.difficulty) && (
                                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
                                           {step.investment.time && (
-                                            <div className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/10 text-xs">
+                                            <div className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-[#0d0d0f] border border-white/8 text-xs">
                                               <Clock className="w-4 h-4 text-sky-400 flex-shrink-0" />
                                               <div>
                                                 <span className="text-muted-foreground block text-[10px] uppercase font-semibold">
@@ -449,7 +476,7 @@ export default function RoadmapDetail() {
                                             </div>
                                           )}
                                           {step.investment.cost && (
-                                            <div className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/10 text-xs">
+                                            <div className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-[#0d0d0f] border border-white/8 text-xs">
                                               <IndianRupee className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                                               <div>
                                                 <span className="text-muted-foreground block text-[10px] uppercase font-semibold">
@@ -462,7 +489,7 @@ export default function RoadmapDetail() {
                                             </div>
                                           )}
                                           {step.investment.difficulty && (
-                                            <div className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/10 text-xs sm:col-span-2 lg:col-span-1">
+                                            <div className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-[#0d0d0f] border border-white/8 text-xs sm:col-span-2 lg:col-span-1">
                                               <Target className="w-4 h-4 text-amber-400 flex-shrink-0" />
                                               <div>
                                                 <span className="text-muted-foreground block text-[10px] uppercase font-semibold">
@@ -482,13 +509,13 @@ export default function RoadmapDetail() {
                                       <div className="space-y-2">
                                         <h5 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
                                           <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                                          Key Action Items &amp; Practical Exercises
+                                          Key Action Items &amp; Exercises
                                         </h5>
                                         <div className="space-y-2">
                                           {step.actionItems.map((item, aIdx) => (
                                             <div
                                               key={aIdx}
-                                              className="p-3 rounded-lg bg-white/[0.02] border border-white/10 hover:border-white/20 transition-colors"
+                                              className="p-3 rounded-xl bg-[#0d0d0f] border border-white/8 hover:border-white/15 transition-colors"
                                             >
                                               <div className="text-xs font-semibold text-white flex items-start gap-2.5">
                                                 <span className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px] font-bold mt-0.5 flex-shrink-0">
@@ -524,7 +551,7 @@ export default function RoadmapDetail() {
                                             return (
                                               <div
                                                 key={rIdx}
-                                                className="p-3 rounded-lg bg-white/[0.02] border border-white/10 hover:border-primary/30 transition-colors flex flex-col justify-between"
+                                                className="p-3.5 rounded-xl bg-[#0d0d0f] border border-white/8 hover:border-amber-500/30 transition-colors flex flex-col justify-between"
                                               >
                                                 <div>
                                                   <div className="flex items-center justify-between gap-2 mb-1.5">
@@ -541,7 +568,7 @@ export default function RoadmapDetail() {
                                                         href={rUrl}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="text-primary hover:text-primary/80 transition-colors"
+                                                        className="text-[#E5A855] hover:text-[#d99640] transition-colors"
                                                         title="Open resource"
                                                       >
                                                         <ExternalLink className="w-3.5 h-3.5" />
@@ -563,7 +590,7 @@ export default function RoadmapDetail() {
                                                       href={rUrl}
                                                       target="_blank"
                                                       rel="noopener noreferrer"
-                                                      className="text-[11px] text-primary hover:underline font-medium inline-flex items-center gap-1"
+                                                      className="text-[11px] text-[#E5A855] hover:underline font-medium inline-flex items-center gap-1"
                                                     >
                                                       Open Link <ExternalLink className="w-3 h-3" />
                                                     </a>
@@ -643,7 +670,7 @@ export default function RoadmapDetail() {
                                                   {dp.options.map((opt, oIdx) => (
                                                     <div
                                                       key={oIdx}
-                                                      className="p-2.5 rounded-lg bg-black/40 border border-white/5 space-y-1.5"
+                                                      className="p-2.5 rounded-lg bg-[#0d0d0f] border border-white/5 space-y-1.5"
                                                     >
                                                       <div className="text-xs font-bold text-purple-300">
                                                         {opt.choice}
@@ -713,14 +740,14 @@ export default function RoadmapDetail() {
                                     {statsList.length > 0 && (
                                       <div className="space-y-2">
                                         <h5 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
-                                          <TrendingUp className="w-3.5 h-3.5 text-primary" />
+                                          <TrendingUp className="w-3.5 h-3.5 text-[#E5A855]" />
                                           Real-World Stage Benchmarks
                                         </h5>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                                           {statsList.map((stat, sIdx) => (
                                             <div
                                               key={sIdx}
-                                              className="p-2.5 rounded-lg bg-white/[0.02] border border-white/10"
+                                              className="p-2.5 rounded-xl bg-[#0d0d0f] border border-white/8"
                                             >
                                               <div className="text-[10px] uppercase font-semibold text-muted-foreground">
                                                 {stat.label}
@@ -746,10 +773,10 @@ export default function RoadmapDetail() {
                         )
                       ) : (
                         /* ── FREE TIER: LOCKED TEASER PREVIEW ── */
-                        <div className="mt-3.5 p-3 rounded-lg bg-white/[0.02] border border-dashed border-white/15 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                        <div className="mt-4 p-4 rounded-xl bg-[#0d0d0f] border border-dashed border-amber-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
                           <div className="flex items-center gap-2.5 text-muted-foreground">
-                            <div className="w-6 h-6 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 flex-shrink-0">
-                              <Lock className="w-3 h-3 text-primary/70" />
+                            <div className="w-7 h-7 rounded-full bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-[#E5A855] flex-shrink-0">
+                              <Lock className="w-3.5 h-3.5 text-[#E5A855]" />
                             </div>
                             <span className="leading-snug">
                               <strong className="text-white font-medium">
@@ -761,7 +788,7 @@ export default function RoadmapDetail() {
                           <Button
                             asChild
                             size="sm"
-                            className="bg-primary/20 hover:bg-primary/30 text-primary border border-primary/30 text-xs h-7 px-3 flex-shrink-0"
+                            className="bg-[#E5A855] hover:bg-[#d99640] text-black font-bold text-xs h-8 px-4 flex-shrink-0 rounded-xl shadow-md shadow-amber-500/20"
                           >
                             <Link href={`/pricing?career=${career.id}`}>
                               <Sparkles className="w-3 h-3 mr-1.5" /> Unlock Guide
@@ -784,18 +811,17 @@ export default function RoadmapDetail() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-14"
           >
             <SectionHeading icon={GraduationCap} title="Recommended Courses & Certifications" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {coursesList.map((course, i) => (
                 <div
                   key={i}
-                  className="glass-card rounded-2xl p-5 border border-white/10 hover:border-primary/30 transition-all flex flex-col justify-between group shadow-lg"
+                  className="bg-[#131316] rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-amber-500/30 transition-all flex flex-col justify-between group shadow-lg"
                 >
                   <div>
                     <div className="flex items-start justify-between gap-2 mb-3">
-                      <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-primary/15 text-primary border border-primary/25">
+                      <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-amber-500/10 text-[#E5A855] border border-amber-500/20">
                         {course.provider || "Curated Course"}
                       </span>
                       {course.badge && (
@@ -805,7 +831,7 @@ export default function RoadmapDetail() {
                       )}
                     </div>
 
-                    <h3 className="text-base font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                    <h3 className="text-base font-bold text-white mb-2 group-hover:text-[#E69D43] transition-colors">
                       {course.title}
                     </h3>
 
@@ -832,7 +858,7 @@ export default function RoadmapDetail() {
                         href={course.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 font-semibold text-primary hover:text-primary/80 transition-colors ml-2"
+                        className="inline-flex items-center gap-1 font-semibold text-[#E5A855] hover:text-[#d99640] transition-colors ml-2"
                       >
                         View Course <ExternalLink className="w-3 h-3" />
                       </a>
@@ -853,17 +879,16 @@ export default function RoadmapDetail() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-14"
           >
             <SectionHeading icon={Sparkles} title="Why Choose This Career?" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {whyChoose.map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-3 bg-white/[0.03] border border-white/8 rounded-xl p-4"
+                  className="flex items-start gap-3 bg-[#131316] border border-white/10 hover:border-white/20 rounded-xl p-4 transition-colors shadow-sm"
                 >
-                  <CheckCircle2 className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-muted-foreground">{item}</span>
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-slate-300 leading-relaxed">{item}</span>
                 </div>
               ))}
             </div>
@@ -877,14 +902,13 @@ export default function RoadmapDetail() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-14"
           >
             <SectionHeading icon={Briefcase} title="Career Paths & Specialisations" />
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {paths.map((path, i) => (
                 <div
                   key={i}
-                  className="glass-card rounded-xl p-5 border border-white/10 hover:border-primary/30 transition-colors"
+                  className="bg-[#131316] rounded-xl p-5 border border-white/10 hover:border-amber-500/30 transition-all shadow-md"
                 >
                   <div className="text-sm font-bold text-white mb-2">
                     {path.title}
@@ -905,22 +929,21 @@ export default function RoadmapDetail() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-14"
           >
             <SectionHeading icon={CheckCircle2} title="Is This Career Right for You?" />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
               {whoShould.length > 0 && (
-                <div className="bg-green-500/5 border border-green-500/15 rounded-2xl p-6">
-                  <h3 className="text-base font-bold text-green-400 mb-4 flex items-center gap-2">
+                <div className="bg-[#131316] border border-emerald-500/25 rounded-2xl p-6 shadow-md">
+                  <h3 className="text-base font-bold text-emerald-400 mb-4 flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4" /> Choose this if you…
                   </h3>
                   <ul className="space-y-3">
                     {whoShould.map((item, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-2.5 text-sm text-muted-foreground"
+                        className="flex items-start gap-2.5 text-sm text-slate-300"
                       >
-                        <div className="w-1.5 h-1.5 rounded-full bg-green-400 mt-1.5 flex-shrink-0" />{" "}
+                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 flex-shrink-0" />{" "}
                         {item}
                       </li>
                     ))}
@@ -929,7 +952,7 @@ export default function RoadmapDetail() {
               )}
 
               {whoShouldAvoid.length > 0 && (
-                <div className="bg-red-500/5 border border-red-500/15 rounded-2xl p-6">
+                <div className="bg-[#131316] border border-red-500/25 rounded-2xl p-6 shadow-md">
                   <h3 className="text-base font-bold text-red-400 mb-4 flex items-center gap-2">
                     <XCircle className="w-4 h-4" /> Avoid this if you…
                   </h3>
@@ -937,7 +960,7 @@ export default function RoadmapDetail() {
                     {whoShouldAvoid.map((item, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-2.5 text-sm text-muted-foreground"
+                        className="flex items-start gap-2.5 text-sm text-slate-300"
                       >
                         <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-1.5 flex-shrink-0" />{" "}
                         {item}
@@ -957,13 +980,12 @@ export default function RoadmapDetail() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-14"
           >
-            <div className="bg-destructive/10 border border-destructive/20 rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-destructive mb-3 flex items-center gap-2">
+            <div className="bg-[#131316] border border-red-500/25 rounded-2xl p-6 shadow-md">
+              <h3 className="text-base font-bold text-red-400 mb-2.5 flex items-center gap-2">
                 <AlertTriangle className="w-5 h-5" /> The Harsh Reality
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-slate-300 leading-relaxed">
                 {career.harshReality}
               </p>
             </div>
@@ -977,14 +999,13 @@ export default function RoadmapDetail() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-14"
           >
             <SectionHeading icon={TrendingUp} title="Core Skills Required" />
             <div className="flex flex-wrap gap-2">
               {skills.map((skill, i) => (
                 <span
                   key={i}
-                  className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-white hover:bg-white/10 transition-colors"
+                  className="px-3.5 py-1.5 bg-[#131316] border border-white/10 hover:border-amber-500/30 rounded-full text-xs text-slate-200 transition-colors"
                 >
                   {skill}
                 </span>
@@ -1000,17 +1021,16 @@ export default function RoadmapDetail() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-14"
           >
             <SectionHeading icon={BookOpen} title="Key Entrance Exams" />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {exams.map((exam, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-3 bg-white/[0.03] border border-white/8 rounded-xl px-4 py-3"
+                  className="flex items-center gap-3 bg-[#131316] border border-white/10 rounded-xl px-4 py-3 shadow-sm"
                 >
-                  <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
-                  <span className="text-sm text-muted-foreground">{exam}</span>
+                  <div className="w-2 h-2 rounded-full bg-[#E5A855] flex-shrink-0" />
+                  <span className="text-sm text-slate-300">{exam}</span>
                 </div>
               ))}
             </div>
@@ -1024,19 +1044,18 @@ export default function RoadmapDetail() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-14"
           >
             <SectionHeading icon={GraduationCap} title="Where to Study" />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {colleges.length > 0 && (
-                <div className="bg-card border border-white/10 rounded-2xl overflow-hidden">
-                  <div className="px-5 py-3 bg-white/5 border-b border-white/10">
+                <div className="bg-[#131316] border border-white/10 rounded-2xl overflow-hidden shadow-md">
+                  <div className="px-5 py-3 bg-white/[0.03] border-b border-white/10">
                     <div className="text-sm font-bold text-white">Top Colleges (India)</div>
                   </div>
                   <ul className="p-5 space-y-2.5">
                     {colleges.map((c, i) => (
-                      <li key={i} className="text-sm text-muted-foreground flex items-center gap-2">
-                        <ChevronRight className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+                      <li key={i} className="text-xs sm:text-sm text-slate-300 flex items-center gap-2">
+                        <ChevronRight className="w-3.5 h-3.5 text-[#E5A855] flex-shrink-0" />
                         {c}
                       </li>
                     ))}
@@ -1045,14 +1064,14 @@ export default function RoadmapDetail() {
               )}
 
               {budgetColleges.length > 0 && (
-                <div className="bg-card border border-white/10 rounded-2xl overflow-hidden">
-                  <div className="px-5 py-3 bg-white/5 border-b border-white/10">
+                <div className="bg-[#131316] border border-white/10 rounded-2xl overflow-hidden shadow-md">
+                  <div className="px-5 py-3 bg-white/[0.03] border-b border-white/10">
                     <div className="text-sm font-bold text-white">Budget / Govt Options</div>
                   </div>
                   <ul className="p-5 space-y-2.5">
                     {budgetColleges.map((c, i) => (
-                      <li key={i} className="text-sm text-muted-foreground flex items-center gap-2">
-                        <ChevronRight className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+                      <li key={i} className="text-xs sm:text-sm text-slate-300 flex items-center gap-2">
+                        <ChevronRight className="w-3.5 h-3.5 text-[#E5A855] flex-shrink-0" />
                         {c}
                       </li>
                     ))}
@@ -1061,14 +1080,14 @@ export default function RoadmapDetail() {
               )}
 
               {abroad.length > 0 && (
-                <div className="bg-card border border-white/10 rounded-2xl overflow-hidden">
-                  <div className="px-5 py-3 bg-white/5 border-b border-white/10">
+                <div className="bg-[#131316] border border-white/10 rounded-2xl overflow-hidden shadow-md">
+                  <div className="px-5 py-3 bg-white/[0.03] border-b border-white/10">
                     <div className="text-sm font-bold text-white">Study Abroad Options</div>
                   </div>
                   <ul className="p-5 space-y-2.5">
                     {abroad.map((c, i) => (
-                      <li key={i} className="text-sm text-muted-foreground flex items-center gap-2">
-                        <Globe className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+                      <li key={i} className="text-xs sm:text-sm text-slate-300 flex items-center gap-2">
+                        <Globe className="w-3.5 h-3.5 text-[#E5A855] flex-shrink-0" />
                         {c}
                       </li>
                     ))}
@@ -1086,17 +1105,16 @@ export default function RoadmapDetail() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-14"
           >
             <SectionHeading icon={IndianRupee} title="Salary Progression" />
-            <div className="bg-card border border-white/10 rounded-2xl overflow-hidden">
+            <div className="bg-[#131316] border border-white/10 rounded-2xl overflow-hidden shadow-md">
               {salaryExpectations.map((sal, i) => (
                 <div
                   key={i}
-                  className="flex justify-between items-center px-6 py-4 border-b border-white/5 last:border-0"
+                  className="flex justify-between items-center px-6 py-4 border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors"
                 >
-                  <span className="text-sm text-muted-foreground">{sal.level}</span>
-                  <span className="text-sm font-bold text-white bg-white/5 px-3 py-1 rounded-full">
+                  <span className="text-xs sm:text-sm text-slate-300 font-medium">{sal.level}</span>
+                  <span className="text-xs sm:text-sm font-bold text-[#E5A855] bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full">
                     {sal.amount}
                   </span>
                 </div>
@@ -1112,17 +1130,16 @@ export default function RoadmapDetail() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-14"
           >
             <SectionHeading icon={Briefcase} title="What You'll Actually Do Day-to-Day" />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {dailyWork.map((task, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-3 bg-white/[0.03] border border-white/8 rounded-xl px-4 py-3"
+                  className="flex items-start gap-3 bg-[#131316] border border-white/10 rounded-xl px-4 py-3 shadow-sm"
                 >
-                  <div className="w-2 h-2 rounded-full bg-primary mt-1.5 flex-shrink-0" />
-                  <span className="text-sm text-muted-foreground">{task}</span>
+                  <div className="w-2 h-2 rounded-full bg-[#E5A855] mt-1.5 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm text-slate-300 leading-relaxed">{task}</span>
                 </div>
               ))}
             </div>
@@ -1136,13 +1153,12 @@ export default function RoadmapDetail() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-14"
           >
-            <div className="bg-primary/8 border border-primary/20 rounded-2xl p-6">
-              <h3 className="text-base font-bold text-primary mb-2 flex items-center gap-2">
-                <Sparkles className="w-4 h-4" /> How to Land Your First Opportunity
+            <div className="bg-[#131316] border border-amber-500/25 rounded-2xl p-6 shadow-md">
+              <h3 className="text-base font-bold text-[#E5A855] mb-2 flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-[#E5A855]" /> How to Land Your First Opportunity
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 {career.firstOpportunity}
               </p>
             </div>
@@ -1156,13 +1172,12 @@ export default function RoadmapDetail() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-14"
           >
-            <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-6">
+            <div className="bg-[#131316] border border-white/10 rounded-2xl p-6 shadow-md">
               <h3 className="text-base font-bold text-white mb-2 flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-primary" /> Industry Insights
+                <TrendingUp className="w-4 h-4 text-[#E5A855]" /> Industry Insights
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 {career.industryInsights}
               </p>
             </div>
@@ -1176,7 +1191,6 @@ export default function RoadmapDetail() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-14"
           >
             <SectionHeading icon={Play} title="Mentor Guidance & Masterclasses" />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -1184,7 +1198,7 @@ export default function RoadmapDetail() {
                 <div
                   key={v._id || v.id || i}
                   onClick={() => setSelectedVideo(v)}
-                  className="group glass-card rounded-xl overflow-hidden border border-white/10 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 block cursor-pointer"
+                  className="group bg-[#131316] rounded-2xl overflow-hidden border border-white/10 hover:border-amber-500/40 hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-300 block cursor-pointer"
                 >
                   <div className="relative aspect-video overflow-hidden">
                     <img
@@ -1193,8 +1207,8 @@ export default function RoadmapDetail() {
                       className="w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-500"
                     />
                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                      <div className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
-                        <Play className="w-4 h-4 text-white fill-white ml-0.5" />
+                      <div className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#E5A855] group-hover:text-black transition-all duration-300">
+                        <Play className="w-4 h-4 text-white fill-white group-hover:text-black group-hover:fill-black ml-0.5 transition-colors" />
                       </div>
                     </div>
 
@@ -1210,7 +1224,7 @@ export default function RoadmapDetail() {
                     {/* Free vs Paid badge */}
                     <div className="absolute top-2 right-2">
                       {v.isPaid ? (
-                        <span className="inline-flex items-center gap-1 text-[11px] px-2.5 py-0.5 rounded-full bg-amber-500/90 text-black font-bold shadow-md shadow-amber-500/20">
+                        <span className="inline-flex items-center gap-1 text-[11px] px-2.5 py-0.5 rounded-full bg-[#E5A855] text-black font-bold shadow-md shadow-amber-500/20">
                           <Lock className="w-2.5 h-2.5" /> {v.price || "₹299"}
                         </span>
                       ) : (
@@ -1227,16 +1241,16 @@ export default function RoadmapDetail() {
                     )}
                   </div>
 
-                  <div className="p-4">
-                    <p className="text-sm font-semibold text-white leading-snug mb-1.5 line-clamp-2 group-hover:text-primary transition-colors">
+                  <div className="p-4 sm:p-5">
+                    <p className="text-sm font-bold text-white leading-snug mb-1.5 line-clamp-2 group-hover:text-[#E69D43] transition-colors">
                       {v.title}
                     </p>
                     <p className="text-xs text-muted-foreground truncate">
                       {v.mentor} {v.mentorRole ? `· ${v.mentorRole}` : ""}
                     </p>
-                    <div className="flex items-center justify-between text-[11px] text-muted-foreground mt-2 pt-2 border-t border-white/5">
+                    <div className="flex items-center justify-between text-[11px] text-muted-foreground mt-3 pt-3 border-t border-white/5">
                       <span>{v.views || "1.2K"} views</span>
-                      <span className="text-primary font-medium flex items-center gap-1">
+                      <span className="text-[#E5A855] font-semibold flex items-center gap-1">
                         Watch Video →
                       </span>
                     </div>
@@ -1254,7 +1268,7 @@ export default function RoadmapDetail() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-2xl p-8 bg-gradient-to-br from-emerald-950/40 via-card to-teal-950/20 border border-emerald-500/30 text-center shadow-xl shadow-emerald-500/5"
+            className="relative overflow-hidden rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-emerald-950/40 via-[#131316] to-[#0d0d0f] border border-emerald-500/30 text-center shadow-2xl"
           >
             <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mx-auto mb-4">
               <Sparkles className="w-6 h-6" />
@@ -1262,10 +1276,10 @@ export default function RoadmapDetail() {
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-2">
               <CheckCircle2 className="w-3.5 h-3.5" /> Lifetime Access Active
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-2 tracking-tight">
               {career.title} Roadmap is Unlocked
             </h3>
-            <p className="text-muted-foreground mb-6 max-w-lg mx-auto text-sm leading-relaxed">
+            <p className="text-muted-foreground mb-6 max-w-lg mx-auto text-xs sm:text-sm leading-relaxed">
               Your full step-by-step curriculum and dedicated 24/7 AI Career Advisor, Vio, are active. Ask specific questions about colleges, milestones, or study plans anytime.
             </p>
             <Button
@@ -1281,19 +1295,23 @@ export default function RoadmapDetail() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-2xl p-8 bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 text-center"
+            className="relative overflow-hidden rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-amber-950/20 via-[#131316] to-[#0d0d0f] border border-amber-500/30 text-center shadow-2xl"
           >
-            <Lock className="w-10 h-10 text-primary mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-white mb-2">
-              Want the Complete Roadmap & Vio AI?
+            <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-[#E5A855] mx-auto mb-4">
+              <Lock className="w-6 h-6 text-[#E5A855]" />
+            </div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-[#E5A855] text-[11px] font-semibold uppercase tracking-wider mb-2">
+              LIFETIME ACCESS · ₹199
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-2 tracking-tight">
+              Want the Complete Roadmap &amp; <span className="text-[#E69D43]">Vio AI</span>?
             </h3>
-            <p className="text-muted-foreground mb-6 max-w-lg mx-auto text-sm">
-              Unlock printable step-by-step guides, curated resource lists,
-              preparation strategies, and your dedicated 24/7 AI Career Advisor, Vio — all for just ₹199.
+            <p className="text-muted-foreground mb-6 max-w-lg mx-auto text-xs sm:text-sm leading-relaxed">
+              Unlock printable step-by-step guides, curated resource lists, preparation strategies, and your dedicated 24/7 AI Career Advisor, Vio — all for just ₹199.
             </p>
             <Button
               asChild
-              className="bg-primary text-primary-foreground font-bold rounded-full px-8"
+              className="bg-[#E5A855] hover:bg-[#d99640] text-black font-bold rounded-full px-8 shadow-lg shadow-amber-500/20"
             >
               <Link
                 href={
@@ -1318,4 +1336,3 @@ export default function RoadmapDetail() {
     </Layout>
   );
 }
-

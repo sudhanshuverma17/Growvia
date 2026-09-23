@@ -106,6 +106,14 @@ const courseSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    image: {
+      type: String,
+      default: "",
+    },
+    thumbnail: {
+      type: String,
+      default: "",
+    },
     icon: {
       type: String,
       default: "Briefcase",

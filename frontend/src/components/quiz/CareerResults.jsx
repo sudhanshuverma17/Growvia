@@ -180,10 +180,10 @@ export function CareerResults({ resultData, onRetake }) {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.05 }}
-          className="rounded-3xl p-6 sm:p-8 border border-primary/20 bg-card/70 backdrop-blur-md shadow-xl relative overflow-hidden"
+          className="rounded-3xl p-6 sm:p-8 border border-white/10 bg-[#16161a] shadow-xl relative overflow-hidden"
         >
-          {/* Subtle Background Glow */}
-          <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/[0.04] rounded-full blur-[100px] pointer-events-none" />
+          {/* Subtle Depth */}
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-white/[0.02] rounded-full blur-[100px] pointer-events-none" />
 
           {/* Top Row: Badge & Category */}
           <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-white/10 relative z-10">
@@ -308,7 +308,7 @@ export function CareerResults({ resultData, onRetake }) {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.08 + 0.15 }}
-                className="rounded-2xl border border-white/10 bg-card/60 hover:border-primary/30 hover:bg-card p-5 sm:p-6 flex flex-col justify-between transition-all duration-200 shadow-md shadow-black/20"
+                className="rounded-2xl border border-white/10 bg-[#16161a] hover:border-white/20 hover:bg-[#1a1a20] p-5 sm:p-6 flex flex-col justify-between transition-all duration-200 shadow-md shadow-black/30"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
@@ -386,7 +386,7 @@ export function CareerResults({ resultData, onRetake }) {
       {aiAnalysis && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Strengths & Growth Areas */}
-          <div className="glass-card p-6 sm:p-8 rounded-3xl border border-white/10 space-y-6">
+          <div className="bg-[#16161a] p-6 sm:p-8 rounded-3xl border border-white/10 space-y-6 shadow-md">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
                 <Target className="w-5 h-5" />
@@ -445,7 +445,7 @@ export function CareerResults({ resultData, onRetake }) {
           </div>
 
           {/* Actionable Next Steps */}
-          <div className="glass-card p-6 sm:p-8 rounded-3xl border border-white/10 flex flex-col justify-between">
+          <div className="bg-[#16161a] p-6 sm:p-8 rounded-3xl border border-white/10 flex flex-col justify-between shadow-md">
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
@@ -504,7 +504,7 @@ export function CareerResults({ resultData, onRetake }) {
       )}
 
       {/* ── 10-DIMENSION PROFILE BREAKDOWN ─────────────────── */}
-      <div className="glass-card p-6 sm:p-8 rounded-3xl border border-white/10">
+      <div className="bg-[#16161a] p-6 sm:p-8 rounded-3xl border border-white/10 shadow-md">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div>
             <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
@@ -556,7 +556,7 @@ export function CareerResults({ resultData, onRetake }) {
 
       {/* ── GUEST CTA BANNER (IF NOT LOGGED IN) ─────────────── */}
       {!user && (
-        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-primary/20 via-primary/10 to-card border border-primary/30 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-3xl bg-[#16161a] border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center text-primary flex-shrink-0">
               <Lock className="w-6 h-6" />

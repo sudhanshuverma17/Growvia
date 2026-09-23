@@ -526,59 +526,60 @@ const generateClientFallbackResult = (userAnswers = {}) => {
 
   return (
     <Layout>
-      <div
-        className={
-          resultData
-            ? "max-w-6xl mx-auto px-4 sm:px-6 py-8 md:py-12 min-h-[80vh]"
-            : "max-w-2xl mx-auto px-3 sm:px-6 py-2 sm:py-4"
-        }
-      >
-        {checkingExisting ? (
-          /* Checking previous assessment profile */
-          <PageLoader label="Retrieving your career assessment profile..." />
-        ) : isEvaluating ? (
-          /* Evaluating state */
-          <QuizLoading />
-        ) : resultData ? (
-          /* Results presentation */
-          <CareerResults resultData={resultData} onRetake={handleRetake} />
-        ) : (
-          /* 10-Question Wizard - Compact to fit within viewport */
-          <div>
-            {/* Slim Header & Action bar */}
-            <div className="flex items-center justify-between text-xs mb-2 sm:mb-2.5 px-0.5">
-              <div className="flex items-center gap-1.5 font-bold text-white text-xs">
-                <Compass className="w-3.5 h-3.5 text-primary" /> Career Assessment
-                <span className="text-muted-foreground text-[11px] font-normal hidden sm:inline">
-                  • 10 Questions
-                </span>
+      <div className="w-full min-h-[calc(100vh-5rem)] bg-[#0d0d0f] text-foreground -mt-20 pt-28 pb-16 -mb-20">
+        <div
+          className={
+            resultData
+              ? "max-w-6xl mx-auto px-4 sm:px-6 py-4 md:py-8"
+              : "max-w-2xl mx-auto px-3 sm:px-6 py-2 sm:py-4"
+          }
+        >
+          {checkingExisting ? (
+            /* Checking previous assessment profile */
+            <PageLoader label="Retrieving your career assessment profile..." />
+          ) : isEvaluating ? (
+            /* Evaluating state */
+            <QuizLoading />
+          ) : resultData ? (
+            /* Results presentation */
+            <CareerResults resultData={resultData} onRetake={handleRetake} />
+          ) : (
+            /* 10-Question Wizard - Compact to fit within viewport */
+            <div>
+              {/* Slim Header & Action bar */}
+              <div className="flex items-center justify-between text-xs mb-2 sm:mb-2.5 px-0.5">
+                <div className="flex items-center gap-1.5 font-bold text-white text-xs">
+                  <Compass className="w-3.5 h-3.5 text-primary" /> Career Assessment
+                  <span className="text-muted-foreground text-[11px] font-normal hidden sm:inline">
+                    • 10 Questions
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={handleRetake}
+                  className="text-[11px] text-muted-foreground hover:text-white transition-colors cursor-pointer"
+                >
+                  Reset
+                </button>
               </div>
-              <button
-                type="button"
-                onClick={handleRetake}
-                className="text-[11px] text-muted-foreground hover:text-white transition-colors cursor-pointer"
-              >
-                Reset
-              </button>
-            </div>
 
-            {/* Compact Progress Bar */}
-            <QuizProgress
-              currentStep={currentStep}
-              totalSteps={totalSteps}
-              category={currentQuestion.category}
-            />
+              {/* Compact Progress Bar */}
+              <QuizProgress
+                currentStep={currentStep}
+                totalSteps={totalSteps}
+                category={currentQuestion.category}
+              />
 
-            {/* Error banner if any */}
-            {errorMessage && (
-              <div className="mb-3 p-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-xs flex items-center gap-2">
-                <AlertCircle className="w-4 h-4 flex-shrink-0" />
-                <span>{errorMessage}</span>
-              </div>
-            )}
+              {/* Error banner if any */}
+              {errorMessage && (
+                <div className="mb-3 p-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-xs flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                  <span>{errorMessage}</span>
+                </div>
+              )}
 
-            {/* Question Card */}
-            <div className="glass-card p-4 sm:p-5 md:p-6 rounded-2xl border border-white/10 relative shadow-xl overflow-hidden">
+              {/* Question Card */}
+              <div className="bg-[#16161a] p-4 sm:p-5 md:p-6 rounded-2xl border border-white/10 relative shadow-xl overflow-hidden">
               <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full blur-[60px] pointer-events-none" />
 
               <AnimatePresence mode="wait">
@@ -662,6 +663,7 @@ const generateClientFallbackResult = (userAnswers = {}) => {
             </div>
           </div>
         )}
+        </div>
       </div>
     </Layout>
   );
