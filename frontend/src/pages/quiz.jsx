@@ -526,13 +526,30 @@ const generateClientFallbackResult = (userAnswers = {}) => {
 
   return (
     <Layout>
-      <div className="w-full min-h-[calc(100vh-5rem)] bg-[#0d0d0f] text-foreground -mt-20 pt-28 pb-16 -mb-20">
+      <div className="w-full min-h-screen bg-[#0a0a0c] text-foreground relative overflow-hidden -mt-20 pt-28 pb-20 -mb-20">
+        {/* Atmospheric Photography Background for Quiz Results (Distinct from Hero Image) */}
+        {resultData && (
+          <div className="absolute top-0 left-0 right-0 h-[640px] pointer-events-none select-none overflow-hidden z-0">
+            <div
+              className="absolute inset-0 bg-cover bg-center opacity-45"
+              style={{
+                backgroundImage: "url('/images/quiz-results-bg.jpg')",
+                backgroundPosition: "center 25%",
+              }}
+            />
+            {/* Smooth Vignette & Gradient into obsidian body */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/45 to-[#0a0a0c]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60" />
+            <div className="absolute bottom-0 left-0 right-0 h-44 bg-gradient-to-t from-[#0a0a0c] to-transparent" />
+          </div>
+        )}
+
         <div
-          className={
+          className={`relative z-10 ${
             resultData
               ? "max-w-6xl mx-auto px-4 sm:px-6 py-4 md:py-8"
               : "max-w-2xl mx-auto px-3 sm:px-6 py-2 sm:py-4"
-          }
+          }`}
         >
           {checkingExisting ? (
             /* Checking previous assessment profile */
