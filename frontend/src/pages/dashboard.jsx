@@ -15,7 +15,7 @@ import {
   LogOut,
   ArrowRight,
   ShieldCheck,
-  Sparkles,
+  Compass,
   Trophy,
   CheckCircle2,
   Zap,
@@ -507,7 +507,7 @@ export default function Dashboard() {
                           </Button>
                           <Button asChild variant="outline" className="border-white/15 text-white hover:bg-white/5 rounded-xl px-5">
                             <Link href="/career-quiz">
-                              Take Career Quiz <Sparkles className="w-3.5 h-3.5 ml-1.5" />
+                              Take Career Quiz <Compass className="w-3.5 h-3.5 ml-1.5" />
                             </Link>
                           </Button>
                         </div>

@@ -15,7 +15,6 @@ import {
   ArrowLeft,
   DollarSign,
   Play,
-  Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 

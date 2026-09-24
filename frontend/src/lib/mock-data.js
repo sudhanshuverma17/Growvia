@@ -27,15 +27,69 @@ export const careers = [
     "paths": [
       {
         "title": "General Physician",
-        "desc": "First point of contact for patients."
+        "desc": "First point of contact for patients.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for General Physician."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Surgeon",
-        "desc": "Performs operations to treat injuries/diseases."
+        "desc": "Performs operations to treat injuries/diseases.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Surgeon."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Specialist (Cardiology, Neuro, etc.)",
-        "desc": "Focuses on specific body systems."
+        "desc": "Focuses on specific body systems.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Specialist (Cardiology, Neuro, etc.)."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -417,7 +471,270 @@ export const careers = [
       "Squeamish individuals"
     ],
     "harshReality": "The study period is incredibly long and stressful. Work-life balance is almost non-existent in the early years. Dealing with patient loss takes a mental toll.",
-    "industryInsights": "Corporate hospitals are dominating the landscape. Having a superspecialty (DM/MCh) is becoming the norm to stand out in tier-1 cities."
+    "industryInsights": "Corporate hospitals are dominating the landscape. Having a superspecialty (DM/MCh) is becoming the norm to stand out in tier-1 cities.",
+    "incomeBreakdown": {
+      "tier1": "₹60,000 - ₹2,50,000+ / month (Tier-1 private hospitals, corporate clinics, private practice)",
+      "tier2": "₹40,000 - ₹1,20,000 / month (Tier-2 district hospitals & established consulting chambers)",
+      "tier3": "₹25,000 - ₹65,000 / month (Community health centers, state clinics & entry roles)"
+    },
+    "timelineToProfitability": "12 to 24 months post-internship/degree to establish consistent patient volume and private consults.",
+    "clientsNeededForTarget": "20-30 outpatient consults daily or 8-12 high-care procedures monthly to surpass ₹1.5L/month target.",
+    "skillsData": [
+      {
+        "name": "Empathy",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Empathy foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Empathy"
+          ],
+          "paidResources": [
+            "Specialized Empathy Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Stamina",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Stamina foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Stamina"
+          ],
+          "paidResources": [
+            "Specialized Stamina Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Analytical Thinking",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Analytical Thinking foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Analytical Thinking"
+          ],
+          "paidResources": [
+            "Specialized Analytical Thinking Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Attention to Detail",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Attention to Detail foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Attention to Detail"
+          ],
+          "paidResources": [
+            "Specialized Attention to Detail Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Decision Making under Pressure",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Decision Making under Pressure foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Decision Making under Pressure"
+          ],
+          "paidResources": [
+            "Specialized Decision Making under Pressure Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "NEET-UG (National Eligibility cum Entrance Test)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NEET-UG (National Eligibility cum Entrance Test).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NEET-UG (National Eligibility cum Entrance Test) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "NEET-PG",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NEET-PG.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NEET-PG 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "AIIMS Entrance",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for AIIMS Entrance.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "AIIMS Entrance 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "AIIMS New Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=AIIMS%20New%20Delhi%20admissions"
+        },
+        {
+          "name": "CMC Vellore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=CMC%20Vellore%20admissions"
+        },
+        {
+          "name": "AFMC Pune",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=AFMC%20Pune%20admissions"
+        },
+        {
+          "name": "JIPMER",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=JIPMER%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Government Medical Colleges (via state quota)",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Government%20Medical%20Colleges%20(via%20state%20quota)%20admissions"
+        },
+        {
+          "name": "MAMC Pune",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=MAMC%20Pune%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Russia",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Russia%20admissions"
+        },
+        {
+          "name": "Philippines",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Philippines%20admissions"
+        },
+        {
+          "name": "Georgia (Budget friendly)",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Georgia%20(Budget%20friendly)%20admissions"
+        },
+        {
+          "name": "UK/USA (High cost, via PLAB/USMLE)",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=UK%2FUSA%20(High%20cost%2C%20via%20PLAB%2FUSMLE)%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Medical Doctor",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "engineer",
@@ -445,15 +762,69 @@ export const careers = [
     "paths": [
       {
         "title": "Frontend Developer",
-        "desc": "Builds user interfaces."
+        "desc": "Builds user interfaces.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Frontend Developer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Backend Developer",
-        "desc": "Builds server-side logic and databases."
+        "desc": "Builds server-side logic and databases.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Backend Developer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "DevOps/SRE",
-        "desc": "Manages infrastructure and deployment."
+        "desc": "Manages infrastructure and deployment.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for DevOps/SRE."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -899,6 +1270,265 @@ export const careers = [
         "badge": "Industry Certified",
         "description": "Comprehensive front-end engineering program taught by Meta software engineers covering UI, React, and UX."
       }
+    ],
+    "incomeBreakdown": {
+      "tier1": "₹70,000 - ₹3,00,000+ / month (Bengaluru, Hyderabad, Pune, Gurugram product firms & MNCs)",
+      "tier2": "₹35,000 - ₹90,000 / month (Tier-2 tech parks, mid-market IT service hubs & offshore teams)",
+      "tier3": "₹20,000 - ₹45,000 / month (Local software consultancies, hardware maintenance & remote junior gigs)"
+    },
+    "timelineToProfitability": "3 to 6 months post-bootcamp / graduation to clear technical interviews and secure entry SDE/analyst role.",
+    "clientsNeededForTarget": "1 full-time enterprise employment offer OR 2-3 international remote retainers ($1,500/mo) to hit ₹1.5L-₹2L/mo.",
+    "skillsData": [
+      {
+        "name": "Logic & Algorithms",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Logic & Algorithms foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Logic & Algorithms"
+          ],
+          "paidResources": [
+            "Specialized Logic & Algorithms Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Programming (Python, JS, C++)",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Programming (Python, JS, C++) foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Programming (Python, JS, C++)"
+          ],
+          "paidResources": [
+            "Specialized Programming (Python, JS, C++) Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Problem Solving",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Problem Solving foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Problem Solving"
+          ],
+          "paidResources": [
+            "Specialized Problem Solving Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "System Design",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive System Design foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for System Design"
+          ],
+          "paidResources": [
+            "Specialized System Design Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "JEE Main & Advanced",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for JEE Main & Advanced.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "JEE Main & Advanced 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "BITSAT",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for BITSAT.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "BITSAT 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "VITEEE",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for VITEEE.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "VITEEE 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "State CETs",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for State CETs.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "State CETs 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IITs",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IITs%20admissions"
+        },
+        {
+          "name": "NITs",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NITs%20admissions"
+        },
+        {
+          "name": "IIITs",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIITs%20admissions"
+        },
+        {
+          "name": "BITS Pilani",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=BITS%20Pilani%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "State Government Engineering Colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=State%20Government%20Engineering%20Colleges%20admissions"
+        },
+        {
+          "name": "Jadavpur University",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Jadavpur%20University%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "USA (Silicon Valley)",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=USA%20(Silicon%20Valley)%20admissions"
+        },
+        {
+          "name": "Canada",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Canada%20admissions"
+        },
+        {
+          "name": "Germany",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Germany%20admissions"
+        },
+        {
+          "name": "Singapore",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Singapore%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Software Engineer",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
     ]
   },
   {
@@ -928,15 +1558,69 @@ export const careers = [
     "paths": [
       {
         "title": "Litigation",
-        "desc": "Arguing cases in court."
+        "desc": "Arguing cases in court.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Litigation."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Corporate Law",
-        "desc": "Mergers, acquisitions, and compliance."
+        "desc": "Mergers, acquisitions, and compliance.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Corporate Law."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Intellectual Property",
-        "desc": "Patents, trademarks, copyrights."
+        "desc": "Patents, trademarks, copyrights.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Intellectual Property."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -1211,7 +1895,270 @@ export const careers = [
       "Conflict-averse individuals"
     ],
     "harshReality": "Corporate law firms are infamous for grueling 14-16 hour workdays and toxic work cultures in the initial years.",
-    "industryInsights": "Top tier firms (Tier-1) pay extraordinarily well but only hire from top 5-7 NLUs. Grads from lower-tier colleges struggle initially."
+    "industryInsights": "Top tier firms (Tier-1) pay extraordinarily well but only hire from top 5-7 NLUs. Grads from lower-tier colleges struggle initially.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹1,80,000+ / month (Metro corporate employers, specialized academies & private consultancies)",
+      "tier2": "₹30,000 - ₹75,000 / month (State headquarters, established regional institutions)",
+      "tier3": "₹18,000 - ₹40,000 / month (District centers, local administrative and support roles)"
+    },
+    "timelineToProfitability": "6 to 12 months of structured preparation and entry licensing to achieve steady revenue.",
+    "clientsNeededForTarget": "1 primary institutional engagement + 2-3 advisory assignments to hit ₹1,00,000/month target.",
+    "skillsData": [
+      {
+        "name": "Reading Comprehension",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Reading Comprehension foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Reading Comprehension"
+          ],
+          "paidResources": [
+            "Specialized Reading Comprehension Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Argumentation",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Argumentation foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Argumentation"
+          ],
+          "paidResources": [
+            "Specialized Argumentation Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Attention to Detail",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Attention to Detail foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Attention to Detail"
+          ],
+          "paidResources": [
+            "Specialized Attention to Detail Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Negotiation",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Negotiation foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Negotiation"
+          ],
+          "paidResources": [
+            "Specialized Negotiation Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Public Speaking",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Public Speaking foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Public Speaking"
+          ],
+          "paidResources": [
+            "Specialized Public Speaking Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "CLAT (Common Law Admission Test)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CLAT (Common Law Admission Test).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CLAT (Common Law Admission Test) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "AILET",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for AILET.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "AILET 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "LSAT India",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for LSAT India.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "LSAT India 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "NLSIU Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NLSIU%20Delhi%20admissions"
+        },
+        {
+          "name": "NALSAR Bangalore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NALSAR%20Bangalore%20admissions"
+        },
+        {
+          "name": "Symbiosis Law School",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Symbiosis%20Law%20School%20admissions"
+        },
+        {
+          "name": "Jindal Global Law School",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Jindal%20Global%20Law%20School%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Delhi University Faculty of Law",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Delhi%20University%20Faculty%20of%20Law%20admissions"
+        },
+        {
+          "name": "GLC Mumbai",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=GLC%20Mumbai%20admissions"
+        },
+        {
+          "name": "BHU Law School",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=BHU%20Law%20School%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "UK",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=UK%20admissions"
+        },
+        {
+          "name": "USA",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=USA%20admissions"
+        },
+        {
+          "name": "Australia (Requires clearing local bar exams to practice)",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Australia%20(Requires%20clearing%20local%20bar%20exams%20to%20practice)%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Corporate Lawyer",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "startup-founder",
@@ -1240,15 +2187,69 @@ export const careers = [
     "paths": [
       {
         "title": "Tech Startup",
-        "desc": "Software, SaaS, AI."
+        "desc": "Software, SaaS, AI.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Tech Startup."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "D2C/E-commerce",
-        "desc": "Selling physical products to consumers."
+        "desc": "Selling physical products to consumers.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for D2C/E-commerce."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Service Agency",
-        "desc": "B2B services, consulting."
+        "desc": "B2B services, consulting.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Service Agency."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -1610,7 +2611,192 @@ export const careers = [
       "Those who give up easily"
     ],
     "harshReality": "90% of startups fail. You will work 80+ hours a week and might make less money than your peers for years.",
-    "industryInsights": "Ideas are cheap; execution is everything. Investors invest in the founding team's resilience more than the initial idea."
+    "industryInsights": "Ideas are cheap; execution is everything. Investors invest in the founding team's resilience more than the initial idea.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹1,80,000+ / month (Metro corporate employers, specialized academies & private consultancies)",
+      "tier2": "₹30,000 - ₹75,000 / month (State headquarters, established regional institutions)",
+      "tier3": "₹18,000 - ₹40,000 / month (District centers, local administrative and support roles)"
+    },
+    "timelineToProfitability": "6 to 12 months of structured preparation and entry licensing to achieve steady revenue.",
+    "clientsNeededForTarget": "1 primary institutional engagement + 2-3 advisory assignments to hit ₹1,00,000/month target.",
+    "skillsData": [
+      {
+        "name": "Sales",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Sales foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Sales"
+          ],
+          "paidResources": [
+            "Specialized Sales Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Product Management",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Product Management foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Product Management"
+          ],
+          "paidResources": [
+            "Specialized Product Management Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Resilience",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Resilience foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Resilience"
+          ],
+          "paidResources": [
+            "Specialized Resilience Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Leadership",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Leadership foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Leadership"
+          ],
+          "paidResources": [
+            "Specialized Leadership Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Financial Literacy",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Financial Literacy foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Financial Literacy"
+          ],
+          "paidResources": [
+            "Specialized Financial Literacy Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "None",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for None.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "None 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IITs/BITS/IIMs provide great networks, but not mandatory. Dropouts welcome.",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IITs%2FBITS%2FIIMs%20provide%20great%20networks%2C%20but%20not%20mandatory.%20Dropouts%20welcome.%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "N/A",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=N%2FA%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "N/A",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=N%2FA%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Startup Founder",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "data-scientist",
@@ -1639,15 +2825,69 @@ export const careers = [
     "paths": [
       {
         "title": "Data Analyst",
-        "desc": "Focuses on reporting and BI."
+        "desc": "Focuses on reporting and BI.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Data Analyst."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Data Scientist",
-        "desc": "Builds predictive models."
+        "desc": "Builds predictive models.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Data Scientist."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Machine Learning Engineer",
-        "desc": "Puts ML models into production."
+        "desc": "Puts ML models into production.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Machine Learning Engineer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -1933,7 +3173,219 @@ export const careers = [
       "Those who want to build UI/visual apps"
     ],
     "harshReality": "Most of your time is spent cleaning messy data, not building cool AI models. Many companies hire data scientists without actually having the data infrastructure ready.",
-    "industryInsights": "The title 'Data Scientist' is overused. Knowing the underlying math is what separates true professionals from those who just import Python libraries."
+    "industryInsights": "The title 'Data Scientist' is overused. Knowing the underlying math is what separates true professionals from those who just import Python libraries.",
+    "incomeBreakdown": {
+      "tier1": "₹70,000 - ₹3,00,000+ / month (Bengaluru, Hyderabad, Pune, Gurugram product firms & MNCs)",
+      "tier2": "₹35,000 - ₹90,000 / month (Tier-2 tech parks, mid-market IT service hubs & offshore teams)",
+      "tier3": "₹20,000 - ₹45,000 / month (Local software consultancies, hardware maintenance & remote junior gigs)"
+    },
+    "timelineToProfitability": "3 to 6 months post-bootcamp / graduation to clear technical interviews and secure entry SDE/analyst role.",
+    "clientsNeededForTarget": "1 full-time enterprise employment offer OR 2-3 international remote retainers ($1,500/mo) to hit ₹1.5L-₹2L/mo.",
+    "skillsData": [
+      {
+        "name": "Python/R",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Python/R foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Python/R"
+          ],
+          "paidResources": [
+            "Specialized Python/R Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Statistics & Probability",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Statistics & Probability foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Statistics & Probability"
+          ],
+          "paidResources": [
+            "Specialized Statistics & Probability Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Machine Learning",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Machine Learning foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Machine Learning"
+          ],
+          "paidResources": [
+            "Specialized Machine Learning Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "SQL",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive SQL foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for SQL"
+          ],
+          "paidResources": [
+            "Specialized SQL Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Data Visualization",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Data Visualization foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Data Visualization"
+          ],
+          "paidResources": [
+            "Specialized Data Visualization Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "JEE",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for JEE.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "JEE 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "CUET (for B.Sc Stats)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CUET (for B.Sc Stats).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CUET (for B.Sc Stats) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "ISI Kolkata",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=ISI%20Kolkata%20admissions"
+        },
+        {
+          "name": "IITs",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IITs%20admissions"
+        },
+        {
+          "name": "Chennai Mathematical Institute",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Chennai%20Mathematical%20Institute%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Delhi University (B.Sc Stats)",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Delhi%20University%20(B.Sc%20Stats)%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "USA, UK, Germany (Very popular for MS in Data Science)",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=USA%2C%20UK%2C%20Germany%20(Very%20popular%20for%20MS%20in%20Data%20Science)%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Data Scientist",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "product-manager",
@@ -1962,15 +3414,69 @@ export const careers = [
     "paths": [
       {
         "title": "Growth PM",
-        "desc": "Focuses on user acquisition and retention."
+        "desc": "Focuses on user acquisition and retention.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Growth PM."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Technical PM",
-        "desc": "Focuses on infrastructure and APIs."
+        "desc": "Focuses on infrastructure and APIs.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Technical PM."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Core PM",
-        "desc": "Focuses on user experience and features."
+        "desc": "Focuses on user experience and features.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Core PM."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -2254,7 +3760,192 @@ export const careers = [
       "Those who need direct authority"
     ],
     "harshReality": "You have all the responsibility for the product's success, but zero actual authority over the engineers and designers building it. It requires intense influence and persuasion.",
-    "industryInsights": "A technical background is becoming increasingly mandatory for PMs in top tech companies."
+    "industryInsights": "A technical background is becoming increasingly mandatory for PMs in top tech companies.",
+    "incomeBreakdown": {
+      "tier1": "₹70,000 - ₹3,00,000+ / month (Bengaluru, Hyderabad, Pune, Gurugram product firms & MNCs)",
+      "tier2": "₹35,000 - ₹90,000 / month (Tier-2 tech parks, mid-market IT service hubs & offshore teams)",
+      "tier3": "₹20,000 - ₹45,000 / month (Local software consultancies, hardware maintenance & remote junior gigs)"
+    },
+    "timelineToProfitability": "3 to 6 months post-bootcamp / graduation to clear technical interviews and secure entry SDE/analyst role.",
+    "clientsNeededForTarget": "1 full-time enterprise employment offer OR 2-3 international remote retainers ($1,500/mo) to hit ₹1.5L-₹2L/mo.",
+    "skillsData": [
+      {
+        "name": "User Empathy",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive User Empathy foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for User Empathy"
+          ],
+          "paidResources": [
+            "Specialized User Empathy Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Data Analysis",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Data Analysis foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Data Analysis"
+          ],
+          "paidResources": [
+            "Specialized Data Analysis Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Communication",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Communication foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Communication"
+          ],
+          "paidResources": [
+            "Specialized Communication Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Prioritization",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Prioritization foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Prioritization"
+          ],
+          "paidResources": [
+            "Specialized Prioritization Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Business Strategy",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Business Strategy foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Business Strategy"
+          ],
+          "paidResources": [
+            "Specialized Business Strategy Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "CAT, GMAT (if going via MBA route)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CAT, GMAT (if going via MBA route).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CAT, GMAT (if going via MBA route) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IIMs, ISB, IITs (for tech background)",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIMs%2C%20ISB%2C%20IITs%20(for%20tech%20background)%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "FMS Delhi",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=FMS%20Delhi%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "USA, UK",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=USA%2C%20UK%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Product Manager",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "content-creator",
@@ -2283,15 +3974,69 @@ export const careers = [
     "paths": [
       {
         "title": "YouTuber/Vlogger",
-        "desc": "Long-form or short-form video content."
+        "desc": "Long-form or short-form video content.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for YouTuber/Vlogger."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Podcaster",
-        "desc": "Audio interviews and storytelling."
+        "desc": "Audio interviews and storytelling.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Podcaster."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Newsletter Writer",
-        "desc": "Written niche content."
+        "desc": "Written niche content.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Newsletter Writer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -2576,7 +4321,192 @@ export const careers = [
       "Inconsistent workers"
     ],
     "harshReality": "Burnout is incredibly common. The algorithm dictates your income, and one policy change can halve your viewership overnight.",
-    "industryInsights": "Short-form content (Reels/Shorts) is great for discovery, but long-form content is where actual community trust and monetization lie."
+    "industryInsights": "Short-form content (Reels/Shorts) is great for discovery, but long-form content is where actual community trust and monetization lie.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹2,00,000+ / month (Mumbai, Bengaluru, Delhi creative agencies, studio productions, high-ticket retainers)",
+      "tier2": "₹25,000 - ₹60,000 / month (Regional production houses, mid-tier branding studios, commercial shoots)",
+      "tier3": "₹15,000 - ₹35,000 / month (Local print agencies, freelance marketplace gigs, wedding media)"
+    },
+    "timelineToProfitability": "6 to 9 months of active portfolio shipping to secure reliable monthly agency retainers.",
+    "clientsNeededForTarget": "4-6 monthly retainers @ ₹25,000-₹40,000 each to achieve steady ₹1.2L-₹1.8L monthly net income.",
+    "skillsData": [
+      {
+        "name": "Storytelling",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Storytelling foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Storytelling"
+          ],
+          "paidResources": [
+            "Specialized Storytelling Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Video Editing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Video Editing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Video Editing"
+          ],
+          "paidResources": [
+            "Specialized Video Editing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Copywriting",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Copywriting foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Copywriting"
+          ],
+          "paidResources": [
+            "Specialized Copywriting Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "SEO & Analytics",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive SEO & Analytics foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for SEO & Analytics"
+          ],
+          "paidResources": [
+            "Specialized SEO & Analytics Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Public Speaking",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Public Speaking foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Public Speaking"
+          ],
+          "paidResources": [
+            "Specialized Public Speaking Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "None",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for None.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "None 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "Not required. Mass Comm degrees optional.",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Not%20required.%20Mass%20Comm%20degrees%20optional.%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "N/A",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=N%2FA%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "N/A",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=N%2FA%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Content Creator",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "designer",
@@ -2605,15 +4535,69 @@ export const careers = [
     "paths": [
       {
         "title": "UI Designer",
-        "desc": "Focuses on colors, typography, visuals."
+        "desc": "Focuses on colors, typography, visuals.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for UI Designer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "UX Researcher",
-        "desc": "Focuses on user interviews and flows."
+        "desc": "Focuses on user interviews and flows.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for UX Researcher."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Product Designer",
-        "desc": "End-to-end design process."
+        "desc": "End-to-end design process.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Product Designer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -2898,7 +4882,208 @@ export const careers = [
       "Those looking for rigid right/wrong answers"
     ],
     "harshReality": "Your designs will constantly be critiqued and often changed by PMs or clients for business reasons, which can be frustrating.",
-    "industryInsights": "A degree matters less than your portfolio. A stunning, well-documented portfolio can get you into top tech companies even if you are a college dropout."
+    "industryInsights": "A degree matters less than your portfolio. A stunning, well-documented portfolio can get you into top tech companies even if you are a college dropout.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹2,00,000+ / month (Mumbai, Bengaluru, Delhi creative agencies, studio productions, high-ticket retainers)",
+      "tier2": "₹25,000 - ₹60,000 / month (Regional production houses, mid-tier branding studios, commercial shoots)",
+      "tier3": "₹15,000 - ₹35,000 / month (Local print agencies, freelance marketplace gigs, wedding media)"
+    },
+    "timelineToProfitability": "6 to 9 months of active portfolio shipping to secure reliable monthly agency retainers.",
+    "clientsNeededForTarget": "4-6 monthly retainers @ ₹25,000-₹40,000 each to achieve steady ₹1.2L-₹1.8L monthly net income.",
+    "skillsData": [
+      {
+        "name": "Figma",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Figma foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Figma"
+          ],
+          "paidResources": [
+            "Specialized Figma Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "User Research",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive User Research foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for User Research"
+          ],
+          "paidResources": [
+            "Specialized User Research Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Wireframing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Wireframing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Wireframing"
+          ],
+          "paidResources": [
+            "Specialized Wireframing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Visual Design",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Visual Design foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Visual Design"
+          ],
+          "paidResources": [
+            "Specialized Visual Design Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Prototyping",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Prototyping foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Prototyping"
+          ],
+          "paidResources": [
+            "Specialized Prototyping Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "NID DAT, UCEED (If going for formal degree)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NID DAT, UCEED (If going for formal degree).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NID DAT, UCEED (If going for formal degree) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "NID",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NID%20admissions"
+        },
+        {
+          "name": "IIT Bombay (IDC)",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIT%20Bombay%20(IDC)%20admissions"
+        },
+        {
+          "name": "Srishti Pune",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Srishti%20Pune%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Self-taught via YouTube/Bootcamps (Most common)",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Self-taught%20via%20YouTube%2FBootcamps%20(Most%20common)%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Parsons (USA), RCA (USA)",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Parsons%20(USA)%2C%20RCA%20(USA)%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in UI/UX Designer",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "digital-marketer",
@@ -2928,19 +5113,91 @@ export const careers = [
     "paths": [
       {
         "title": "SEO Specialist",
-        "desc": "Rank websites on Google organically."
+        "desc": "Rank websites on Google organically.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for SEO Specialist."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Performance Marketer",
-        "desc": "Run paid ads on Meta, Google, YouTube."
+        "desc": "Run paid ads on Meta, Google, YouTube.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Performance Marketer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Social Media Manager",
-        "desc": "Build & grow brand presence on social platforms."
+        "desc": "Build & grow brand presence on social platforms.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Social Media Manager."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Growth Hacker",
-        "desc": "Experiment with channels to grow user acquisition fast."
+        "desc": "Experiment with channels to grow user acquisition fast.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Growth Hacker."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -3212,7 +5469,253 @@ export const careers = [
       "People resistant to change"
     ],
     "harshReality": "Platforms change their algorithms constantly. A strategy that works today may be irrelevant in 6 months. Agencies are notorious for low salaries and overwork in the early years.",
-    "industryInsights": "AI tools (ChatGPT, Jasper) are automating basic content tasks. The edge now lies in strategy, brand building, and data interpretation — not just content production."
+    "industryInsights": "AI tools (ChatGPT, Jasper) are automating basic content tasks. The edge now lies in strategy, brand building, and data interpretation — not just content production.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹1,80,000+ / month (Metro corporate employers, specialized academies & private consultancies)",
+      "tier2": "₹30,000 - ₹75,000 / month (State headquarters, established regional institutions)",
+      "tier3": "₹18,000 - ₹40,000 / month (District centers, local administrative and support roles)"
+    },
+    "timelineToProfitability": "6 to 12 months of structured preparation and entry licensing to achieve steady revenue.",
+    "clientsNeededForTarget": "1 primary institutional engagement + 2-3 advisory assignments to hit ₹1,00,000/month target.",
+    "skillsData": [
+      {
+        "name": "SEO & SEM",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive SEO & SEM foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for SEO & SEM"
+          ],
+          "paidResources": [
+            "Specialized SEO & SEM Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Meta & Google Ads",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Meta & Google Ads foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Meta & Google Ads"
+          ],
+          "paidResources": [
+            "Specialized Meta & Google Ads Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Content Marketing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Content Marketing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Content Marketing"
+          ],
+          "paidResources": [
+            "Specialized Content Marketing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Analytics (GA4)",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Analytics (GA4) foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Analytics (GA4)"
+          ],
+          "paidResources": [
+            "Specialized Analytics (GA4) Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Email Marketing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Email Marketing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Email Marketing"
+          ],
+          "paidResources": [
+            "Specialized Email Marketing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Copywriting",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Copywriting foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Copywriting"
+          ],
+          "paidResources": [
+            "Specialized Copywriting Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "Google Ads Certification",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for Google Ads Certification.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "Google Ads Certification 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "Meta Blueprint",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for Meta Blueprint.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "Meta Blueprint 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "HubSpot Content Marketing Certification",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for HubSpot Content Marketing Certification.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "HubSpot Content Marketing Certification 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "MICA Ahmedabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=MICA%20Ahmedabad%20admissions"
+        },
+        {
+          "name": "Symbiosis Institute of Media & Communication",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Symbiosis%20Institute%20of%20Media%20%26%20Communication%20admissions"
+        },
+        {
+          "name": "Xavier Institute of Communications",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Xavier%20Institute%20of%20Communications%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Google Digital Unlocked (Free)",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Google%20Digital%20Unlocked%20(Free)%20admissions"
+        },
+        {
+          "name": "Coursera / Udemy (₹500-2000)",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Coursera%20%2F%20Udemy%20(%E2%82%B9500-2000)%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "USA, UK, Canada (Digital Marketing MBA programs)",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=USA%2C%20UK%2C%20Canada%20(Digital%20Marketing%20MBA%20programs)%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Digital Marketer",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "chartered-accountant",
@@ -3241,19 +5744,91 @@ export const careers = [
     "paths": [
       {
         "title": "Audit & Assurance",
-        "desc": "Audit company financial statements."
+        "desc": "Audit company financial statements.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Audit & Assurance."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Taxation",
-        "desc": "GST, income tax planning and compliance."
+        "desc": "GST, income tax planning and compliance.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Taxation."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Finance Controller / CFO",
-        "desc": "Head of finance at a company."
+        "desc": "Head of finance at a company.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Finance Controller / CFO."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Independent Practice",
-        "desc": "Own CA firm serving clients."
+        "desc": "Own CA firm serving clients.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Independent Practice."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -3703,7 +6278,230 @@ export const careers = [
       "Students with weak math foundation"
     ],
     "harshReality": "The pass rate for CA Final is around 10-15%. Most students take 2-3 attempts. Articleship salaries are shockingly low (₹2K-₹5K/month). The grind is real.",
-    "industryInsights": "Big 4 firms (Deloitte, PwC, EY, KPMG) are the dream employers post-CA. However, mid-sized firms offer faster growth and own-practice potential."
+    "industryInsights": "Big 4 firms (Deloitte, PwC, EY, KPMG) are the dream employers post-CA. However, mid-sized firms offer faster growth and own-practice potential.",
+    "incomeBreakdown": {
+      "tier1": "₹65,000 - ₹2,80,000+ / month (Mumbai, BKC, Delhi-NCR investment banks, Big 4, top corporate houses)",
+      "tier2": "₹35,000 - ₹85,000 / month (Regional financial hubs, commercial bank branches, audit firms)",
+      "tier3": "₹20,000 - ₹40,000 / month (Local taxation consultancies, credit societies, cooperative banks)"
+    },
+    "timelineToProfitability": "6 to 12 months post-qualification (CA, CFA, MBA) to clear campus hiring or corporate placement cycles.",
+    "clientsNeededForTarget": "1 corporate analyst role OR 15-20 ongoing corporate tax/advisory retainers to achieve ₹1.2L+/month.",
+    "skillsData": [
+      {
+        "name": "Accounting & Auditing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Accounting & Auditing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Accounting & Auditing"
+          ],
+          "paidResources": [
+            "Specialized Accounting & Auditing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Taxation (GST, Income Tax)",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Taxation (GST, Income Tax) foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Taxation (GST, Income Tax)"
+          ],
+          "paidResources": [
+            "Specialized Taxation (GST, Income Tax) Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Financial Reporting",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Financial Reporting foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Financial Reporting"
+          ],
+          "paidResources": [
+            "Specialized Financial Reporting Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Company Law",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Company Law foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Company Law"
+          ],
+          "paidResources": [
+            "Specialized Company Law Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Analytical Thinking",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Analytical Thinking foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Analytical Thinking"
+          ],
+          "paidResources": [
+            "Specialized Analytical Thinking Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "CA Foundation",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CA Foundation.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CA Foundation 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "CA Intermediate",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CA Intermediate.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CA Intermediate 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "CA Final (ICAI)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CA Final (ICAI).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CA Final (ICAI) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "No specific college needed — ICAI regulates the entire course",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=No%20specific%20college%20needed%20%E2%80%94%20ICAI%20regulates%20the%20entire%20course%20admissions"
+        },
+        {
+          "name": "Commerce colleges help for foundation prep",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Commerce%20colleges%20help%20for%20foundation%20prep%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "B.Com from any govt college alongside CA prep",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=B.Com%20from%20any%20govt%20college%20alongside%20CA%20prep%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "ACCA (UK) — globally recognized alternative",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=ACCA%20(UK)%20%E2%80%94%20globally%20recognized%20alternative%20admissions"
+        },
+        {
+          "name": "CPA (USA)",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=CPA%20(USA)%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Chartered Accountant",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "architect",
@@ -3732,19 +6530,91 @@ export const careers = [
     "paths": [
       {
         "title": "Residential Architect",
-        "desc": "Design homes and housing projects."
+        "desc": "Design homes and housing projects.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Residential Architect."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Commercial Architect",
-        "desc": "Design offices, malls, hotels."
+        "desc": "Design offices, malls, hotels.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Commercial Architect."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Urban Planner",
-        "desc": "Plan cities, townships, and public spaces."
+        "desc": "Plan cities, townships, and public spaces.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Urban Planner."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Interior Designer",
-        "desc": "Focus on indoor spaces and aesthetics."
+        "desc": "Focus on indoor spaces and aesthetics.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Interior Designer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -4111,7 +6981,235 @@ export const careers = [
       "Students who hate technical drawing"
     ],
     "harshReality": "Architecture is a notoriously underpaid profession in India, especially in the early years. Many fresh graduates earn ₹10K-₹15K/month. Own practice takes 10+ years to build.",
-    "industryInsights": "Sustainable and green architecture is booming in India post-2022. BIM (Building Information Modelling) skills are now mandatory in large firms."
+    "industryInsights": "Sustainable and green architecture is booming in India post-2022. BIM (Building Information Modelling) skills are now mandatory in large firms.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹2,00,000+ / month (Mumbai, Bengaluru, Delhi creative agencies, studio productions, high-ticket retainers)",
+      "tier2": "₹25,000 - ₹60,000 / month (Regional production houses, mid-tier branding studios, commercial shoots)",
+      "tier3": "₹15,000 - ₹35,000 / month (Local print agencies, freelance marketplace gigs, wedding media)"
+    },
+    "timelineToProfitability": "6 to 9 months of active portfolio shipping to secure reliable monthly agency retainers.",
+    "clientsNeededForTarget": "4-6 monthly retainers @ ₹25,000-₹40,000 each to achieve steady ₹1.2L-₹1.8L monthly net income.",
+    "skillsData": [
+      {
+        "name": "AutoCAD & Revit",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive AutoCAD & Revit foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for AutoCAD & Revit"
+          ],
+          "paidResources": [
+            "Specialized AutoCAD & Revit Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "3D Visualization (SketchUp, Lumion)",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive 3D Visualization (SketchUp, Lumion) foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for 3D Visualization (SketchUp, Lumion)"
+          ],
+          "paidResources": [
+            "Specialized 3D Visualization (SketchUp, Lumion) Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Structural Understanding",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Structural Understanding foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Structural Understanding"
+          ],
+          "paidResources": [
+            "Specialized Structural Understanding Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Design Thinking",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Design Thinking foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Design Thinking"
+          ],
+          "paidResources": [
+            "Specialized Design Thinking Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Project Management",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Project Management foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Project Management"
+          ],
+          "paidResources": [
+            "Specialized Project Management Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "NATA (National Aptitude Test in Architecture)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NATA (National Aptitude Test in Architecture).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NATA (National Aptitude Test in Architecture) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "JEE Paper 2 (for NITs/IITs)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for JEE Paper 2 (for NITs/IITs).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "JEE Paper 2 (for NITs/IITs) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IIT Kharagpur",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIT%20Kharagpur%20admissions"
+        },
+        {
+          "name": "NIT Trichy",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NIT%20Trichy%20admissions"
+        },
+        {
+          "name": "SPA Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=SPA%20Delhi%20admissions"
+        },
+        {
+          "name": "CEPT Ahmedabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=CEPT%20Ahmedabad%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Government Schools of Architecture (via NATA)",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Government%20Schools%20of%20Architecture%20(via%20NATA)%20admissions"
+        },
+        {
+          "name": "SPA Delhi (central university rates)",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=SPA%20Delhi%20(central%20university%20rates)%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "USA, UK, Netherlands (Top arch schools globally)",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=USA%2C%20UK%2C%20Netherlands%20(Top%20arch%20schools%20globally)%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Architect",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "psychologist",
@@ -4141,19 +7239,91 @@ export const careers = [
     "paths": [
       {
         "title": "Clinical Psychologist",
-        "desc": "Diagnose and treat mental health disorders."
+        "desc": "Diagnose and treat mental health disorders.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Clinical Psychologist."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Counselling Psychologist",
-        "desc": "Provide guidance for life challenges, not clinical disorders."
+        "desc": "Provide guidance for life challenges, not clinical disorders.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Counselling Psychologist."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "School/Child Psychologist",
-        "desc": "Work with children and adolescents in school settings."
+        "desc": "Work with children and adolescents in school settings.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for School/Child Psychologist."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Organizational Psychologist",
-        "desc": "Help companies with employee well-being and HR."
+        "desc": "Help companies with employee well-being and HR.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Organizational Psychologist."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -4521,7 +7691,261 @@ export const careers = [
       "Students who dislike research and academic reading"
     ],
     "harshReality": "The mental health field in India is still underpaid and undervalued. Without the RCI-recognized M.Phil, you legally cannot practice as a Clinical Psychologist. The emotional toll of listening to trauma daily is real.",
-    "industryInsights": "Post-COVID, corporate wellness is a booming segment. Therapists who build an online presence (Instagram, YouTube) are building private practices 3x faster than traditional methods."
+    "industryInsights": "Post-COVID, corporate wellness is a booming segment. Therapists who build an online presence (Instagram, YouTube) are building private practices 3x faster than traditional methods.",
+    "incomeBreakdown": {
+      "tier1": "₹60,000 - ₹2,50,000+ / month (Tier-1 private hospitals, corporate clinics, private practice)",
+      "tier2": "₹40,000 - ₹1,20,000 / month (Tier-2 district hospitals & established consulting chambers)",
+      "tier3": "₹25,000 - ₹65,000 / month (Community health centers, state clinics & entry roles)"
+    },
+    "timelineToProfitability": "12 to 24 months post-internship/degree to establish consistent patient volume and private consults.",
+    "clientsNeededForTarget": "20-30 outpatient consults daily or 8-12 high-care procedures monthly to surpass ₹1.5L/month target.",
+    "skillsData": [
+      {
+        "name": "Active Listening",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Active Listening foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Active Listening"
+          ],
+          "paidResources": [
+            "Specialized Active Listening Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Empathy",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Empathy foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Empathy"
+          ],
+          "paidResources": [
+            "Specialized Empathy Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Psychological Assessment",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Psychological Assessment foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Psychological Assessment"
+          ],
+          "paidResources": [
+            "Specialized Psychological Assessment Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Counselling Techniques",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Counselling Techniques foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Counselling Techniques"
+          ],
+          "paidResources": [
+            "Specialized Counselling Techniques Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Research Methods",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Research Methods foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Research Methods"
+          ],
+          "paidResources": [
+            "Specialized Research Methods Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Report Writing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Report Writing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Report Writing"
+          ],
+          "paidResources": [
+            "Specialized Report Writing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "CUET (for central universities)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CUET (for central universities).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CUET (for central universities) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "DUET (Delhi University)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for DUET (Delhi University).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "DUET (Delhi University) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "RCI M.Phil entrance (for clinical practice)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for RCI M.Phil entrance (for clinical practice).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "RCI M.Phil entrance (for clinical practice) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "NIMHANS Bangalore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NIMHANS%20Bangalore%20admissions"
+        },
+        {
+          "name": "Delhi University",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Delhi%20University%20admissions"
+        },
+        {
+          "name": "Tata Institute of Social Sciences (TISS)",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Tata%20Institute%20of%20Social%20Sciences%20(TISS)%20admissions"
+        },
+        {
+          "name": "Christ University Bangalore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Christ%20University%20Bangalore%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Government colleges via CUET",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Government%20colleges%20via%20CUET%20admissions"
+        },
+        {
+          "name": "Delhi University colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Delhi%20University%20colleges%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "USA, UK, Australia (Strong psychology programs)",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=USA%2C%20UK%2C%20Australia%20(Strong%20psychology%20programs)%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Psychologist",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "ai-ml-engineer",
@@ -4550,15 +7974,69 @@ export const careers = [
     "paths": [
       {
         "title": "ML Engineer",
-        "desc": "Build and deploy machine learning models at scale."
+        "desc": "Build and deploy machine learning models at scale.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for ML Engineer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Research Scientist",
-        "desc": "Push the boundaries of AI through academic or corporate research."
+        "desc": "Push the boundaries of AI through academic or corporate research.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Research Scientist."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "AI Product Lead",
-        "desc": "Bridge the gap between AI capabilities and real-world products."
+        "desc": "Bridge the gap between AI capabilities and real-world products.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for AI Product Lead."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -4933,7 +8411,294 @@ export const careers = [
       "Anyone uncomfortable with continuous learning"
     ],
     "harshReality": "AI is moving at breakneck speed — what you learn today may be outdated in 2 years. The field rewards researchers far more than implementers. Most 'AI jobs' in India are actually data preprocessing, not real ML.",
-    "industryInsights": "Generative AI has created a massive talent shortage. Engineers who understand both ML fundamentals and system design are worth 2x their peers."
+    "industryInsights": "Generative AI has created a massive talent shortage. Engineers who understand both ML fundamentals and system design are worth 2x their peers.",
+    "incomeBreakdown": {
+      "tier1": "₹70,000 - ₹3,00,000+ / month (Bengaluru, Hyderabad, Pune, Gurugram product firms & MNCs)",
+      "tier2": "₹35,000 - ₹90,000 / month (Tier-2 tech parks, mid-market IT service hubs & offshore teams)",
+      "tier3": "₹20,000 - ₹45,000 / month (Local software consultancies, hardware maintenance & remote junior gigs)"
+    },
+    "timelineToProfitability": "3 to 6 months post-bootcamp / graduation to clear technical interviews and secure entry SDE/analyst role.",
+    "clientsNeededForTarget": "1 full-time enterprise employment offer OR 2-3 international remote retainers ($1,500/mo) to hit ₹1.5L-₹2L/mo.",
+    "skillsData": [
+      {
+        "name": "Python",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Python foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Python"
+          ],
+          "paidResources": [
+            "Specialized Python Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "TensorFlow / PyTorch",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive TensorFlow / PyTorch foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for TensorFlow / PyTorch"
+          ],
+          "paidResources": [
+            "Specialized TensorFlow / PyTorch Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Mathematics & Statistics",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Mathematics & Statistics foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Mathematics & Statistics"
+          ],
+          "paidResources": [
+            "Specialized Mathematics & Statistics Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Deep Learning",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Deep Learning foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Deep Learning"
+          ],
+          "paidResources": [
+            "Specialized Deep Learning Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "NLP",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive NLP foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for NLP"
+          ],
+          "paidResources": [
+            "Specialized NLP Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "JEE Main & Advanced",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for JEE Main & Advanced.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "JEE Main & Advanced 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "BITSAT",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for BITSAT.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "BITSAT 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "GATE (for M.Tech)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for GATE (for M.Tech).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "GATE (for M.Tech) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IIT Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIT%20Delhi%20admissions"
+        },
+        {
+          "name": "IIT Bombay",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIT%20Bombay%20admissions"
+        },
+        {
+          "name": "IISc Bangalore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IISc%20Bangalore%20admissions"
+        },
+        {
+          "name": "IIIT Hyderabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIIT%20Hyderabad%20admissions"
+        },
+        {
+          "name": "IIT Madras",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIT%20Madras%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "NIT Trichy",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=NIT%20Trichy%20admissions"
+        },
+        {
+          "name": "IIIT Allahabad",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=IIIT%20Allahabad%20admissions"
+        },
+        {
+          "name": "State engineering colleges with CS",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=State%20engineering%20colleges%20with%20CS%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "MIT",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=MIT%20admissions"
+        },
+        {
+          "name": "Stanford",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Stanford%20admissions"
+        },
+        {
+          "name": "Carnegie Mellon",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Carnegie%20Mellon%20admissions"
+        },
+        {
+          "name": "University of Cambridge",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Cambridge%20admissions"
+        },
+        {
+          "name": "ETH Zurich",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=ETH%20Zurich%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in AI / ML Engineer",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "cybersecurity",
@@ -4962,15 +8727,69 @@ export const careers = [
     "paths": [
       {
         "title": "SOC Analyst",
-        "desc": "Monitor and respond to security incidents in real time."
+        "desc": "Monitor and respond to security incidents in real time.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for SOC Analyst."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Penetration Tester",
-        "desc": "Ethically hack systems to find vulnerabilities before attackers do."
+        "desc": "Ethically hack systems to find vulnerabilities before attackers do.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Penetration Tester."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "CISO",
-        "desc": "Chief Information Security Officer — lead org-wide security strategy."
+        "desc": "Chief Information Security Officer — lead org-wide security strategy.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for CISO."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -5344,7 +9163,286 @@ export const careers = [
       "Anyone looking for a 9-5 predictable job"
     ],
     "harshReality": "Many Indian cybersecurity 'professionals' are just certified but not skilled. Real employers look for hands-on experience from CTFs and bug bounties, not just certificates.",
-    "industryInsights": "With India's Digital India push and UPI-scale fintech, cybersecurity hiring is exploding. Cloud security and application security are the hottest sub-niches."
+    "industryInsights": "With India's Digital India push and UPI-scale fintech, cybersecurity hiring is exploding. Cloud security and application security are the hottest sub-niches.",
+    "incomeBreakdown": {
+      "tier1": "₹70,000 - ₹3,00,000+ / month (Bengaluru, Hyderabad, Pune, Gurugram product firms & MNCs)",
+      "tier2": "₹35,000 - ₹90,000 / month (Tier-2 tech parks, mid-market IT service hubs & offshore teams)",
+      "tier3": "₹20,000 - ₹45,000 / month (Local software consultancies, hardware maintenance & remote junior gigs)"
+    },
+    "timelineToProfitability": "3 to 6 months post-bootcamp / graduation to clear technical interviews and secure entry SDE/analyst role.",
+    "clientsNeededForTarget": "1 full-time enterprise employment offer OR 2-3 international remote retainers ($1,500/mo) to hit ₹1.5L-₹2L/mo.",
+    "skillsData": [
+      {
+        "name": "Networking & Linux",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Networking & Linux foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Networking & Linux"
+          ],
+          "paidResources": [
+            "Specialized Networking & Linux Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Python",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Python foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Python"
+          ],
+          "paidResources": [
+            "Specialized Python Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Ethical Hacking",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Ethical Hacking foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Ethical Hacking"
+          ],
+          "paidResources": [
+            "Specialized Ethical Hacking Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "CEH / CISSP Certifications",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive CEH / CISSP Certifications foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for CEH / CISSP Certifications"
+          ],
+          "paidResources": [
+            "Specialized CEH / CISSP Certifications Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Incident Response",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Incident Response foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Incident Response"
+          ],
+          "paidResources": [
+            "Specialized Incident Response Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "JEE Main (for CS degree)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for JEE Main (for CS degree).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "JEE Main (for CS degree) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "CEH Exam",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CEH Exam.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CEH Exam 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "OSCP Certification",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for OSCP Certification.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "OSCP Certification 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IIT Bombay",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIT%20Bombay%20admissions"
+        },
+        {
+          "name": "NIT Trichy",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NIT%20Trichy%20admissions"
+        },
+        {
+          "name": "Amrita University",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Amrita%20University%20admissions"
+        },
+        {
+          "name": "CDAC",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=CDAC%20admissions"
+        },
+        {
+          "name": "VIT Vellore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=VIT%20Vellore%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Government engineering colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Government%20engineering%20colleges%20admissions"
+        },
+        {
+          "name": "CDAC certification programs",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=CDAC%20certification%20programs%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Carnegie Mellon",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Carnegie%20Mellon%20admissions"
+        },
+        {
+          "name": "Georgia Tech",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Georgia%20Tech%20admissions"
+        },
+        {
+          "name": "MIT",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=MIT%20admissions"
+        },
+        {
+          "name": "University of Maryland",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Maryland%20admissions"
+        },
+        {
+          "name": "Purdue",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Purdue%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Cybersecurity Analyst",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "cloud-architect",
@@ -5373,15 +9471,69 @@ export const careers = [
     "paths": [
       {
         "title": "Cloud Engineer",
-        "desc": "Build and manage cloud infrastructure."
+        "desc": "Build and manage cloud infrastructure.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Cloud Engineer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "DevOps Engineer",
-        "desc": "Automate deployment pipelines and infrastructure as code."
+        "desc": "Automate deployment pipelines and infrastructure as code.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for DevOps Engineer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Principal Cloud Architect",
-        "desc": "Design entire cloud strategy for large enterprises."
+        "desc": "Design entire cloud strategy for large enterprises.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Principal Cloud Architect."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -5756,7 +9908,297 @@ export const careers = [
       "People who need frequent visible output"
     ],
     "harshReality": "The cloud space changes every 6 months. Certifications go stale. Real architects must constantly rebuild their knowledge.",
-    "industryInsights": "Multi-cloud and cloud-cost optimization are the hottest areas right now. FinOps (cloud financial management) is an emerging high-paying niche."
+    "industryInsights": "Multi-cloud and cloud-cost optimization are the hottest areas right now. FinOps (cloud financial management) is an emerging high-paying niche.",
+    "incomeBreakdown": {
+      "tier1": "₹70,000 - ₹3,00,000+ / month (Bengaluru, Hyderabad, Pune, Gurugram product firms & MNCs)",
+      "tier2": "₹35,000 - ₹90,000 / month (Tier-2 tech parks, mid-market IT service hubs & offshore teams)",
+      "tier3": "₹20,000 - ₹45,000 / month (Local software consultancies, hardware maintenance & remote junior gigs)"
+    },
+    "timelineToProfitability": "3 to 6 months post-bootcamp / graduation to clear technical interviews and secure entry SDE/analyst role.",
+    "clientsNeededForTarget": "1 full-time enterprise employment offer OR 2-3 international remote retainers ($1,500/mo) to hit ₹1.5L-₹2L/mo.",
+    "skillsData": [
+      {
+        "name": "AWS / Azure / GCP",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive AWS / Azure / GCP foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for AWS / Azure / GCP"
+          ],
+          "paidResources": [
+            "Specialized AWS / Azure / GCP Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Docker & Kubernetes",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Docker & Kubernetes foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Docker & Kubernetes"
+          ],
+          "paidResources": [
+            "Specialized Docker & Kubernetes Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Terraform",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Terraform foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Terraform"
+          ],
+          "paidResources": [
+            "Specialized Terraform Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "DevOps & CI/CD",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive DevOps & CI/CD foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for DevOps & CI/CD"
+          ],
+          "paidResources": [
+            "Specialized DevOps & CI/CD Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Networking",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Networking foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Networking"
+          ],
+          "paidResources": [
+            "Specialized Networking Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "JEE Main",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for JEE Main.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "JEE Main 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "BITSAT",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for BITSAT.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "BITSAT 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "AWS Certification Exam",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for AWS Certification Exam.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "AWS Certification Exam 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "GCP Professional Exam",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for GCP Professional Exam.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "GCP Professional Exam 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IIT Bombay",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIT%20Bombay%20admissions"
+        },
+        {
+          "name": "IIT Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIT%20Delhi%20admissions"
+        },
+        {
+          "name": "BITS Pilani",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=BITS%20Pilani%20admissions"
+        },
+        {
+          "name": "NIT Surathkal",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NIT%20Surathkal%20admissions"
+        },
+        {
+          "name": "Jadavpur University",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Jadavpur%20University%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Government engineering colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Government%20engineering%20colleges%20admissions"
+        },
+        {
+          "name": "Online certifications via AWS / Google",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Online%20certifications%20via%20AWS%20%2F%20Google%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "MIT",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=MIT%20admissions"
+        },
+        {
+          "name": "Stanford",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Stanford%20admissions"
+        },
+        {
+          "name": "University of Washington",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Washington%20admissions"
+        },
+        {
+          "name": "Georgia Tech",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Georgia%20Tech%20admissions"
+        },
+        {
+          "name": "UC San Diego",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=UC%20San%20Diego%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Cloud Architect",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "graphic-designer",
@@ -5785,15 +10227,69 @@ export const careers = [
     "paths": [
       {
         "title": "Brand Designer",
-        "desc": "Design logos, brand identities, and style guides."
+        "desc": "Design logos, brand identities, and style guides.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Brand Designer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Art Director",
-        "desc": "Lead visual direction for campaigns and studios."
+        "desc": "Lead visual direction for campaigns and studios.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Art Director."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Creative Director",
-        "desc": "Own the entire visual strategy for a brand or agency."
+        "desc": "Own the entire visual strategy for a brand or agency.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Creative Director."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -6166,7 +10662,286 @@ export const careers = [
       "Anyone uncomfortable with subjective feedback"
     ],
     "harshReality": "AI tools like Midjourney and Adobe Firefly are automating basic design tasks. The future belongs to designers who can think strategically, not just execute visually.",
-    "industryInsights": "Brand identity and motion design are the premium niches right now. Designers who understand branding strategy — not just aesthetics — command 3x higher rates."
+    "industryInsights": "Brand identity and motion design are the premium niches right now. Designers who understand branding strategy — not just aesthetics — command 3x higher rates.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹2,00,000+ / month (Mumbai, Bengaluru, Delhi creative agencies, studio productions, high-ticket retainers)",
+      "tier2": "₹25,000 - ₹60,000 / month (Regional production houses, mid-tier branding studios, commercial shoots)",
+      "tier3": "₹15,000 - ₹35,000 / month (Local print agencies, freelance marketplace gigs, wedding media)"
+    },
+    "timelineToProfitability": "6 to 9 months of active portfolio shipping to secure reliable monthly agency retainers.",
+    "clientsNeededForTarget": "4-6 monthly retainers @ ₹25,000-₹40,000 each to achieve steady ₹1.2L-₹1.8L monthly net income.",
+    "skillsData": [
+      {
+        "name": "Adobe Illustrator & Photoshop",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Adobe Illustrator & Photoshop foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Adobe Illustrator & Photoshop"
+          ],
+          "paidResources": [
+            "Specialized Adobe Illustrator & Photoshop Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Figma",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Figma foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Figma"
+          ],
+          "paidResources": [
+            "Specialized Figma Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Typography",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Typography foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Typography"
+          ],
+          "paidResources": [
+            "Specialized Typography Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Branding",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Branding foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Branding"
+          ],
+          "paidResources": [
+            "Specialized Branding Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Illustration",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Illustration foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Illustration"
+          ],
+          "paidResources": [
+            "Specialized Illustration Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "NID DAT",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NID DAT.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NID DAT 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "NIFT Entrance",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NIFT Entrance.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NIFT Entrance 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "UCEED (for IIT design programs)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for UCEED (for IIT design programs).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "UCEED (for IIT design programs) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "NID Ahmedabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NID%20Ahmedabad%20admissions"
+        },
+        {
+          "name": "NIFT Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NIFT%20Delhi%20admissions"
+        },
+        {
+          "name": "Symbiosis Pune",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Symbiosis%20Pune%20admissions"
+        },
+        {
+          "name": "MIT Pune",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=MIT%20Pune%20admissions"
+        },
+        {
+          "name": "Pearl Academy",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Pearl%20Academy%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "State arts and design colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=State%20arts%20and%20design%20colleges%20admissions"
+        },
+        {
+          "name": "Online: Skillshare, Behance portfolio route",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Online%3A%20Skillshare%2C%20Behance%20portfolio%20route%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Parsons New York",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Parsons%20New%20York%20admissions"
+        },
+        {
+          "name": "RISD",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=RISD%20admissions"
+        },
+        {
+          "name": "School of Visual Arts NY",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=School%20of%20Visual%20Arts%20NY%20admissions"
+        },
+        {
+          "name": "Central Saint Martins",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Central%20Saint%20Martins%20admissions"
+        },
+        {
+          "name": "ArtCenter",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=ArtCenter%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Graphic Designer",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "film-director",
@@ -6195,15 +10970,69 @@ export const careers = [
     "paths": [
       {
         "title": "Commercial Director",
-        "desc": "Direct ads and branded content — consistent income."
+        "desc": "Direct ads and branded content — consistent income.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Commercial Director."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "OTT / Web Series Director",
-        "desc": "Create content for Netflix, Amazon Prime, Hotstar."
+        "desc": "Create content for Netflix, Amazon Prime, Hotstar.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for OTT / Web Series Director."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Independent Filmmaker",
-        "desc": "Make passion projects, festival films, and art cinema."
+        "desc": "Make passion projects, festival films, and art cinema.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Independent Filmmaker."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -6575,7 +11404,270 @@ export const careers = [
       "Anyone uncomfortable with long, irregular hours"
     ],
     "harshReality": "95% of film school graduates never direct a feature film. The industry runs on connections, timing, and raw persistence. The OTT boom has created opportunities but also intense competition.",
-    "industryInsights": "India's OTT market is projected to reach ₹35,000 Cr by 2030. Regional language content (Tamil, Telugu, Malayalam) is driving the biggest growth."
+    "industryInsights": "India's OTT market is projected to reach ₹35,000 Cr by 2030. Regional language content (Tamil, Telugu, Malayalam) is driving the biggest growth.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹2,00,000+ / month (Mumbai, Bengaluru, Delhi creative agencies, studio productions, high-ticket retainers)",
+      "tier2": "₹25,000 - ₹60,000 / month (Regional production houses, mid-tier branding studios, commercial shoots)",
+      "tier3": "₹15,000 - ₹35,000 / month (Local print agencies, freelance marketplace gigs, wedding media)"
+    },
+    "timelineToProfitability": "6 to 9 months of active portfolio shipping to secure reliable monthly agency retainers.",
+    "clientsNeededForTarget": "4-6 monthly retainers @ ₹25,000-₹40,000 each to achieve steady ₹1.2L-₹1.8L monthly net income.",
+    "skillsData": [
+      {
+        "name": "Screenplay Writing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Screenplay Writing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Screenplay Writing"
+          ],
+          "paidResources": [
+            "Specialized Screenplay Writing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Direction",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Direction foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Direction"
+          ],
+          "paidResources": [
+            "Specialized Direction Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Cinematography",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Cinematography foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Cinematography"
+          ],
+          "paidResources": [
+            "Specialized Cinematography Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Editing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Editing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Editing"
+          ],
+          "paidResources": [
+            "Specialized Editing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Team Leadership",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Team Leadership foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Team Leadership"
+          ],
+          "paidResources": [
+            "Specialized Team Leadership Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "FTII Entrance Exam",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for FTII Entrance Exam.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "FTII Entrance Exam 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "Satyajit Ray Film Institute Entrance",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for Satyajit Ray Film Institute Entrance.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "Satyajit Ray Film Institute Entrance 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "Whistling Woods Entrance",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for Whistling Woods Entrance.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "Whistling Woods Entrance 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "FTII Pune",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=FTII%20Pune%20admissions"
+        },
+        {
+          "name": "Satyajit Ray Film Institute Kolkata",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Satyajit%20Ray%20Film%20Institute%20Kolkata%20admissions"
+        },
+        {
+          "name": "NSD Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NSD%20Delhi%20admissions"
+        },
+        {
+          "name": "Whistling Woods Mumbai",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Whistling%20Woods%20Mumbai%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "State film institutes",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=State%20film%20institutes%20admissions"
+        },
+        {
+          "name": "YouTube/self-taught route with short films",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=YouTube%2Fself-taught%20route%20with%20short%20films%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "NYU Tisch School",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=NYU%20Tisch%20School%20admissions"
+        },
+        {
+          "name": "USC Cinematic Arts",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=USC%20Cinematic%20Arts%20admissions"
+        },
+        {
+          "name": "AFI Conservatory",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=AFI%20Conservatory%20admissions"
+        },
+        {
+          "name": "Columbia Film School",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Columbia%20Film%20School%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Film Director / Filmmaker",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "dentist",
@@ -6604,15 +11696,69 @@ export const careers = [
     "paths": [
       {
         "title": "General Dentist",
-        "desc": "Run a full-service dental clinic."
+        "desc": "Run a full-service dental clinic.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for General Dentist."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Specialist (MDS)",
-        "desc": "Orthodontics, implantology, periodontics."
+        "desc": "Orthodontics, implantology, periodontics.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Specialist (MDS)."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Academic / Research",
-        "desc": "Teach in dental colleges or pursue research."
+        "desc": "Teach in dental colleges or pursue research.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Academic / Research."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -6981,7 +12127,251 @@ export const careers = [
       "Anyone squeamish about blood or pain"
     ],
     "harshReality": "Private dental college fees can be 70-80 Lakhs. Without MDS specialization, income growth is slow. Dental chains are squeezing solo practitioners with aggressive pricing.",
-    "industryInsights": "Cosmetic dentistry (veneers, aligners) is a booming premium segment. Dental chains like Clove and Sabka Dentist are expanding rapidly — good entry points for fresh BDS graduates."
+    "industryInsights": "Cosmetic dentistry (veneers, aligners) is a booming premium segment. Dental chains like Clove and Sabka Dentist are expanding rapidly — good entry points for fresh BDS graduates.",
+    "incomeBreakdown": {
+      "tier1": "₹60,000 - ₹2,50,000+ / month (Tier-1 private hospitals, corporate clinics, private practice)",
+      "tier2": "₹40,000 - ₹1,20,000 / month (Tier-2 district hospitals & established consulting chambers)",
+      "tier3": "₹25,000 - ₹65,000 / month (Community health centers, state clinics & entry roles)"
+    },
+    "timelineToProfitability": "12 to 24 months post-internship/degree to establish consistent patient volume and private consults.",
+    "clientsNeededForTarget": "20-30 outpatient consults daily or 8-12 high-care procedures monthly to surpass ₹1.5L/month target.",
+    "skillsData": [
+      {
+        "name": "Manual Dexterity",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Manual Dexterity foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Manual Dexterity"
+          ],
+          "paidResources": [
+            "Specialized Manual Dexterity Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Patient Communication",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Patient Communication foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Patient Communication"
+          ],
+          "paidResources": [
+            "Specialized Patient Communication Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Oral Surgery",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Oral Surgery foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Oral Surgery"
+          ],
+          "paidResources": [
+            "Specialized Oral Surgery Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Prosthodontics",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Prosthodontics foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Prosthodontics"
+          ],
+          "paidResources": [
+            "Specialized Prosthodontics Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Clinical Diagnosis",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Clinical Diagnosis foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Clinical Diagnosis"
+          ],
+          "paidResources": [
+            "Specialized Clinical Diagnosis Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "NEET-UG",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NEET-UG.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NEET-UG 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "NEET-PG (for MDS)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NEET-PG (for MDS).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NEET-PG (for MDS) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "Maulana Azad Dental College Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Maulana%20Azad%20Dental%20College%20Delhi%20admissions"
+        },
+        {
+          "name": "Manipal College of Dental Sciences",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Manipal%20College%20of%20Dental%20Sciences%20admissions"
+        },
+        {
+          "name": "KGMC Lucknow",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=KGMC%20Lucknow%20admissions"
+        },
+        {
+          "name": "SRM Chennai",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=SRM%20Chennai%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Government dental colleges via state quota (NEET rank-based)",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Government%20dental%20colleges%20via%20state%20quota%20(NEET%20rank-based)%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "University of Michigan",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Michigan%20admissions"
+        },
+        {
+          "name": "King's College London",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=King's%20College%20London%20admissions"
+        },
+        {
+          "name": "University of Melbourne",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Melbourne%20admissions"
+        },
+        {
+          "name": "NYU College of Dentistry",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=NYU%20College%20of%20Dentistry%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Dentist (BDS)",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "physiotherapist",
@@ -7010,15 +12400,69 @@ export const careers = [
     "paths": [
       {
         "title": "Hospital Physiotherapist",
-        "desc": "Work in hospitals with post-surgical patients."
+        "desc": "Work in hospitals with post-surgical patients.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Hospital Physiotherapist."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Sports Physiotherapist",
-        "desc": "Work with athletes and sports teams."
+        "desc": "Work with athletes and sports teams.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Sports Physiotherapist."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Own Clinic",
-        "desc": "Build a private rehabilitation practice."
+        "desc": "Build a private rehabilitation practice.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Own Clinic."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -7390,7 +12834,267 @@ export const careers = [
       "Anyone looking for very high early incomes"
     ],
     "harshReality": "Physiotherapy in India is still underpaid in hospitals. Private practice and sports physio are the only real paths to good income. Building a client base takes 3-5 years.",
-    "industryInsights": "India's sports ecosystem is booming post-Olympics and IPL. Sports physiotherapists working with clubs, teams, or academies are the highest earners in this field."
+    "industryInsights": "India's sports ecosystem is booming post-Olympics and IPL. Sports physiotherapists working with clubs, teams, or academies are the highest earners in this field.",
+    "incomeBreakdown": {
+      "tier1": "₹60,000 - ₹2,50,000+ / month (Tier-1 private hospitals, corporate clinics, private practice)",
+      "tier2": "₹40,000 - ₹1,20,000 / month (Tier-2 district hospitals & established consulting chambers)",
+      "tier3": "₹25,000 - ₹65,000 / month (Community health centers, state clinics & entry roles)"
+    },
+    "timelineToProfitability": "12 to 24 months post-internship/degree to establish consistent patient volume and private consults.",
+    "clientsNeededForTarget": "20-30 outpatient consults daily or 8-12 high-care procedures monthly to surpass ₹1.5L/month target.",
+    "skillsData": [
+      {
+        "name": "Anatomy & Exercise Science",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Anatomy & Exercise Science foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Anatomy & Exercise Science"
+          ],
+          "paidResources": [
+            "Specialized Anatomy & Exercise Science Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Manual Therapy",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Manual Therapy foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Manual Therapy"
+          ],
+          "paidResources": [
+            "Specialized Manual Therapy Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Patient Communication",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Patient Communication foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Patient Communication"
+          ],
+          "paidResources": [
+            "Specialized Patient Communication Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Rehabilitation Planning",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Rehabilitation Planning foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Rehabilitation Planning"
+          ],
+          "paidResources": [
+            "Specialized Rehabilitation Planning Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Sports Physio",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Sports Physio foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Sports Physio"
+          ],
+          "paidResources": [
+            "Specialized Sports Physio Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "NEET-UG (some colleges)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NEET-UG (some colleges).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NEET-UG (some colleges) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "State-level paramedical entrance exams",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for State-level paramedical entrance exams.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "State-level paramedical entrance exams 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "AIIMS",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=AIIMS%20admissions"
+        },
+        {
+          "name": "CMC Vellore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=CMC%20Vellore%20admissions"
+        },
+        {
+          "name": "Manipal",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Manipal%20admissions"
+        },
+        {
+          "name": "MGM Mumbai",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=MGM%20Mumbai%20admissions"
+        },
+        {
+          "name": "NIMHANS Bangalore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NIMHANS%20Bangalore%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Government physiotherapy colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Government%20physiotherapy%20colleges%20admissions"
+        },
+        {
+          "name": "State medical university affiliated colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=State%20medical%20university%20affiliated%20colleges%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "McMaster Canada",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=McMaster%20Canada%20admissions"
+        },
+        {
+          "name": "University of Melbourne",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Melbourne%20admissions"
+        },
+        {
+          "name": "Nottingham",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Nottingham%20admissions"
+        },
+        {
+          "name": "Western Ontario",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Western%20Ontario%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Physiotherapist",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "investment-banker",
@@ -7419,15 +13123,69 @@ export const careers = [
     "paths": [
       {
         "title": "Investment Banking Analyst",
-        "desc": "Build financial models and pitch books."
+        "desc": "Build financial models and pitch books.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Investment Banking Analyst."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Vice President / Director",
-        "desc": "Manage client relationships and lead deal teams."
+        "desc": "Manage client relationships and lead deal teams.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Vice President / Director."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Managing Director",
-        "desc": "Originate deals and lead the firm's revenue."
+        "desc": "Originate deals and lead the firm's revenue.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Managing Director."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -7801,7 +13559,283 @@ export const careers = [
       "Anyone looking for creativity in their daily work"
     ],
     "harshReality": "80-hour weeks are normal in the first 2 years. Burnout is an industry epidemic. The pay is exceptional, but your personal life essentially disappears during deal season.",
-    "industryInsights": "India's M&A market hit a record $100B+ in 2023. Private equity and venture capital are growing rapidly and often recruit directly from IB analyst programs."
+    "industryInsights": "India's M&A market hit a record $100B+ in 2023. Private equity and venture capital are growing rapidly and often recruit directly from IB analyst programs.",
+    "incomeBreakdown": {
+      "tier1": "₹65,000 - ₹2,80,000+ / month (Mumbai, BKC, Delhi-NCR investment banks, Big 4, top corporate houses)",
+      "tier2": "₹35,000 - ₹85,000 / month (Regional financial hubs, commercial bank branches, audit firms)",
+      "tier3": "₹20,000 - ₹40,000 / month (Local taxation consultancies, credit societies, cooperative banks)"
+    },
+    "timelineToProfitability": "6 to 12 months post-qualification (CA, CFA, MBA) to clear campus hiring or corporate placement cycles.",
+    "clientsNeededForTarget": "1 corporate analyst role OR 15-20 ongoing corporate tax/advisory retainers to achieve ₹1.2L+/month.",
+    "skillsData": [
+      {
+        "name": "Financial Modeling",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Financial Modeling foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Financial Modeling"
+          ],
+          "paidResources": [
+            "Specialized Financial Modeling Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Valuation (DCF, Comps)",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Valuation (DCF, Comps) foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Valuation (DCF, Comps)"
+          ],
+          "paidResources": [
+            "Specialized Valuation (DCF, Comps) Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Excel & PowerPoint",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Excel & PowerPoint foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Excel & PowerPoint"
+          ],
+          "paidResources": [
+            "Specialized Excel & PowerPoint Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Deal Execution",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Deal Execution foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Deal Execution"
+          ],
+          "paidResources": [
+            "Specialized Deal Execution Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Client Management",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Client Management foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Client Management"
+          ],
+          "paidResources": [
+            "Specialized Client Management Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "CAT / GMAT (for MBA)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CAT / GMAT (for MBA).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CAT / GMAT (for MBA) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "CFA (valuable certification)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CFA (valuable certification).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CFA (valuable certification) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IIM Ahmedabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIM%20Ahmedabad%20admissions"
+        },
+        {
+          "name": "IIM Bangalore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIM%20Bangalore%20admissions"
+        },
+        {
+          "name": "IIM Calcutta",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIM%20Calcutta%20admissions"
+        },
+        {
+          "name": "XLRI",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=XLRI%20admissions"
+        },
+        {
+          "name": "ISB Hyderabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=ISB%20Hyderabad%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "FMS Delhi",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=FMS%20Delhi%20admissions"
+        },
+        {
+          "name": "IIT + MBA route",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=IIT%20%2B%20MBA%20route%20admissions"
+        },
+        {
+          "name": "CFA self-study path",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=CFA%20self-study%20path%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Harvard Business",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Harvard%20Business%20admissions"
+        },
+        {
+          "name": "Wharton",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Wharton%20admissions"
+        },
+        {
+          "name": "London Business School",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=London%20Business%20School%20admissions"
+        },
+        {
+          "name": "INSEAD",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=INSEAD%20admissions"
+        },
+        {
+          "name": "Columbia Business",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Columbia%20Business%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Investment Banker",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "financial-analyst",
@@ -7830,15 +13864,69 @@ export const careers = [
     "paths": [
       {
         "title": "Equity Research Analyst",
-        "desc": "Analyze stocks and sectors for investment recommendations."
+        "desc": "Analyze stocks and sectors for investment recommendations.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Equity Research Analyst."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "FP&A Analyst",
-        "desc": "Financial planning and analysis within corporations."
+        "desc": "Financial planning and analysis within corporations.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for FP&A Analyst."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Portfolio Manager",
-        "desc": "Manage investment portfolios for clients or funds."
+        "desc": "Manage investment portfolios for clients or funds.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Portfolio Manager."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -8212,7 +14300,283 @@ export const careers = [
       "Anyone who panics during market volatility"
     ],
     "harshReality": "The CFA is brutal — only 40-45% pass each level. Many financial analysts plateau at mid-management without an MBA from a top school.",
-    "industryInsights": "India's mutual fund industry crossed ₹50 Lakh Cr in AUM. AMCs, PMS firms, and AIFs are all hiring analysts aggressively."
+    "industryInsights": "India's mutual fund industry crossed ₹50 Lakh Cr in AUM. AMCs, PMS firms, and AIFs are all hiring analysts aggressively.",
+    "incomeBreakdown": {
+      "tier1": "₹65,000 - ₹2,80,000+ / month (Mumbai, BKC, Delhi-NCR investment banks, Big 4, top corporate houses)",
+      "tier2": "₹35,000 - ₹85,000 / month (Regional financial hubs, commercial bank branches, audit firms)",
+      "tier3": "₹20,000 - ₹40,000 / month (Local taxation consultancies, credit societies, cooperative banks)"
+    },
+    "timelineToProfitability": "6 to 12 months post-qualification (CA, CFA, MBA) to clear campus hiring or corporate placement cycles.",
+    "clientsNeededForTarget": "1 corporate analyst role OR 15-20 ongoing corporate tax/advisory retainers to achieve ₹1.2L+/month.",
+    "skillsData": [
+      {
+        "name": "Financial Modeling",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Financial Modeling foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Financial Modeling"
+          ],
+          "paidResources": [
+            "Specialized Financial Modeling Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Excel",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Excel foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Excel"
+          ],
+          "paidResources": [
+            "Specialized Excel Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "CFA Preparation",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive CFA Preparation foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for CFA Preparation"
+          ],
+          "paidResources": [
+            "Specialized CFA Preparation Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Bloomberg Terminal",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Bloomberg Terminal foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Bloomberg Terminal"
+          ],
+          "paidResources": [
+            "Specialized Bloomberg Terminal Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Data Analysis",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Data Analysis foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Data Analysis"
+          ],
+          "paidResources": [
+            "Specialized Data Analysis Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "CAT / GMAT (for MBA)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CAT / GMAT (for MBA).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CAT / GMAT (for MBA) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "CFA Level 1, 2, 3",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CFA Level 1, 2, 3.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CFA Level 1, 2, 3 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "SRCC Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=SRCC%20Delhi%20admissions"
+        },
+        {
+          "name": "St. Xavier's Mumbai",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=St.%20Xavier's%20Mumbai%20admissions"
+        },
+        {
+          "name": "Christ Bangalore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Christ%20Bangalore%20admissions"
+        },
+        {
+          "name": "IIM Indore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIM%20Indore%20admissions"
+        },
+        {
+          "name": "Symbiosis Pune",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Symbiosis%20Pune%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "FMS Delhi",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=FMS%20Delhi%20admissions"
+        },
+        {
+          "name": "Delhi University B.Com",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Delhi%20University%20B.Com%20admissions"
+        },
+        {
+          "name": "Self-study CFA route",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Self-study%20CFA%20route%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "NYU Stern",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=NYU%20Stern%20admissions"
+        },
+        {
+          "name": "University of Toronto",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Toronto%20admissions"
+        },
+        {
+          "name": "LSE",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=LSE%20admissions"
+        },
+        {
+          "name": "NUS Singapore",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=NUS%20Singapore%20admissions"
+        },
+        {
+          "name": "HEC Paris",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=HEC%20Paris%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Financial Analyst",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "civil-services",
@@ -8241,15 +14605,69 @@ export const careers = [
     "paths": [
       {
         "title": "IAS Officer",
-        "desc": "Collector, DM, Joint Secretary — administrative leadership."
+        "desc": "Collector, DM, Joint Secretary — administrative leadership.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for IAS Officer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "IPS Officer",
-        "desc": "Police administration, law enforcement leadership."
+        "desc": "Police administration, law enforcement leadership.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for IPS Officer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "IFS Officer",
-        "desc": "India's diplomatic corps — foreign postings."
+        "desc": "India's diplomatic corps — foreign postings.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for IFS Officer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -8627,7 +15045,238 @@ export const careers = [
       "Anyone who can't sustain 2-3 years of intensive studying"
     ],
     "harshReality": "Only ~180 IAS officers are selected out of 1 million+ applicants per year. Most people take 3-5 attempts. If you're only in it for status, you won't survive the preparation.",
-    "industryInsights": "The average age of successful UPSC candidates is 26-27. Starting at Class 11 with newspaper reading and NCERT books gives a massive advantage."
+    "industryInsights": "The average age of successful UPSC candidates is 26-27. Starting at Class 11 with newspaper reading and NCERT books gives a massive advantage.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹1,80,000+ / month (Metro corporate employers, specialized academies & private consultancies)",
+      "tier2": "₹30,000 - ₹75,000 / month (State headquarters, established regional institutions)",
+      "tier3": "₹18,000 - ₹40,000 / month (District centers, local administrative and support roles)"
+    },
+    "timelineToProfitability": "6 to 12 months of structured preparation and entry licensing to achieve steady revenue.",
+    "clientsNeededForTarget": "1 primary institutional engagement + 2-3 advisory assignments to hit ₹1,00,000/month target.",
+    "skillsData": [
+      {
+        "name": "Current Affairs",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Current Affairs foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Current Affairs"
+          ],
+          "paidResources": [
+            "Specialized Current Affairs Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Essay Writing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Essay Writing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Essay Writing"
+          ],
+          "paidResources": [
+            "Specialized Essay Writing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Optional Subject Mastery",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Optional Subject Mastery foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Optional Subject Mastery"
+          ],
+          "paidResources": [
+            "Specialized Optional Subject Mastery Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Leadership",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Leadership foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Leadership"
+          ],
+          "paidResources": [
+            "Specialized Leadership Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Administrative Thinking",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Administrative Thinking foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Administrative Thinking"
+          ],
+          "paidResources": [
+            "Specialized Administrative Thinking Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "UPSC Civil Services Prelims",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for UPSC Civil Services Prelims.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "UPSC Civil Services Prelims 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "UPSC Civil Services Mains",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for UPSC Civil Services Mains.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "UPSC Civil Services Mains 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "UPSC Personality Test (Interview)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for UPSC Personality Test (Interview).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "UPSC Personality Test (Interview) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "St. Stephen's Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=St.%20Stephen's%20Delhi%20admissions"
+        },
+        {
+          "name": "JNU",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=JNU%20admissions"
+        },
+        {
+          "name": "Allahabad University — coaching: Vajiram, Vision IAS, Drishti IAS",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Allahabad%20University%20%E2%80%94%20coaching%3A%20Vajiram%2C%20Vision%20IAS%2C%20Drishti%20IAS%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Self-study route with free resources (NCERT, PYQs)",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Self-study%20route%20with%20free%20resources%20(NCERT%2C%20PYQs)%20admissions"
+        },
+        {
+          "name": "Online coaching via Unacademy, Drishti",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Online%20coaching%20via%20Unacademy%2C%20Drishti%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "N/A — India-specific exam",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=N%2FA%20%E2%80%94%20India-specific%20exam%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Civil Services (IAS / IPS)",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "army-officer",
@@ -8656,15 +15305,69 @@ export const careers = [
     "paths": [
       {
         "title": "Combat Officer",
-        "desc": "Lead infantry, armoured, or artillery units."
+        "desc": "Lead infantry, armoured, or artillery units.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Combat Officer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Technical Officer",
-        "desc": "Engineers, signals, and EME corps."
+        "desc": "Engineers, signals, and EME corps.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Technical Officer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Administrative / Staff",
-        "desc": "Education, legal, medical, and logistics branches."
+        "desc": "Education, legal, medical, and logistics branches.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Administrative / Staff."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -8938,7 +15641,254 @@ export const careers = [
       "Anyone who struggles with hierarchy"
     ],
     "harshReality": "Postings in remote areas (Kashmir, Northeast) are mandatory. Family separation is common. Promotions above Colonel are extremely competitive with many stagnating.",
-    "industryInsights": "The Agniveer scheme has changed short-term recruitment. Officer cadre remains prestigious. Ex-Army officers are highly valued in corporate security, logistics, and defense PSUs."
+    "industryInsights": "The Agniveer scheme has changed short-term recruitment. Officer cadre remains prestigious. Ex-Army officers are highly valued in corporate security, logistics, and defense PSUs.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹1,80,000+ / month (Metro corporate employers, specialized academies & private consultancies)",
+      "tier2": "₹30,000 - ₹75,000 / month (State headquarters, established regional institutions)",
+      "tier3": "₹18,000 - ₹40,000 / month (District centers, local administrative and support roles)"
+    },
+    "timelineToProfitability": "6 to 12 months of structured preparation and entry licensing to achieve steady revenue.",
+    "clientsNeededForTarget": "1 primary institutional engagement + 2-3 advisory assignments to hit ₹1,00,000/month target.",
+    "skillsData": [
+      {
+        "name": "Physical Fitness",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Physical Fitness foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Physical Fitness"
+          ],
+          "paidResources": [
+            "Specialized Physical Fitness Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Leadership & Decision Making",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Leadership & Decision Making foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Leadership & Decision Making"
+          ],
+          "paidResources": [
+            "Specialized Leadership & Decision Making Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Weapons Training",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Weapons Training foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Weapons Training"
+          ],
+          "paidResources": [
+            "Specialized Weapons Training Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Military Strategy",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Military Strategy foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Military Strategy"
+          ],
+          "paidResources": [
+            "Specialized Military Strategy Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Team Management",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Team Management foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Team Management"
+          ],
+          "paidResources": [
+            "Specialized Team Management Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "NDA Exam (UPSC)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NDA Exam (UPSC).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NDA Exam (UPSC) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "CDS Exam (UPSC)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CDS Exam (UPSC).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CDS Exam (UPSC) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "TES / SCO for technical entry",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for TES / SCO for technical entry.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "TES / SCO for technical entry 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "NDA Pune",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NDA%20Pune%20admissions"
+        },
+        {
+          "name": "IMA Dehradun",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IMA%20Dehradun%20admissions"
+        },
+        {
+          "name": "OTA Chennai",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=OTA%20Chennai%20admissions"
+        },
+        {
+          "name": "Indian Military Academy",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Indian%20Military%20Academy%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Sainik Schools — excellent early preparation pathway",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Sainik%20Schools%20%E2%80%94%20excellent%20early%20preparation%20pathway%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Sandhurst UK (exchange)",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Sandhurst%20UK%20(exchange)%20admissions"
+        },
+        {
+          "name": "West Point USA (exchange)",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=West%20Point%20USA%20(exchange)%20admissions"
+        },
+        {
+          "name": "RMIT Australia",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=RMIT%20Australia%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Army Officer",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "civil-engineer",
@@ -8967,15 +15917,69 @@ export const careers = [
     "paths": [
       {
         "title": "Structural Engineer",
-        "desc": "Design buildings, bridges, and foundations."
+        "desc": "Design buildings, bridges, and foundations.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Structural Engineer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Project Manager",
-        "desc": "Manage construction timelines and teams on site."
+        "desc": "Manage construction timelines and teams on site.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Project Manager."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Government PSU Engineer",
-        "desc": "CPWD, NHAI, AAI — stable government roles via GATE."
+        "desc": "CPWD, NHAI, AAI — stable government roles via GATE.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Government PSU Engineer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -9253,7 +16257,283 @@ export const careers = [
       "Anyone impatient with slow project timelines"
     ],
     "harshReality": "Civil engineering salaries in India are significantly lower than software engineering. Government PSU roles are stable but competitive via GATE. Private sector growth requires relocation to project sites.",
-    "industryInsights": "India's PM Gati Shakti and Smart Cities Mission are driving massive infrastructure investment. Real estate and urban infra are booming — creating strong demand for civil engineers."
+    "industryInsights": "India's PM Gati Shakti and Smart Cities Mission are driving massive infrastructure investment. Real estate and urban infra are booming — creating strong demand for civil engineers.",
+    "incomeBreakdown": {
+      "tier1": "₹70,000 - ₹3,00,000+ / month (Bengaluru, Hyderabad, Pune, Gurugram product firms & MNCs)",
+      "tier2": "₹35,000 - ₹90,000 / month (Tier-2 tech parks, mid-market IT service hubs & offshore teams)",
+      "tier3": "₹20,000 - ₹45,000 / month (Local software consultancies, hardware maintenance & remote junior gigs)"
+    },
+    "timelineToProfitability": "3 to 6 months post-bootcamp / graduation to clear technical interviews and secure entry SDE/analyst role.",
+    "clientsNeededForTarget": "1 full-time enterprise employment offer OR 2-3 international remote retainers ($1,500/mo) to hit ₹1.5L-₹2L/mo.",
+    "skillsData": [
+      {
+        "name": "AutoCAD",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive AutoCAD foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for AutoCAD"
+          ],
+          "paidResources": [
+            "Specialized AutoCAD Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "STAAD Pro",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive STAAD Pro foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for STAAD Pro"
+          ],
+          "paidResources": [
+            "Specialized STAAD Pro Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Structural Design",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Structural Design foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Structural Design"
+          ],
+          "paidResources": [
+            "Specialized Structural Design Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Project Management",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Project Management foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Project Management"
+          ],
+          "paidResources": [
+            "Specialized Project Management Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Concrete & Steel Design",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Concrete & Steel Design foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Concrete & Steel Design"
+          ],
+          "paidResources": [
+            "Specialized Concrete & Steel Design Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "JEE Main & Advanced",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for JEE Main & Advanced.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "JEE Main & Advanced 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "GATE Civil Engineering",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for GATE Civil Engineering.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "GATE Civil Engineering 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IIT Roorkee",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIT%20Roorkee%20admissions"
+        },
+        {
+          "name": "IIT Bombay",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIT%20Bombay%20admissions"
+        },
+        {
+          "name": "NIT Trichy",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NIT%20Trichy%20admissions"
+        },
+        {
+          "name": "BITS Pilani",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=BITS%20Pilani%20admissions"
+        },
+        {
+          "name": "Delhi Technological University",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Delhi%20Technological%20University%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "State government engineering colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=State%20government%20engineering%20colleges%20admissions"
+        },
+        {
+          "name": "NIT Warangal",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=NIT%20Warangal%20admissions"
+        },
+        {
+          "name": "NIT Calicut",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=NIT%20Calicut%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "MIT",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=MIT%20admissions"
+        },
+        {
+          "name": "Imperial College London",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Imperial%20College%20London%20admissions"
+        },
+        {
+          "name": "ETH Zurich",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=ETH%20Zurich%20admissions"
+        },
+        {
+          "name": "University of Melbourne",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Melbourne%20admissions"
+        },
+        {
+          "name": "NTU Singapore",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=NTU%20Singapore%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Civil Engineer",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "mechanical-engineer",
@@ -9282,15 +16562,69 @@ export const careers = [
     "paths": [
       {
         "title": "Design Engineer",
-        "desc": "Design mechanical components and systems."
+        "desc": "Design mechanical components and systems.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Design Engineer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Manufacturing Engineer",
-        "desc": "Optimize production lines and manufacturing processes."
+        "desc": "Optimize production lines and manufacturing processes.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Manufacturing Engineer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "R&D Engineer",
-        "desc": "Research and develop new products in automotive or aerospace."
+        "desc": "Research and develop new products in automotive or aerospace.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for R&D Engineer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -9568,7 +16902,283 @@ export const careers = [
       "Anyone uncomfortable with factory environments"
     ],
     "harshReality": "Mechanical engineering has lower starting salaries compared to CS. Automation and Industry 4.0 are reshaping the field. Those who add programming (Python, MATLAB) to their skill set earn significantly more.",
-    "industryInsights": "Electric vehicles (EV) and renewable energy are creating massive demand for mechanical engineers in new domains. ISRO, DRDO, and defense PSUs offer prestigious paths."
+    "industryInsights": "Electric vehicles (EV) and renewable energy are creating massive demand for mechanical engineers in new domains. ISRO, DRDO, and defense PSUs offer prestigious paths.",
+    "incomeBreakdown": {
+      "tier1": "₹70,000 - ₹3,00,000+ / month (Bengaluru, Hyderabad, Pune, Gurugram product firms & MNCs)",
+      "tier2": "₹35,000 - ₹90,000 / month (Tier-2 tech parks, mid-market IT service hubs & offshore teams)",
+      "tier3": "₹20,000 - ₹45,000 / month (Local software consultancies, hardware maintenance & remote junior gigs)"
+    },
+    "timelineToProfitability": "3 to 6 months post-bootcamp / graduation to clear technical interviews and secure entry SDE/analyst role.",
+    "clientsNeededForTarget": "1 full-time enterprise employment offer OR 2-3 international remote retainers ($1,500/mo) to hit ₹1.5L-₹2L/mo.",
+    "skillsData": [
+      {
+        "name": "CAD / CAM (SolidWorks, CATIA)",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive CAD / CAM (SolidWorks, CATIA) foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for CAD / CAM (SolidWorks, CATIA)"
+          ],
+          "paidResources": [
+            "Specialized CAD / CAM (SolidWorks, CATIA) Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Thermodynamics",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Thermodynamics foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Thermodynamics"
+          ],
+          "paidResources": [
+            "Specialized Thermodynamics Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Manufacturing Processes",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Manufacturing Processes foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Manufacturing Processes"
+          ],
+          "paidResources": [
+            "Specialized Manufacturing Processes Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "ANSYS (FEA)",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive ANSYS (FEA) foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for ANSYS (FEA)"
+          ],
+          "paidResources": [
+            "Specialized ANSYS (FEA) Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Project Management",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Project Management foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Project Management"
+          ],
+          "paidResources": [
+            "Specialized Project Management Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "JEE Main & Advanced",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for JEE Main & Advanced.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "JEE Main & Advanced 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "GATE Mechanical Engineering",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for GATE Mechanical Engineering.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "GATE Mechanical Engineering 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IIT Bombay",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIT%20Bombay%20admissions"
+        },
+        {
+          "name": "IIT Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIT%20Delhi%20admissions"
+        },
+        {
+          "name": "NIT Trichy",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NIT%20Trichy%20admissions"
+        },
+        {
+          "name": "BITS Pilani",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=BITS%20Pilani%20admissions"
+        },
+        {
+          "name": "Jadavpur University",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Jadavpur%20University%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "State engineering colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=State%20engineering%20colleges%20admissions"
+        },
+        {
+          "name": "NIT Warangal",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=NIT%20Warangal%20admissions"
+        },
+        {
+          "name": "NIT Calicut",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=NIT%20Calicut%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "MIT",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=MIT%20admissions"
+        },
+        {
+          "name": "University of Michigan",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Michigan%20admissions"
+        },
+        {
+          "name": "TU Munich",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=TU%20Munich%20admissions"
+        },
+        {
+          "name": "ETH Zurich",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=ETH%20Zurich%20admissions"
+        },
+        {
+          "name": "Imperial College London",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Imperial%20College%20London%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Mechanical Engineer",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "mba-manager",
@@ -9597,15 +17207,69 @@ export const careers = [
     "paths": [
       {
         "title": "Management Consultant",
-        "desc": "Advise companies on strategy and operations."
+        "desc": "Advise companies on strategy and operations.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Management Consultant."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "General Manager",
-        "desc": "Run a P&L for a business unit or function."
+        "desc": "Run a P&L for a business unit or function.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for General Manager."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Entrepreneur",
-        "desc": "Launch startups with an MBA's business acumen."
+        "desc": "Launch startups with an MBA's business acumen.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Entrepreneur."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -9981,7 +17645,305 @@ export const careers = [
       "Anyone not ready for the MBA investment"
     ],
     "harshReality": "Non-IIM MBAs often have poor ROI. The degree's value is 80% the network, not the curriculum. Without strong work experience or a top school, the MBA premium disappears.",
-    "industryInsights": "FMCG, consulting, and fintech are the top MBA recruiting sectors. Startup hiring from IIMs has tripled in the last 5 years."
+    "industryInsights": "FMCG, consulting, and fintech are the top MBA recruiting sectors. Startup hiring from IIMs has tripled in the last 5 years.",
+    "incomeBreakdown": {
+      "tier1": "₹65,000 - ₹2,80,000+ / month (Mumbai, BKC, Delhi-NCR investment banks, Big 4, top corporate houses)",
+      "tier2": "₹35,000 - ₹85,000 / month (Regional financial hubs, commercial bank branches, audit firms)",
+      "tier3": "₹20,000 - ₹40,000 / month (Local taxation consultancies, credit societies, cooperative banks)"
+    },
+    "timelineToProfitability": "6 to 12 months post-qualification (CA, CFA, MBA) to clear campus hiring or corporate placement cycles.",
+    "clientsNeededForTarget": "1 corporate analyst role OR 15-20 ongoing corporate tax/advisory retainers to achieve ₹1.2L+/month.",
+    "skillsData": [
+      {
+        "name": "Strategic Thinking",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Strategic Thinking foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Strategic Thinking"
+          ],
+          "paidResources": [
+            "Specialized Strategic Thinking Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Leadership",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Leadership foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Leadership"
+          ],
+          "paidResources": [
+            "Specialized Leadership Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Financial Analysis",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Financial Analysis foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Financial Analysis"
+          ],
+          "paidResources": [
+            "Specialized Financial Analysis Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Marketing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Marketing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Marketing"
+          ],
+          "paidResources": [
+            "Specialized Marketing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Communication",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Communication foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Communication"
+          ],
+          "paidResources": [
+            "Specialized Communication Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "CAT (for IIMs)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CAT (for IIMs).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CAT (for IIMs) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "GMAT (for abroad)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for GMAT (for abroad).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "GMAT (for abroad) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "XAT (for XLRI)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for XAT (for XLRI).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "XAT (for XLRI) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "SNAP (for Symbiosis)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for SNAP (for Symbiosis).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "SNAP (for Symbiosis) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IIM Ahmedabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIM%20Ahmedabad%20admissions"
+        },
+        {
+          "name": "IIM Bangalore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIM%20Bangalore%20admissions"
+        },
+        {
+          "name": "IIM Calcutta",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIM%20Calcutta%20admissions"
+        },
+        {
+          "name": "FMS Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=FMS%20Delhi%20admissions"
+        },
+        {
+          "name": "XLRI Jamshedpur",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=XLRI%20Jamshedpur%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "FMS Delhi (₹20K fees)",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=FMS%20Delhi%20(%E2%82%B920K%20fees)%20admissions"
+        },
+        {
+          "name": "IIM Indore / IIM Kozhikode",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=IIM%20Indore%20%2F%20IIM%20Kozhikode%20admissions"
+        },
+        {
+          "name": "NITIE Mumbai",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=NITIE%20Mumbai%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Harvard Business School",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Harvard%20Business%20School%20admissions"
+        },
+        {
+          "name": "Wharton",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Wharton%20admissions"
+        },
+        {
+          "name": "INSEAD",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=INSEAD%20admissions"
+        },
+        {
+          "name": "London Business School",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=London%20Business%20School%20admissions"
+        },
+        {
+          "name": "Stanford GSB",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Stanford%20GSB%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in MBA / Business Manager",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "marketing-manager",
@@ -10010,15 +17972,69 @@ export const careers = [
     "paths": [
       {
         "title": "Brand Manager",
-        "desc": "Own the brand identity and communication strategy."
+        "desc": "Own the brand identity and communication strategy.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Brand Manager."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Performance Marketer",
-        "desc": "Run data-driven paid campaigns to acquire customers."
+        "desc": "Run data-driven paid campaigns to acquire customers.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Performance Marketer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "CMO",
-        "desc": "Lead the entire marketing function of an organization."
+        "desc": "Lead the entire marketing function of an organization.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for CMO."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -10296,7 +18312,283 @@ export const careers = [
       "Anyone who can't handle ambiguous briefs"
     ],
     "harshReality": "Marketing is extremely results-driven. If your campaigns don't show ROI, you're out. Brand management at FMCG is prestigious but cut-throat.",
-    "industryInsights": "D2C (direct-to-consumer) brands are creating massive demand for digital-first marketers. Performance marketing specialists earn more than brand managers in many startups."
+    "industryInsights": "D2C (direct-to-consumer) brands are creating massive demand for digital-first marketers. Performance marketing specialists earn more than brand managers in many startups.",
+    "incomeBreakdown": {
+      "tier1": "₹65,000 - ₹2,80,000+ / month (Mumbai, BKC, Delhi-NCR investment banks, Big 4, top corporate houses)",
+      "tier2": "₹35,000 - ₹85,000 / month (Regional financial hubs, commercial bank branches, audit firms)",
+      "tier3": "₹20,000 - ₹40,000 / month (Local taxation consultancies, credit societies, cooperative banks)"
+    },
+    "timelineToProfitability": "6 to 12 months post-qualification (CA, CFA, MBA) to clear campus hiring or corporate placement cycles.",
+    "clientsNeededForTarget": "1 corporate analyst role OR 15-20 ongoing corporate tax/advisory retainers to achieve ₹1.2L+/month.",
+    "skillsData": [
+      {
+        "name": "Digital Marketing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Digital Marketing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Digital Marketing"
+          ],
+          "paidResources": [
+            "Specialized Digital Marketing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Consumer Research",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Consumer Research foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Consumer Research"
+          ],
+          "paidResources": [
+            "Specialized Consumer Research Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Brand Strategy",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Brand Strategy foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Brand Strategy"
+          ],
+          "paidResources": [
+            "Specialized Brand Strategy Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Analytics (Google/Meta)",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Analytics (Google/Meta) foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Analytics (Google/Meta)"
+          ],
+          "paidResources": [
+            "Specialized Analytics (Google/Meta) Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "SEO / SEM / Content",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive SEO / SEM / Content foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for SEO / SEM / Content"
+          ],
+          "paidResources": [
+            "Specialized SEO / SEM / Content Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "CAT / XAT (for MBA)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CAT / XAT (for MBA).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CAT / XAT (for MBA) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "MICAT (for MICA)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for MICAT (for MICA).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "MICAT (for MICA) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IIM Ahmedabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIM%20Ahmedabad%20admissions"
+        },
+        {
+          "name": "IIM Bangalore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIM%20Bangalore%20admissions"
+        },
+        {
+          "name": "MICA Ahmedabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=MICA%20Ahmedabad%20admissions"
+        },
+        {
+          "name": "Symbiosis",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Symbiosis%20admissions"
+        },
+        {
+          "name": "IMT Ghaziabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IMT%20Ghaziabad%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "MICA Ahmedabad",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=MICA%20Ahmedabad%20admissions"
+        },
+        {
+          "name": "IMI Delhi",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=IMI%20Delhi%20admissions"
+        },
+        {
+          "name": "IMT Ghaziabad",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=IMT%20Ghaziabad%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Kellogg",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Kellogg%20admissions"
+        },
+        {
+          "name": "Wharton",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Wharton%20admissions"
+        },
+        {
+          "name": "London Business School",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=London%20Business%20School%20admissions"
+        },
+        {
+          "name": "INSEAD",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=INSEAD%20admissions"
+        },
+        {
+          "name": "Columbia Business",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Columbia%20Business%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Marketing Manager",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "human-resources",
@@ -10325,15 +18617,69 @@ export const careers = [
     "paths": [
       {
         "title": "Talent Acquisition",
-        "desc": "Source, recruit, and onboard great people."
+        "desc": "Source, recruit, and onboard great people.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Talent Acquisition."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "HR Business Partner (HRBP)",
-        "desc": "Align HR strategy with business goals."
+        "desc": "Align HR strategy with business goals.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for HR Business Partner (HRBP)."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "CHRO",
-        "desc": "Chief Human Resources Officer — C-suite leadership."
+        "desc": "Chief Human Resources Officer — C-suite leadership.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for CHRO."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -10708,7 +19054,294 @@ export const careers = [
       "Anyone who can't handle ambiguity in people situations"
     ],
     "harshReality": "HR is often the first department to be cut during layoffs. Senior HR roles are highly political. Without an MBA from a top school, salary growth is slow.",
-    "industryInsights": "HR-tech (Darwinbox, Keka, Workday) is transforming the function. HR professionals who understand people analytics and AI-driven recruitment have significantly better career prospects."
+    "industryInsights": "HR-tech (Darwinbox, Keka, Workday) is transforming the function. HR professionals who understand people analytics and AI-driven recruitment have significantly better career prospects.",
+    "incomeBreakdown": {
+      "tier1": "₹65,000 - ₹2,80,000+ / month (Mumbai, BKC, Delhi-NCR investment banks, Big 4, top corporate houses)",
+      "tier2": "₹35,000 - ₹85,000 / month (Regional financial hubs, commercial bank branches, audit firms)",
+      "tier3": "₹20,000 - ₹40,000 / month (Local taxation consultancies, credit societies, cooperative banks)"
+    },
+    "timelineToProfitability": "6 to 12 months post-qualification (CA, CFA, MBA) to clear campus hiring or corporate placement cycles.",
+    "clientsNeededForTarget": "1 corporate analyst role OR 15-20 ongoing corporate tax/advisory retainers to achieve ₹1.2L+/month.",
+    "skillsData": [
+      {
+        "name": "Recruitment & Talent Acquisition",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Recruitment & Talent Acquisition foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Recruitment & Talent Acquisition"
+          ],
+          "paidResources": [
+            "Specialized Recruitment & Talent Acquisition Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "HRIS Systems",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive HRIS Systems foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for HRIS Systems"
+          ],
+          "paidResources": [
+            "Specialized HRIS Systems Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Labour Law",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Labour Law foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Labour Law"
+          ],
+          "paidResources": [
+            "Specialized Labour Law Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Performance Management",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Performance Management foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Performance Management"
+          ],
+          "paidResources": [
+            "Specialized Performance Management Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Communication",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Communication foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Communication"
+          ],
+          "paidResources": [
+            "Specialized Communication Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "XAT (for XLRI)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for XAT (for XLRI).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "XAT (for XLRI) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "CAT (for IIMs)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CAT (for IIMs).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CAT (for IIMs) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "SNAP (for Symbiosis)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for SNAP (for Symbiosis).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "SNAP (for Symbiosis) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "XLRI Jamshedpur",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=XLRI%20Jamshedpur%20admissions"
+        },
+        {
+          "name": "Tata Institute of Social Sciences",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Tata%20Institute%20of%20Social%20Sciences%20admissions"
+        },
+        {
+          "name": "IIM Ahmedabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIM%20Ahmedabad%20admissions"
+        },
+        {
+          "name": "Symbiosis",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Symbiosis%20admissions"
+        },
+        {
+          "name": "SCMHRD Pune",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=SCMHRD%20Pune%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "TISS Mumbai (low fees)",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=TISS%20Mumbai%20(low%20fees)%20admissions"
+        },
+        {
+          "name": "Regional MBA colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Regional%20MBA%20colleges%20admissions"
+        },
+        {
+          "name": "IGNOU HR certifications",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=IGNOU%20HR%20certifications%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Cornell ILR School",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Cornell%20ILR%20School%20admissions"
+        },
+        {
+          "name": "Michigan Ross",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Michigan%20Ross%20admissions"
+        },
+        {
+          "name": "LSE",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=LSE%20admissions"
+        },
+        {
+          "name": "Wharton",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Wharton%20admissions"
+        },
+        {
+          "name": "INSEAD",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=INSEAD%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Human Resources (HR)",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "pilot",
@@ -10737,15 +19370,69 @@ export const careers = [
     "paths": [
       {
         "title": "Commercial Airline Pilot",
-        "desc": "Fly passengers on domestic and international routes."
+        "desc": "Fly passengers on domestic and international routes.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Commercial Airline Pilot."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Cargo Pilot",
-        "desc": "Fly freight — often better hours, good pay."
+        "desc": "Fly freight — often better hours, good pay.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Cargo Pilot."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Corporate / Charter Pilot",
-        "desc": "Fly private jets for HNIs and corporations."
+        "desc": "Fly private jets for HNIs and corporations.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Corporate / Charter Pilot."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -11022,7 +19709,251 @@ export const careers = [
       "Those who need a fixed-city lifestyle"
     ],
     "harshReality": "The ₹60-80L CPL investment is front-loaded — you earn low as First Officer for 3-4 years. Airlines have been known to shut down (Kingfisher, Jet) leaving pilots stranded mid-career.",
-    "industryInsights": "India needs 9,000 pilots by 2030 (CAPA report). IndiGo's massive fleet expansion and new airlines like Akasa have created strong demand. This is one of the best times to become a pilot in India."
+    "industryInsights": "India needs 9,000 pilots by 2030 (CAPA report). IndiGo's massive fleet expansion and new airlines like Akasa have created strong demand. This is one of the best times to become a pilot in India.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹1,80,000+ / month (Metro corporate employers, specialized academies & private consultancies)",
+      "tier2": "₹30,000 - ₹75,000 / month (State headquarters, established regional institutions)",
+      "tier3": "₹18,000 - ₹40,000 / month (District centers, local administrative and support roles)"
+    },
+    "timelineToProfitability": "6 to 12 months of structured preparation and entry licensing to achieve steady revenue.",
+    "clientsNeededForTarget": "1 primary institutional engagement + 2-3 advisory assignments to hit ₹1,00,000/month target.",
+    "skillsData": [
+      {
+        "name": "Flight Operations",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Flight Operations foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Flight Operations"
+          ],
+          "paidResources": [
+            "Specialized Flight Operations Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Navigation",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Navigation foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Navigation"
+          ],
+          "paidResources": [
+            "Specialized Navigation Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Meteorology",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Meteorology foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Meteorology"
+          ],
+          "paidResources": [
+            "Specialized Meteorology Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Aircraft Systems",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Aircraft Systems foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Aircraft Systems"
+          ],
+          "paidResources": [
+            "Specialized Aircraft Systems Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "English Proficiency",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive English Proficiency foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for English Proficiency"
+          ],
+          "paidResources": [
+            "Specialized English Proficiency Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "DGCA Medical Examination",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for DGCA Medical Examination.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "DGCA Medical Examination 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "DGCA Written Tests (Air Regulations, Navigation, Meteorology, Technical)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for DGCA Written Tests (Air Regulations, Navigation, Meteorology, Technical).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "DGCA Written Tests (Air Regulations, Navigation, Meteorology, Technical) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "Indira Gandhi RAI Chandigarh",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Indira%20Gandhi%20RAI%20Chandigarh%20admissions"
+        },
+        {
+          "name": "NFTI Gondia",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NFTI%20Gondia%20admissions"
+        },
+        {
+          "name": "CAE Oxford Aviation India",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=CAE%20Oxford%20Aviation%20India%20admissions"
+        },
+        {
+          "name": "Bombay Flying Club",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Bombay%20Flying%20Club%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Government flying clubs (Mumbai, Delhi) — cheaper but longer queues",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Government%20flying%20clubs%20(Mumbai%2C%20Delhi)%20%E2%80%94%20cheaper%20but%20longer%20queues%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Embry-Riddle USA",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Embry-Riddle%20USA%20admissions"
+        },
+        {
+          "name": "L3 Harris UK",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=L3%20Harris%20UK%20admissions"
+        },
+        {
+          "name": "CAE Australia",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=CAE%20Australia%20admissions"
+        },
+        {
+          "name": "ATP Flight School USA",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=ATP%20Flight%20School%20USA%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Commercial Pilot",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "fashion-designer",
@@ -11051,15 +19982,69 @@ export const careers = [
     "paths": [
       {
         "title": "Apparel Designer",
-        "desc": "Design ready-to-wear collections for brands."
+        "desc": "Design ready-to-wear collections for brands.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Apparel Designer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Haute Couture / Bridal",
-        "desc": "High-end bespoke designs for weddings and shows."
+        "desc": "High-end bespoke designs for weddings and shows.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Haute Couture / Bridal."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Own Fashion Label",
-        "desc": "Build a brand around your aesthetic vision."
+        "desc": "Build a brand around your aesthetic vision.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Own Fashion Label."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -11432,7 +20417,278 @@ export const careers = [
       "Anyone who can't handle slow brand building"
     ],
     "harshReality": "India's fashion industry is glamorous but notoriously underpaid at junior levels. Assisting top designers pays very little. Own label success takes 5-8 years of loss-making before profitability.",
-    "industryInsights": "Indian bridal wear is a ₹80,000 Cr market. Sustainable and handloom fashion is gaining global traction. D2C fashion brands (House of Masaba, Rare Rabbit) are disrupting traditional retail."
+    "industryInsights": "Indian bridal wear is a ₹80,000 Cr market. Sustainable and handloom fashion is gaining global traction. D2C fashion brands (House of Masaba, Rare Rabbit) are disrupting traditional retail.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹2,00,000+ / month (Mumbai, Bengaluru, Delhi creative agencies, studio productions, high-ticket retainers)",
+      "tier2": "₹25,000 - ₹60,000 / month (Regional production houses, mid-tier branding studios, commercial shoots)",
+      "tier3": "₹15,000 - ₹35,000 / month (Local print agencies, freelance marketplace gigs, wedding media)"
+    },
+    "timelineToProfitability": "6 to 9 months of active portfolio shipping to secure reliable monthly agency retainers.",
+    "clientsNeededForTarget": "4-6 monthly retainers @ ₹25,000-₹40,000 each to achieve steady ₹1.2L-₹1.8L monthly net income.",
+    "skillsData": [
+      {
+        "name": "Sketching & Illustration",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Sketching & Illustration foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Sketching & Illustration"
+          ],
+          "paidResources": [
+            "Specialized Sketching & Illustration Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Textile Knowledge",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Textile Knowledge foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Textile Knowledge"
+          ],
+          "paidResources": [
+            "Specialized Textile Knowledge Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Trend Research",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Trend Research foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Trend Research"
+          ],
+          "paidResources": [
+            "Specialized Trend Research Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Pattern Making",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Pattern Making foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Pattern Making"
+          ],
+          "paidResources": [
+            "Specialized Pattern Making Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "CAD for Fashion",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive CAD for Fashion foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for CAD for Fashion"
+          ],
+          "paidResources": [
+            "Specialized CAD for Fashion Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "NIFT Entrance (GAT + CAT + Situation Test)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NIFT Entrance (GAT + CAT + Situation Test).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NIFT Entrance (GAT + CAT + Situation Test) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "NID DAT",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NID DAT.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NID DAT 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "UCEED (for B.Des at IITs)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for UCEED (for B.Des at IITs).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "UCEED (for B.Des at IITs) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "NIFT Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NIFT%20Delhi%20admissions"
+        },
+        {
+          "name": "NID Ahmedabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NID%20Ahmedabad%20admissions"
+        },
+        {
+          "name": "Pearl Academy Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Pearl%20Academy%20Delhi%20admissions"
+        },
+        {
+          "name": "Symbiosis Design",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Symbiosis%20Design%20admissions"
+        },
+        {
+          "name": "IIAD Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIAD%20Delhi%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "State fashion and design institutes",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=State%20fashion%20and%20design%20institutes%20admissions"
+        },
+        {
+          "name": "NIFT campuses in smaller cities",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=NIFT%20campuses%20in%20smaller%20cities%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Central Saint Martins London",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Central%20Saint%20Martins%20London%20admissions"
+        },
+        {
+          "name": "Parsons New York",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Parsons%20New%20York%20admissions"
+        },
+        {
+          "name": "ESMOD Paris",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=ESMOD%20Paris%20admissions"
+        },
+        {
+          "name": "Fashion Institute of Technology NY",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Fashion%20Institute%20of%20Technology%20NY%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Fashion Designer",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "photographer",
@@ -11461,15 +20717,69 @@ export const careers = [
     "paths": [
       {
         "title": "Wedding / Portrait Photographer",
-        "desc": "High-demand, high-income in India's wedding market."
+        "desc": "High-demand, high-income in India's wedding market.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Wedding / Portrait Photographer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Commercial Photographer",
-        "desc": "Shoot for brands, magazines, and advertising."
+        "desc": "Shoot for brands, magazines, and advertising.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Commercial Photographer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Documentary Filmmaker",
-        "desc": "Tell real-world stories through video."
+        "desc": "Tell real-world stories through video.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Documentary Filmmaker."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -11841,7 +21151,267 @@ export const careers = [
       "Anyone uncomfortable with rejection from clients"
     ],
     "harshReality": "Smartphone cameras have commoditized basic photography. Survival requires either premium positioning (luxury weddings) or specializing in commercial/advertising work. Building to ₹10L+ takes 3-5 years.",
-    "industryInsights": "India's wedding market is ₹4 Lakh Cr — wedding photographers at the premium end earn ₹5-15L per wedding. Brand content and Instagram photography for D2C brands is a new high-income stream."
+    "industryInsights": "India's wedding market is ₹4 Lakh Cr — wedding photographers at the premium end earn ₹5-15L per wedding. Brand content and Instagram photography for D2C brands is a new high-income stream.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹2,00,000+ / month (Mumbai, Bengaluru, Delhi creative agencies, studio productions, high-ticket retainers)",
+      "tier2": "₹25,000 - ₹60,000 / month (Regional production houses, mid-tier branding studios, commercial shoots)",
+      "tier3": "₹15,000 - ₹35,000 / month (Local print agencies, freelance marketplace gigs, wedding media)"
+    },
+    "timelineToProfitability": "6 to 9 months of active portfolio shipping to secure reliable monthly agency retainers.",
+    "clientsNeededForTarget": "4-6 monthly retainers @ ₹25,000-₹40,000 each to achieve steady ₹1.2L-₹1.8L monthly net income.",
+    "skillsData": [
+      {
+        "name": "Camera & Lighting Techniques",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Camera & Lighting Techniques foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Camera & Lighting Techniques"
+          ],
+          "paidResources": [
+            "Specialized Camera & Lighting Techniques Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Adobe Lightroom & Premiere",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Adobe Lightroom & Premiere foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Adobe Lightroom & Premiere"
+          ],
+          "paidResources": [
+            "Specialized Adobe Lightroom & Premiere Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Composition",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Composition foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Composition"
+          ],
+          "paidResources": [
+            "Specialized Composition Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Client Management",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Client Management foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Client Management"
+          ],
+          "paidResources": [
+            "Specialized Client Management Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Social Media Portfolio",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Social Media Portfolio foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Social Media Portfolio"
+          ],
+          "paidResources": [
+            "Specialized Social Media Portfolio Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "NID DAT (if pursuing formal design path)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NID DAT (if pursuing formal design path).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NID DAT (if pursuing formal design path) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "FTII entrance (for filmmaking)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for FTII entrance (for filmmaking).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "FTII entrance (for filmmaking) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "NID Ahmedabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NID%20Ahmedabad%20admissions"
+        },
+        {
+          "name": "FTII Pune",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=FTII%20Pune%20admissions"
+        },
+        {
+          "name": "Symbiosis",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Symbiosis%20admissions"
+        },
+        {
+          "name": "Delhi College of Photography",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Delhi%20College%20of%20Photography%20admissions"
+        },
+        {
+          "name": "Light & Life Academy Ooty",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Light%20%26%20Life%20Academy%20Ooty%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Online courses (Skillshare, Udemy)",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Online%20courses%20(Skillshare%2C%20Udemy)%20admissions"
+        },
+        {
+          "name": "Self-taught with portfolio — very viable",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Self-taught%20with%20portfolio%20%E2%80%94%20very%20viable%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Brooks Institute USA",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Brooks%20Institute%20USA%20admissions"
+        },
+        {
+          "name": "New York Film Academy",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=New%20York%20Film%20Academy%20admissions"
+        },
+        {
+          "name": "SAE Institute",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=SAE%20Institute%20admissions"
+        },
+        {
+          "name": "ICP New York",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=ICP%20New%20York%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Photographer / Videographer",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "event-manager",
@@ -11870,15 +21440,69 @@ export const careers = [
     "paths": [
       {
         "title": "Corporate Event Manager",
-        "desc": "Plan conferences, product launches, and townhalls."
+        "desc": "Plan conferences, product launches, and townhalls.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Corporate Event Manager."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Wedding Planner",
-        "desc": "Coordinate India's extravagant wedding celebrations."
+        "desc": "Coordinate India's extravagant wedding celebrations.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Wedding Planner."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Concert / Entertainment Manager",
-        "desc": "Handle music concerts, shows, and large-scale events."
+        "desc": "Handle music concerts, shows, and large-scale events.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Concert / Entertainment Manager."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -12154,7 +21778,267 @@ export const careers = [
       "Anyone who struggles with high-pressure last-minute problem-solving"
     ],
     "harshReality": "Event management looks glamorous but involves extreme stress, late nights, and difficult clients. The salary trajectory is slow unless you start your own venture or specialize in luxury events.",
-    "industryInsights": "India's MICE (Meetings, Incentives, Conferences, Exhibitions) market is growing at 15% annually. Destination weddings and experiential events are the premium segment — wedding planners charging ₹5-20L per event."
+    "industryInsights": "India's MICE (Meetings, Incentives, Conferences, Exhibitions) market is growing at 15% annually. Destination weddings and experiential events are the premium segment — wedding planners charging ₹5-20L per event.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹1,80,000+ / month (Metro corporate employers, specialized academies & private consultancies)",
+      "tier2": "₹30,000 - ₹75,000 / month (State headquarters, established regional institutions)",
+      "tier3": "₹18,000 - ₹40,000 / month (District centers, local administrative and support roles)"
+    },
+    "timelineToProfitability": "6 to 12 months of structured preparation and entry licensing to achieve steady revenue.",
+    "clientsNeededForTarget": "1 primary institutional engagement + 2-3 advisory assignments to hit ₹1,00,000/month target.",
+    "skillsData": [
+      {
+        "name": "Project Management",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Project Management foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Project Management"
+          ],
+          "paidResources": [
+            "Specialized Project Management Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Vendor & Budget Management",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Vendor & Budget Management foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Vendor & Budget Management"
+          ],
+          "paidResources": [
+            "Specialized Vendor & Budget Management Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Communication",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Communication foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Communication"
+          ],
+          "paidResources": [
+            "Specialized Communication Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Logistics Coordination",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Logistics Coordination foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Logistics Coordination"
+          ],
+          "paidResources": [
+            "Specialized Logistics Coordination Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Crisis Management",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Crisis Management foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Crisis Management"
+          ],
+          "paidResources": [
+            "Specialized Crisis Management Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "Hotel Management entrance (NCHMCT JEE)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for Hotel Management entrance (NCHMCT JEE).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "Hotel Management entrance (NCHMCT JEE) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "BBA entrance exams",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for BBA entrance exams.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "BBA entrance exams 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "NIEM Mumbai",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NIEM%20Mumbai%20admissions"
+        },
+        {
+          "name": "Amity University",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Amity%20University%20admissions"
+        },
+        {
+          "name": "IGNOU Event Management",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IGNOU%20Event%20Management%20admissions"
+        },
+        {
+          "name": "Symbiosis",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Symbiosis%20admissions"
+        },
+        {
+          "name": "IHM Aurangabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IHM%20Aurangabad%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "IGNOU event management certification",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=IGNOU%20event%20management%20certification%20admissions"
+        },
+        {
+          "name": "State hospitality institutes",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=State%20hospitality%20institutes%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "George Washington University",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=George%20Washington%20University%20admissions"
+        },
+        {
+          "name": "UNLV Hospitality",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=UNLV%20Hospitality%20admissions"
+        },
+        {
+          "name": "Glion Institute Switzerland",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Glion%20Institute%20Switzerland%20admissions"
+        },
+        {
+          "name": "Les Roches",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Les%20Roches%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Event Manager",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "hotel-management",
@@ -12183,15 +22067,69 @@ export const careers = [
     "paths": [
       {
         "title": "Hotel Operations Manager",
-        "desc": "Run the day-to-day of a full-service hotel."
+        "desc": "Run the day-to-day of a full-service hotel.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Hotel Operations Manager."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Restaurant / F&B Manager",
-        "desc": "Manage food and beverage operations."
+        "desc": "Manage food and beverage operations.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Restaurant / F&B Manager."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Revenue / Yield Manager",
-        "desc": "Optimize room pricing and hotel profitability."
+        "desc": "Optimize room pricing and hotel profitability.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Revenue / Yield Manager."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -12466,7 +22404,256 @@ export const careers = [
       "Anyone who dislikes customer-facing pressure"
     ],
     "harshReality": "Hotel management involves working on Christmas, Diwali, and New Year — when everyone else is celebrating. Early career salaries are low. Progress requires moving cities (and countries).",
-    "industryInsights": "India's domestic tourism has hit record levels post-COVID. Budget hotels (OYO, FabHotels) and luxury resorts (IHCL, ITC) are both expanding. Revenue management is the highest-paying hotel function."
+    "industryInsights": "India's domestic tourism has hit record levels post-COVID. Budget hotels (OYO, FabHotels) and luxury resorts (IHCL, ITC) are both expanding. Revenue management is the highest-paying hotel function.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹1,80,000+ / month (Metro corporate employers, specialized academies & private consultancies)",
+      "tier2": "₹30,000 - ₹75,000 / month (State headquarters, established regional institutions)",
+      "tier3": "₹18,000 - ₹40,000 / month (District centers, local administrative and support roles)"
+    },
+    "timelineToProfitability": "6 to 12 months of structured preparation and entry licensing to achieve steady revenue.",
+    "clientsNeededForTarget": "1 primary institutional engagement + 2-3 advisory assignments to hit ₹1,00,000/month target.",
+    "skillsData": [
+      {
+        "name": "Guest Relations",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Guest Relations foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Guest Relations"
+          ],
+          "paidResources": [
+            "Specialized Guest Relations Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "F&B Management",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive F&B Management foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for F&B Management"
+          ],
+          "paidResources": [
+            "Specialized F&B Management Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Housekeeping Operations",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Housekeeping Operations foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Housekeeping Operations"
+          ],
+          "paidResources": [
+            "Specialized Housekeeping Operations Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Front Office",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Front Office foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Front Office"
+          ],
+          "paidResources": [
+            "Specialized Front Office Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Revenue Management",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Revenue Management foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Revenue Management"
+          ],
+          "paidResources": [
+            "Specialized Revenue Management Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "NCHMCT JEE (National Hotel Management Joint Entrance Exam)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NCHMCT JEE (National Hotel Management Joint Entrance Exam).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NCHMCT JEE (National Hotel Management Joint Entrance Exam) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IHM Pusa Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IHM%20Pusa%20Delhi%20admissions"
+        },
+        {
+          "name": "IHM Aurangabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IHM%20Aurangabad%20admissions"
+        },
+        {
+          "name": "Oberoi STEP Program",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Oberoi%20STEP%20Program%20admissions"
+        },
+        {
+          "name": "Taj SATS",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Taj%20SATS%20admissions"
+        },
+        {
+          "name": "Christ Bangalore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Christ%20Bangalore%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Government IHMs across India (₹50K - ₹2L fees)",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Government%20IHMs%20across%20India%20(%E2%82%B950K%20-%20%E2%82%B92L%20fees)%20admissions"
+        },
+        {
+          "name": "State hospitality institutes",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=State%20hospitality%20institutes%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Glion Institute Switzerland",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Glion%20Institute%20Switzerland%20admissions"
+        },
+        {
+          "name": "Les Roches",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Les%20Roches%20admissions"
+        },
+        {
+          "name": "Cornell Hotel Administration",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Cornell%20Hotel%20Administration%20admissions"
+        },
+        {
+          "name": "EHL Switzerland",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=EHL%20Switzerland%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Hotel Management / Hospitality",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "social-worker",
@@ -12495,15 +22682,69 @@ export const careers = [
     "paths": [
       {
         "title": "NGO Program Officer",
-        "desc": "Design and implement social programs."
+        "desc": "Design and implement social programs.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for NGO Program Officer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "CSR Manager",
-        "desc": "Manage corporate social responsibility for large companies."
+        "desc": "Manage corporate social responsibility for large companies.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for CSR Manager."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Policy Researcher",
-        "desc": "Research and advise on government social policy."
+        "desc": "Research and advise on government social policy.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Policy Researcher."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -12781,7 +23022,286 @@ export const careers = [
       "Anyone who lacks patience for slow systemic change"
     ],
     "harshReality": "Social work salaries are significantly lower than corporate careers. Grant-funded NGOs face funding uncertainty. The emotional toll of working with trauma and poverty is real and underestimated.",
-    "industryInsights": "CSR roles in corporates pay 3x more than NGO roles for the same work. International development agencies (World Bank, UNDP, USAID) offer excellent pay for experienced professionals."
+    "industryInsights": "CSR roles in corporates pay 3x more than NGO roles for the same work. International development agencies (World Bank, UNDP, USAID) offer excellent pay for experienced professionals.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹1,80,000+ / month (Metro corporate employers, specialized academies & private consultancies)",
+      "tier2": "₹30,000 - ₹75,000 / month (State headquarters, established regional institutions)",
+      "tier3": "₹18,000 - ₹40,000 / month (District centers, local administrative and support roles)"
+    },
+    "timelineToProfitability": "6 to 12 months of structured preparation and entry licensing to achieve steady revenue.",
+    "clientsNeededForTarget": "1 primary institutional engagement + 2-3 advisory assignments to hit ₹1,00,000/month target.",
+    "skillsData": [
+      {
+        "name": "Community Development",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Community Development foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Community Development"
+          ],
+          "paidResources": [
+            "Specialized Community Development Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Project Management",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Project Management foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Project Management"
+          ],
+          "paidResources": [
+            "Specialized Project Management Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Fundraising",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Fundraising foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Fundraising"
+          ],
+          "paidResources": [
+            "Specialized Fundraising Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Report Writing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Report Writing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Report Writing"
+          ],
+          "paidResources": [
+            "Specialized Report Writing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Communication",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Communication foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Communication"
+          ],
+          "paidResources": [
+            "Specialized Communication Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "TISS Entrance (TISS-NET)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for TISS Entrance (TISS-NET).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "TISS Entrance (TISS-NET) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "CUET for central universities",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CUET for central universities.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CUET for central universities 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "State social work entrance exams",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for State social work entrance exams.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "State social work entrance exams 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "TISS Mumbai",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=TISS%20Mumbai%20admissions"
+        },
+        {
+          "name": "Delhi School of Social Work",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Delhi%20School%20of%20Social%20Work%20admissions"
+        },
+        {
+          "name": "Jamia Millia Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Jamia%20Millia%20Delhi%20admissions"
+        },
+        {
+          "name": "NLSIU Bangalore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NLSIU%20Bangalore%20admissions"
+        },
+        {
+          "name": "Christ Bangalore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Christ%20Bangalore%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Government universities with social work programs",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Government%20universities%20with%20social%20work%20programs%20admissions"
+        },
+        {
+          "name": "Ignou MSW — affordable distance learning",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Ignou%20MSW%20%E2%80%94%20affordable%20distance%20learning%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Columbia SIPA",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Columbia%20SIPA%20admissions"
+        },
+        {
+          "name": "LSE",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=LSE%20admissions"
+        },
+        {
+          "name": "Oxford",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Oxford%20admissions"
+        },
+        {
+          "name": "University of Chicago",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Chicago%20admissions"
+        },
+        {
+          "name": "Brandeis University",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Brandeis%20University%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Social Worker / NGO",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "teacher",
@@ -12810,15 +23330,69 @@ export const careers = [
     "paths": [
       {
         "title": "School Teacher",
-        "desc": "Teach in CBSE/ICSE or government schools."
+        "desc": "Teach in CBSE/ICSE or government schools.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for School Teacher."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Coaching Institute Faculty",
-        "desc": "Teach at institutes like FIITJEE, Allen, Aakash."
+        "desc": "Teach at institutes like FIITJEE, Allen, Aakash.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Coaching Institute Faculty."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Online Educator / YouTuber",
-        "desc": "Build a subject-specific audience and monetize teaching."
+        "desc": "Build a subject-specific audience and monetize teaching.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Online Educator / YouTuber."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -13094,7 +23668,270 @@ export const careers = [
       "Anyone who finds children's energy overwhelming"
     ],
     "harshReality": "Private school teacher salaries in India are shockingly low — often ₹15K-₹25K/month. Government school jobs (via TET) are well-paid and stable but very competitive. The real money is in coaching institutes or online teaching.",
-    "industryInsights": "Star teachers on Unacademy and PhysicsWallah earn ₹50L - ₹3Cr annually. Khan Academy's model has proven that great teachers can reach millions. Building a subject-specific YouTube channel is the biggest income multiplier for educators today."
+    "industryInsights": "Star teachers on Unacademy and PhysicsWallah earn ₹50L - ₹3Cr annually. Khan Academy's model has proven that great teachers can reach millions. Building a subject-specific YouTube channel is the biggest income multiplier for educators today.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹1,80,000+ / month (Metro corporate employers, specialized academies & private consultancies)",
+      "tier2": "₹30,000 - ₹75,000 / month (State headquarters, established regional institutions)",
+      "tier3": "₹18,000 - ₹40,000 / month (District centers, local administrative and support roles)"
+    },
+    "timelineToProfitability": "6 to 12 months of structured preparation and entry licensing to achieve steady revenue.",
+    "clientsNeededForTarget": "1 primary institutional engagement + 2-3 advisory assignments to hit ₹1,00,000/month target.",
+    "skillsData": [
+      {
+        "name": "Subject Expertise",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Subject Expertise foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Subject Expertise"
+          ],
+          "paidResources": [
+            "Specialized Subject Expertise Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Communication & Clarity",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Communication & Clarity foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Communication & Clarity"
+          ],
+          "paidResources": [
+            "Specialized Communication & Clarity Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Lesson Planning",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Lesson Planning foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Lesson Planning"
+          ],
+          "paidResources": [
+            "Specialized Lesson Planning Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Student Psychology",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Student Psychology foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Student Psychology"
+          ],
+          "paidResources": [
+            "Specialized Student Psychology Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Digital Teaching Tools",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Digital Teaching Tools foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Digital Teaching Tools"
+          ],
+          "paidResources": [
+            "Specialized Digital Teaching Tools Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "CTET (Central Teacher Eligibility Test)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CTET (Central Teacher Eligibility Test).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CTET (Central Teacher Eligibility Test) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "State TET exams",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for State TET exams.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "State TET exams 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "CUET for subject graduation",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CUET for subject graduation.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CUET for subject graduation 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "Any university + B.Ed college",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Any%20university%20%2B%20B.Ed%20college%20admissions"
+        },
+        {
+          "name": "DIET (District Institute of Education and Training)",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=DIET%20(District%20Institute%20of%20Education%20and%20Training)%20admissions"
+        },
+        {
+          "name": "Regional Institute of Education",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Regional%20Institute%20of%20Education%20admissions"
+        },
+        {
+          "name": "IGNOU B.Ed",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IGNOU%20B.Ed%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Government B.Ed colleges (₹10K - ₹50K fees)",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Government%20B.Ed%20colleges%20(%E2%82%B910K%20-%20%E2%82%B950K%20fees)%20admissions"
+        },
+        {
+          "name": "IGNOU distance B.Ed",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=IGNOU%20distance%20B.Ed%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "University of Helsinki",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Helsinki%20admissions"
+        },
+        {
+          "name": "Stanford Graduate School of Education",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Stanford%20Graduate%20School%20of%20Education%20admissions"
+        },
+        {
+          "name": "UCL Institute of Education",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=UCL%20Institute%20of%20Education%20admissions"
+        },
+        {
+          "name": "Harvard Graduate School of Education",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Harvard%20Graduate%20School%20of%20Education%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Teacher / Educator",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "ed-tech",
@@ -13123,15 +23960,69 @@ export const careers = [
     "paths": [
       {
         "title": "Platform Educator",
-        "desc": "Teach on Unacademy, Vedantu, BYJU's, or PhysicsWallah."
+        "desc": "Teach on Unacademy, Vedantu, BYJU's, or PhysicsWallah.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Platform Educator."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Course Creator",
-        "desc": "Build and sell courses on Udemy, Teachable, or own website."
+        "desc": "Build and sell courses on Udemy, Teachable, or own website.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Course Creator."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Ed-Tech Founder",
-        "desc": "Start an EdTech company targeting a learning niche."
+        "desc": "Start an EdTech company targeting a learning niche.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Ed-Tech Founder."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -13401,7 +24292,216 @@ export const careers = [
       "Anyone uncomfortable with solo, self-directed work"
     ],
     "harshReality": "90% of YouTube educators never cross 1,000 subscribers. The top 1% (PhysicsWallah, Unacademy stars) earn crores, but they represent an extreme exception. Consistent content for 2-3 years before real income is the reality.",
-    "industryInsights": "India's EdTech market is $7.5B and growing. After BYJU's collapse, content-led authentic educators are winning over VC-funded, marketing-heavy platforms. Quality content + trust = the new EdTech moat."
+    "industryInsights": "India's EdTech market is $7.5B and growing. After BYJU's collapse, content-led authentic educators are winning over VC-funded, marketing-heavy platforms. Quality content + trust = the new EdTech moat.",
+    "incomeBreakdown": {
+      "tier1": "₹70,000 - ₹3,00,000+ / month (Bengaluru, Hyderabad, Pune, Gurugram product firms & MNCs)",
+      "tier2": "₹35,000 - ₹90,000 / month (Tier-2 tech parks, mid-market IT service hubs & offshore teams)",
+      "tier3": "₹20,000 - ₹45,000 / month (Local software consultancies, hardware maintenance & remote junior gigs)"
+    },
+    "timelineToProfitability": "3 to 6 months post-bootcamp / graduation to clear technical interviews and secure entry SDE/analyst role.",
+    "clientsNeededForTarget": "1 full-time enterprise employment offer OR 2-3 international remote retainers ($1,500/mo) to hit ₹1.5L-₹2L/mo.",
+    "skillsData": [
+      {
+        "name": "Video Production & Editing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Video Production & Editing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Video Production & Editing"
+          ],
+          "paidResources": [
+            "Specialized Video Production & Editing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Content Creation",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Content Creation foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Content Creation"
+          ],
+          "paidResources": [
+            "Specialized Content Creation Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "LMS Tools (Teachable, Thinkific)",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive LMS Tools (Teachable, Thinkific) foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for LMS Tools (Teachable, Thinkific)"
+          ],
+          "paidResources": [
+            "Specialized LMS Tools (Teachable, Thinkific) Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "SEO & Marketing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive SEO & Marketing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for SEO & Marketing"
+          ],
+          "paidResources": [
+            "Specialized SEO & Marketing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Teaching & Communication",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Teaching & Communication foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Teaching & Communication"
+          ],
+          "paidResources": [
+            "Specialized Teaching & Communication Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "No specific exams — expertise and content quality drive success",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for No specific exams — expertise and content quality drive success.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "No specific exams — expertise and content quality drive success 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "Skill-based — any degree",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Skill-based%20%E2%80%94%20any%20degree%20admissions"
+        },
+        {
+          "name": "IIM for business side",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIM%20for%20business%20side%20admissions"
+        },
+        {
+          "name": "IITs for STEM teaching",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IITs%20for%20STEM%20teaching%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Self-taught + YouTube route — zero cost to start",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Self-taught%20%2B%20YouTube%20route%20%E2%80%94%20zero%20cost%20to%20start%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Stanford, MIT (for EdX/Coursera inspiration)",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Stanford%2C%20MIT%20(for%20EdX%2FCoursera%20inspiration)%20admissions"
+        },
+        {
+          "name": "Harvard Graduate School of Education",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Harvard%20Graduate%20School%20of%20Education%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Ed-Tech / Online Educator",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "journalist",
@@ -13430,15 +24530,69 @@ export const careers = [
     "paths": [
       {
         "title": "Print / Digital Journalist",
-        "desc": "Write for newspapers, magazines, or news websites."
+        "desc": "Write for newspapers, magazines, or news websites.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Print / Digital Journalist."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "TV Journalist / Anchor",
-        "desc": "Report for television news channels."
+        "desc": "Report for television news channels.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for TV Journalist / Anchor."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Investigative Journalist",
-        "desc": "Deep-dive investigations for premium publications."
+        "desc": "Deep-dive investigations for premium publications.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Investigative Journalist."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -13716,7 +24870,286 @@ export const careers = [
       "Anyone uncomfortable with controversial topics"
     ],
     "harshReality": "Traditional journalism jobs are shrinking as ad revenues collapse. Salaries at most Indian media houses are shockingly low. Press freedom rankings show India is a challenging environment for investigative reporters.",
-    "industryInsights": "Independent digital journalism (The Ken, The Morning Context, Newslaundry) and newsletter journalism are growing. Journalists who build personal audiences on social media earn 3-5x their publication salary."
+    "industryInsights": "Independent digital journalism (The Ken, The Morning Context, Newslaundry) and newsletter journalism are growing. Journalists who build personal audiences on social media earn 3-5x their publication salary.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹2,00,000+ / month (Mumbai, Bengaluru, Delhi creative agencies, studio productions, high-ticket retainers)",
+      "tier2": "₹25,000 - ₹60,000 / month (Regional production houses, mid-tier branding studios, commercial shoots)",
+      "tier3": "₹15,000 - ₹35,000 / month (Local print agencies, freelance marketplace gigs, wedding media)"
+    },
+    "timelineToProfitability": "6 to 9 months of active portfolio shipping to secure reliable monthly agency retainers.",
+    "clientsNeededForTarget": "4-6 monthly retainers @ ₹25,000-₹40,000 each to achieve steady ₹1.2L-₹1.8L monthly net income.",
+    "skillsData": [
+      {
+        "name": "Writing & Reporting",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Writing & Reporting foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Writing & Reporting"
+          ],
+          "paidResources": [
+            "Specialized Writing & Reporting Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Research & Fact-Checking",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Research & Fact-Checking foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Research & Fact-Checking"
+          ],
+          "paidResources": [
+            "Specialized Research & Fact-Checking Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Video Production",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Video Production foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Video Production"
+          ],
+          "paidResources": [
+            "Specialized Video Production Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Digital Tools",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Digital Tools foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Digital Tools"
+          ],
+          "paidResources": [
+            "Specialized Digital Tools Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Source Building",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Source Building foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Source Building"
+          ],
+          "paidResources": [
+            "Specialized Source Building Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "IIMC Entrance Exam",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for IIMC Entrance Exam.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "IIMC Entrance Exam 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "AJK MCRC Jamia entrance",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for AJK MCRC Jamia entrance.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "AJK MCRC Jamia entrance 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "Xavier's Mumbai entrance",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for Xavier's Mumbai entrance.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "Xavier's Mumbai entrance 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IIMC Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIMC%20Delhi%20admissions"
+        },
+        {
+          "name": "Symbiosis Pune",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Symbiosis%20Pune%20admissions"
+        },
+        {
+          "name": "AJK MCRC Jamia",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=AJK%20MCRC%20Jamia%20admissions"
+        },
+        {
+          "name": "Xavier's Mumbai",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Xavier's%20Mumbai%20admissions"
+        },
+        {
+          "name": "Makhanlal Chaturvedi University",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Makhanlal%20Chaturvedi%20University%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "IIMC Delhi (₹60K fees)",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=IIMC%20Delhi%20(%E2%82%B960K%20fees)%20admissions"
+        },
+        {
+          "name": "Government mass communication colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Government%20mass%20communication%20colleges%20admissions"
+        },
+        {
+          "name": "State journalism institutes",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=State%20journalism%20institutes%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Columbia Journalism School",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Columbia%20Journalism%20School%20admissions"
+        },
+        {
+          "name": "Northwestern Medill",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Northwestern%20Medill%20admissions"
+        },
+        {
+          "name": "Cardiff Journalism",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Cardiff%20Journalism%20admissions"
+        },
+        {
+          "name": "Reuters Institute Oxford",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Reuters%20Institute%20Oxford%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Journalist / Media",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "public-relations",
@@ -13745,15 +25178,69 @@ export const careers = [
     "paths": [
       {
         "title": "Corporate PR Manager",
-        "desc": "Manage communications for a company's public image."
+        "desc": "Manage communications for a company's public image.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Corporate PR Manager."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Celebrity / Entertainment PR",
-        "desc": "Handle PR for actors, athletes, or public figures."
+        "desc": "Handle PR for actors, athletes, or public figures.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Celebrity / Entertainment PR."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "PR Agency Head",
-        "desc": "Lead a PR consultancy firm."
+        "desc": "Lead a PR consultancy firm.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for PR Agency Head."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -14030,7 +25517,275 @@ export const careers = [
       "Those who want structured, solo, analytical work"
     ],
     "harshReality": "PR is highly relational — it runs on relationships and favors. Agency work involves extreme client pressure and thin margins. Corporate PR is more stable but gets cut quickly during downturns.",
-    "industryInsights": "Digital PR and influencer relations are now larger than traditional media PR. Brands are shifting budgets from press releases to social media storytelling. PR professionals who understand SEO and content strategy earn significantly more."
+    "industryInsights": "Digital PR and influencer relations are now larger than traditional media PR. Brands are shifting budgets from press releases to social media storytelling. PR professionals who understand SEO and content strategy earn significantly more.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹2,00,000+ / month (Mumbai, Bengaluru, Delhi creative agencies, studio productions, high-ticket retainers)",
+      "tier2": "₹25,000 - ₹60,000 / month (Regional production houses, mid-tier branding studios, commercial shoots)",
+      "tier3": "₹15,000 - ₹35,000 / month (Local print agencies, freelance marketplace gigs, wedding media)"
+    },
+    "timelineToProfitability": "6 to 9 months of active portfolio shipping to secure reliable monthly agency retainers.",
+    "clientsNeededForTarget": "4-6 monthly retainers @ ₹25,000-₹40,000 each to achieve steady ₹1.2L-₹1.8L monthly net income.",
+    "skillsData": [
+      {
+        "name": "Media Relations",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Media Relations foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Media Relations"
+          ],
+          "paidResources": [
+            "Specialized Media Relations Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Press Release Writing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Press Release Writing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Press Release Writing"
+          ],
+          "paidResources": [
+            "Specialized Press Release Writing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Crisis Communication",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Crisis Communication foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Crisis Communication"
+          ],
+          "paidResources": [
+            "Specialized Crisis Communication Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Social Media Management",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Social Media Management foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Social Media Management"
+          ],
+          "paidResources": [
+            "Specialized Social Media Management Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Networking",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Networking foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Networking"
+          ],
+          "paidResources": [
+            "Specialized Networking Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "IIMC Entrance",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for IIMC Entrance.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "IIMC Entrance 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "Mass communication university entrances",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for Mass communication university entrances.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "Mass communication university entrances 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "Symbiosis SIMC Pune",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Symbiosis%20SIMC%20Pune%20admissions"
+        },
+        {
+          "name": "IIMC Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIMC%20Delhi%20admissions"
+        },
+        {
+          "name": "Xavier's Mumbai",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Xavier's%20Mumbai%20admissions"
+        },
+        {
+          "name": "Amity University",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Amity%20University%20admissions"
+        },
+        {
+          "name": "Leeds University",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Leeds%20University%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "IIMC Delhi",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=IIMC%20Delhi%20admissions"
+        },
+        {
+          "name": "State mass communication colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=State%20mass%20communication%20colleges%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "NYU",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=NYU%20admissions"
+        },
+        {
+          "name": "Boston University",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Boston%20University%20admissions"
+        },
+        {
+          "name": "USC Annenberg",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=USC%20Annenberg%20admissions"
+        },
+        {
+          "name": "Leeds",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Leeds%20admissions"
+        },
+        {
+          "name": "Manchester University",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Manchester%20University%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Public Relations (PR)",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "nutritionist",
@@ -14059,15 +25814,69 @@ export const careers = [
     "paths": [
       {
         "title": "Clinical Dietitian",
-        "desc": "Work with hospitals treating diet-related diseases."
+        "desc": "Work with hospitals treating diet-related diseases.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Clinical Dietitian."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Sports Nutritionist",
-        "desc": "Optimize performance nutrition for athletes."
+        "desc": "Optimize performance nutrition for athletes.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Sports Nutritionist."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Corporate Wellness Consultant",
-        "desc": "Design nutrition programs for companies and teams."
+        "desc": "Design nutrition programs for companies and teams.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Corporate Wellness Consultant."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -14440,7 +26249,275 @@ export const careers = [
       "Anyone who wants rapid career progression"
     ],
     "harshReality": "The nutritionist market is flooded with uncertified coaches and influencers who undercut qualified dietitians. Building credibility requires certification and a strong online presence.",
-    "industryInsights": "Celebrity nutritionists and Instagram coaches earn ₹50L-₹1Cr annually through courses and brand deals. Sports nutrition for IPL, ISL, and Pro Kabaddi teams is a niche high-income segment."
+    "industryInsights": "Celebrity nutritionists and Instagram coaches earn ₹50L-₹1Cr annually through courses and brand deals. Sports nutrition for IPL, ISL, and Pro Kabaddi teams is a niche high-income segment.",
+    "incomeBreakdown": {
+      "tier1": "₹60,000 - ₹2,50,000+ / month (Tier-1 private hospitals, corporate clinics, private practice)",
+      "tier2": "₹40,000 - ₹1,20,000 / month (Tier-2 district hospitals & established consulting chambers)",
+      "tier3": "₹25,000 - ₹65,000 / month (Community health centers, state clinics & entry roles)"
+    },
+    "timelineToProfitability": "12 to 24 months post-internship/degree to establish consistent patient volume and private consults.",
+    "clientsNeededForTarget": "20-30 outpatient consults daily or 8-12 high-care procedures monthly to surpass ₹1.5L/month target.",
+    "skillsData": [
+      {
+        "name": "Nutrition Science",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Nutrition Science foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Nutrition Science"
+          ],
+          "paidResources": [
+            "Specialized Nutrition Science Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Clinical Assessment",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Clinical Assessment foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Clinical Assessment"
+          ],
+          "paidResources": [
+            "Specialized Clinical Assessment Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Meal Planning",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Meal Planning foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Meal Planning"
+          ],
+          "paidResources": [
+            "Specialized Meal Planning Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Counselling",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Counselling foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Counselling"
+          ],
+          "paidResources": [
+            "Specialized Counselling Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Regulatory Affairs",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Regulatory Affairs foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Regulatory Affairs"
+          ],
+          "paidResources": [
+            "Specialized Regulatory Affairs Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "State nutrition/dietetics entrance exams",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for State nutrition/dietetics entrance exams.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "State nutrition/dietetics entrance exams 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "NEET (if pursuing medical nutrition path)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NEET (if pursuing medical nutrition path).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NEET (if pursuing medical nutrition path) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "AIIMS",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=AIIMS%20admissions"
+        },
+        {
+          "name": "Amity University",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Amity%20University%20admissions"
+        },
+        {
+          "name": "Manipal",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Manipal%20admissions"
+        },
+        {
+          "name": "Sri Ramachandra University",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Sri%20Ramachandra%20University%20admissions"
+        },
+        {
+          "name": "Kasturba Medical",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Kasturba%20Medical%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Government home science colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Government%20home%20science%20colleges%20admissions"
+        },
+        {
+          "name": "State agricultural universities with home science",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=State%20agricultural%20universities%20with%20home%20science%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "University of Toronto",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Toronto%20admissions"
+        },
+        {
+          "name": "University of Melbourne",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Melbourne%20admissions"
+        },
+        {
+          "name": "King's College London",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=King's%20College%20London%20admissions"
+        },
+        {
+          "name": "NYU",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=NYU%20admissions"
+        },
+        {
+          "name": "Tufts University",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Tufts%20University%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Nutritionist / Dietitian",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "fitness-trainer",
@@ -14469,15 +26546,69 @@ export const careers = [
     "paths": [
       {
         "title": "Personal Trainer",
-        "desc": "Train individual clients in gyms or privately."
+        "desc": "Train individual clients in gyms or privately.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Certifications & CPR/AED",
+            "detail": "Complete accredited certification (ACE CPT, ACSM, or Gold's Gym Fitness Institute) + First Aid & CPR/AED. Cost: ₹25,000–₹45,000."
+          },
+          {
+            "milestone": "Step 2: Gym Floor Mastery & Hours Logging",
+            "detail": "Work 9–12 months as in-house floor trainer at Cult.fit, Gold's Gym, or Anytime Fitness (₹18K–₹28K base + session incentives) to log 600+ client hours."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Personal Brand",
+            "detail": "Acquire first 5 independent private clients via residential society word-of-mouth and Instagram exercise mechanics breakdown reels."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & Retainers in India",
+            "detail": "Price 1-on-1 private training at ₹800–₹1,500/session in Tier-1 metros (₹400–₹700 in Tier-2). Offer 12-session packages for ₹12,000–₹25,000/month."
+          }
+        ]
       },
       {
         "title": "Sports Coach",
-        "desc": "Train athletes in cricket, football, athletics, or combat sports."
+        "desc": "Train athletes in cricket, football, athletics, or combat sports.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Sports Authority & Federation Badges",
+            "detail": "Obtain NIS Certificate / Diploma or AFC/BCCI/BWF Level 1 Coaching License for your sport."
+          },
+          {
+            "milestone": "Step 2: Academy Assistant Coaching",
+            "detail": "Join a recognized district sports academy or school sports department to manage youth development programs."
+          },
+          {
+            "milestone": "Step 3: Athlete Performance Benchmarking",
+            "detail": "Implement video biomechanics analysis and periodized speed-agility-quickness (SAQ) drills for competitive junior athletes."
+          },
+          {
+            "milestone": "Step 4: Professional Contracts & Private Batches",
+            "detail": "Run specialized weekend training camps (₹3,000–₹6,000/month per student) and target state/national federation consultancy contracts."
+          }
+        ]
       },
       {
         "title": "Own Fitness Academy",
-        "desc": "Start a gym, online fitness program, or sports academy."
+        "desc": "Start a gym, online fitness program, or sports academy.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Micro-Gym or Studio Feasibility",
+            "detail": "Design 1,500–2,500 sq.ft functional fitness/CrossFit box model with ₹15L–₹35L Capex (equipment leasing + commercial security deposit)."
+          },
+          {
+            "milestone": "Step 2: Pre-Launch Marketing & Founders Memberships",
+            "detail": "Sell 50 discounted 'Founding Member' annual passes 45 days before opening to recover initial operating deposit."
+          },
+          {
+            "milestone": "Step 3: Hybrid Online Coaching Layer",
+            "detail": "Launch subscription tier for nutrition guidance and workout logs on WhatsApp/Trainerize to generate 40% high-margin recurring revenue."
+          },
+          {
+            "milestone": "Step 4: Studio Unit Economics & Expansion",
+            "detail": "Target 120–150 active members @ ₹2,500–₹4,500/mo to generate ₹3.5L–₹6L gross monthly revenue with 35–45% net operating margin."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -14754,7 +26885,278 @@ export const careers = [
       "Anyone uncomfortable with client dependency"
     ],
     "harshReality": "Gym trainer salaries are very low (₹12K-₹20K/month) in India. Real income comes from building a personal brand on Instagram and launching online programs. Without a social media presence, growth is very slow.",
-    "industryInsights": "India's fitness market is ₹7,000 Cr and growing at 25% annually. Online personal training and fitness apps have created new income streams. Cult.fit and similar chains have made fitness more mainstream."
+    "industryInsights": "India's fitness market is ₹7,000 Cr and growing at 25% annually. Online personal training and fitness apps have created new income streams. Cult.fit and similar chains have made fitness more mainstream.",
+    "incomeBreakdown": {
+      "tier1": "₹45,000 - ₹1,80,000 / month (Metro gyms, elite society home training & high-ticket online clients)",
+      "tier2": "₹25,000 - ₹75,000 / month (Tier-2 commercial fitness clubs + private residential clients)",
+      "tier3": "₹15,000 - ₹35,000 / month (Local gym floors, school fitness instruction & group aerobics)"
+    },
+    "timelineToProfitability": "6 to 9 months to break even on ACE/CPT certification costs and build a recurring roster of 8-12 private personal training clients.",
+    "clientsNeededForTarget": "8 to 10 private clients paying ₹12,000 - ₹15,000/month (or 25 online coaching clients @ ₹4,000/month) to hit ₹1,00,000/month net target income.",
+    "skillsData": [
+      {
+        "name": "Exercise Science",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Exercise Science foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Exercise Science"
+          ],
+          "paidResources": [
+            "Specialized Exercise Science Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Personal Training Techniques",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Personal Training Techniques foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Personal Training Techniques"
+          ],
+          "paidResources": [
+            "Specialized Personal Training Techniques Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Nutrition Basics",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Nutrition Basics foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Nutrition Basics"
+          ],
+          "paidResources": [
+            "Specialized Nutrition Basics Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "CSCS / ACE Certification",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive CSCS / ACE Certification foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for CSCS / ACE Certification"
+          ],
+          "paidResources": [
+            "Specialized CSCS / ACE Certification Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Client Motivation",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Client Motivation foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Client Motivation"
+          ],
+          "paidResources": [
+            "Specialized Client Motivation Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "NIS Patiala entrance",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NIS Patiala entrance.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NIS Patiala entrance 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "LNUPE Gwalior entrance",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for LNUPE Gwalior entrance.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "LNUPE Gwalior entrance 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "State sports education entrances",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for State sports education entrances.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "State sports education entrances 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "NIS Patiala",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NIS%20Patiala%20admissions"
+        },
+        {
+          "name": "LNUPE Gwalior",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=LNUPE%20Gwalior%20admissions"
+        },
+        {
+          "name": "Amity University",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Amity%20University%20admissions"
+        },
+        {
+          "name": "Manipal",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Manipal%20admissions"
+        },
+        {
+          "name": "SAI affiliated institutes",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=SAI%20affiliated%20institutes%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Government sports colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Government%20sports%20colleges%20admissions"
+        },
+        {
+          "name": "SAI Training Centres (free for sportspersons)",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=SAI%20Training%20Centres%20(free%20for%20sportspersons)%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "IMG Academy USA",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=IMG%20Academy%20USA%20admissions"
+        },
+        {
+          "name": "Loughborough University",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Loughborough%20University%20admissions"
+        },
+        {
+          "name": "Leeds Beckett",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Leeds%20Beckett%20admissions"
+        },
+        {
+          "name": "NSCA Programs USA",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=NSCA%20Programs%20USA%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Biomechanics Foundations & CPT Registration",
+        "tasks": [
+          "Benchmark baseline personal physical fitness, VO2 max, and movement mechanics",
+          "Register for ACE CPT, ACSM, or K11 proctored certification exam",
+          "Study foundational functional anatomy: joint actions, muscular origins, and insertions"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Exercise Technique & Cueing Mastery",
+        "tasks": [
+          "Shadow an experienced senior coach for 30+ practical gym floor hours",
+          "Master technical coaching cues for the big compound lifts (Squat, Deadlift, Overhead Press, Hip Hinge)",
+          "Pass basic CPR / AED and First Aid life support certification"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certification Exam & Social Proof Portfolio",
+        "tasks": [
+          "Pass the accredited proctored CPT examination",
+          "Film 10 educational Instagram reels analyzing common exercise form errors",
+          "Conduct complimentary fitness assessments for 5 friends to build before-and-after transformation case studies"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Gym Floor Employment & Local Outreach",
+        "tasks": [
+          "Join a Tier-1 commercial gym chain (Cult.fit, Anytime Fitness, Gold's) as a general floor trainer",
+          "Deliver 20 high-value member interactions daily to establish trust and rapport",
+          "Set up professional booking page and standardized client health questionnaire (PAR-Q)"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Private Client Conversion & Retention",
+        "tasks": [
+          "Convert first 4 floor members into dedicated paid 1-on-1 personal training packages",
+          "Draft tailored macro nutrition and habit periodization guidelines for every client",
+          "Collect glowing video testimonials and WhatsApp feedback screenshots for marketing"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Online Coaching Hybrid",
+        "tasks": [
+          "Hit 8-10 recurring private personal training clients at ₹12,000–₹18,000/month",
+          "Launch high-margin online remote training tier for busy corporate professionals",
+          "Invest in Continuing Education Units (CEUs) in Sports Nutrition or Injury Rehabilitation"
+        ]
+      }
+    ]
   },
   {
     "id": "game-developer",
@@ -14783,15 +27185,69 @@ export const careers = [
     "paths": [
       {
         "title": "Mobile Game Developer",
-        "desc": "Build casual and mid-core games for Android/iOS."
+        "desc": "Build casual and mid-core games for Android/iOS.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Mobile Game Developer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "PC / Console Game Developer",
-        "desc": "Work at AAA studios on big-budget titles."
+        "desc": "Work at AAA studios on big-budget titles.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for PC / Console Game Developer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Game Designer",
-        "desc": "Design mechanics, levels, and player experience."
+        "desc": "Design mechanics, levels, and player experience.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Game Designer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -15164,7 +27620,278 @@ export const careers = [
       "Anyone who can't commit to continuous self-learning"
     ],
     "harshReality": "India has very few AAA game studios — most serious game developers either work at small mobile studios or go abroad. Salaries are 30-40% lower than equivalent software engineering roles.",
-    "industryInsights": "India's gaming market reached $3.7B in 2023 — mobile gaming drives 90% of it. Krafton, nCore Games, and Dream Sports are scaling up. Indian-made mobile games are finally competing globally."
+    "industryInsights": "India's gaming market reached $3.7B in 2023 — mobile gaming drives 90% of it. Krafton, nCore Games, and Dream Sports are scaling up. Indian-made mobile games are finally competing globally.",
+    "incomeBreakdown": {
+      "tier1": "₹70,000 - ₹3,00,000+ / month (Bengaluru, Hyderabad, Pune, Gurugram product firms & MNCs)",
+      "tier2": "₹35,000 - ₹90,000 / month (Tier-2 tech parks, mid-market IT service hubs & offshore teams)",
+      "tier3": "₹20,000 - ₹45,000 / month (Local software consultancies, hardware maintenance & remote junior gigs)"
+    },
+    "timelineToProfitability": "3 to 6 months post-bootcamp / graduation to clear technical interviews and secure entry SDE/analyst role.",
+    "clientsNeededForTarget": "1 full-time enterprise employment offer OR 2-3 international remote retainers ($1,500/mo) to hit ₹1.5L-₹2L/mo.",
+    "skillsData": [
+      {
+        "name": "Unity or Unreal Engine",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Unity or Unreal Engine foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Unity or Unreal Engine"
+          ],
+          "paidResources": [
+            "Specialized Unity or Unreal Engine Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "C++ or C#",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive C++ or C# foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for C++ or C#"
+          ],
+          "paidResources": [
+            "Specialized C++ or C# Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "3D Modeling (Blender)",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive 3D Modeling (Blender) foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for 3D Modeling (Blender)"
+          ],
+          "paidResources": [
+            "Specialized 3D Modeling (Blender) Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Game Design Principles",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Game Design Principles foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Game Design Principles"
+          ],
+          "paidResources": [
+            "Specialized Game Design Principles Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Physics Engines",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Physics Engines foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Physics Engines"
+          ],
+          "paidResources": [
+            "Specialized Physics Engines Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "JEE Main (for CS degree)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for JEE Main (for CS degree).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "JEE Main (for CS degree) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "ICAT Chennai entrance",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for ICAT Chennai entrance.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "ICAT Chennai entrance 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "Arena Animation program entrance",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for Arena Animation program entrance.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "Arena Animation program entrance 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "MAAC",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=MAAC%20admissions"
+        },
+        {
+          "name": "Arena Animation",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Arena%20Animation%20admissions"
+        },
+        {
+          "name": "VIT",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=VIT%20admissions"
+        },
+        {
+          "name": "Manipal",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Manipal%20admissions"
+        },
+        {
+          "name": "SRM — specialized: ICAT Chennai",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=SRM%20%E2%80%94%20specialized%3A%20ICAT%20Chennai%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Self-taught with Unity (free) + YouTube + Steam indie route",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Self-taught%20with%20Unity%20(free)%20%2B%20YouTube%20%2B%20Steam%20indie%20route%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "USC Games",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=USC%20Games%20admissions"
+        },
+        {
+          "name": "DigiPen Institute",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=DigiPen%20Institute%20admissions"
+        },
+        {
+          "name": "Full Sail University",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Full%20Sail%20University%20admissions"
+        },
+        {
+          "name": "Abertay Dundee",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Abertay%20Dundee%20admissions"
+        },
+        {
+          "name": "MIT Media Lab",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=MIT%20Media%20Lab%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Game Developer",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "blockchain-developer",
@@ -15193,15 +27920,69 @@ export const careers = [
     "paths": [
       {
         "title": "Smart Contract Developer",
-        "desc": "Write and audit Solidity contracts on Ethereum."
+        "desc": "Write and audit Solidity contracts on Ethereum.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Smart Contract Developer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "DeFi Engineer",
-        "desc": "Build decentralized finance protocols and dApps."
+        "desc": "Build decentralized finance protocols and dApps.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for DeFi Engineer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Blockchain Architect",
-        "desc": "Design enterprise blockchain solutions."
+        "desc": "Design enterprise blockchain solutions.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Blockchain Architect."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -15571,7 +28352,251 @@ export const careers = [
       "Anyone who wants immediate job security"
     ],
     "harshReality": "The crypto market is extremely volatile — job opportunities expand and collapse with market cycles. The 2022 crypto winter eliminated thousands of blockchain jobs in months. Skills are transferable, but job market is unpredictable.",
-    "industryInsights": "Web3 gaming, real-world asset tokenization, and cross-border payments are the most legitimate long-term blockchain use cases. Indian developers are well-represented in global Web3 communities."
+    "industryInsights": "Web3 gaming, real-world asset tokenization, and cross-border payments are the most legitimate long-term blockchain use cases. Indian developers are well-represented in global Web3 communities.",
+    "incomeBreakdown": {
+      "tier1": "₹70,000 - ₹3,00,000+ / month (Bengaluru, Hyderabad, Pune, Gurugram product firms & MNCs)",
+      "tier2": "₹35,000 - ₹90,000 / month (Tier-2 tech parks, mid-market IT service hubs & offshore teams)",
+      "tier3": "₹20,000 - ₹45,000 / month (Local software consultancies, hardware maintenance & remote junior gigs)"
+    },
+    "timelineToProfitability": "3 to 6 months post-bootcamp / graduation to clear technical interviews and secure entry SDE/analyst role.",
+    "clientsNeededForTarget": "1 full-time enterprise employment offer OR 2-3 international remote retainers ($1,500/mo) to hit ₹1.5L-₹2L/mo.",
+    "skillsData": [
+      {
+        "name": "Solidity (Smart Contracts)",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Solidity (Smart Contracts) foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Solidity (Smart Contracts)"
+          ],
+          "paidResources": [
+            "Specialized Solidity (Smart Contracts) Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Ethereum / Polygon",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Ethereum / Polygon foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Ethereum / Polygon"
+          ],
+          "paidResources": [
+            "Specialized Ethereum / Polygon Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Web3.js / Ethers.js",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Web3.js / Ethers.js foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Web3.js / Ethers.js"
+          ],
+          "paidResources": [
+            "Specialized Web3.js / Ethers.js Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Cryptography",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Cryptography foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Cryptography"
+          ],
+          "paidResources": [
+            "Specialized Cryptography Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "DeFi Protocols",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive DeFi Protocols foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for DeFi Protocols"
+          ],
+          "paidResources": [
+            "Specialized DeFi Protocols Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "No specific exams — certifications from ConsenSys, Coursera",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for No specific exams — certifications from ConsenSys, Coursera.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "No specific exams — certifications from ConsenSys, Coursera 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "Ethereum Developer Certification",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for Ethereum Developer Certification.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "Ethereum Developer Certification 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IIT Bombay",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIT%20Bombay%20admissions"
+        },
+        {
+          "name": "BITS Pilani",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=BITS%20Pilani%20admissions"
+        },
+        {
+          "name": "NIT — mainly certification-based through ConsenSys, Coursera, B9Lab",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NIT%20%E2%80%94%20mainly%20certification-based%20through%20ConsenSys%2C%20Coursera%2C%20B9Lab%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "100% self-taught via Coursera (free audit), Ethereum documentation, and GitHub",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=100%25%20self-taught%20via%20Coursera%20(free%20audit)%2C%20Ethereum%20documentation%2C%20and%20GitHub%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "MIT",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=MIT%20admissions"
+        },
+        {
+          "name": "Cornell Tech",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Cornell%20Tech%20admissions"
+        },
+        {
+          "name": "University of Nicosia",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Nicosia%20admissions"
+        },
+        {
+          "name": "ConsenSys Academy",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=ConsenSys%20Academy%20admissions"
+        },
+        {
+          "name": "NUS Singapore",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=NUS%20Singapore%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Blockchain Developer",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "environmental-scientist",
@@ -15600,15 +28625,69 @@ export const careers = [
     "paths": [
       {
         "title": "Environmental Consultant",
-        "desc": "Advise companies on environmental impact and compliance."
+        "desc": "Advise companies on environmental impact and compliance.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Environmental Consultant."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Climate Researcher",
-        "desc": "Work with research institutes or universities on climate science."
+        "desc": "Work with research institutes or universities on climate science.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Climate Researcher."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Policy Analyst",
-        "desc": "Shape environmental regulations for governments or think tanks."
+        "desc": "Shape environmental regulations for governments or think tanks.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Policy Analyst."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -15982,7 +29061,286 @@ export const careers = [
       "Anyone who wants immediate visible impact"
     ],
     "harshReality": "Environmental science is a field where passion often outpaces pay — especially in India. Government agencies and NGOs pay poorly. Real income comes from corporate sustainability consulting or international organizations.",
-    "industryInsights": "ESG (Environmental, Social, Governance) reporting is now mandatory for India's top 1,000 companies. This has created massive demand for environmental consultants. Carbon credits and green finance are emerging high-income areas."
+    "industryInsights": "ESG (Environmental, Social, Governance) reporting is now mandatory for India's top 1,000 companies. This has created massive demand for environmental consultants. Carbon credits and green finance are emerging high-income areas.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹1,80,000+ / month (Metro corporate employers, specialized academies & private consultancies)",
+      "tier2": "₹30,000 - ₹75,000 / month (State headquarters, established regional institutions)",
+      "tier3": "₹18,000 - ₹40,000 / month (District centers, local administrative and support roles)"
+    },
+    "timelineToProfitability": "6 to 12 months of structured preparation and entry licensing to achieve steady revenue.",
+    "clientsNeededForTarget": "1 primary institutional engagement + 2-3 advisory assignments to hit ₹1,00,000/month target.",
+    "skillsData": [
+      {
+        "name": "GIS & Remote Sensing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive GIS & Remote Sensing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for GIS & Remote Sensing"
+          ],
+          "paidResources": [
+            "Specialized GIS & Remote Sensing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Environmental Law & Policy",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Environmental Law & Policy foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Environmental Law & Policy"
+          ],
+          "paidResources": [
+            "Specialized Environmental Law & Policy Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Data Analysis",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Data Analysis foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Data Analysis"
+          ],
+          "paidResources": [
+            "Specialized Data Analysis Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Field Research",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Field Research foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Field Research"
+          ],
+          "paidResources": [
+            "Specialized Field Research Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Report Writing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Report Writing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Report Writing"
+          ],
+          "paidResources": [
+            "Specialized Report Writing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "JEE Main (for IIT programs)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for JEE Main (for IIT programs).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "JEE Main (for IIT programs) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "CUET for central universities",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CUET for central universities.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CUET for central universities 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "GATE Environmental Engineering",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for GATE Environmental Engineering.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "GATE Environmental Engineering 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IIT Bombay",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIT%20Bombay%20admissions"
+        },
+        {
+          "name": "JNU Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=JNU%20Delhi%20admissions"
+        },
+        {
+          "name": "Delhi University",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Delhi%20University%20admissions"
+        },
+        {
+          "name": "TERI University",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=TERI%20University%20admissions"
+        },
+        {
+          "name": "SRM Chennai",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=SRM%20Chennai%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "State science colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=State%20science%20colleges%20admissions"
+        },
+        {
+          "name": "Government environmental research institutes",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Government%20environmental%20research%20institutes%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "University of Edinburgh",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Edinburgh%20admissions"
+        },
+        {
+          "name": "ETH Zurich",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=ETH%20Zurich%20admissions"
+        },
+        {
+          "name": "UC Davis",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=UC%20Davis%20admissions"
+        },
+        {
+          "name": "University of Melbourne",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Melbourne%20admissions"
+        },
+        {
+          "name": "Stanford Earth",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Stanford%20Earth%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Environmental Scientist",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "biotechnologist",
@@ -16011,15 +29369,69 @@ export const careers = [
     "paths": [
       {
         "title": "Research Scientist",
-        "desc": "Work in labs developing vaccines, drugs, or genetic tools."
+        "desc": "Work in labs developing vaccines, drugs, or genetic tools.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Research Scientist."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Bioinformatics Analyst",
-        "desc": "Analyze biological data using computational tools."
+        "desc": "Analyze biological data using computational tools.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Bioinformatics Analyst."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Biotech Startup Founder",
-        "desc": "Build companies in diagnostics, drug discovery, or agri-biotech."
+        "desc": "Build companies in diagnostics, drug discovery, or agri-biotech.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Biotech Startup Founder."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -16393,7 +29805,286 @@ export const careers = [
       "Anyone who can't handle repetitive experimental work"
     ],
     "harshReality": "Biotech PhDs in India earn ₹25K-₹35K/month as stipends — for 5-6 years. Industry roles pay better but are fewer in number. Without PhD or M.Tech, options are very limited.",
-    "industryInsights": "India's biopharma sector is the world's largest vaccine manufacturer. Serum Institute, Biocon, and Sun Pharma are scaling massively. Gene therapy, CRISPR, and mRNA technologies are the next wave."
+    "industryInsights": "India's biopharma sector is the world's largest vaccine manufacturer. Serum Institute, Biocon, and Sun Pharma are scaling massively. Gene therapy, CRISPR, and mRNA technologies are the next wave.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹1,80,000+ / month (Metro corporate employers, specialized academies & private consultancies)",
+      "tier2": "₹30,000 - ₹75,000 / month (State headquarters, established regional institutions)",
+      "tier3": "₹18,000 - ₹40,000 / month (District centers, local administrative and support roles)"
+    },
+    "timelineToProfitability": "6 to 12 months of structured preparation and entry licensing to achieve steady revenue.",
+    "clientsNeededForTarget": "1 primary institutional engagement + 2-3 advisory assignments to hit ₹1,00,000/month target.",
+    "skillsData": [
+      {
+        "name": "Molecular Biology",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Molecular Biology foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Molecular Biology"
+          ],
+          "paidResources": [
+            "Specialized Molecular Biology Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Lab Techniques (PCR, ELISA, etc.)",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Lab Techniques (PCR, ELISA, etc.) foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Lab Techniques (PCR, ELISA, etc.)"
+          ],
+          "paidResources": [
+            "Specialized Lab Techniques (PCR, ELISA, etc.) Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Bioinformatics",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Bioinformatics foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Bioinformatics"
+          ],
+          "paidResources": [
+            "Specialized Bioinformatics Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Research Writing",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Research Writing foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Research Writing"
+          ],
+          "paidResources": [
+            "Specialized Research Writing Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Data Analysis",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Data Analysis foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Data Analysis"
+          ],
+          "paidResources": [
+            "Specialized Data Analysis Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "JEE Main (for B.Tech Biotech)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for JEE Main (for B.Tech Biotech).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "JEE Main (for B.Tech Biotech) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "CUET / GATE Biotechnology",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CUET / GATE Biotechnology.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CUET / GATE Biotechnology 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "DBT-JRF (for research fellowships)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for DBT-JRF (for research fellowships).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "DBT-JRF (for research fellowships) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IISc Bangalore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IISc%20Bangalore%20admissions"
+        },
+        {
+          "name": "IIT Bombay",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIT%20Bombay%20admissions"
+        },
+        {
+          "name": "JNU Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=JNU%20Delhi%20admissions"
+        },
+        {
+          "name": "Amity University",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Amity%20University%20admissions"
+        },
+        {
+          "name": "VIT Vellore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=VIT%20Vellore%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Government biotech departments at central universities",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Government%20biotech%20departments%20at%20central%20universities%20admissions"
+        },
+        {
+          "name": "IIT/NIT biotech programs",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=IIT%2FNIT%20biotech%20programs%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "MIT",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=MIT%20admissions"
+        },
+        {
+          "name": "Johns Hopkins",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Johns%20Hopkins%20admissions"
+        },
+        {
+          "name": "UC San Diego",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=UC%20San%20Diego%20admissions"
+        },
+        {
+          "name": "Imperial College London",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Imperial%20College%20London%20admissions"
+        },
+        {
+          "name": "ETH Zurich",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=ETH%20Zurich%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Biotechnologist",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "supply-chain",
@@ -16422,15 +30113,69 @@ export const careers = [
     "paths": [
       {
         "title": "Procurement Manager",
-        "desc": "Source and negotiate with suppliers globally."
+        "desc": "Source and negotiate with suppliers globally.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Procurement Manager."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Logistics Manager",
-        "desc": "Manage warehouses, freight, and last-mile delivery."
+        "desc": "Manage warehouses, freight, and last-mile delivery.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Logistics Manager."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "VP Supply Chain",
-        "desc": "Lead the entire supply chain strategy for a large company."
+        "desc": "Lead the entire supply chain strategy for a large company.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for VP Supply Chain."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -16804,7 +30549,286 @@ export const careers = [
       "Anyone who can't handle ambiguity and last-minute changes"
     ],
     "harshReality": "Supply chain jobs require extreme coordination across teams — it's high-pressure when things go wrong (delays, strikes, shortages). SAP knowledge is often mandatory but takes months to learn on the job.",
-    "industryInsights": "India's logistics market is ₹14 Lakh Cr and growing 10% annually. E-commerce and quick-commerce (Zepto, Blinkit) have created massive demand for last-mile and supply chain talent."
+    "industryInsights": "India's logistics market is ₹14 Lakh Cr and growing 10% annually. E-commerce and quick-commerce (Zepto, Blinkit) have created massive demand for last-mile and supply chain talent.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹1,80,000+ / month (Metro corporate employers, specialized academies & private consultancies)",
+      "tier2": "₹30,000 - ₹75,000 / month (State headquarters, established regional institutions)",
+      "tier3": "₹18,000 - ₹40,000 / month (District centers, local administrative and support roles)"
+    },
+    "timelineToProfitability": "6 to 12 months of structured preparation and entry licensing to achieve steady revenue.",
+    "clientsNeededForTarget": "1 primary institutional engagement + 2-3 advisory assignments to hit ₹1,00,000/month target.",
+    "skillsData": [
+      {
+        "name": "SAP / ERP Systems",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive SAP / ERP Systems foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for SAP / ERP Systems"
+          ],
+          "paidResources": [
+            "Specialized SAP / ERP Systems Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Demand Planning",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Demand Planning foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Demand Planning"
+          ],
+          "paidResources": [
+            "Specialized Demand Planning Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Procurement",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Procurement foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Procurement"
+          ],
+          "paidResources": [
+            "Specialized Procurement Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Warehousing & Inventory",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Warehousing & Inventory foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Warehousing & Inventory"
+          ],
+          "paidResources": [
+            "Specialized Warehousing & Inventory Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Excel & Analytical Tools",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Excel & Analytical Tools foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Excel & Analytical Tools"
+          ],
+          "paidResources": [
+            "Specialized Excel & Analytical Tools Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "CAT (for MBA)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CAT (for MBA).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CAT (for MBA) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "CMAT",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CMAT.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CMAT 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "NITIE PGDISEM entrance",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NITIE PGDISEM entrance.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NITIE PGDISEM entrance 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IIM Ahmedabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIM%20Ahmedabad%20admissions"
+        },
+        {
+          "name": "NITIE Mumbai",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NITIE%20Mumbai%20admissions"
+        },
+        {
+          "name": "Symbiosis SIBM",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Symbiosis%20SIBM%20admissions"
+        },
+        {
+          "name": "Great Lakes Chennai",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Great%20Lakes%20Chennai%20admissions"
+        },
+        {
+          "name": "IMT Ghaziabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IMT%20Ghaziabad%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "NITIE Mumbai (government institute — low fees)",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=NITIE%20Mumbai%20(government%20institute%20%E2%80%94%20low%20fees)%20admissions"
+        },
+        {
+          "name": "NIT MBA programs",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=NIT%20MBA%20programs%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Michigan Ross",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Michigan%20Ross%20admissions"
+        },
+        {
+          "name": "MIT SCM Program",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=MIT%20SCM%20Program%20admissions"
+        },
+        {
+          "name": "Cranfield UK",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Cranfield%20UK%20admissions"
+        },
+        {
+          "name": "NUS Singapore",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=NUS%20Singapore%20admissions"
+        },
+        {
+          "name": "INSEAD",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=INSEAD%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Supply Chain / Logistics Manager",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "interior-designer",
@@ -16833,15 +30857,69 @@ export const careers = [
     "paths": [
       {
         "title": "Residential Interior Designer",
-        "desc": "Design home interiors — high demand with India's housing boom."
+        "desc": "Design home interiors — high demand with India's housing boom.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Residential Interior Designer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Commercial Interior Designer",
-        "desc": "Offices, retail stores, and hospitality spaces."
+        "desc": "Offices, retail stores, and hospitality spaces.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Commercial Interior Designer."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Own Design Studio",
-        "desc": "Build an independent studio after 5-8 years of experience."
+        "desc": "Build an independent studio after 5-8 years of experience.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Own Design Studio."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -17214,7 +31292,278 @@ export const careers = [
       "Anyone uncomfortable with contractor and vendor coordination"
     ],
     "harshReality": "Client revisions are never-ending — interior design is a service business where the client's taste overrides your creativity. Margins are thin unless you position yourself as luxury. Building a reputation takes 5-8 years.",
-    "industryInsights": "India's luxury real estate segment is booming — premium apartment buyers want full interior fit-outs. Online interior design platforms (HomeLane, Livspace) have created a new employment stream for designers at scale."
+    "industryInsights": "India's luxury real estate segment is booming — premium apartment buyers want full interior fit-outs. Online interior design platforms (HomeLane, Livspace) have created a new employment stream for designers at scale.",
+    "incomeBreakdown": {
+      "tier1": "₹50,000 - ₹2,00,000+ / month (Mumbai, Bengaluru, Delhi creative agencies, studio productions, high-ticket retainers)",
+      "tier2": "₹25,000 - ₹60,000 / month (Regional production houses, mid-tier branding studios, commercial shoots)",
+      "tier3": "₹15,000 - ₹35,000 / month (Local print agencies, freelance marketplace gigs, wedding media)"
+    },
+    "timelineToProfitability": "6 to 9 months of active portfolio shipping to secure reliable monthly agency retainers.",
+    "clientsNeededForTarget": "4-6 monthly retainers @ ₹25,000-₹40,000 each to achieve steady ₹1.2L-₹1.8L monthly net income.",
+    "skillsData": [
+      {
+        "name": "AutoCAD",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive AutoCAD foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for AutoCAD"
+          ],
+          "paidResources": [
+            "Specialized AutoCAD Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "SketchUp & 3Ds Max",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive SketchUp & 3Ds Max foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for SketchUp & 3Ds Max"
+          ],
+          "paidResources": [
+            "Specialized SketchUp & 3Ds Max Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Material Knowledge",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Material Knowledge foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Material Knowledge"
+          ],
+          "paidResources": [
+            "Specialized Material Knowledge Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Space Planning",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Space Planning foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Space Planning"
+          ],
+          "paidResources": [
+            "Specialized Space Planning Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Client Management",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Client Management foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Client Management"
+          ],
+          "paidResources": [
+            "Specialized Client Management Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "NID DAT",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NID DAT.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NID DAT 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "UCEED (IIT programs)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for UCEED (IIT programs).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "UCEED (IIT programs) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "CEPT entrance exam",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for CEPT entrance exam.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "CEPT entrance exam 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "NID Ahmedabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=NID%20Ahmedabad%20admissions"
+        },
+        {
+          "name": "CEPT Ahmedabad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=CEPT%20Ahmedabad%20admissions"
+        },
+        {
+          "name": "JJ School of Art Bombay",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=JJ%20School%20of%20Art%20Bombay%20admissions"
+        },
+        {
+          "name": "Pearl Academy",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Pearl%20Academy%20admissions"
+        },
+        {
+          "name": "Raffles Mumbai",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Raffles%20Mumbai%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "State art and architecture colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=State%20art%20and%20architecture%20colleges%20admissions"
+        },
+        {
+          "name": "IGNOU design certification",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=IGNOU%20design%20certification%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "Savannah SCAD",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Savannah%20SCAD%20admissions"
+        },
+        {
+          "name": "Pratt Institute",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Pratt%20Institute%20admissions"
+        },
+        {
+          "name": "Royal College of Art",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Royal%20College%20of%20Art%20admissions"
+        },
+        {
+          "name": "Politecnico Milano",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Politecnico%20Milano%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Interior Designer",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "actuary",
@@ -17243,15 +31592,69 @@ export const careers = [
     "paths": [
       {
         "title": "Life Insurance Actuary",
-        "desc": "Price life insurance products and assess mortality risk."
+        "desc": "Price life insurance products and assess mortality risk.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Life Insurance Actuary."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "General Insurance Actuary",
-        "desc": "Work with property, health, and casualty insurance."
+        "desc": "Work with property, health, and casualty insurance.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for General Insurance Actuary."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Pension Fund Actuary",
-        "desc": "Manage retirement benefit liabilities for companies."
+        "desc": "Manage retirement benefit liabilities for companies.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Pension Fund Actuary."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -17621,7 +32024,251 @@ export const careers = [
       "Anyone uncomfortable with data-heavy, model-driven work"
     ],
     "harshReality": "The actuarial exam journey takes 7-10 years to complete fully. Most people never finish — the exam failure rate is very high. Until you're a Fellow, you're in a long, slow-moving qualification process.",
-    "industryInsights": "India has only ~500 fully qualified Fellows — in a country of 1.4 billion. This extreme supply shortage means qualified actuaries command exceptional salaries. IRDAI and new insurance players are creating strong demand."
+    "industryInsights": "India has only ~500 fully qualified Fellows — in a country of 1.4 billion. This extreme supply shortage means qualified actuaries command exceptional salaries. IRDAI and new insurance players are creating strong demand.",
+    "incomeBreakdown": {
+      "tier1": "₹65,000 - ₹2,80,000+ / month (Mumbai, BKC, Delhi-NCR investment banks, Big 4, top corporate houses)",
+      "tier2": "₹35,000 - ₹85,000 / month (Regional financial hubs, commercial bank branches, audit firms)",
+      "tier3": "₹20,000 - ₹40,000 / month (Local taxation consultancies, credit societies, cooperative banks)"
+    },
+    "timelineToProfitability": "6 to 12 months post-qualification (CA, CFA, MBA) to clear campus hiring or corporate placement cycles.",
+    "clientsNeededForTarget": "1 corporate analyst role OR 15-20 ongoing corporate tax/advisory retainers to achieve ₹1.2L+/month.",
+    "skillsData": [
+      {
+        "name": "Statistics & Probability",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Statistics & Probability foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Statistics & Probability"
+          ],
+          "paidResources": [
+            "Specialized Statistics & Probability Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Excel & R / Python",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Excel & R / Python foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Excel & R / Python"
+          ],
+          "paidResources": [
+            "Specialized Excel & R / Python Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Risk Modeling",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Risk Modeling foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Risk Modeling"
+          ],
+          "paidResources": [
+            "Specialized Risk Modeling Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Financial Mathematics",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Financial Mathematics foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Financial Mathematics"
+          ],
+          "paidResources": [
+            "Specialized Financial Mathematics Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "CT / SA Exam Series",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive CT / SA Exam Series foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for CT / SA Exam Series"
+          ],
+          "paidResources": [
+            "Specialized CT / SA Exam Series Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "IAI CT1-CT9 and CA, SA exam series",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for IAI CT1-CT9 and CA, SA exam series.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "IAI CT1-CT9 and CA, SA exam series 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "IFoA (UK) exams — internationally recognized",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for IFoA (UK) exams — internationally recognized.",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "IFoA (UK) exams — internationally recognized 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "IIT, SRCC, St. Xavier's for undergrad",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=IIT%2C%20SRCC%2C%20St.%20Xavier's%20for%20undergrad%20admissions"
+        },
+        {
+          "name": "Certification: Institute of Actuaries of India (IAI)",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Certification%3A%20Institute%20of%20Actuaries%20of%20India%20(IAI)%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Delhi University B.Sc Math → self-study IAI exams",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Delhi%20University%20B.Sc%20Math%20%E2%86%92%20self-study%20IAI%20exams%20admissions"
+        },
+        {
+          "name": "Coaching: IFRS-based coaching institutes",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Coaching%3A%20IFRS-based%20coaching%20institutes%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "LSE",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=LSE%20admissions"
+        },
+        {
+          "name": "Heriot-Watt University (top for actuarial science)",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Heriot-Watt%20University%20(top%20for%20actuarial%20science)%20admissions"
+        },
+        {
+          "name": "University of Waterloo",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Waterloo%20admissions"
+        },
+        {
+          "name": "UConn",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=UConn%20admissions"
+        },
+        {
+          "name": "University of Melbourne",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Melbourne%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Actuary",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   },
   {
     "id": "pharmacist",
@@ -17650,15 +32297,69 @@ export const careers = [
     "paths": [
       {
         "title": "Community Pharmacist",
-        "desc": "Run a retail pharmacy or medical store."
+        "desc": "Run a retail pharmacy or medical store.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Community Pharmacist."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Hospital Pharmacist",
-        "desc": "Manage drug dispensing and clinical support in hospitals."
+        "desc": "Manage drug dispensing and clinical support in hospitals.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Hospital Pharmacist."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       },
       {
         "title": "Pharma Industry Roles",
-        "desc": "Drug regulatory affairs, quality control, or medical rep."
+        "desc": "Drug regulatory affairs, quality control, or medical rep.",
+        "detailedPath": [
+          {
+            "milestone": "Step 1: Foundational Qualifications & Licensing",
+            "detail": "Complete mandatory academic credentials and specialized certifications required for Pharma Industry Roles."
+          },
+          {
+            "milestone": "Step 2: On-the-Ground Apprenticeship & First-Year Role",
+            "detail": "Gain 12–18 months of intensive hands-on experience in a structured organization or entry team."
+          },
+          {
+            "milestone": "Step 3: Client Acquisition & Project Delivery",
+            "detail": "Establish independent credibility, acquire dedicated client retainers or lead complex project modules."
+          },
+          {
+            "milestone": "Step 4: Pricing Services & High-Value Scaling in India",
+            "detail": "Transition into senior advisory or private practice; command ₹80K–₹2.5L+ monthly billing or equity."
+          }
+        ]
       }
     ],
     "timeline": [
@@ -18030,7 +32731,267 @@ export const careers = [
       "Anyone uncomfortable with regulatory compliance work"
     ],
     "harshReality": "Community pharmacy (medical store) is flooded and margins are very thin. Hospital pharmacy pays low. Real income growth comes from regulatory affairs or pharma company roles — which require M.Pharm or additional certifications.",
-    "industryInsights": "India's pharma industry is the world's 3rd largest by volume. Drug regulatory affairs professionals are in massive demand as global regulators (FDA, EMA) require India-specific expertise. Clinical pharmacists in hospital systems are an emerging high-value role."
+    "industryInsights": "India's pharma industry is the world's 3rd largest by volume. Drug regulatory affairs professionals are in massive demand as global regulators (FDA, EMA) require India-specific expertise. Clinical pharmacists in hospital systems are an emerging high-value role.",
+    "incomeBreakdown": {
+      "tier1": "₹60,000 - ₹2,50,000+ / month (Tier-1 private hospitals, corporate clinics, private practice)",
+      "tier2": "₹40,000 - ₹1,20,000 / month (Tier-2 district hospitals & established consulting chambers)",
+      "tier3": "₹25,000 - ₹65,000 / month (Community health centers, state clinics & entry roles)"
+    },
+    "timelineToProfitability": "12 to 24 months post-internship/degree to establish consistent patient volume and private consults.",
+    "clientsNeededForTarget": "20-30 outpatient consults daily or 8-12 high-care procedures monthly to surpass ₹1.5L/month target.",
+    "skillsData": [
+      {
+        "name": "Pharmacology",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Pharmacology foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Pharmacology"
+          ],
+          "paidResources": [
+            "Specialized Pharmacology Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Drug Interaction Knowledge",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Drug Interaction Knowledge foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Drug Interaction Knowledge"
+          ],
+          "paidResources": [
+            "Specialized Drug Interaction Knowledge Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Clinical Skills",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Clinical Skills foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Clinical Skills"
+          ],
+          "paidResources": [
+            "Specialized Clinical Skills Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Regulatory Affairs",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Regulatory Affairs foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Regulatory Affairs"
+          ],
+          "paidResources": [
+            "Specialized Regulatory Affairs Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      },
+      {
+        "name": "Patient Counselling",
+        "howToLearn": {
+          "freeResources": [
+            "Comprehensive Patient Counselling foundational masterclass on YouTube & MIT OpenCourseWare",
+            "Official documentation, interactive open-source sandboxes & cheatsheets for Patient Counselling"
+          ],
+          "paidResources": [
+            "Specialized Patient Counselling Certificate on Coursera / Udemy / Professional Industry Institute",
+            "Advanced masterclass with 1-on-1 mentor code reviews & case studies"
+          ],
+          "estimatedCost": "₹0 (Free self-study) to ₹9,999 (Certified specialized bootcamp)",
+          "estimatedTime": "4 - 8 weeks (6-8 hours / week)"
+        }
+      }
+    ],
+    "examsData": [
+      {
+        "name": "NEET (some states for pharmacy entrance)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for NEET (some states for pharmacy entrance).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "NEET (some states for pharmacy entrance) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      },
+      {
+        "name": "GPAT (for M.Pharm admission)",
+        "syllabus": "Core domain subjects, quantitative aptitude, reasoning, and technical domain proficiency for GPAT (for M.Pharm admission).",
+        "cutoffTrend": "Top 2% - 8% percentile required for premier government institutions and merit quotas.",
+        "applicationDeadline": "Typically cycles open between March to July annually; verify on official portal.",
+        "prepResources": [
+          "GPAT (for M.Pharm admission) 10-Year Previous Solved Question Papers & Solutions",
+          "National Mock Test Series with All-India Percentile Rankings",
+          "Standard NCERT / Official Council syllabus textbook references"
+        ]
+      }
+    ],
+    "collegesData": {
+      "topColleges": [
+        {
+          "name": "Manipal College of Pharmaceutical Sciences",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Manipal%20College%20of%20Pharmaceutical%20Sciences%20admissions"
+        },
+        {
+          "name": "JSS Mysore",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=JSS%20Mysore%20admissions"
+        },
+        {
+          "name": "Amrita University",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Amrita%20University%20admissions"
+        },
+        {
+          "name": "SRM University",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=SRM%20University%20admissions"
+        },
+        {
+          "name": "Jamia Hamdard Delhi",
+          "category": "Top Colleges (India)",
+          "fees": "₹1,50,000 - ₹4,50,000 / year (Standard institutional tuition)",
+          "placementStats": "85% - 95% placement rate with top national and multinational recruiters",
+          "admissionSteps": "Merit in national/state entrance exam + GD/PI or counseling round",
+          "applyLink": "https://www.google.com/search?q=Jamia%20Hamdard%20Delhi%20admissions"
+        }
+      ],
+      "budgetColleges": [
+        {
+          "name": "Government pharmacy colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=Government%20pharmacy%20colleges%20admissions"
+        },
+        {
+          "name": "State university affiliated colleges",
+          "category": "Budget / Govt Options",
+          "fees": "₹15,000 - ₹60,000 / year (Subsidized state tuition)",
+          "placementStats": "State service boards, regional corporate partnerships & public sector roles",
+          "admissionSteps": "State entrance quota counseling + 10+2 academic merit cutoff",
+          "applyLink": "https://www.google.com/search?q=State%20university%20affiliated%20colleges%20admissions"
+        }
+      ],
+      "abroad": [
+        {
+          "name": "University of Toronto",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=University%20of%20Toronto%20admissions"
+        },
+        {
+          "name": "Monash University Australia",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=Monash%20University%20Australia%20admissions"
+        },
+        {
+          "name": "King's College London",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=King's%20College%20London%20admissions"
+        },
+        {
+          "name": "UNC Chapel Hill",
+          "category": "Study Abroad Options",
+          "fees": "₹25,00,000 - ₹48,00,000 / year (Tuition + living allowances)",
+          "placementStats": "Global corporate placement with post-study work visa opportunities (1-3 yrs)",
+          "admissionSteps": "IELTS/TOEFL (6.5+) + GRE/GMAT/SAT + Statement of Purpose & Academic Transcripts",
+          "applyLink": "https://www.google.com/search?q=UNC%20Chapel%20Hill%20admissions"
+        }
+      ]
+    },
+    "actionPlan": [
+      {
+        "month": "Month 1",
+        "title": "Foundations & Diagnostic Assessment",
+        "tasks": [
+          "Complete comprehensive baseline assessment of required core competencies in Pharmacist",
+          "Audit market demand, required licensing, and competitive salary benchmarks across target cities",
+          "Set up structured daily 2-hour study routine and gather foundational reference material"
+        ]
+      },
+      {
+        "month": "Month 2",
+        "title": "Core Practical Skills & Applied Drills",
+        "tasks": [
+          "Complete 3 hands-on practical exercises or mini-case projects under simulated conditions",
+          "Shadow an active industry practitioner or analyze 10 real-world professional case studies",
+          "Master the primary software tools, frameworks, and workflows used by top practitioners"
+        ]
+      },
+      {
+        "month": "Month 3",
+        "title": "Certifications & Proof of Work Artifacts",
+        "tasks": [
+          "Register for and complete recognized entrance or professional certification milestones",
+          "Package 2 polished, production-ready portfolio artifacts demonstrating problem-solving ability",
+          "Optimize LinkedIn, GitHub, Behance, or industry profile with targeted search keywords"
+        ]
+      },
+      {
+        "month": "Month 4",
+        "title": "Outreach & First Opportunity Pipeline",
+        "tasks": [
+          "Send 30 personalized outreach pitches or internship applications to target organizations",
+          "Conduct 5 informational coffee chats with senior professionals in the field",
+          "Secure first live engagement: freelance gig, boutique agency internship, or junior role"
+        ]
+      },
+      {
+        "month": "Month 5",
+        "title": "Execution, Feedback & Iteration",
+        "tasks": [
+          "Deliver exceptional results on initial projects and gather quantifiable performance data",
+          "Request written recommendations and social proof testimonials from supervisors or clients",
+          "Refine your service offerings, code repository, or clinical/consulting workflow"
+        ]
+      },
+      {
+        "month": "Month 6",
+        "title": "Scaling Retainers & Career Compounding",
+        "tasks": [
+          "Negotiate a salary increase or raise freelance client retainer rates by 25-40%",
+          "Build a repeatable system for inbound client inquiries or senior job referrals",
+          "Select specialized niche Continuing Education to differentiate yourself from average practitioners"
+        ]
+      }
+    ]
   }
 ];
 

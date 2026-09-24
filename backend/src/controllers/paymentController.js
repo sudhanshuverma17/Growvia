@@ -65,26 +65,27 @@ export const createOrder = async (req, res) => {
     ).trim().replace(/\/+$/, "");
 
     // Environment-aware frontend base URL resolution:
-    // 1. Highest priority: Explicitly configured FRONTEND_URL or CLIENT_URL in .env
+    // If testing locally (localhost or 127.0.0.1), ALWAYS return to localhost so local testing works seamlessly.
+    // Only redirect to the remote production domain when the request is NOT originating from localhost.
     const configuredUrl = (process.env.FRONTEND_URL || process.env.CLIENT_URL || "").trim().replace(/\/+$/, "");
     const isLocal = (url) => !url || url.includes("localhost") || url.includes("127.0.0.1");
 
     let frontendBaseUrl = "";
 
-    if (configuredUrl && !isLocal(configuredUrl)) {
-      // Production domain configured in .env (e.g. https://growvia.com) -> ALWAYS respect it!
+    if (clientOrigin && isLocal(clientOrigin)) {
+      // 1. Active request is originating from localhost -> keep developer on localhost!
+      frontendBaseUrl = clientOrigin;
+    } else if (configuredUrl && !isLocal(configuredUrl)) {
+      // 2. Production domain configured in .env -> use for deployed/non-localhost environments
       frontendBaseUrl = configuredUrl;
     } else if (clientOrigin && !isLocal(clientOrigin)) {
-      // Request arrived from a remote production origin -> use it
-      frontendBaseUrl = clientOrigin;
-    } else if (clientOrigin && isLocal(clientOrigin)) {
-      // Local development -> use active browser port
+      // 3. Remote client origin
       frontendBaseUrl = clientOrigin;
     } else if (configuredUrl) {
-      // Local development with configured localhost
+      // 4. Configured URL fallback
       frontendBaseUrl = configuredUrl;
     } else {
-      // Fallback
+      // 5. Default fallback
       frontendBaseUrl = `http://localhost:${process.env.PORT || 5000}`;
     }
 

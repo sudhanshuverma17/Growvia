@@ -76,6 +76,7 @@ const courseVideoSchema = new mongoose.Schema({
 const specializationPathSchema = new mongoose.Schema({
   title: { type: String, required: true },
   desc: { type: String, default: "" },
+  detailedPath: { type: mongoose.Schema.Types.Mixed, default: [] },
 }, { _id: false });
 
 const salaryTierSchema = new mongoose.Schema({
@@ -141,6 +142,17 @@ const courseSchema = new mongoose.Schema(
     whoShouldAvoid: [{ type: String }],
     harshReality: { type: String, default: "" },
     industryInsights: { type: String, default: "" },
+    incomeBreakdown: {
+      tier1: { type: String, default: "" },
+      tier2: { type: String, default: "" },
+      tier3: { type: String, default: "" },
+    },
+    timelineToProfitability: { type: String, default: "" },
+    clientsNeededForTarget: { type: String, default: "" },
+    skillsData: { type: mongoose.Schema.Types.Mixed, default: [] },
+    examsData: { type: mongoose.Schema.Types.Mixed, default: [] },
+    collegesData: { type: mongoose.Schema.Types.Mixed, default: {} },
+    actionPlan: { type: mongoose.Schema.Types.Mixed, default: [] },
     isCustom: { type: Boolean, default: false },
   },
   {

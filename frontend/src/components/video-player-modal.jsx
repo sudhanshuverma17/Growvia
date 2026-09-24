@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
-import { X, Play, Lock, CheckCircle2, Sparkles, ExternalLink, ShieldCheck } from "lucide-react";
+import { X, Play, Lock, CheckCircle2, Award, ExternalLink, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/auth-context";
 import { useToast } from "@/hooks/use-toast";
@@ -52,7 +52,7 @@ export function VideoPlayerModal({ video, isOpen, onClose, onUnlock }) {
             </div>
 
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-3">
-              <Sparkles className="w-3.5 h-3.5" /> Premium Masterclass
+              <Award className="w-3.5 h-3.5" /> Premium Masterclass
             </div>
 
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">

@@ -19,7 +19,6 @@ import {
   Briefcase,
   CheckCircle2,
   GraduationCap,
-  Sparkles,
   ExternalLink,
   DollarSign,
   AlertTriangle,
@@ -773,7 +772,7 @@ export default function CourseEditor() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div>
             <div className="flex items-center gap-2 text-primary text-xs font-semibold uppercase tracking-wider mb-1">
-              <Sparkles className="w-4 h-4" />{" "}
+              <BookOpen className="w-4 h-4" />{" "}
               {isEditing ? "Edit Course & Roadmap" : "Create New Course & Roadmap"}
             </div>
             <h1 className="text-3xl font-bold font-display text-white">
@@ -1211,7 +1210,7 @@ export default function CourseEditor() {
                         className="w-full flex items-center justify-between p-3 rounded-xl bg-primary/10 hover:bg-primary/15 border border-primary/25 text-left transition-colors"
                       >
                         <div className="flex items-center gap-2.5">
-                          <Sparkles className="w-4 h-4 text-primary flex-shrink-0" />
+                          <Lock className="w-4 h-4 text-primary flex-shrink-0" />
                           <div>
                             <div className="text-xs font-bold text-white flex items-center gap-2">
                               Paid Tier Stage Content (Advanced Guidance)

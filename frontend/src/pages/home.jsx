@@ -10,6 +10,7 @@ import {
   MapPin,
   Video,
   HelpCircle,
+  Brain,
 } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { Button } from "@/components/ui/button";

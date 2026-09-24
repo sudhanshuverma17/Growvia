@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Loader2, CheckCircle2, Sparkles, Brain } from "lucide-react";
+import { Loader2, CheckCircle2, Brain } from "lucide-react";
 
 export function QuizLoading() {
   const steps = [
@@ -31,7 +31,7 @@ export function QuizLoading() {
       </div>
 
       <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 flex items-center gap-2 justify-center">
-        <Sparkles className="w-6 h-6 text-primary" /> Evaluating Your Profile
+        <Brain className="w-6 h-6 text-primary" /> Evaluating Your Profile
       </h2>
       <p className="text-sm text-muted-foreground max-w-sm mb-10">
         Our deterministic trait scoring engine and AI model are synthesizing your answers.

@@ -7,7 +7,6 @@ import {
   CheckCircle2,
   Search,
   Plus,
-  Sparkles,
   Video as VideoIcon,
   Eye,
   SlidersHorizontal,

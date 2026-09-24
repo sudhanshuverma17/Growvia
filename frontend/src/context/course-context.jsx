@@ -4,7 +4,7 @@ import { careers as defaultCareers } from "@/lib/mock-data";
 import { ICON_MAP } from "@/components/career-icon";
 
 const CourseContext = createContext(null);
-const STORAGE_KEY = "growvia_courses_v2";
+const STORAGE_KEY = "growvia_courses_v4";
 
 // Helper to sanitize courses for JSON storage (turn function icons into string keys)
 function serializeCourses(coursesList) {
@@ -33,12 +33,21 @@ function serializeCourses(coursesList) {
 function deserializeCourses(rawList) {
   return rawList.map((course) => {
     const iconKey = typeof course.icon === "string" ? course.icon : "Briefcase";
+    const fallback = defaultCareers.find((c) => c.id === course.id) || {};
     return {
+      ...fallback,
       ...course,
-      image: course.image || course.thumbnail || "",
-      thumbnail: course.thumbnail || course.image || "",
-      icon: ICON_MAP[iconKey] || iconKey,
-      courses: Array.isArray(course.courses) ? course.courses : [],
+      image: course.image || course.thumbnail || fallback.image || "",
+      thumbnail: course.thumbnail || course.image || fallback.thumbnail || "",
+      icon: ICON_MAP[iconKey] || fallback.icon || iconKey,
+      courses: Array.isArray(course.courses) && course.courses.length > 0 ? course.courses : (fallback.courses || []),
+      incomeBreakdown: course.incomeBreakdown?.tier1 ? course.incomeBreakdown : (fallback.incomeBreakdown || course.incomeBreakdown),
+      skillsData: Array.isArray(course.skillsData) && course.skillsData.length > 0 ? course.skillsData : (fallback.skillsData || []),
+      examsData: Array.isArray(course.examsData) && course.examsData.length > 0 ? course.examsData : (fallback.examsData || []),
+      collegesData: course.collegesData?.topColleges?.length ? course.collegesData : (fallback.collegesData || course.collegesData),
+      paths: Array.isArray(course.paths) && course.paths.length > 0 && course.paths[0]?.detailedPath?.length ? course.paths : (fallback.paths || course.paths),
+      timelineToProfitability: course.timelineToProfitability || fallback.timelineToProfitability || "",
+      clientsNeededForTarget: course.clientsNeededForTarget || fallback.clientsNeededForTarget || "",
     };
   });
 }
@@ -136,8 +145,13 @@ export function CourseProvider({ children }) {
 
   const getCourseById = (id) => {
     if (!id) return undefined;
+    const cleanId = String(id).toLowerCase().trim();
+    if (cleanId === "personal-trainer") {
+      const match = courses.find((c) => String(c.id).toLowerCase() === "fitness-trainer");
+      if (match) return match;
+    }
     return courses.find(
-      (c) => String(c.id).toLowerCase() === String(id).toLowerCase()
+      (c) => String(c.id).toLowerCase() === cleanId
     );
   };
 

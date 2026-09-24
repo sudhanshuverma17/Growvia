@@ -18,7 +18,7 @@ import {
   Globe,
   IndianRupee,
   Clock,
-  Sparkles,
+  MessageSquare,
   TrendingUp,
   BookOpen,
   Play,
@@ -39,6 +39,14 @@ import { useAuth } from "@/context/auth-context";
 import { useVideos } from "@/context/video-context";
 import { VideoPlayerModal } from "@/components/video-player-modal";
 import { getCareerHeroImage } from "@/lib/career-media";
+import {
+  WhyChooseSection,
+  CareerPathsSection,
+  RightForYouSection,
+  CoreSkillsSection,
+  EntranceExamsSection,
+  WhereToStudySection,
+} from "@/components/roadmap/RoadmapSections";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -115,14 +123,26 @@ export default function RoadmapDetail() {
   const dbVideos = allDbVideos.filter((v) => v.careerId === careerId);
   const roadmapVideos = attachedVideos.length > 0 ? attachedVideos : dbVideos;
 
+  const normalizedId =
+    careerId?.toLowerCase() === "personal-trainer"
+      ? "fitness-trainer"
+      : careerId?.toLowerCase();
+
   const isSaved = Array.isArray(user?.savedRoadmaps) && user.savedRoadmaps.includes(careerId);
-  const isPurchased =
-    isAdmin ||
-    (Array.isArray(user?.purchasedRoadmaps) &&
-      careerId &&
-      user.purchasedRoadmaps.some(
-        (id) => id.toLowerCase() === careerId.toLowerCase()
-      ));
+  const hasAccess =
+    Boolean(isAdmin) ||
+    Boolean(user?.isPremium) ||
+    Boolean(user?.subscription?.status === "active") ||
+    Boolean(
+      Array.isArray(user?.purchasedRoadmaps) &&
+        normalizedId &&
+        user.purchasedRoadmaps.some(
+          (id) =>
+            id.toLowerCase() === normalizedId ||
+            (career?.id && id.toLowerCase() === career.id.toLowerCase())
+        )
+    );
+  const isPurchased = hasAccess;
 
   const handleSaveRoadmap = async () => {
     if (!isAuthenticated) {
@@ -214,7 +234,7 @@ export default function RoadmapDetail() {
                   onClick={() => window.dispatchEvent(new CustomEvent("growvia:open-chat"))}
                   className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs rounded-xl shadow-md shadow-emerald-600/25 flex items-center gap-1.5 transition-all cursor-pointer h-8 px-3"
                 >
-                  <Sparkles className="w-3.5 h-3.5" />
+                  <MessageSquare className="w-3.5 h-3.5" />
                   Ask Vio
                 </Button>
               )}
@@ -420,7 +440,7 @@ export default function RoadmapDetail() {
                           <div className="mt-4 pt-3 border-t border-white/5 space-y-2.5">
                             <div className="flex items-center">
                               <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-amber-500/10 text-[#E5A855] border border-amber-500/25 inline-flex items-center gap-1">
-                                <Sparkles className="w-2.5 h-2.5" /> Stage Guide Available
+                                <BookOpen className="w-2.5 h-2.5" /> Stage Guide Available
                               </span>
                             </div>
 
@@ -430,7 +450,7 @@ export default function RoadmapDetail() {
                               className="flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/15 border border-amber-500/25 text-xs font-semibold text-[#E5A855] transition-all group cursor-pointer"
                             >
                               <span className="flex items-center gap-2">
-                                <Sparkles className="w-3.5 h-3.5 text-[#E5A855]" />
+                                <BookOpen className="w-3.5 h-3.5 text-[#E5A855]" />
                                 {isExpanded
                                   ? "Hide Detailed Stage Guide"
                                   : "View Detailed Stage Guide & Resources"}
@@ -791,7 +811,7 @@ export default function RoadmapDetail() {
                             className="bg-[#E5A855] hover:bg-[#d99640] text-black font-bold text-xs h-8 px-4 flex-shrink-0 rounded-xl shadow-md shadow-amber-500/20"
                           >
                             <Link href={`/pricing?career=${career.id}`}>
-                              <Sparkles className="w-3 h-3 mr-1.5" /> Unlock Guide
+                              <Lock className="w-3 h-3 mr-1.5" /> Unlock on Purchase
                             </Link>
                           </Button>
                         </div>
@@ -872,231 +892,51 @@ export default function RoadmapDetail() {
           </motion.section>
         )}
 
-        {/* ── WHY CHOOSE ─────────────────────────────────────────── */}
-        {whyChoose.length > 0 && (
-          <motion.section
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <SectionHeading icon={Sparkles} title="Why Choose This Career?" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-              {whyChoose.map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-3 bg-[#131316] border border-white/10 hover:border-white/20 rounded-xl p-4 transition-colors shadow-sm"
-                >
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-slate-300 leading-relaxed">{item}</span>
-                </div>
-              ))}
-            </div>
-          </motion.section>
-        )}
+        {/* ── 1. WHY CHOOSE (FREE) ── */}
+        <WhyChooseSection whyChoose={whyChoose} hasAccess={hasAccess} />
 
-        {/* ── CAREER PATHS ───────────────────────────────────────── */}
-        {paths.length > 0 && (
-          <motion.section
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <SectionHeading icon={Briefcase} title="Career Paths & Specialisations" />
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {paths.map((path, i) => (
-                <div
-                  key={i}
-                  className="bg-[#131316] rounded-xl p-5 border border-white/10 hover:border-amber-500/30 transition-all shadow-md"
-                >
-                  <div className="text-sm font-bold text-white mb-2">
-                    {path.title}
-                  </div>
-                  <div className="text-xs text-muted-foreground leading-relaxed">
-                    {path.desc}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.section>
-        )}
+        {/* ── 2. CAREER PATHS & SPECIALISATIONS (CONDITIONAL FREE + PREMIUM) ── */}
+        <CareerPathsSection paths={paths} hasAccess={hasAccess} careerId={career.id} />
 
-        {/* ── FIT CHECK ──────────────────────────────────────────── */}
-        {(whoShould.length > 0 || whoShouldAvoid.length > 0) && (
-          <motion.section
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <SectionHeading icon={CheckCircle2} title="Is This Career Right for You?" />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-              {whoShould.length > 0 && (
-                <div className="bg-[#131316] border border-emerald-500/25 rounded-2xl p-6 shadow-md">
-                  <h3 className="text-base font-bold text-emerald-400 mb-4 flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4" /> Choose this if you…
-                  </h3>
-                  <ul className="space-y-3">
-                    {whoShould.map((item, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-2.5 text-sm text-slate-300"
-                      >
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 flex-shrink-0" />{" "}
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+        {/* ── 3. IS THIS CAREER RIGHT FOR YOU (CONDITIONAL FREE + PREMIUM) ── */}
+        <RightForYouSection
+          whoShould={whoShould}
+          whoShouldAvoid={whoShouldAvoid}
+          harshReality={career.harshReality}
+          incomeBreakdown={career.incomeBreakdown}
+          timelineToProfitability={career.timelineToProfitability}
+          clientsNeededForTarget={career.clientsNeededForTarget}
+          hasAccess={hasAccess}
+          careerId={career.id}
+        />
 
-              {whoShouldAvoid.length > 0 && (
-                <div className="bg-[#131316] border border-red-500/25 rounded-2xl p-6 shadow-md">
-                  <h3 className="text-base font-bold text-red-400 mb-4 flex items-center gap-2">
-                    <XCircle className="w-4 h-4" /> Avoid this if you…
-                  </h3>
-                  <ul className="space-y-3">
-                    {whoShouldAvoid.map((item, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-2.5 text-sm text-slate-300"
-                      >
-                        <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-1.5 flex-shrink-0" />{" "}
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          </motion.section>
-        )}
+        {/* ── 4. CORE SKILLS REQUIRED (CONDITIONAL FREE + PREMIUM) ── */}
+        <CoreSkillsSection
+          skills={skills}
+          skillsData={career.skillsData}
+          hasAccess={hasAccess}
+          careerId={career.id}
+        />
 
-        {/* ── HARSH REALITY ──────────────────────────────────────── */}
-        {career.harshReality && (
-          <motion.section
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <div className="bg-[#131316] border border-red-500/25 rounded-2xl p-6 shadow-md">
-              <h3 className="text-base font-bold text-red-400 mb-2.5 flex items-center gap-2">
-                <AlertTriangle className="w-5 h-5" /> The Harsh Reality
-              </h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                {career.harshReality}
-              </p>
-            </div>
-          </motion.section>
-        )}
+        {/* ── 5. KEY ENTRANCE EXAMS (CONDITIONAL FREE + PREMIUM) ── */}
+        <EntranceExamsSection
+          exams={exams}
+          examsData={career.examsData}
+          hasAccess={hasAccess}
+          careerId={career.id}
+        />
 
-        {/* ── CORE SKILLS ────────────────────────────────────────── */}
-        {skills.length > 0 && (
-          <motion.section
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <SectionHeading icon={TrendingUp} title="Core Skills Required" />
-            <div className="flex flex-wrap gap-2">
-              {skills.map((skill, i) => (
-                <span
-                  key={i}
-                  className="px-3.5 py-1.5 bg-[#131316] border border-white/10 hover:border-amber-500/30 rounded-full text-xs text-slate-200 transition-colors"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </motion.section>
-        )}
+        {/* ── 6. WHERE TO STUDY (CONDITIONAL FREE + PREMIUM) ── */}
+        <WhereToStudySection
+          colleges={colleges}
+          budgetColleges={budgetColleges}
+          abroad={abroad}
+          collegesData={career.collegesData}
+          hasAccess={hasAccess}
+          careerId={career.id}
+        />
 
-        {/* ── ENTRANCE EXAMS ─────────────────────────────────────── */}
-        {exams.length > 0 && (
-          <motion.section
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <SectionHeading icon={BookOpen} title="Key Entrance Exams" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {exams.map((exam, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-3 bg-[#131316] border border-white/10 rounded-xl px-4 py-3 shadow-sm"
-                >
-                  <div className="w-2 h-2 rounded-full bg-[#E5A855] flex-shrink-0" />
-                  <span className="text-sm text-slate-300">{exam}</span>
-                </div>
-              ))}
-            </div>
-          </motion.section>
-        )}
 
-        {/* ── COLLEGES ───────────────────────────────────────────── */}
-        {(colleges.length > 0 || budgetColleges.length > 0 || abroad.length > 0) && (
-          <motion.section
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <SectionHeading icon={GraduationCap} title="Where to Study" />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {colleges.length > 0 && (
-                <div className="bg-[#131316] border border-white/10 rounded-2xl overflow-hidden shadow-md">
-                  <div className="px-5 py-3 bg-white/[0.03] border-b border-white/10">
-                    <div className="text-sm font-bold text-white">Top Colleges (India)</div>
-                  </div>
-                  <ul className="p-5 space-y-2.5">
-                    {colleges.map((c, i) => (
-                      <li key={i} className="text-xs sm:text-sm text-slate-300 flex items-center gap-2">
-                        <ChevronRight className="w-3.5 h-3.5 text-[#E5A855] flex-shrink-0" />
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {budgetColleges.length > 0 && (
-                <div className="bg-[#131316] border border-white/10 rounded-2xl overflow-hidden shadow-md">
-                  <div className="px-5 py-3 bg-white/[0.03] border-b border-white/10">
-                    <div className="text-sm font-bold text-white">Budget / Govt Options</div>
-                  </div>
-                  <ul className="p-5 space-y-2.5">
-                    {budgetColleges.map((c, i) => (
-                      <li key={i} className="text-xs sm:text-sm text-slate-300 flex items-center gap-2">
-                        <ChevronRight className="w-3.5 h-3.5 text-[#E5A855] flex-shrink-0" />
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {abroad.length > 0 && (
-                <div className="bg-[#131316] border border-white/10 rounded-2xl overflow-hidden shadow-md">
-                  <div className="px-5 py-3 bg-white/[0.03] border-b border-white/10">
-                    <div className="text-sm font-bold text-white">Study Abroad Options</div>
-                  </div>
-                  <ul className="p-5 space-y-2.5">
-                    {abroad.map((c, i) => (
-                      <li key={i} className="text-xs sm:text-sm text-slate-300 flex items-center gap-2">
-                        <Globe className="w-3.5 h-3.5 text-[#E5A855] flex-shrink-0" />
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          </motion.section>
-        )}
 
         {/* ── SALARY PROGRESSION ─────────────────────────────────── */}
         {salaryExpectations.length > 0 && (
@@ -1156,7 +996,7 @@ export default function RoadmapDetail() {
           >
             <div className="bg-[#131316] border border-amber-500/25 rounded-2xl p-6 shadow-md">
               <h3 className="text-base font-bold text-[#E5A855] mb-2 flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-[#E5A855]" /> How to Land Your First Opportunity
+                <Briefcase className="w-4 h-4 text-[#E5A855]" /> How to Land Your First Opportunity
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 {career.firstOpportunity}
@@ -1271,7 +1111,7 @@ export default function RoadmapDetail() {
             className="relative overflow-hidden rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-emerald-950/40 via-[#131316] to-[#0d0d0f] border border-emerald-500/30 text-center shadow-2xl"
           >
             <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mx-auto mb-4">
-              <Sparkles className="w-6 h-6" />
+              <MessageSquare className="w-6 h-6" />
             </div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-2">
               <CheckCircle2 className="w-3.5 h-3.5" /> Lifetime Access Active
@@ -1286,7 +1126,7 @@ export default function RoadmapDetail() {
               onClick={() => window.dispatchEvent(new CustomEvent("growvia:open-chat"))}
               className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-full px-8 shadow-lg shadow-emerald-600/25 cursor-pointer"
             >
-              <Sparkles className="w-4 h-4 mr-2" /> Chat with Vio
+              <MessageSquare className="w-4 h-4 mr-2" /> Chat with Vio
             </Button>
           </motion.div>
         ) : (

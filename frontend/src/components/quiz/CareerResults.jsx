@@ -8,7 +8,6 @@ import { useToast } from "@/hooks/use-toast";
 import { GrowviaLogoMark } from "@/components/GrowviaLogo";
 import {
   Trophy,
-  Sparkles,
   ArrowRight,
   RotateCcw,
   Compass,
@@ -173,7 +172,7 @@ export function CareerResults({ resultData, onRetake }) {
 
         {/* Assessment Pill Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/15 bg-black/40 backdrop-blur-md text-[#F5F0E8] text-xs font-medium tracking-wide mb-4 shadow-sm">
-          <Sparkles className="w-3.5 h-3.5 text-[#F5F0E8]" />
+          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
           <span>Assessment Complete • Profile Generated</span>
         </div>
 

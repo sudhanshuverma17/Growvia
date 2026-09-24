@@ -48,7 +48,6 @@ import {
   Layers,
   PieChart,
   Pill,
-  Sparkles,
   GraduationCap,
   Globe,
   Music,
@@ -88,7 +87,7 @@ export const ICON_OPTIONS = [
   { name: "Shield", icon: Shield, label: "Security / Defense" },
   { name: "Cloud", icon: Cloud, label: "Cloud / DevOps" },
   { name: "Gamepad2", icon: Gamepad2, label: "Gaming" },
-  { name: "Sparkles", icon: Sparkles, label: "Emerging / General" },
+  { name: "Lightbulb", icon: Lightbulb, label: "Emerging / General" },
 ];
 
 export const ICON_MAP = {
@@ -140,7 +139,7 @@ export const ICON_MAP = {
   Layers,
   PieChart,
   Pill,
-  Sparkles,
+  Sparkles: Lightbulb,
   GraduationCap,
   Globe,
   Music,

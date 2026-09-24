@@ -6,7 +6,6 @@ import {
   MessageSquare,
   X,
   Send,
-  Sparkles,
   RefreshCw,
   Trash2,
   Minimize2,
@@ -361,7 +360,7 @@ function ChatWidgetContent({ user, token, careerId }) {
       text: `Which top colleges and entrance exams should I target?`,
     },
     {
-      icon: Sparkles,
+      icon: Compass,
       text: `Can you give me a structured 6-month study and prep schedule?`,
     },
   ];
@@ -394,7 +393,7 @@ function ChatWidgetContent({ user, token, careerId }) {
               <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-slate-900"></span>
             </span>
 
-            <Sparkles className="w-6 h-6 transition-transform group-hover:rotate-12 duration-300" />
+            <MessageSquare className="w-6 h-6 transition-transform group-hover:scale-110 duration-300" />
 
             {/* Desktop Tooltip */}
             <span className="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-lg bg-slate-900/90 backdrop-blur-md px-3 py-1.5 text-xs font-medium text-slate-200 shadow-lg border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity hidden sm:block">
@@ -466,7 +465,7 @@ function ChatWidgetContent({ user, token, careerId }) {
               {messages.length === 0 && !isLoadingHistory && (
                 <div className="flex flex-col items-center justify-center h-full text-center px-2 py-4">
                   <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-3 shadow-inner">
-                    <Sparkles className="w-6 h-6" />
+                    <Bot className="w-6 h-6" />
                   </div>
                   <h4 className="text-sm font-semibold text-slate-200 mb-1">
                     Welcome to Vio, your {careerTitle} AI Advisor!

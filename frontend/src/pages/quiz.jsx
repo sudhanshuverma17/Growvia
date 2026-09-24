@@ -18,7 +18,7 @@ import { PageLoader } from "@/components/page-loader";
 import {
   ArrowLeft,
   ArrowRight,
-  Sparkles,
+  CheckCircle2,
   RotateCcw,
   Compass,
   AlertCircle,
@@ -667,7 +667,7 @@ const generateClientFallbackResult = (userAnswers = {}) => {
                   >
                     {isLastQuestion ? (
                       <>
-                        <Sparkles className="w-3.5 h-3.5 mr-1.5" /> See My Career Results
+                        <CheckCircle2 className="w-3.5 h-3.5 mr-1.5" /> See My Career Results
                       </>
                     ) : (
                       <>
