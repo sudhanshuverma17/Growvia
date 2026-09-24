@@ -45,6 +45,7 @@ const RoadmapDetail = lazy(() => import("@/pages/roadmap-detail"));
 const Quiz = lazy(() => import("@/pages/quiz"));
 const Pricing = lazy(() => import("@/pages/pricing"));
 const About = lazy(() => import("@/pages/about"));
+const Contact = lazy(() => import("@/pages/contact"));
 const Login = lazy(() => import("@/pages/login"));
 const Dashboard = lazy(() => import("@/pages/dashboard"));
 const Videos = lazy(() => import("@/pages/videos"));
@@ -67,11 +68,13 @@ function Router() {
   return (
     <Suspense fallback={<PageLoader />}>
       <Switch>
-        {/* Public Pages: Guests can only explore Roadmaps, Home, About, and Login */}
+        {/* Public Pages: Guests can only explore Roadmaps, Home, About, Contact, and Login */}
         <Route path="/" component={Home} />
         <Route path="/roadmaps" component={Roadmaps} />
         <Route path="/roadmaps/:career" component={RoadmapDetail} />
         <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/contact-us" component={Contact} />
         <Route path="/login" component={Login} />
 
         {/* Career Assessment Quiz (Accessible to guests and members; attaches userId if signed in) */}

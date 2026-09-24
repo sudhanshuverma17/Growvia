@@ -119,10 +119,10 @@ export function getCareerHeroImage(career) {
 
 // Concise 1-2 sentence descriptions to prevent bulkiness
 export const CONCISE_DESCRIPTIONS = {
-  pharmacist: "Ensure safe medication use, manage drug supply chains, and advise on pharmaceutical therapy.",
-  actuary: "Use mathematics and statistics to assess financial risk for insurance companies, pension funds, and banks.",
-  "interior-designer": "Transform spaces — homes, offices, hospitality, and retail — into functional and beautiful environments.",
-  "supply-chain": "Manage the end-to-end flow of goods, from raw materials to final delivery — the backbone of every business.",
+  pharmacist: "Ensure safe medication use, manage drug supply chains, and advise on patient care.",
+  actuary: "Use mathematics and statistics to assess financial risk for insurance companies.",
+  "interior-designer": "Transform spaces — homes, offices, hospitality, and retail into functional and beautiful environments.",
+  "supply-chain": "Manage the end-to-end flow of goods, from raw materials to final delivery.",
   biotechnologist: "Work on disease diagnosis, research, and development of new treatments and therapies.",
   "environmental-scientist": "Study environmental systems and develop solutions for a sustainable future.",
   engineer: "Design, develop, and maintain software applications that power the digital world.",
