@@ -23,6 +23,7 @@ import {
   Compass,
 } from "lucide-react";
 import { Layout } from "@/components/layout";
+import { ContactSection } from "@/components/contact/ContactSection";
 import { Button } from "@/components/ui/button";
 import { useCourses } from "@/context/course-context";
 import { useAuth } from "@/context/auth-context";
@@ -807,6 +808,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* ── CONTACT US SECTION (JUST ABOVE FOOTER) ─────────── */}
+      <ContactSection id="contact" />
     </Layout>
   );
 }

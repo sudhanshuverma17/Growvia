@@ -334,9 +334,23 @@ export function Layout({ children }) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/contact" className="hover:text-white transition-colors block">
-                      Contact
-                    </Link>
+                    {location === "/" ? (
+                      <a
+                        href="#contact"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          const el = document.getElementById("contact");
+                          if (el) el.scrollIntoView({ behavior: "smooth" });
+                        }}
+                        className="hover:text-white transition-colors block cursor-pointer"
+                      >
+                        Contact
+                      </a>
+                    ) : (
+                      <Link href="/#contact" className="hover:text-white transition-colors block">
+                        Contact
+                      </Link>
+                    )}
                   </li>
                   <li>
                     <Link href="/about" className="hover:text-white transition-colors block">

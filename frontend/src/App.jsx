@@ -10,12 +10,27 @@ function ScrollToTop() {
   const [location] = useLocation();
 
   useEffect(() => {
+    if (window.location.hash) {
+      const el = document.querySelector(window.location.hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+    }
+
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     if (document.documentElement) document.documentElement.scrollTop = 0;
     if (document.body) document.body.scrollTop = 0;
 
     // Handle any delayed layout rendering from lazy-loaded routes
     const frameId = requestAnimationFrame(() => {
+      if (window.location.hash) {
+        const el = document.querySelector(window.location.hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+          return;
+        }
+      }
       window.scrollTo({ top: 0, left: 0, behavior: "instant" });
       if (document.documentElement) document.documentElement.scrollTop = 0;
       if (document.body) document.body.scrollTop = 0;
