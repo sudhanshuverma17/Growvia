@@ -114,10 +114,11 @@ export function Layout({ children }) {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden text-white/80 hover:text-white"
+            className="md:hidden w-10 h-10 rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm flex items-center justify-center text-white/90 hover:text-white hover:border-white/40 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </header>

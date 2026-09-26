@@ -172,10 +172,18 @@ export default function Home() {
   return (
     <Layout>
       {/* ── HERO (CINEMATIC EDITORIAL) ────────────────────────── */}
-      <section className="relative h-screen min-h-[600px] w-full flex flex-col justify-end overflow-hidden bg-black select-none">
-        {/* Atmospheric Photography Background */}
+      <section className="relative h-[100dvh] min-h-[580px] sm:min-h-[640px] md:h-screen w-full flex flex-col justify-end overflow-hidden bg-black select-none">
+        {/* Atmospheric Photography Background - Mobile */}
         <div
-          className="absolute inset-0 bg-cover bg-center pointer-events-none"
+          className="absolute inset-0 bg-cover bg-center pointer-events-none md:hidden"
+          style={{
+            backgroundImage: "url('/images/hero-cinematic-mobile.jpg')",
+          }}
+        />
+
+        {/* Atmospheric Photography Background - Desktop */}
+        <div
+          className="absolute inset-0 bg-cover pointer-events-none hidden md:block"
           style={{
             backgroundImage: "url('/images/hero-cinematic.jpg')",
             backgroundPosition: "center bottom",
@@ -183,25 +191,25 @@ export default function Home() {
         />
 
         {/* Subtle Gradient Overlays */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/50 via-black/15 to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-52 bg-gradient-to-t from-black/75 via-black/25 to-transparent pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-28 sm:h-32 bg-gradient-to-b from-black/60 via-black/20 to-transparent pointer-events-none z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-64 sm:h-72 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none z-10" />
 
         {/* Center Watermark: Outlined Hexagon Logo Mark */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 flex items-center justify-center">
+        <div className="absolute top-[38%] sm:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 flex items-center justify-center">
           <GrowviaLogoMark
-            className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 text-[#F5F0E8] drop-shadow-[0_4px_32px_rgba(0,0,0,0.85)]"
+            className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 text-[#F5F0E8] drop-shadow-[0_4px_32px_rgba(0,0,0,0.85)]"
             strokeWidth={1.8}
           />
         </div>
 
         {/* Bottom-Left Content: Quote & CTA Buttons */}
-        <div className="relative z-20 max-w-7xl w-full mx-auto px-5 sm:px-8 lg:px-12 pb-10 sm:pb-12 lg:pb-14">
+        <div className="relative z-20 max-w-7xl w-full mx-auto px-5 sm:px-8 lg:px-12 pb-8 sm:pb-12 lg:pb-14">
           <div className="max-w-xl">
             <motion.h1
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mb-6 leading-[1.15] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]"
+              className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mb-5 sm:mb-6 leading-[1.12] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]"
             >
               Find Your Path.
               <br />
@@ -212,12 +220,12 @@ export default function Home() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-wrap items-center gap-3.5 sm:gap-4"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto max-w-[340px] sm:max-w-none"
             >
               {/* Primary Solid Cream Pill Button */}
               <Link
                 href="/roadmaps"
-                className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3 rounded-full bg-[#F5F0E8] text-[#121212] font-medium text-sm sm:text-base hover:bg-white transition-all duration-200 shadow-xl shadow-black/40 group cursor-pointer"
+                className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 sm:py-3 rounded-full bg-[#F5F0E8] text-[#121212] font-semibold text-sm sm:text-base hover:bg-white transition-all duration-200 shadow-xl shadow-black/40 group cursor-pointer w-full sm:w-auto text-center"
               >
                 <span>Explore Roadmaps</span>
                 <ArrowRight className="w-4 h-4 text-[#121212] transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -226,7 +234,7 @@ export default function Home() {
               {/* Secondary Transparent Glass Outline Pill Button */}
               <Link
                 href="/career-quiz"
-                className="inline-flex items-center justify-center px-6 sm:px-7 py-3 rounded-full border border-white/30 bg-black/25 backdrop-blur-sm text-[#F5F0E8] font-medium text-sm sm:text-base hover:bg-white/10 hover:border-white/50 transition-all duration-200 shadow-lg shadow-black/20 cursor-pointer"
+                className="inline-flex items-center justify-center px-6 sm:px-7 py-3.5 sm:py-3 rounded-full border border-white/35 sm:border-white/30 bg-black/30 sm:bg-black/25 backdrop-blur-sm text-[#F5F0E8] font-medium text-sm sm:text-base hover:bg-white/10 hover:border-white/50 transition-all duration-200 shadow-lg shadow-black/20 cursor-pointer w-full sm:w-auto text-center"
               >
                 Take Career Quiz
               </Link>
@@ -235,7 +243,7 @@ export default function Home() {
         </div>
 
         {/* Seamless bottom transition */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-28 bg-gradient-to-t from-black to-transparent pointer-events-none z-10" />
       </section>
 
       {/* ── MARQUEE TICKER ────────────────────────────────────── */}

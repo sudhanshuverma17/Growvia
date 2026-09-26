@@ -1,0 +1,1 @@
+import{j as t}from"./react-vendor-CLGzk8_e.js";import{L as o}from"./index-Vzev7xj4.js";import{C as r}from"./ContactSection-io2kHExF.js";import"./ui-vendor-Cp7pFqsX.js";import"./chart-vendor-wCo86ogl.js";function s(){return t.jsx(o,{children:t.jsx(r,{isStandalonePage:!0})})}export{s as default};
