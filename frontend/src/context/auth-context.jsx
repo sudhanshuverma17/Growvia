@@ -197,6 +197,16 @@ export function AuthProvider({ children }) {
     });
   };
 
+  // Helper to check if current user has purchased any roadmap (or a specific careerId)
+  const hasPurchasedRoadmap = (careerId = null) => {
+    if (!user) return false;
+    if (user.role === "admin") return true;
+    const purchased = Array.isArray(user.purchasedRoadmaps) ? user.purchasedRoadmaps : [];
+    if (purchased.length === 0) return false;
+    if (!careerId) return true;
+    return purchased.some((id) => id.toLowerCase() === careerId.toLowerCase());
+  };
+
   const isAuthenticated = !!user;
   const isAdmin = user?.role === "admin";
 
@@ -214,6 +224,7 @@ export function AuthProvider({ children }) {
         toggleSaveRoadmap,
         refreshUser,
         addPurchasedRoadmap,
+        hasPurchasedRoadmap,
       }}
     >
       {children}
@@ -228,3 +239,16 @@ export function useAuth() {
   }
   return context;
 }
+
+/**
+ * Pure helper to verify if a user object has purchased any roadmap (or specific career)
+ */
+export function checkUserPurchasedRoadmap(user, careerId = null) {
+  if (!user) return false;
+  if (user.role === "admin") return true;
+  const purchased = Array.isArray(user.purchasedRoadmaps) ? user.purchasedRoadmaps : [];
+  if (purchased.length === 0) return false;
+  if (!careerId) return true;
+  return purchased.some((id) => id.toLowerCase() === careerId.toLowerCase());
+}
+

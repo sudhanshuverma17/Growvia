@@ -17,6 +17,7 @@ import quizRoutes from "./routes/quizRoutes.js";
 import paymentRoutes from "./routes/paymentRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
+import counselingRoutes from "./routes/counselingRoutes.js";
 import { authLimiter, apiLimiter } from "./middleware/rateLimiter.js";
 import { Course } from "./models/Course.js";
 import User from "./models/User.js";
@@ -246,6 +247,7 @@ const mountCoreRoutes = (prefix = "/api") => {
   app.use(`${prefix}/payment`, paymentRoutes);
   app.use(`${prefix}/chat`, chatRoutes);
   app.use(`${prefix}/contact`, contactRoutes);
+  app.use(`${prefix}/counseling`, counselingRoutes);
 };
 
 mountCoreRoutes("/api");

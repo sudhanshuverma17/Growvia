@@ -87,3 +87,29 @@ export const optionalProtect = async (req, res, next) => {
   next();
 };
 
+// Verify user has purchased at least one roadmap (or is admin)
+export const requirePurchasedRoadmap = (req, res, next) => {
+  if (!req.user) {
+    return res.status(401).json({
+      success: false,
+      message: "Authentication required to access counseling services",
+    });
+  }
+
+  const isAdmin = req.user.role === "admin";
+  const purchasedRoadmaps = Array.isArray(req.user.purchasedRoadmaps)
+    ? req.user.purchasedRoadmaps
+    : [];
+
+  if (!isAdmin && purchasedRoadmaps.length === 0) {
+    return res.status(403).json({
+      success: false,
+      message: "Forbidden: 1:1 Counseling is an exclusive premium feature reserved for students who have purchased a roadmap.",
+      code: "ROADMAP_PURCHASE_REQUIRED",
+    });
+  }
+
+  next();
+};
+
+

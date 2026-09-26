@@ -32,6 +32,8 @@ import {
   ShieldAlert,
   Wrench,
   Compass,
+  Calendar,
+  ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -229,14 +231,27 @@ export default function RoadmapDetail() {
 
             <div className="flex items-center gap-2">
               {isPurchased && (
-                <Button
-                  size="sm"
-                  onClick={() => window.dispatchEvent(new CustomEvent("growvia:open-chat"))}
-                  className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs rounded-xl shadow-md shadow-emerald-600/25 flex items-center gap-1.5 transition-all cursor-pointer h-8 px-3"
-                >
-                  <MessageSquare className="w-3.5 h-3.5" />
-                  Ask Vio
-                </Button>
+                <>
+                  <Button
+                    size="sm"
+                    onClick={() => window.dispatchEvent(new CustomEvent("growvia:open-chat"))}
+                    className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs rounded-xl shadow-md shadow-emerald-600/25 flex items-center gap-1.5 transition-all cursor-pointer h-8 px-3"
+                  >
+                    <MessageSquare className="w-3.5 h-3.5" />
+                    Ask Vio
+                  </Button>
+
+                  <Button
+                    asChild
+                    size="sm"
+                    className="bg-[#E5A855] hover:bg-[#d99640] text-black font-semibold text-xs rounded-xl shadow-md shadow-amber-500/20 flex items-center gap-1.5 transition-all cursor-pointer h-8 px-3"
+                  >
+                    <Link href={`/get-counseling?career=${career.id}`}>
+                      <Calendar className="w-3.5 h-3.5" />
+                      1:1 Counseling
+                    </Link>
+                  </Button>
+                </>
               )}
 
               <Button
@@ -1101,6 +1116,52 @@ export default function RoadmapDetail() {
           </motion.section>
         )}
 
+        {/* ── 1:1 COUNSELING EXCLUSIVE PRIVILEGE (PURCHASED ONLY) ──────────────────── */}
+        {isPurchased && (
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-3xl p-6 sm:p-8 bg-[#131316] border border-amber-500/30 shadow-xl"
+          >
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-[#E5A855] flex-shrink-0 mt-0.5">
+                  <Calendar className="w-6 h-6 text-[#E5A855]" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#E5A855] bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-full">
+                      Exclusive Privilege
+                    </span>
+                    <span className="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">
+                      <CheckCircle2 className="w-3 h-3" /> Unlocked with {career.title}
+                    </span>
+                  </div>
+                  <h4 className="text-lg sm:text-xl font-bold text-white">
+                    Book Your 1:1 Counseling &amp; Strategy Call
+                  </h4>
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-1 max-w-xl leading-relaxed">
+                    Have questions about this roadmap? Book a private 1-on-1 strategy session with Sudhanshu. Review your milestones, optimize your portfolio, and tailor your interview readiness.
+                  </p>
+                </div>
+              </div>
+
+              <Button
+                asChild
+                className="bg-[#E5A855] hover:bg-[#d99640] text-black font-bold text-xs sm:text-sm h-11 px-6 rounded-xl shadow-lg shadow-amber-500/25 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 flex-shrink-0 cursor-pointer"
+              >
+                <Link href={`/get-counseling?career=${career.id}`}>
+                  <Calendar className="w-4 h-4 text-black" />
+                  <span>Get 1:1 Counseling</span>
+                  <ArrowRight className="w-3.5 h-3.5 ml-0.5" />
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
+        )}
+
         {/* ── UNLOCKED BANNER OR PREMIUM TEASER ──────────────────── */}
         {isPurchased ? (
           <motion.div
@@ -1122,12 +1183,22 @@ export default function RoadmapDetail() {
             <p className="text-muted-foreground mb-6 max-w-lg mx-auto text-xs sm:text-sm leading-relaxed">
               Your full step-by-step curriculum and dedicated 24/7 AI Career Advisor, Vio, are active. Ask specific questions about colleges, milestones, or study plans anytime.
             </p>
-            <Button
-              onClick={() => window.dispatchEvent(new CustomEvent("growvia:open-chat"))}
-              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-full px-8 shadow-lg shadow-emerald-600/25 cursor-pointer"
-            >
-              <MessageSquare className="w-4 h-4 mr-2" /> Chat with Vio
-            </Button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <Button
+                onClick={() => window.dispatchEvent(new CustomEvent("growvia:open-chat"))}
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-full px-7 shadow-lg shadow-emerald-600/25 cursor-pointer"
+              >
+                <MessageSquare className="w-4 h-4 mr-2" /> Chat with Vio
+              </Button>
+              <Button
+                asChild
+                className="bg-[#E5A855] hover:bg-[#d99640] text-black font-bold rounded-full px-7 shadow-lg shadow-amber-500/20 cursor-pointer"
+              >
+                <Link href={`/get-counseling?career=${career.id}`}>
+                  <Calendar className="w-4 h-4 mr-2" /> Book 1:1 Counseling
+                </Link>
+              </Button>
+            </div>
           </motion.div>
         ) : (
           <motion.div

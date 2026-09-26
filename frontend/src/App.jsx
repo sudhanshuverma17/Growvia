@@ -48,6 +48,7 @@ import { AuthProvider } from "@/context/auth-context";
 import { CourseProvider } from "@/context/course-context";
 import { VideoProvider } from "@/context/video-context";
 import { AdminRoute, UserRoute } from "@/components/protected-route";
+import { PurchasedRoadmapRoute } from "@/components/purchased-roadmap-guard";
 import { PageLoader } from "@/components/page-loader";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { ChatWidget } from "@/components/chat/ChatWidget";
@@ -64,6 +65,7 @@ const Contact = lazy(() => import("@/pages/contact"));
 const Login = lazy(() => import("@/pages/login"));
 const Dashboard = lazy(() => import("@/pages/dashboard"));
 const Videos = lazy(() => import("@/pages/videos"));
+const GetCounseling = lazy(() => import("@/pages/get-counseling"));
 
 // Lazy-loaded Admin Pages (Code-split to save ~400kB on initial student load)
 const AdminDashboard = lazy(() => import("@/pages/admin/admin-dashboard"));
@@ -123,6 +125,17 @@ function Router() {
               component={Dashboard}
               title="Sign in to Access Dashboard"
               description="Track your saved career roadmaps, bookmarked mentor videos, and personalized progression from your student dashboard."
+              {...params}
+            />
+          )}
+        </Route>
+
+        {/* Premium Gated Feature: 1:1 Counseling (Accessible ONLY to users who purchased a roadmap) */}
+        <Route path="/get-counseling">
+          {(params) => (
+            <PurchasedRoadmapRoute
+              component={GetCounseling}
+              redirectTo="/pricing?upgrade=counseling"
               {...params}
             />
           )}

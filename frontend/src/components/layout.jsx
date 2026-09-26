@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ShieldCheck, User, LogOut, LayoutDashboard, BookOpen, Users, Linkedin, Github, Instagram, Youtube } from "lucide-react";
+import { Menu, X, ShieldCheck, User, LogOut, LayoutDashboard, BookOpen, Users, Linkedin, Github, Instagram, Youtube, Calendar } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/auth-context";
 import { GrowviaLogo } from "@/components/GrowviaLogo";
+import { PurchasedRoadmapGuard } from "@/components/purchased-roadmap-guard";
 
 export function Layout({ children }) {
   const [isScrolled, setIsScrolled] = useState(false);
