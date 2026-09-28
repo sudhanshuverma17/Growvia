@@ -23,7 +23,6 @@ import { Course } from "./models/Course.js";
 import User from "./models/User.js";
 import Video from "./models/Video.js";
 import { seedCareers } from "./data/seedData.js";
-import { seedVideos } from "./data/seedVideos.js";
 
 dotenv.config({ path: process.env.DOTENV_CONFIG_PATH || undefined });
 
@@ -156,71 +155,6 @@ export const seedInitialData = async () => {
   } catch (seedErr) {
     console.warn(`[Auto-Seeder Warning]: Could not seed courses: ${seedErr.message}`);
   }
-
-  try {
-    const configuredAdminEmail = (process.env.ADMIN_EMAIL || "").trim().toLowerCase();
-    const configuredAdminPassword = process.env.ADMIN_PASSWORD;
-
-    // Check if an admin user already exists in the database
-    const existingAdmin = await User.findOne({ role: "admin" });
-
-    if (!existingAdmin) {
-      if (isProduction) {
-        if (!configuredAdminEmail || !configuredAdminPassword) {
-          console.warn(
-            "⚠️ [Security Notice]: No admin user exists in the database, and ADMIN_EMAIL / ADMIN_PASSWORD are not both set. Auto-seeding skipped. Provision an admin user securely via 'npm run seed'."
-          );
-        } else {
-          console.log(`[Auto-Seeder]: Provisioning initial Admin user for ${configuredAdminEmail}...`);
-          await User.create({
-            name: "Growvia Administrator",
-            email: configuredAdminEmail,
-            password: configuredAdminPassword,
-            role: "admin",
-          });
-          console.log(`[Auto-Seeder]: Initial Admin created: ${configuredAdminEmail}`);
-        }
-      } else {
-        // Development mode: use credentials from .env, or generate temporary dev password
-        const devAdminEmail = configuredAdminEmail || "admin@growvia.com";
-        const devAdminPassword = configuredAdminPassword || crypto.randomBytes(8).toString("hex") + "!A1";
-
-        console.log(`[Dev Auto-Seeder]: Creating default Admin user for ${devAdminEmail}...`);
-        await User.create({
-          name: "Growvia Administrator",
-          email: devAdminEmail,
-          password: devAdminPassword,
-          role: "admin",
-        });
-        if (!configuredAdminPassword) {
-          console.log(`[Dev Auto-Seeder]: Generated temporary dev admin credentials: ${devAdminEmail} / ${devAdminPassword}`);
-        } else {
-          console.log(`[Dev Auto-Seeder]: Default Admin created from .env: ${devAdminEmail}`);
-        }
-      }
-    } else {
-      if (configuredAdminEmail) {
-        const targetAdmin = await User.findOne({ email: configuredAdminEmail });
-        if (targetAdmin && targetAdmin.role !== "admin") {
-          targetAdmin.role = "admin";
-          await targetAdmin.save();
-        }
-      }
-    }
-  } catch (userErr) {
-    console.warn(`[Auto-Seeder Warning]: Could not seed admin user: ${userErr.message}`);
-  }
-
-  try {
-    const videoCount = await Video.countDocuments();
-    if (videoCount === 0) {
-      console.log(`[Auto-Seeder]: Seeding ${seedVideos.length} mentor guidance videos...`);
-      await Video.insertMany(seedVideos);
-      console.log(`[Auto-Seeder]: Seed complete! ${seedVideos.length} videos created.`);
-    }
-  } catch (vidErr) {
-    console.warn(`[Auto-Seeder Warning]: Could not seed videos: ${vidErr.message}`);
-  }
 };
 
 // Ensure database connection for serverless invocations (e.g. on Vercel)
@@ -331,29 +265,68 @@ app.use((err, req, res, next) => {
 // 12. Server Startup & Export
 let server;
 
-const startServer = async () => {
-  await connectDB();
-  await seedInitialData();
-
-  server = app.listen(PORT, () => {
-    console.log(`🚀 [Growvia Backend Server] running at http://localhost:${PORT}`);
+const closeServer = () => {
+  return new Promise((resolve) => {
+    if (!server) return resolve();
+    server.close((err) => {
+      if (err) console.error("[Server]: Error closing HTTP server:", err.message);
+      else console.log("[Server]: HTTP server closed & port released.");
+      resolve();
+    });
   });
+};
+
+const startServer = async () => {
+  try {
+    await connectDB();
+    await seedInitialData();
+
+    server = app.listen(PORT, () => {
+      console.log(`🚀 [Growvia Backend Server] running at http://localhost:${PORT}`);
+    });
+
+    server.on("error", async (err) => {
+      if (err.code === "EADDRINUSE") {
+        console.error(
+          `\n⚠️ [Server Port Conflict]: Port ${PORT} is currently in use by another process.\n` +
+          `   Another terminal or background node instance is holding port ${PORT}.\n`
+        );
+        process.exit(1);
+      } else {
+        console.error("[Server Listen Error]:", err);
+        process.exit(1);
+      }
+    });
+  } catch (err) {
+    console.error("[Server Startup Error]:", err);
+    process.exit(1);
+  }
 };
 
 // Graceful Shutdown Handlers
 const gracefulShutdown = async (signal) => {
   console.log(`\n[Server]: Received ${signal}. Shutting down gracefully...`);
-  if (server) {
-    server.close(() => {
-      console.log("[Server]: HTTP server closed.");
-    });
-  }
+  await closeServer();
   await disconnectDB();
   process.exit(0);
 };
 
 process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
 process.on("SIGINT", () => gracefulShutdown("SIGINT"));
+process.once("SIGUSR2", async () => {
+  console.log("\n[Server]: Nodemon restart (SIGUSR2). Releasing port...");
+  await closeServer();
+  await disconnectDB();
+  process.kill(process.pid, "SIGUSR2");
+});
+
+process.on("unhandledRejection", (reason, promise) => {
+  console.error("[Server Unhandled Rejection]:", reason);
+});
+
+process.on("uncaughtException", (err) => {
+  console.error("[Server Uncaught Exception]:", err);
+});
 
 // Only run standalone HTTP listener if not running in a serverless environment (like Vercel)
 const isServerless = Boolean(

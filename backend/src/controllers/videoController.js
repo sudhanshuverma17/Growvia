@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import { connectDB } from "../config/db.js";
 import Video from "../models/Video.js";
-import { seedVideos } from "../data/seedVideos.js";
 
 // @desc    Get all videos with optional career, access (free/paid), and search filter
 // @route   GET /api/videos
@@ -45,34 +44,10 @@ export const getAllVideos = async (req, res) => {
       // Fall back silently
     }
 
-    if (!videos || videos.length === 0) {
-      let filtered = [...seedVideos];
-      if (careerId && careerId !== "all") {
-        filtered = filtered.filter((v) => v.careerId === careerId.toLowerCase().trim());
-      }
-      if (isPaid !== undefined && isPaid !== "all") {
-        const isPaidBool = isPaid === "true" || isPaid === true;
-        filtered = filtered.filter((v) => v.isPaid === isPaidBool);
-      }
-      if (tag && tag !== "all") {
-        filtered = filtered.filter((v) => v.tag === tag);
-      }
-      if (search && search.trim()) {
-        const s = search.trim().toLowerCase();
-        filtered = filtered.filter(
-          (v) =>
-            v.title?.toLowerCase().includes(s) ||
-            v.mentor?.toLowerCase().includes(s) ||
-            v.careerTitle?.toLowerCase().includes(s) ||
-            v.description?.toLowerCase().includes(s)
-        );
-      }
-      return res.status(200).json(filtered);
-    }
-
-    return res.status(200).json(videos);
+    // Return the actual videos uploaded by the admin (empty array if none)
+    return res.status(200).json(videos || []);
   } catch (error) {
-    return res.status(200).json(seedVideos);
+    return res.status(200).json([]);
   }
 };
 
@@ -96,17 +71,11 @@ export const getVideoById = async (req, res) => {
     }
 
     if (!video) {
-      video = seedVideos.find((v) => v.id === id || v._id === id);
-    }
-
-    if (!video) {
       return res.status(404).json({ error: `Video not found with id: ${id}` });
     }
 
     return res.status(200).json(video);
   } catch (error) {
-    const fallback = seedVideos.find((v) => v.id === req.params.id);
-    if (fallback) return res.status(200).json(fallback);
     return res.status(500).json({ error: "Failed to fetch video details" });
   }
 };

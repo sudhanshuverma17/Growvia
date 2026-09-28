@@ -29,11 +29,7 @@ export const protect = async (req, res, next) => {
         });
       }
 
-      // Synchronize role dynamically with ADMIN_EMAIL in .env
-      const configuredAdminEmail = (process.env.ADMIN_EMAIL || "").trim().toLowerCase();
-      if (configuredAdminEmail) {
-        req.user.role = req.user.email.toLowerCase() === configuredAdminEmail ? "admin" : "user";
-      }
+
 
       return next();
     } catch (error) {
@@ -76,10 +72,7 @@ export const optionalProtect = async (req, res, next) => {
       const token = req.headers.authorization.split(" ")[1];
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       req.user = await User.findById(decoded.id).select("-password");
-      const configuredAdminEmail = (process.env.ADMIN_EMAIL || "").trim().toLowerCase();
-      if (req.user && configuredAdminEmail) {
-        req.user.role = req.user.email.toLowerCase() === configuredAdminEmail ? "admin" : "user";
-      }
+
     } catch (err) {
       req.user = null;
     }

@@ -1,40 +1,28 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
 import { apiUrl } from "@/lib/api-config";
-import { mentorVideos as defaultMentorVideos } from "@/lib/mock-data";
 
 const VideoContext = createContext(null);
-const STORAGE_KEY = "growvia_videos_v1";
+const STORAGE_KEY = "growvia_videos_v3";
 
 export function VideoProvider({ children }) {
   const [videos, setVideos] = useState(() => {
     try {
+      if (typeof window !== "undefined") {
+        localStorage.removeItem("growvia_videos_v1");
+        localStorage.removeItem("growvia_videos_v2");
+      }
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed) && parsed.length > 0) {
+        if (Array.isArray(parsed)) {
           return parsed;
         }
       }
     } catch (e) {
       // Use fallback
     }
-    // Fallback initial videos
-    return defaultMentorVideos.map((v, i) => ({
-      _id: v.id || `v-${i}`,
-      title: v.title,
-      mentor: v.mentor,
-      mentorRole: v.mentorRole || "Industry Professional",
-      careerId: v.careerId,
-      careerTitle: v.careerId ? v.careerId.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) : "Career",
-      videoUrl: "https://www.youtube.com/watch?v=kqtD5dpn9C8",
-      thumbnail: v.thumbnail || "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=640&q=80",
-      duration: v.duration || "25:00",
-      views: v.views || "1.2K",
-      tag: v.tag || "Reality Check",
-      isPaid: i % 3 === 0,
-      price: i % 3 === 0 ? (i % 2 === 0 ? "₹499" : "₹299") : "Free",
-      description: v.title,
-    }));
+    // Only real admin-uploaded videos; starts empty
+    return [];
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -97,10 +85,11 @@ export function VideoProvider({ children }) {
 
       if (res.ok) {
         const saved = await res.json();
-        setVideos((prev) =>
-          prev.map((v) => (v._id === newVideo._id ? saved : v))
-        );
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(videos));
+        setVideos((prev) => {
+          const next = prev.map((v) => (v._id === newVideo._id ? saved : v));
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch (e) {}
+          return next;
+        });
         return saved;
       }
     } catch (err) {
@@ -112,9 +101,11 @@ export function VideoProvider({ children }) {
 
   // Update existing video (Admin)
   const updateVideo = async (id, updatedFields) => {
-    setVideos((prev) =>
-      prev.map((v) => (v._id === id || v.id === id ? { ...v, ...updatedFields } : v))
-    );
+    setVideos((prev) => {
+      const next = prev.map((v) => (v._id === id || v.id === id ? { ...v, ...updatedFields } : v));
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch (e) {}
+      return next;
+    });
 
     try {
       const res = await fetch(apiUrl(`/api/videos/${id}`), {
@@ -125,9 +116,11 @@ export function VideoProvider({ children }) {
 
       if (res.ok) {
         const updated = await res.json();
-        setVideos((prev) =>
-          prev.map((v) => (v._id === id || v.id === id ? updated : v))
-        );
+        setVideos((prev) => {
+          const next = prev.map((v) => (v._id === id || v.id === id ? updated : v));
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch (e) {}
+          return next;
+        });
         return updated;
       }
     } catch (err) {
@@ -137,7 +130,11 @@ export function VideoProvider({ children }) {
 
   // Delete video (Admin)
   const deleteVideo = async (id) => {
-    setVideos((prev) => prev.filter((v) => v._id !== id && v.id !== id));
+    setVideos((prev) => {
+      const next = prev.filter((v) => v._id !== id && v.id !== id);
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch (e) {}
+      return next;
+    });
 
     try {
       await fetch(apiUrl(`/api/videos/${id}`), {

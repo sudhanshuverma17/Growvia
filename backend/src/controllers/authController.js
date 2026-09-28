@@ -8,7 +8,8 @@ import { generateToken } from "../middleware/authMiddleware.js";
 // @access  Public
 export const registerUser = async (req, res) => {
   try {
-    const { name, email, password, role } = req.body;
+    // Ignore any role provided in request body; users always register as "user"
+    const { name, email, password } = req.body;
 
     if (!name || !email || !password) {
       return res.status(400).json({
@@ -46,16 +47,12 @@ export const registerUser = async (req, res) => {
       });
     }
 
-    // Admin verification: only the email configured in ADMIN_EMAIL is granted admin privileges
-    const configuredAdminEmail = (process.env.ADMIN_EMAIL || "").trim().toLowerCase();
-    const isConfiguredAdmin = Boolean(configuredAdminEmail && emailLower === configuredAdminEmail);
-    const userRole = isConfiguredAdmin ? "admin" : "user";
-
+    // Users always register with role "user"; admin accounts cannot be created via registration
     const user = await User.create({
       name: name.trim(),
       email: emailLower,
       password,
-      role: userRole,
+      role: "user",
     });
 
     const token = generateToken(user._id);
@@ -129,16 +126,7 @@ export const loginUser = async (req, res) => {
       });
     }
 
-    // Enforce & synchronize role with ADMIN_EMAIL in .env
-    const configuredAdminEmail = (process.env.ADMIN_EMAIL || "").trim().toLowerCase();
-    if (configuredAdminEmail) {
-      const shouldBeAdmin = user.email.toLowerCase() === configuredAdminEmail;
-      const expectedRole = shouldBeAdmin ? "admin" : "user";
-      if (user.role !== expectedRole) {
-        user.role = expectedRole;
-        await user.save();
-      }
-    }
+
 
     const token = generateToken(user._id);
 
@@ -183,16 +171,7 @@ export const getMe = async (req, res) => {
       });
     }
 
-    // Verify role matches configured ADMIN_EMAIL
-    const configuredAdminEmail = (process.env.ADMIN_EMAIL || "").trim().toLowerCase();
-    if (configuredAdminEmail) {
-      const shouldBeAdmin = user.email.toLowerCase() === configuredAdminEmail;
-      const expectedRole = shouldBeAdmin ? "admin" : "user";
-      if (user.role !== expectedRole) {
-        user.role = expectedRole;
-        await user.save();
-      }
-    }
+
 
     return res.status(200).json({
       success: true,

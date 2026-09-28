@@ -49,6 +49,27 @@ const userSchema = new mongoose.Schema(
   }
 );
 
+// Reject creating a second user with role: "admin"
+userSchema.pre("save", async function (next) {
+  if (this.role === "admin" && (this.isNew || this.isModified("role"))) {
+    if (!this.$locals?.isSeedingAdmin) {
+      const existingAdmin = await this.constructor.findOne({
+        role: "admin",
+        _id: { $ne: this._id },
+      });
+
+      if (existingAdmin) {
+        return next(
+          new Error(
+            `Cannot create a second admin user. An admin account already exists (${existingAdmin.email}).`
+          )
+        );
+      }
+    }
+  }
+  next();
+});
+
 // Hash password before saving if modified
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {

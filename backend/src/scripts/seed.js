@@ -7,7 +7,6 @@ import { Course } from "../models/Course.js";
 import User from "../models/User.js";
 import Video from "../models/Video.js";
 import { seedCareers } from "../data/seedData.js";
-import { seedVideos } from "../data/seedVideos.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -53,15 +52,6 @@ const runSeed = async () => {
         await adminUser.save();
       }
       console.log(`ℹ️ Admin user (${adminEmail}) already exists.`);
-    }
-
-    const videoCount = await Video.countDocuments();
-    if (videoCount === 0) {
-      console.log(`[Seed]: Seeding ${seedVideos.length} mentor guidance videos...`);
-      await Video.insertMany(seedVideos);
-      console.log(`✅ Seeded ${seedVideos.length} videos.`);
-    } else {
-      console.log(`ℹ️ Videos already exist (${videoCount} found).`);
     }
 
     console.log("\n🎉 Database seeding process completed successfully!\n");

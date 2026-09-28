@@ -98,16 +98,7 @@ function Router() {
         <Route path="/career-quiz" component={Quiz} />
         <Route path="/quiz" component={Quiz} />
 
-        <Route path="/videos">
-          {(params) => (
-            <UserRoute
-              component={Videos}
-              title="Sign in for Mentor Videos"
-              description="Mentor masterclasses, industry insights, and career guidance sessions are reserved for registered members. Guests can explore all roadmaps for free."
-              {...params}
-            />
-          )}
-        </Route>
+        <Route path="/videos" component={Videos} />
         {/* Pricing page: Protected; only accessible to logged-in members */}
         <Route path="/pricing">
           {(params) => (

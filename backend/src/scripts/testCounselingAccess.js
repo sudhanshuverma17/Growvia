@@ -166,7 +166,7 @@ function assert(condition, message) {
   assert(res.statusCode === 200, "Controller returns 200 OK for purchaser");
   assert(res.body?.hasAccess === true, "Controller returns hasAccess: true for purchaser");
   assert(
-    res.body?.bookingUrl === "https://sudhanshu-verma.dayschedule.com/meeting-with-sudhanshu",
+    res.body?.bookingUrl === "https://uttkarsh.dayschedule.com/meeting-with-uttkarsh",
     "Controller returns correct bookingUrl"
   );
 }

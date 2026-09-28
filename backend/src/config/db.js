@@ -9,7 +9,9 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 dotenv.config();
 
- 
+try {
+  dns.setServers(["8.8.8.8", "1.1.1.1"]);
+} catch (e) {}
 
 // Disable Mongoose query buffering so operations fail fast if disconnected instead of hanging serverless functions
 mongoose.set("bufferCommands", false);
@@ -48,15 +50,10 @@ export const connectDB = async () => {
 
   try {
     const connectOptions = {
-      serverSelectionTimeoutMS: 5000,
+      serverSelectionTimeoutMS: 10000,
       socketTimeoutMS: 45000,
       maxPoolSize: 10,
     };
-
-    // Only force IPv4 on local Windows dev without SRV
-    if (process.platform === "win32" && !process.env.VERCEL) {
-      connectOptions.family = 4;
-    }
 
     cachedPromise = mongoose.connect(uri, connectOptions);
 

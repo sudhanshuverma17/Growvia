@@ -2,19 +2,19 @@ import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Calendar, Video, Clock, CheckCircle2, Sparkles, Shield, ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const DAYSCHEDULE_SCRIPT_URL =
-  "https://cdn.jsdelivr.net/npm/dayschedule-widget@latest/dist/dayschedule-widget.min.js";
-const DAYSCHEDULE_SCRIPT_ID = "dayschedule-widget-script";
-const COUNSELING_BOOKING_URL =
-  "https://sudhanshu-verma.dayschedule.com/meeting-with-sudhanshu";
+import { useAuth } from "@/context/auth-context";
+import {
+  ensureDayScheduleScript,
+  openDayScheduleBooking,
+  setupDayScheduleBookingListener,
+} from "@/lib/dayschedule-listener";
 
 /**
  * GetCounselingWidget
  *
  * Core booking component for 1:1 career counseling sessions.
- * Dynamically injects DaySchedule's widget script on mount, cleans it up on unmount,
- * and calls window.daySchedule.initPopupWidget({ url: '...' }) on click.
+ * Automatically initializes DaySchedule widget, pre-fills student information,
+ * and seamlessly syncs confirmed bookings directly to user dashboard reminders.
  */
 export function GetCounselingWidget({
   variant = "card", // "card" | "button" | "banner"
@@ -23,72 +23,24 @@ export function GetCounselingWidget({
   buttonText = "Get Counseling",
   linkHref = null,
 }) {
-  const [isScriptReady, setIsScriptReady] = useState(false);
+  const { user, token } = useAuth();
 
   useEffect(() => {
-    let scriptElement = document.getElementById(DAYSCHEDULE_SCRIPT_ID);
-    let wasCreated = false;
+    ensureDayScheduleScript();
 
-    const handleLoad = () => {
-      setIsScriptReady(true);
-    };
+    const cleanup = setupDayScheduleBookingListener({
+      token,
+      user,
+      onBookingConfirmed: () => {
+        // Automatically persisted to backend MongoDB database
+      },
+    });
 
-    if (!scriptElement) {
-      scriptElement = document.createElement("script");
-      scriptElement.id = DAYSCHEDULE_SCRIPT_ID;
-      scriptElement.src = DAYSCHEDULE_SCRIPT_URL;
-      scriptElement.async = true;
-      scriptElement.defer = true;
-      scriptElement.onload = handleLoad;
-      document.body.appendChild(scriptElement);
-      wasCreated = true;
-    } else {
-      if (typeof window !== "undefined" && window.daySchedule) {
-        setIsScriptReady(true);
-      } else {
-        scriptElement.addEventListener("load", handleLoad);
-      }
-    }
-
-    return () => {
-      // Clean up script on unmount to avoid duplicate tags or memory leaks
-      if (wasCreated && scriptElement && scriptElement.parentNode) {
-        scriptElement.removeEventListener("load", handleLoad);
-        scriptElement.parentNode.removeChild(scriptElement);
-      }
-    };
-  }, []);
+    return cleanup;
+  }, [token, user]);
 
   const handleOpenBooking = () => {
-    if (
-      typeof window !== "undefined" &&
-      window.daySchedule &&
-      typeof window.daySchedule.initPopupWidget === "function"
-    ) {
-      window.daySchedule.initPopupWidget({
-        url: COUNSELING_BOOKING_URL,
-      });
-    } else {
-      // Polling fallback if script is in final initialization stage
-      let attempts = 0;
-      const pollTimer = setInterval(() => {
-        attempts++;
-        if (
-          typeof window !== "undefined" &&
-          window.daySchedule &&
-          typeof window.daySchedule.initPopupWidget === "function"
-        ) {
-          clearInterval(pollTimer);
-          window.daySchedule.initPopupWidget({
-            url: COUNSELING_BOOKING_URL,
-          });
-        } else if (attempts >= 10) {
-          clearInterval(pollTimer);
-          // Fallback to opening hosted booking page if popup object not found
-          window.open(COUNSELING_BOOKING_URL, "_blank", "noopener,noreferrer");
-        }
-      }, 100);
-    }
+    openDayScheduleBooking(user);
   };
 
   // 1. Bare Button Variant (for toolbars, compact headers, or inline placements)
@@ -142,7 +94,7 @@ export function GetCounselingWidget({
                 Book Your 1:1 Career Strategy Session
               </h3>
               <p className="text-xs text-muted-foreground mt-0.5 max-w-xl">
-                Get personalized advice, resume and roadmap review, and strategic guidance directly from Sudhanshu.
+                Get personalized advice, resume and roadmap review, and strategic guidance directly from Uttkarsh.
               </p>
             </div>
           </div>
@@ -200,7 +152,7 @@ export function GetCounselingWidget({
           </h2>
 
           <p className="text-sm sm:text-base text-slate-300/90 leading-relaxed">
-            Connect directly with Sudhanshu Verma in a private strategy session. We review your personalized roadmap, break down transition hurdles, optimize your preparation plan, and address your biggest career questions.
+            Connect directly with Uttkarsh in a private strategy session. We review your personalized roadmap, break down transition hurdles, optimize your preparation plan, and address your biggest career questions.
           </p>
 
           {/* Value Highlights */}

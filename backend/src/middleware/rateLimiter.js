@@ -15,13 +15,19 @@ export const authLimiter = rateLimit({
 // General rate limiter for public API endpoints (prevent scraping & DDoS)
 export const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 300, // limit each IP to 300 requests per windowMs
+  max: 3000, // generous limit so active student dashboard polling and bookings are never blocked
   standardHeaders: true,
   legacyHeaders: false,
   message: {
     error: "Too many requests from this IP. Please try again after 15 minutes.",
   },
-  skip: (req) => process.env.NODE_ENV === "test",
+  skip: (req) =>
+    process.env.NODE_ENV === "test" ||
+    req.ip === "127.0.0.1" ||
+    req.ip === "::1" ||
+    req.ip === "::ffff:127.0.0.1" ||
+    (req.path && req.path.startsWith("/counseling")) ||
+    (req.originalUrl && req.originalUrl.includes("/counseling")),
 });
 
 // Per-user rate limiter for Vio AI chatbot interactions (prevent abuse & manage LLM costs)

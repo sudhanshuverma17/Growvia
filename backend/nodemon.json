@@ -1,5 +1,7 @@
 {
-  "watch": ["src/"],
+  "watch": ["src/", ".env"],
   "ignore": ["public/*", "node_modules/*", "*.test.js"],
-  "ext": "js,mjs,cjs,json"
+  "ext": "js,mjs,cjs,json",
+  "delay": 500
 }
+

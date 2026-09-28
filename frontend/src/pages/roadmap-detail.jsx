@@ -5,7 +5,6 @@ import { useToast } from "@/hooks/use-toast";
 
 import { useCourses } from "@/context/course-context";
 import { CareerIcon } from "@/components/career-icon";
-import { mentorVideos } from "@/lib/mock-data";
 import {
   ArrowLeft,
   CheckCircle2,
@@ -1143,7 +1142,7 @@ export default function RoadmapDetail() {
                     Book Your 1:1 Counseling &amp; Strategy Call
                   </h4>
                   <p className="text-xs sm:text-sm text-muted-foreground mt-1 max-w-xl leading-relaxed">
-                    Have questions about this roadmap? Book a private 1-on-1 strategy session with Sudhanshu. Review your milestones, optimize your portfolio, and tailor your interview readiness.
+                    Have questions about this roadmap? Book a private 1-on-1 strategy session with Uttkarsh. Review your milestones, optimize your portfolio, and tailor your interview readiness.
                   </p>
                 </div>
               </div>
