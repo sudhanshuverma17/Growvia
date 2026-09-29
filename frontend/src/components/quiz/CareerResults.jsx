@@ -182,7 +182,7 @@ export function CareerResults({ resultData, onRetake }) {
         </h1>
         <p className="text-[#F5F0E8]/70 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-light">
           Evaluated via multi-dimensional cognitive scoring, behavioral reasoning patterns,
-          and verified Growvia career roadmaps.
+          and verified Honesvia career roadmaps.
         </p>
 
         {/* Quick Header Actions */}
@@ -581,7 +581,7 @@ export function CareerResults({ resultData, onRetake }) {
                 Save Your Career Assessment to Your Account
               </h4>
               <p className="text-xs sm:text-sm text-white/60 max-w-xl font-light">
-                You took this quiz as a guest. Create a free Growvia account or sign in
+                You took this quiz as a guest. Create a free Honesvia account or sign in
                 so you can revisit these results anytime on your student dashboard.
               </p>
             </div>

@@ -130,7 +130,7 @@ app.get(["/api/health", "/health"], async (req, res) => {
   res.status(200).json({
     status: "ok",
     environment: process.env.NODE_ENV || "development",
-    service: "Growvia API Backend",
+    service: "Honesvia API Backend",
     database: stateMap[dbState] || "unknown",
     hasMongoUri: Boolean(process.env.MONGO_URI),
     lastDbError: getLastConnectionError(),
@@ -233,8 +233,8 @@ if (staticServingPath) {
   app.get("/", (req, res) => {
     res.status(200).json({
       status: "ok",
-      service: "Growvia API Backend",
-      message: "Growvia Backend API is online. Frontend static files were not located.",
+      service: "Honesvia API Backend",
+      message: "Honesvia Backend API is online. Frontend static files were not located.",
       database: mongoose.connection.readyState === 1 ? "connected" : "connecting",
       timestamp: new Date().toISOString(),
     });
@@ -282,7 +282,7 @@ const startServer = async () => {
     await seedInitialData();
 
     server = app.listen(PORT, () => {
-      console.log(`🚀 [Growvia Backend Server] running at http://localhost:${PORT}`);
+      console.log(`🚀 [Honesvia Backend Server] running at http://localhost:${PORT}`);
     });
 
     server.on("error", async (err) => {

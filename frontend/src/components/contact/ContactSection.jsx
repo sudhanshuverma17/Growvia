@@ -199,10 +199,10 @@ export function ContactSection({ id = "contact", isStandalonePage = false, class
                       For general queries and support
                     </div>
                     <a
-                      href="mailto:support@growvia.in"
+                      href="mailto:support@honesvia.in"
                       className="text-sm font-semibold text-[#E5A869] hover:text-[#f8caa0] transition-colors inline-block mt-0.5"
                     >
-                      support@growvia.in
+                      support@honesvia.in
                     </a>
                   </div>
                 </div>

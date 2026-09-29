@@ -33,6 +33,8 @@ import {
   Compass,
   Calendar,
   ArrowRight,
+  X,
+  Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -102,6 +104,7 @@ export default function RoadmapDetail() {
   const [, setLocation] = useLocation();
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [expandedStages, setExpandedStages] = useState({ 0: true });
+  const [counselingModalOpen, setCounselingModalOpen] = useState(false);
 
   const toggleStage = (idx) => {
     setExpandedStages((prev) => ({
@@ -229,7 +232,7 @@ export default function RoadmapDetail() {
             </Link>
 
             <div className="flex items-center gap-2">
-              {isPurchased && (
+              {isPurchased ? (
                 <>
                   <Button
                     size="sm"
@@ -251,6 +254,17 @@ export default function RoadmapDetail() {
                     </Link>
                   </Button>
                 </>
+              ) : (
+                <Button
+                  size="sm"
+                  onClick={() => setCounselingModalOpen(true)}
+                  title="1:1 Counseling (Unlocked on purchase)"
+                  className="bg-[#E5A855] hover:bg-[#d99640] text-black font-semibold text-xs rounded-xl shadow-md shadow-amber-500/20 flex items-center gap-1.5 transition-all cursor-pointer h-8 px-3"
+                >
+                  <Calendar className="w-3.5 h-3.5" />
+                  <span>1:1 Counseling</span>
+                  <Lock className="w-3 h-3 text-black/75 ml-0.5" />
+                </Button>
               )}
 
               <Button
@@ -1115,8 +1129,8 @@ export default function RoadmapDetail() {
           </motion.section>
         )}
 
-        {/* ── 1:1 COUNSELING EXCLUSIVE PRIVILEGE (PURCHASED ONLY) ──────────────────── */}
-        {isPurchased && (
+        {/* ── 1:1 COUNSELING EXCLUSIVE PRIVILEGE ──────────────────── */}
+        {isPurchased ? (
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -1157,6 +1171,65 @@ export default function RoadmapDetail() {
                   <ArrowRight className="w-3.5 h-3.5 ml-0.5" />
                 </Link>
               </Button>
+            </div>
+          </motion.div>
+        ) : (
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-3xl p-6 sm:p-8 bg-[#131316] border border-amber-500/30 shadow-xl"
+          >
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-[#E5A855] flex-shrink-0 mt-0.5">
+                  <Calendar className="w-6 h-6 text-[#E5A855]" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#E5A855] bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-full flex items-center gap-1 w-fit">
+                      <Lock className="w-2.5 h-2.5" /> Unlocked on Purchase
+                    </span>
+                    <span className="text-[10px] text-amber-300 font-semibold">
+                      Exclusive Privilege with {career.title}
+                    </span>
+                  </div>
+                  <h4 className="text-lg sm:text-xl font-bold text-white">
+                    Book Your 1:1 Counseling &amp; Strategy Call
+                  </h4>
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-1 max-w-xl leading-relaxed">
+                    Have questions about this roadmap? Unlock this roadmap for ₹199 to activate your private 1-on-1 strategy call with Uttkarsh. Review milestones, portfolio quality, and interview prep.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 flex-shrink-0">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setCounselingModalOpen(true)}
+                  className="border-white/15 text-zinc-300 hover:text-white hover:bg-white/10 font-medium text-xs sm:text-sm h-11 px-4 rounded-xl cursor-pointer"
+                >
+                  View Details
+                </Button>
+                <Button
+                  asChild
+                  className="bg-[#E5A855] hover:bg-[#d99640] text-black font-bold text-xs sm:text-sm h-11 px-6 rounded-xl shadow-lg shadow-amber-500/25 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <Link
+                    href={
+                      isAuthenticated
+                        ? `/pricing?career=${career.id}`
+                        : `/login?redirect=${encodeURIComponent(`/pricing?career=${career.id}`)}`
+                    }
+                  >
+                    <Lock className="w-4 h-4 text-black" />
+                    <span>Unlock on Purchase — ₹199</span>
+                    <ArrowRight className="w-3.5 h-3.5 ml-0.5" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </motion.div>
         )}
@@ -1214,10 +1287,10 @@ export default function RoadmapDetail() {
               LIFETIME ACCESS · ₹199
             </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-2 tracking-tight">
-              Want the Complete Roadmap &amp; <span className="text-[#E69D43]">Vio AI</span>?
+              Want the Complete Roadmap, <span className="text-[#E69D43]">1:1 Counseling</span> &amp; <span className="text-emerald-400">Vio AI</span>?
             </h3>
             <p className="text-muted-foreground mb-6 max-w-lg mx-auto text-xs sm:text-sm leading-relaxed">
-              Unlock printable step-by-step guides, curated resource lists, preparation strategies, and your dedicated 24/7 AI Career Advisor, Vio — all for just ₹199.
+              Unlock printable step-by-step guides, curated resource lists, private 1:1 strategy session with Uttkarsh, and your dedicated 24/7 AI Career Advisor, Vio — all for just ₹199.
             </p>
             <Button
               asChild
@@ -1243,6 +1316,119 @@ export default function RoadmapDetail() {
         isOpen={Boolean(selectedVideo)}
         onClose={() => setSelectedVideo(null)}
       />
+
+      {/* ── 1:1 COUNSELING LOCKED STATE MODAL ───────────────────────── */}
+      {counselingModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="relative w-full max-w-lg bg-[#131316] border border-amber-500/30 rounded-3xl overflow-hidden shadow-2xl p-6 sm:p-8 animate-in zoom-in-95 duration-200">
+            {/* Modal Close Button */}
+            <button
+              onClick={() => setCounselingModalOpen(false)}
+              className="absolute top-4 right-4 z-20 p-2 rounded-full bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-colors cursor-pointer"
+              aria-label="Close modal"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            {/* Header with Icon and Badge */}
+            <div className="text-center mb-6">
+              <div className="relative w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-[#E5A855] mx-auto mb-4 shadow-lg shadow-amber-500/10">
+                <Calendar className="w-8 h-8 text-[#E5A855]" />
+                <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-[#131316] border border-amber-500/40 flex items-center justify-center">
+                  <Lock className="w-3 h-3 text-[#E5A855]" />
+                </div>
+              </div>
+
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-[#E5A855] text-[11px] font-bold uppercase tracking-wider mb-2.5">
+                <Lock className="w-3 h-3" /> Unlocked with Roadmap Purchase
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                1:1 Career Strategy &amp; Counseling
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground mt-1.5 max-w-md mx-auto leading-relaxed">
+                Unlock the full <span className="text-[#E5A855] font-semibold">{career.title}</span> roadmap for ₹199 to instantly activate your private 1-on-1 session with Uttkarsh.
+              </p>
+            </div>
+
+            {/* Perks List */}
+            <div className="space-y-3 mb-6 bg-[#0d0d0f] border border-white/5 rounded-2xl p-4 sm:p-5">
+              <div className="text-[11px] font-bold uppercase tracking-wider text-[#E5A855] mb-2 flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5" /> What&apos;s Included in Your 1:1 Session:
+              </div>
+
+              <div className="flex items-start gap-3 text-xs sm:text-sm text-slate-300">
+                <div className="w-5 h-5 rounded-full bg-emerald-500/15 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <CheckCircle2 className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <strong className="text-white font-medium">45-Minute Private Video Call</strong>
+                  <p className="text-[11px] text-muted-foreground mt-0.5">Direct 1-on-1 strategy call on Google Meet with automatic calendar invites.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 text-xs sm:text-sm text-slate-300">
+                <div className="w-5 h-5 rounded-full bg-emerald-500/15 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <CheckCircle2 className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <strong className="text-white font-medium">Personalized Roadmap Review</strong>
+                  <p className="text-[11px] text-muted-foreground mt-0.5">Tailor your stages, target salary brackets, and avoid time-wasting study paths.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 text-xs sm:text-sm text-slate-300">
+                <div className="w-5 h-5 rounded-full bg-emerald-500/15 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <CheckCircle2 className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <strong className="text-white font-medium">College, Portfolio &amp; Resume Audit</strong>
+                  <p className="text-[11px] text-muted-foreground mt-0.5">Get actionable feedback to optimize your admission chances and job readiness.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 text-xs sm:text-sm text-slate-300">
+                <div className="w-5 h-5 rounded-full bg-emerald-500/15 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <CheckCircle2 className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <strong className="text-white font-medium">Full Lifetime Roadmap Access</strong>
+                  <p className="text-[11px] text-muted-foreground mt-0.5">All detailed stage guides, exercises, and 24/7 Vio AI advisor included.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-3">
+              <Button
+                asChild
+                className="w-full bg-[#E5A855] hover:bg-[#d99640] text-black font-bold text-xs sm:text-sm h-11 rounded-xl shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-[1.01]"
+              >
+                <Link
+                  href={
+                    isAuthenticated
+                      ? `/pricing?career=${career.id}`
+                      : `/login?redirect=${encodeURIComponent(`/pricing?career=${career.id}`)}`
+                  }
+                >
+                  <Lock className="w-4 h-4 text-black" />
+                  <span>Unlock Roadmap for ₹199</span>
+                  <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                </Link>
+              </Button>
+
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setCounselingModalOpen(false)}
+                className="w-full sm:w-auto border-white/15 text-zinc-400 hover:text-white hover:bg-white/10 text-xs h-11 px-5 rounded-xl cursor-pointer"
+              >
+                Cancel
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 }

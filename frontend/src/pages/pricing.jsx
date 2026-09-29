@@ -298,7 +298,7 @@ export default function Pricing() {
                 <div className="flex justify-between items-start mb-6">
                   <div>
                     <span className="text-[11px] font-semibold text-[#E5A855] uppercase tracking-widest block mb-1">
-                      Growvia Starter
+                      Honesvia Starter
                     </span>
                     <h2 className="text-2xl font-bold text-white tracking-tight">One Career, Full Clarity</h2>
                     <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">

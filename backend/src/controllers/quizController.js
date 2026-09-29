@@ -7,7 +7,7 @@ import { QuizAssessment } from "../models/QuizAssessment.js";
 import { Course } from "../models/Course.js";
 
 /**
- * Validates that all 10 quiz answers meet required formats and constraints
+ * Validates that all quiz answers meet required formats and constraints
  * @param {Object} answers
  * @returns {{ isValid: boolean, error?: string }}
  */

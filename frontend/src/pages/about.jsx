@@ -66,7 +66,7 @@ export default function About() {
               custom={2}
               className="text-sm sm:text-base md:text-lg text-muted-foreground/90 max-w-2xl mx-auto leading-relaxed mb-8"
             >
-              Every year, crores of Indian students choose careers based on hype, parental pressure, or outdated advice — without a single honest conversation about what the path really looks like. Growvia was built to change that.
+              Every year, crores of Indian students choose careers based on hype, parental pressure, or outdated advice — without a single honest conversation about what the path really looks like. Honesvia was built to change that.
             </motion.p>
 
             {/* Metric Counters */}
@@ -130,14 +130,14 @@ export default function About() {
                     Uttkarsh Baisla
                   </h2>
                   <p className="text-xs sm:text-sm text-muted-foreground mb-5">
-                    Founder of Growvia & Co-Founder of Adfrenzy Media
+                    Founder of Honesvia & Co-Founder of Adfrenzy Media
                   </p>
 
                   {/* Quote */}
                   <div className="relative mb-5">
                     <Quote className="absolute -top-1 -left-1 w-5 h-5 text-amber-500/30" />
                     <blockquote className="pl-6 text-base sm:text-lg text-white/90 italic leading-relaxed border-l-2 border-amber-500/40">
-                      Just 2 years ago, I was completely blank — no direction, no clarity, no idea what I wanted to do with my life. Not everyone gets a lucky break. Growvia ensures you don&apos;t need one.
+                      Just 2 years ago, I was completely blank — no direction, no clarity, no idea what I wanted to do with my life. Not everyone gets a lucky break. Honesvia ensures you don&apos;t need one.
                     </blockquote>
                   </div>
 
@@ -146,11 +146,11 @@ export default function About() {
                   </p>
 
                   <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-5">
-                    Growvia is the answer to that problem. A platform where anyone can find the right career path and absolutely kill it in life.
+                    Honesvia is the answer to that problem. A platform where anyone can find the right career path and absolutely kill it in life.
                   </p>
 
                   <div className="flex flex-wrap gap-2">
-                    {["Founder of Growvia", "Co-Founder, Adfrenzy Media", "Career Clarity", "India-First"].map((tag) => (
+                    {["Founder of Honesvia", "Co-Founder, Adfrenzy Media", "Career Clarity", "India-First"].map((tag) => (
                       <span
                         key={tag}
                         className="text-[11px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-muted-foreground font-medium"

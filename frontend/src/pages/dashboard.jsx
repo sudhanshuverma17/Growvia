@@ -318,7 +318,7 @@ function getGoogleCalendarUrl(booking) {
     const formatGDate = (d) =>
       `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}00Z`;
 
-    const title = encodeURIComponent(booking.sessionTitle || "Growvia 1:1 Counseling with Uttkarsh");
+    const title = encodeURIComponent(booking.sessionTitle || "Honesvia 1:1 Counseling with Uttkarsh");
     const details = encodeURIComponent(
       `1:1 Career Strategy & Roadmap Mentorship Session\n\nGoogle Meet Link: ${booking.meetLink}\nTopic: ${booking.roadmapTitle || "Career Roadmap"}\nMentor: ${booking.mentorName || "Uttkarsh"}\n\nJoin call: ${booking.meetLink}`
     );
@@ -1693,7 +1693,7 @@ export default function Dashboard() {
                       </div>
                       <h3 className="text-xl font-bold text-white mb-2">No Quiz Results Recorded Yet</h3>
                       <p className="text-xs sm:text-sm text-zinc-400 max-w-md mx-auto mb-6 leading-relaxed">
-                        Take our 10-question scientifically backed career assessment to discover your top aligned professions.
+                        Take our scientifically backed career assessment to discover your top aligned professions.
                       </p>
                       <Button
                         asChild
@@ -1725,7 +1725,7 @@ export default function Dashboard() {
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">Milestone Certificates</h3>
                     <p className="text-xs sm:text-sm text-zinc-400 max-w-md mx-auto mb-6 leading-relaxed">
-                      Complete stages in your purchased roadmaps to earn verified Growvia accomplishment credentials.
+                      Complete stages in your purchased roadmaps to earn verified Honesvia accomplishment credentials.
                     </p>
                     <span className="inline-block px-4 py-1.5 rounded-full bg-[#1C1C20] border border-zinc-700/60 text-zinc-400 text-xs font-medium">
                       Unlocked upon Stage Completion

@@ -41,7 +41,11 @@ export default function Quiz() {
 
       if (savedOrder) {
         const parsedOrder = JSON.parse(savedOrder);
-        if (parsedOrder && typeof parsedOrder === "object" && Object.keys(parsedOrder).length > 0) {
+        if (
+          parsedOrder &&
+          typeof parsedOrder === "object" &&
+          Object.keys(parsedOrder).length === QUIZ_QUESTIONS.length
+        ) {
           return applyQuizOptionOrder(QUIZ_QUESTIONS, parsedOrder);
         }
       }
@@ -316,7 +320,7 @@ const generateClientFallbackResult = (userAnswers = {}) => {
   const categoryScores = {};
   Object.keys(categoryTotals).forEach((cat) => {
     const raw = categoryTotals[cat] || 0;
-    const max = 18;
+    const max = 42.0;
     categoryScores[cat] = Math.min(98, Math.max(25, Math.round((raw / max) * 100)));
   });
 
@@ -423,7 +427,7 @@ const generateClientFallbackResult = (userAnswers = {}) => {
         "Exploring industry certifications and professional networking",
       ],
       nextSteps: [
-        `Explore the step-by-step roadmap for ${topMatch.title} on Growvia`,
+        `Explore the step-by-step roadmap for ${topMatch.title} on Honesvia`,
         isTie && selected[1]
           ? `Compare day-to-day milestones with ${selected[1].title} to see which projects excite you most`
           : "Review core skill milestones and prerequisite foundations",
@@ -561,14 +565,14 @@ const generateClientFallbackResult = (userAnswers = {}) => {
             /* Results presentation */
             <CareerResults resultData={resultData} onRetake={handleRetake} />
           ) : (
-            /* 10-Question Wizard - Compact to fit within viewport */
+            /* Career Assessment Wizard - Compact to fit within viewport */
             <div>
               {/* Slim Header & Action bar */}
               <div className="flex items-center justify-between text-xs mb-2 sm:mb-2.5 px-0.5">
                 <div className="flex items-center gap-1.5 font-bold text-white text-xs">
                   <Compass className="w-3.5 h-3.5 text-primary" /> Career Assessment
                   <span className="text-muted-foreground text-[11px] font-normal hidden sm:inline">
-                    • 10 Questions
+                    • {totalSteps} Questions
                   </span>
                 </div>
                 <button
@@ -632,6 +636,13 @@ const generateClientFallbackResult = (userAnswers = {}) => {
                     value={currentAnswer}
                     onChange={handleAnswerChange}
                   />
+
+                  {currentQuestion.whyThisQuestion && (
+                    <div className="mt-3 pt-2.5 border-t border-white/5 flex items-start gap-1.5 text-[11px] text-muted-foreground/80">
+                      <span className="font-semibold text-white/70 flex-shrink-0">Why this question?</span>
+                      <span className="text-white/60">{currentQuestion.whyThisQuestion}</span>
+                    </div>
+                  )}
                 </motion.div>
               </AnimatePresence>
 

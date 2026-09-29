@@ -371,7 +371,7 @@ export function Layout({ children }) {
 
           {/* Bottom Bar: Copyright & Slogan with glowing line */}
           <div className="border-t border-white/[0.08] mt-12 pt-7 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-            <p>© {new Date().getFullYear()} Growvia. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Honesvia. All rights reserved.</p>
             <div className="flex items-center gap-3">
               <span className="w-10 h-[2px] bg-gradient-to-r from-transparent to-[#E5A869] shadow-[0_0_8px_#E5A869]" />
               <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.22em] text-zinc-400/90 select-none">

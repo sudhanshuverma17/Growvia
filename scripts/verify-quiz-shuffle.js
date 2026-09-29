@@ -49,10 +49,10 @@ QUIZ_QUESTIONS.forEach((q) => {
 });
 
 const uniqueFirstOptions = new Set(firstOptionCareers);
-console.log("Primary careers at position 1 across 10 questions:", firstOptionCareers);
+console.log(`Primary careers at position 1 across ${QUIZ_QUESTIONS.length} questions:`, firstOptionCareers);
 assert.ok(
   uniqueFirstOptions.size > 1,
-  `Option 1 should not always map to the same career (found ${uniqueFirstOptions.size} distinct careers across 10 questions)`
+  `Option 1 should not always map to the same career (found ${uniqueFirstOptions.size} distinct careers across ${QUIZ_QUESTIONS.length} questions)`
 );
 console.log(`✓ Test 2 passed: Diverse career distribution at Option 1 across questions (${uniqueFirstOptions.size} unique careers).\n`);
 
@@ -108,6 +108,9 @@ const sampleAnswers = {
   q8: "q8_opt3", // Tech
   q9: "q9_opt3", // Tech
   q10: "q10_opt3", // Tech
+  q11: "q11_opt1", // Tech
+  q12: "q12_opt1", // Tech
+  q13: "q13_opt1", // Tech
 };
 
 const assessmentResult = processAssessment(sampleAnswers);

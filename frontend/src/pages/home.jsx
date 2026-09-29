@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { ContactSection } from "@/components/contact/ContactSection";
+import { HomeCounselingSection } from "@/components/HomeCounselingSection";
 import { Button } from "@/components/ui/button";
 import { useCourses } from "@/context/course-context";
 import { useAuth } from "@/context/auth-context";
@@ -100,11 +101,11 @@ const FEATURED_ROADMAPS_CONFIG = [
 const FOUNDER_QUOTE = {
   quoteBefore: "Just 2 years ago I was completely blank — ",
   quoteHighlight1: "no direction, no clarity.",
-  quoteMiddle: " Not everyone gets a lucky break. Growvia ensures ",
+  quoteMiddle: " Not everyone gets a lucky break. Honesvia ensures ",
   quoteHighlight2: "you don’t need one.",
   quoteAfter: "",
   author: "Uttkarsh Baisla",
-  role: "Founder of Growvia & Co-Founder of Adfrenzy Media",
+  role: "Founder of Honesvia & Co-Founder of Adfrenzy Media",
   initials: "UB",
 };
 
@@ -816,6 +817,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* ── 1:1 COUNSELING & MENTORSHIP SECTION ────────────── */}
+      <HomeCounselingSection />
 
       {/* ── CONTACT US SECTION (JUST ABOVE FOOTER) ─────────── */}
       <ContactSection id="contact" />

@@ -291,7 +291,7 @@ function ChatWidgetContent({ user, token, careerId }) {
             next[lastIdx] = {
               ...next[lastIdx],
               content:
-                "I'm Vio, here to help you navigate Growvia! Could you please clarify your career or platform question?",
+                "I'm Vio, here to help you navigate Honesvia! Could you please clarify your career or platform question?",
             };
           }
           return next;
@@ -603,7 +603,7 @@ function ChatWidgetContent({ user, token, careerId }) {
 
               <div className="mt-2 flex items-center justify-between text-[10px] text-slate-500 px-1">
                 <span>Shift + Enter for new line</span>
-                <span>Powered by Vio · Growvia AI</span>
+                <span>Powered by Vio · Honesvia AI</span>
               </div>
             </div>
           </motion.div>

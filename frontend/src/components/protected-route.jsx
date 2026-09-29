@@ -29,7 +29,7 @@ export function AdminRoute({ component: Component, ...rest }) {
           </div>
           <h2 className="text-2xl font-bold text-white mb-2">Authentication Required</h2>
           <p className="text-muted-foreground text-sm max-w-md mb-6">
-            You must be logged in as an administrator to access the Growvia Admin Studio.
+            You must be logged in as an administrator to access the Honesvia Admin Studio.
           </p>
           <div className="flex gap-4">
             <Button asChild className="bg-primary text-primary-foreground">

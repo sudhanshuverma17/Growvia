@@ -185,7 +185,7 @@ export const generateDeterministicAnalysis = ({ traitScores = {}, careerMatches 
   ];
 
   const nextSteps = [
-    `Explore the verified step-by-step roadmap for ${topCareer.title} on Growvia`,
+    `Explore the verified step-by-step roadmap for ${topCareer.title} on Honesvia`,
     "Review foundational core milestones, recommended qualifications, and practical experience paths",
     "Engage with guided real-world projects and mentorship to validate your day-to-day career fulfillment",
   ];
@@ -210,11 +210,11 @@ export const generateDeterministicAnalysis = ({ traitScores = {}, careerMatches 
  * Directs the LLM to act as an impartial, multi-disciplinary cognitive career strategist.
  * The LLM selects, ranks, and justifies the career recommendations.
  */
-const SYSTEM_PROMPT = `You are Growvia's Lead AI Career Strategist and Multi-Disciplinary Cognitive Psychologist.
-Your task is to analyze the candidate's logical thinking style, reasoning tendencies, and decision-making framework from their 10 quiz responses, and evaluate their optimal career trajectories across all fields.
+const SYSTEM_PROMPT = `You are Honesvia's Lead AI Career Strategist and Multi-Disciplinary Cognitive Psychologist.
+Your task is to analyze the candidate's logical thinking style, reasoning tendencies, and decision-making framework from their quiz responses, and evaluate their optimal career trajectories across all fields.
 
 CRITICAL CAREER DIVERSITY MANDATE:
-- Growvia serves candidates with passions across ALL career disciplines:
+- Honesvia serves candidates with passions across ALL career disciplines:
   1. Healthcare & Medicine (e.g. Doctor, Dentist, Pharmacist, Physiotherapist, Psychologist, Nutritionist)
   2. Law, Governance & Policy (e.g. Lawyer, Corporate Counsel, Civil Services / IAS)
   3. Creative Arts & Design (e.g. UI/UX Designer, Graphic Designer, Fashion Designer, Interior Designer, Architect)

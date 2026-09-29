@@ -138,11 +138,11 @@ export const createOrder = async (req, res) => {
       customer_details: {
         customer_id: user._id.toString(),
         customer_email: user.email,
-        customer_name: user.name || "Growvia Student",
+        customer_name: user.name || "Honesvia Student",
         customer_phone: user.phone || "9999999999",
       },
       order_meta: orderMeta,
-      order_note: `Growvia Roadmap Unlock: ${careerId} for ${user.email}`,
+      order_note: `Honesvia Roadmap Unlock: ${careerId} for ${user.email}`,
     };
 
     try {
@@ -474,7 +474,7 @@ export const paymentCallback = async (req, res) => {
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Payment Completed - Growvia</title>
+  <title>Payment Completed - Honesvia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -508,7 +508,7 @@ export const paymentCallback = async (req, res) => {
 <body>
   <div class="spinner"></div>
   <h2>Payment Processed</h2>
-  <p>Returning to your Growvia session...</p>
+  <p>Returning to your Honesvia session...</p>
   <script>
     (function() {
       const orderId = ${JSON.stringify(order_id || "")};

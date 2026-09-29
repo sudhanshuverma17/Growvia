@@ -76,8 +76,8 @@ export const calculateWeightedCategoryVectors = (answers = {}) => {
   return categoryTotals;
 };
 
-// Global maximum achievable points for a fully dominant category (4 * 3 * 0.8 + 6 * 3 * 1.2 = 31.2)
-export const GLOBAL_MAX_POINTS = 31.2;
+// Global maximum achievable points for a fully dominant category (4 * 3 * 0.8 + 9 * 3 * 1.2 = 42.0)
+export const GLOBAL_MAX_POINTS = 42.0;
 
 /**
  * 2. Normalize Category Scores to 0–100%

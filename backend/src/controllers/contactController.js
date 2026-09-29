@@ -111,7 +111,7 @@ export const submitContactMessage = async (req, res) => {
     console.error("[Contact Controller Error]:", error);
     return res.status(500).json({
       success: false,
-      message: "Failed to submit message. Please try again or reach out directly at support@growvia.in",
+      message: "Failed to submit message. Please try again or reach out directly at support@honesvia.in",
       error: error.message,
     });
   }

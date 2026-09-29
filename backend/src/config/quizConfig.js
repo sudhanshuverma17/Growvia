@@ -569,6 +569,132 @@ export const QUIZ_QUESTIONS = [
       },
     ],
   },
+  {
+    id: "q11",
+    typeCategory: "interest",
+    weight: 1.2,
+    category: "Work Preference",
+    question: "What would you enjoy doing at work?",
+    type: "single",
+    description: "Pick the type of work that sounds most interesting to you.",
+    whyThisQuestion: "It directly checks the type of work the student would enjoy doing regularly.",
+    options: [
+      {
+        id: "q11_opt1",
+        title: "Build an app or website",
+        scores: { technology: 3 },
+      },
+      {
+        id: "q11_opt2",
+        title: "Help people with their health",
+        scores: { medicine: 3 },
+      },
+      {
+        id: "q11_opt3",
+        title: "Help people solve a legal problem",
+        scores: { law: 3 },
+      },
+      {
+        id: "q11_opt4",
+        title: "Run a business or manage money",
+        scores: { business: 3, finance: 3 },
+      },
+      {
+        id: "q11_opt5",
+        title: "Create designs, videos, or pictures",
+        scores: { design: 3 },
+      },
+      {
+        id: "q11_opt6",
+        title: "Build or improve machines and things",
+        scores: { engineering: 3 },
+      },
+    ],
+  },
+  {
+    id: "q12",
+    typeCategory: "interest",
+    weight: 1.2,
+    category: "Personal Motivation",
+    question: "What kind of result would make you happiest?",
+    type: "single",
+    description: "Think about something you would feel proud of creating or doing.",
+    whyThisQuestion: "This measures the user's personal motivation and desired impact, not just their subject preference.",
+    options: [
+      {
+        id: "q12_opt1",
+        title: "Making a useful app that many people use",
+        scores: { technology: 3 },
+      },
+      {
+        id: "q12_opt2",
+        title: "Helping someone become healthy",
+        scores: { medicine: 3 },
+      },
+      {
+        id: "q12_opt3",
+        title: "Helping someone get justice",
+        scores: { law: 3 },
+      },
+      {
+        id: "q12_opt4",
+        title: "Building a successful business",
+        scores: { business: 3, finance: 3 },
+      },
+      {
+        id: "q12_opt5",
+        title: "Creating something beautiful that people love",
+        scores: { design: 3 },
+      },
+      {
+        id: "q12_opt6",
+        title: "Building a machine or structure that works well",
+        scores: { engineering: 3 },
+      },
+    ],
+  },
+  {
+    id: "q13",
+    typeCategory: "interest",
+    weight: 1.2,
+    category: "Learning Curiosity",
+    question: "If you could learn one new skill, what would you choose?",
+    type: "single",
+    description: "Pick the skill you would be most excited to learn.",
+    whyThisQuestion: "This measures natural curiosity. A student may not have experience in a career yet, but their choice can show what they are willing to explore.",
+    options: [
+      {
+        id: "q13_opt1",
+        title: "Coding and building software",
+        scores: { technology: 3 },
+      },
+      {
+        id: "q13_opt2",
+        title: "Understanding the human body and health",
+        scores: { medicine: 3 },
+      },
+      {
+        id: "q13_opt3",
+        title: "Understanding laws and solving legal problems",
+        scores: { law: 3 },
+      },
+      {
+        id: "q13_opt4",
+        title: "Managing money and starting a business",
+        scores: { business: 3, finance: 3 },
+      },
+      {
+        id: "q13_opt5",
+        title: "Designing, drawing, or creating content",
+        scores: { design: 3 },
+      },
+      {
+        id: "q13_opt6",
+        title: "Building machines and understanding how they work",
+        scores: { engineering: 3 },
+      },
+    ],
+  },
 ];
 
 // 4. Comprehensive Career Profiles Mapped Exactly to Growvia Roadmap IDs in MongoDB
