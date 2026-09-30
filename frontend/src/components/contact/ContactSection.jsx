@@ -115,12 +115,14 @@ export function ContactSection({ id = "contact", isStandalonePage = false, class
   return (
     <section
       id={id}
-      className={`relative ${
+      className={`scroll-mt-20 relative ${
         isStandalonePage
           ? "min-h-[calc(100vh-80px)] py-16 md:py-24"
           : "py-24 md:py-32"
       } bg-black overflow-hidden select-none flex items-center ${className}`}
     >
+      {/* Anchor alias so both #contact and #contact-us work seamlessly */}
+      <div id="contact-us" className="absolute -top-20 opacity-0 pointer-events-none" aria-hidden="true" />
       {/* Planetary Horizon Glow Background */}
       <div
         className="absolute inset-0 bg-cover pointer-events-none opacity-95"

@@ -1,1 +1,0 @@
-import{j as t}from"./react-vendor-CLGzk8_e.js";import{L as o}from"./index-Dujgz171.js";import{C as r}from"./ContactSection-BGR1LVto.js";import"./ui-vendor-D_SiO-Pz.js";import"./chart-vendor-3HaK-SFd.js";function s(){return t.jsx(o,{children:t.jsx(r,{isStandalonePage:!0})})}export{s as default};

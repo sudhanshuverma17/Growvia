@@ -34,7 +34,7 @@ import {
  * at least one roadmap (or administrators). For guests and non-purchasers, the button
  * displays a locked badge and opens an educational upgrade modal explaining how to unlock it.
  */
-export function HomeCounselingSection() {
+export function HomeCounselingSection({ id = "counseling-section" } = {}) {
   const { user, token, isAuthenticated, isAdmin } = useAuth();
   const [lockModalOpen, setLockModalOpen] = useState(false);
 
@@ -72,9 +72,11 @@ export function HomeCounselingSection() {
 
   return (
     <section
-      id="counseling-section"
-      className="relative py-20 sm:py-28 bg-[#0a0a0c] text-foreground overflow-hidden selection:bg-amber-500/30 border-t border-white/[0.06]"
+      id={id}
+      className="scroll-mt-20 relative py-20 sm:py-28 bg-[#0a0a0c] text-foreground overflow-hidden selection:bg-amber-500/30 border-t border-white/[0.06]"
     >
+      {/* Anchor alias so both #counseling and #counseling-section work seamlessly */}
+      <div id="counseling" className="absolute -top-20 opacity-0 pointer-events-none" aria-hidden="true" />
       {/* ── ATMOSPHERIC BACKGROUND IMAGE & GRADIENTS ─────────── */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0">
         <div

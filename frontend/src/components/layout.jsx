@@ -21,16 +21,89 @@ export function Layout({ children }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const [currentHash, setCurrentHash] = useState(
+    typeof window !== "undefined" ? window.location.hash : ""
+  );
+
+  useEffect(() => {
+    const handleHashSync = () => {
+      setCurrentHash(window.location.hash);
+    };
+    window.addEventListener("hashchange", handleHashSync);
+    window.addEventListener("popstate", handleHashSync);
+    return () => {
+      window.removeEventListener("hashchange", handleHashSync);
+      window.removeEventListener("popstate", handleHashSync);
+    };
+  }, []);
+
   useEffect(() => {
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    if (!window.location.hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
   }, [location]);
 
   const navLinks = [
     { name: "Roadmaps", href: "/roadmaps" },
     { name: "Career Quiz", href: "/career-quiz" },
+    { name: "1:1 Counseling", href: "/#counseling-section", targetId: "counseling-section" },
     { name: "About", href: "/about" },
+    { name: "Contact Us", href: "/#contact", targetId: "contact" },
   ];
+
+  const handleNavClick = (e, link) => {
+    if (link.targetId) {
+      e.preventDefault();
+      const wasMobileOpen = mobileMenuOpen;
+      setMobileMenuOpen(false);
+
+      const scrollToTarget = () => {
+        const targetEl =
+          document.getElementById(link.targetId) ||
+          (link.targetId === "counseling-section" ? document.getElementById("counseling") : null) ||
+          (link.targetId === "contact" ? document.getElementById("contact-us") : null);
+
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: "smooth" });
+          window.history.pushState(null, "", `/#${link.targetId}`);
+          setCurrentHash(`#${link.targetId}`);
+          return true;
+        }
+        return false;
+      };
+
+      if (location === "/") {
+        if (wasMobileOpen) {
+          setTimeout(scrollToTarget, 120);
+        } else {
+          scrollToTarget();
+        }
+      } else {
+        setLocation(`/#${link.targetId}`);
+        window.history.pushState(null, "", `/#${link.targetId}`);
+        setCurrentHash(`#${link.targetId}`);
+
+        let attempts = 0;
+        const interval = setInterval(() => {
+          attempts++;
+          if (scrollToTarget() || attempts >= 30) {
+            clearInterval(interval);
+          }
+        }, 50);
+      }
+    } else {
+      setMobileMenuOpen(false);
+      setCurrentHash("");
+    }
+  };
+
+  const isLinkActive = (link) => {
+    if (link.targetId) {
+      return location === "/" && currentHash === `#${link.targetId}`;
+    }
+    return location === link.href;
+  };
 
   const currentFullPath = typeof window !== "undefined" ? window.location.pathname + window.location.search : location;
   const loginHref = currentFullPath && currentFullPath !== "/" && !currentFullPath.startsWith("/login")
@@ -50,14 +123,15 @@ export function Layout({ children }) {
           <GrowviaLogo markClassName="w-6 h-6 text-white" textClassName="text-xl font-light tracking-[0.04em] text-white" />
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-7">
-            <nav className="flex items-center gap-7">
+          <div className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-7">
+            <nav className="flex items-center gap-4 lg:gap-6 xl:gap-7">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-sm tracking-normal transition-colors ${
-                    location === link.href
+                  onClick={(e) => handleNavClick(e, link)}
+                  className={`text-sm tracking-normal transition-colors whitespace-nowrap ${
+                    isLinkActive(link)
                       ? "text-white font-medium"
                       : "text-white/80 hover:text-white"
                   }`}
@@ -137,8 +211,9 @@ export function Layout({ children }) {
                 <Link
                   key={link.name}
                   href={link.href}
+                  onClick={(e) => handleNavClick(e, link)}
                   className={`border-b border-white/5 pb-3 ${
-                    location === link.href ? "text-primary" : "text-white"
+                    isLinkActive(link) ? "text-primary" : "text-white"
                   }`}
                 >
                   {link.name}
@@ -304,6 +379,21 @@ export function Layout({ children }) {
                     </Link>
                   </li>
                   <li>
+                    <Link
+                      href="/#counseling-section"
+                      onClick={(e) =>
+                        handleNavClick(e, {
+                          name: "1:1 Counseling",
+                          href: "/#counseling-section",
+                          targetId: "counseling-section",
+                        })
+                      }
+                      className="hover:text-white transition-colors block cursor-pointer"
+                    >
+                      1:1 Counseling
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/pricing" className="hover:text-white transition-colors block">
                       Pricing
                     </Link>
@@ -336,23 +426,19 @@ export function Layout({ children }) {
                     </Link>
                   </li>
                   <li>
-                    {location === "/" ? (
-                      <a
-                        href="#contact"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          const el = document.getElementById("contact");
-                          if (el) el.scrollIntoView({ behavior: "smooth" });
-                        }}
-                        className="hover:text-white transition-colors block cursor-pointer"
-                      >
-                        Contact
-                      </a>
-                    ) : (
-                      <Link href="/#contact" className="hover:text-white transition-colors block">
-                        Contact
-                      </Link>
-                    )}
+                    <Link
+                      href="/#contact"
+                      onClick={(e) =>
+                        handleNavClick(e, {
+                          name: "Contact Us",
+                          href: "/#contact",
+                          targetId: "contact",
+                        })
+                      }
+                      className="hover:text-white transition-colors block cursor-pointer"
+                    >
+                      Contact Us
+                    </Link>
                   </li>
                   <li>
                     <Link href="/about" className="hover:text-white transition-colors block">

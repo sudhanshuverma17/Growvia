@@ -10,33 +10,38 @@ function ScrollToTop() {
   const [location] = useLocation();
 
   useEffect(() => {
-    if (window.location.hash) {
-      const el = document.querySelector(window.location.hash);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-        return;
-      }
+    const hash = window.location.hash;
+    if (hash) {
+      const cleanId = hash.replace(/^#/, "");
+      const findAndScroll = () => {
+        try {
+          const el = document.getElementById(cleanId) || document.querySelector(hash);
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+            return true;
+          }
+        } catch {
+          // ignore selector errors
+        }
+        return false;
+      };
+
+      if (findAndScroll()) return;
+
+      let attempts = 0;
+      const interval = setInterval(() => {
+        attempts++;
+        if (findAndScroll() || attempts >= 30) {
+          clearInterval(interval);
+        }
+      }, 50);
+
+      return () => clearInterval(interval);
     }
 
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     if (document.documentElement) document.documentElement.scrollTop = 0;
     if (document.body) document.body.scrollTop = 0;
-
-    // Handle any delayed layout rendering from lazy-loaded routes
-    const frameId = requestAnimationFrame(() => {
-      if (window.location.hash) {
-        const el = document.querySelector(window.location.hash);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
-          return;
-        }
-      }
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-      if (document.documentElement) document.documentElement.scrollTop = 0;
-      if (document.body) document.body.scrollTop = 0;
-    });
-
-    return () => cancelAnimationFrame(frameId);
   }, [location]);
 
   return null;
