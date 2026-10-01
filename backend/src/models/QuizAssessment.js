@@ -30,13 +30,98 @@ const quizAssessmentSchema = new mongoose.Schema(
     },
     quizVersion: {
       type: String,
-      default: "career-assessment-v2",
+      default: "career-assessment-v3",
       required: true,
       index: true,
     },
+    engineVersion: {
+      type: String,
+      default: "2.0.0",
+    },
     answers: {
       type: mongoose.Schema.Types.Mixed,
-      required: true,
+      default: null,
+    },
+    stage1Answers: {
+      type: mongoose.Schema.Types.Mixed,
+      default: null,
+    },
+    stage2Answers: {
+      type: mongoose.Schema.Types.Mixed,
+      default: null,
+    },
+    domainScores: {
+      type: mongoose.Schema.Types.Mixed,
+      default: null,
+    },
+    topDomains: {
+      type: [String],
+      default: [],
+    },
+    servedQuestionIds: {
+      type: [String],
+      default: [],
+    },
+    isBlended: {
+      type: Boolean,
+      default: false,
+    },
+    bankVersion: {
+      type: String,
+      default: null,
+    },
+    model: {
+      type: String,
+      default: null,
+    },
+    promptVersion: {
+      type: String,
+      default: null,
+    },
+    fallbackReason: {
+      type: String,
+      default: null,
+    },
+    signal: {
+      level: {
+        type: String,
+        enum: ["clear", "mixed", "open"],
+        default: "mixed",
+      },
+    },
+    tie: {
+      isTie: { type: Boolean, default: false },
+      gap: { type: Number, default: 0 },
+      slugs: { type: [String], default: [] },
+    },
+    picks: [
+      {
+        rank: { type: Number, required: true },
+        overallRank: { type: Number },
+        slug: { type: String, required: true },
+        title: { type: String, required: true },
+        domain: { type: String, required: true },
+        matchPct: { type: Number, required: true },
+        kind: { type: String, enum: ["core", "explore", "wildcard"], required: true },
+        roadmapUrl: { type: String, default: "" },
+        whyMatch: { type: String, default: "" },
+        _id: false,
+      },
+    ],
+    shortlist: [
+      {
+        rank: { type: Number },
+        overallRank: { type: Number },
+        slug: { type: String },
+        title: { type: String },
+        domain: { type: String },
+        matchPct: { type: Number },
+        _id: false,
+      },
+    ],
+    analysis: {
+      type: mongoose.Schema.Types.Mixed,
+      default: null,
     },
     traitScores: {
       technical: { type: Number, default: 50 },

@@ -49,4 +49,18 @@ export const chatLimiter = rateLimit({
   skip: (req) => process.env.NODE_ENV === "test",
 });
 
-export default { authLimiter, apiLimiter, chatLimiter };
+// Rate limiter for Career Quiz v3 submissions and stage queries (about 30 requests/min per IP)
+export const quizLimiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 30, // 30 requests per minute per IP
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    success: false,
+    error: "Too many quiz requests from this IP. Please wait a minute before trying again.",
+    code: "RATE_LIMIT_EXCEEDED",
+  },
+  skip: (req) => process.env.NODE_ENV === "test" && !process.env.TEST_RATE_LIMITER,
+});
+
+export default { authLimiter, apiLimiter, chatLimiter, quizLimiter };

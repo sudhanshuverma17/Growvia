@@ -9,8 +9,8 @@ import { Check } from "lucide-react";
 export function QuestionRenderer({ question, value, onChange }) {
   if (!question) return null;
 
-  // Single Select Question
-  if (question.type === "single") {
+  // Single Select Question (default if type is not specified)
+  if (!question.type || question.type === "single") {
     return (
       <div className="space-y-2 sm:space-y-2.5">
         {question.options.map((opt, i) => {
@@ -40,7 +40,7 @@ export function QuestionRenderer({ question, value, onChange }) {
                     {String.fromCharCode(65 + i)}
                   </span>
                   <h4 className="font-semibold text-white text-sm sm:text-[15px] leading-snug truncate sm:whitespace-normal">
-                    {opt.title}
+                    {opt.text || opt.title}
                   </h4>
                 </div>
                 {opt.desc && (

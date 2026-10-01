@@ -12,7 +12,15 @@
     "seed:admin": "node scripts/seedAdmin.js",
     "test-db": "node src/scripts/testDb.js",
     "migrate:payment": "node src/scripts/migratePaymentFields.js",
-    "test:payment": "node src/scripts/testCashfreePayment.js"
+    "test:payment": "node src/scripts/testCashfreePayment.js",
+    "quiz:export": "node src/scripts/exportQuizReview.js",
+    "test:quiz": "node src/tests/stage2.test.js --fast",
+    "test:quiz:full": "node src/tests/stage2.test.js",
+    "test:career": "node src/tests/careerEngine.test.js --fast",
+    "test:career:full": "node src/tests/careerEngine.test.js",
+    "test:api": "node src/tests/quizV3Api.test.js",
+    "test:ai": "node src/tests/quizV3Ai.test.js",
+    "test:ai:live": "node src/tests/quizV3Ai.test.js --live"
   },
   "dependencies": {
     "@langchain/anthropic": "^1.5.10",
@@ -32,6 +40,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "supertest": "^7.3.0"
   }
 }

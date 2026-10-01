@@ -394,8 +394,9 @@ export default function Dashboard() {
         });
         if (res.ok) {
           const data = await res.json();
-          if (data.success && data.data) {
-            setLatestAssessment(data.data);
+          const assessment = data.data || (data.picks || data.quizVersion ? data : null);
+          if (assessment) {
+            setLatestAssessment(assessment);
           }
         }
       } catch (err) {
@@ -1663,10 +1664,14 @@ export default function Dashboard() {
                           <Sparkles className="w-3.5 h-3.5" /> Latest Assessment Match
                         </div>
                         <h3 className="text-2xl font-bold text-white mb-2">
-                          {latestAssessment.topRecommendations?.[0]?.title || "Recommended Career Path"}
+                          {latestAssessment.picks?.[0]?.title ||
+                            latestAssessment.topRecommendations?.[0]?.title ||
+                            "Recommended Career Path"}
                         </h3>
                         <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed max-w-xl mb-6">
-                          {latestAssessment.aiAnalysis?.summary ||
+                          {latestAssessment.analysis?.summary ||
+                            latestAssessment.aiAnalysis?.summary ||
+                            latestAssessment.picks?.[0]?.whyMatch ||
                             latestAssessment.topRecommendations?.[0]?.description ||
                             "Based on your assessment answers, this path best matches your natural strengths and interests."}
                         </p>
@@ -1676,7 +1681,7 @@ export default function Dashboard() {
                             asChild
                             className="bg-gradient-to-r from-[#F5B544] to-[#E59835] text-black font-bold text-xs sm:text-sm px-6 py-2.5 rounded-full shadow-lg shadow-amber-500/20"
                           >
-                            <Link href={`/roadmaps/${latestAssessment.topRecommendations?.[0]?.careerId || "actuary"}`}>
+                            <Link href={latestAssessment.picks?.[0]?.roadmapUrl || `/roadmaps/${latestAssessment.picks?.[0]?.slug || latestAssessment.topRecommendations?.[0]?.careerId || "engineer"}`}>
                               Open Career Roadmap <ArrowRight className="w-4 h-4 ml-1.5" />
                             </Link>
                           </Button>

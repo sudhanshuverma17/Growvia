@@ -1,4 +1,6 @@
+import crypto from "crypto";
 import { DIMENSION_LABELS } from "../config/quizConfig.js";
+import { generateDeterministicAnalysis as generateDeterministicAnalysisV3 } from "./deterministicAnalysis.js";
 
 /**
  * Infer Logical Thinking Profile based on dominant dimension scores and answers
@@ -537,3 +539,654 @@ export const generateCareerAnalysis = async ({
   // 3. Resilient Deterministic Fallback (zero failure guarantee with full logical profile)
   return generateDeterministicAnalysis({ traitScores, careerMatches, answers });
 };
+
+// =========================================================================
+// STEP 6: CAREER ASSESSMENT V3 AI ANALYSIS ENGINE
+// =========================================================================
+
+export const PROMPT_VERSION = "3.0.0";
+export const AI_DAILY_CALL_LIMIT = parseInt(process.env.AI_DAILY_CALL_LIMIT || "500", 10);
+
+// In-memory response cache
+const aiCache = new Map();
+const MAX_CACHE_SIZE = 1000;
+
+export function clearAiCache() {
+  aiCache.clear();
+}
+
+export function getAiCacheSize() {
+  return aiCache.size;
+}
+
+// Daily call counter
+let currentDailyDate = new Date().toISOString().slice(0, 10);
+let dailyCallCount = 0;
+
+export function getDailyCallCount() {
+  const today = new Date().toISOString().slice(0, 10);
+  if (currentDailyDate !== today) {
+    currentDailyDate = today;
+    dailyCallCount = 0;
+  }
+  return dailyCallCount;
+}
+
+export function resetDailyCallCount() {
+  dailyCallCount = 0;
+}
+
+export function setDailyCallCount(count) {
+  dailyCallCount = count;
+}
+
+// Mock provider hook for unit tests
+let mockAiProvider = null;
+
+export function setMockAiProvider(fn) {
+  mockAiProvider = fn;
+}
+
+export function resetMockAiProvider() {
+  mockAiProvider = null;
+}
+
+// Banned content patterns (strict qualitative interest guidance)
+export const BANNED_PATTERNS = [
+  /\b(salary|salaries|ctc|lpa|stipend|compensation|earnings?|rupees?|dollars?|inr|usd|₹|\$|\blakhs?\b|\bper annum\b)\b/i,
+  /\b(fees?|tuition|course fees?|program costs?|college costs?)\b/i,
+  /\b(cutoffs?|percentiles?|rank requirement|minimum marks)\b/i,
+  /\b(guarantee[ds]?|guaranteeing|100% placement)\b/i,
+  /\b(you are (good|great|skilled|expert|talented|proficient) at|your (skill|ability|talent|proficiency) in|you excel at|technical strength)\b/i,
+  /\b(dashboard|personalized dashboard)\b/i,
+  /\b(neet|jee|upsc|cat|gate|entrance exams?|crack the exam)\b/i,
+];
+
+export function checkBannedContent(obj) {
+  const violations = [];
+  function recurse(val, path = "") {
+    if (val === null || val === undefined) return;
+    if (typeof val === "string") {
+      for (const pattern of BANNED_PATTERNS) {
+        if (pattern.test(val)) {
+          violations.push({ path, value: val, pattern: pattern.toString() });
+        }
+      }
+    } else if (Array.isArray(val)) {
+      val.forEach((item, idx) => recurse(item, `${path}[${idx}]`));
+    } else if (typeof val === "object") {
+      for (const [k, v] of Object.entries(val)) {
+        recurse(v, path ? `${path}.${k}` : k);
+      }
+    }
+  }
+  recurse(obj);
+  return {
+    valid: violations.length === 0,
+    violations,
+  };
+}
+
+export function sanitizePromptInputs({
+  chosenAnswers = [],
+  picks = [],
+  shortlist = [],
+  domainScores = {},
+  isBlended = false,
+  signal = { level: "mixed" },
+}) {
+  return {
+    chosenAnswers: (chosenAnswers || []).slice(0, 16),
+    candidatePicks: (picks || []).map((p) => ({
+      rank: p.rank,
+      slug: p.slug,
+      title: `«${p.title}»`,
+      domain: p.domain,
+      matchPct: p.matchPct,
+      kind: p.kind || "core",
+      evidence: p.evidence || [],
+    })),
+    shortlist: (shortlist || []).slice(0, 5).map((s) => ({
+      slug: s.slug,
+      title: `«${s.title}»`,
+      domain: s.domain,
+    })),
+    domainAffinities: Object.entries(domainScores || {})
+      .filter(([, s]) => s > 0)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 4)
+      .map(([dom, s]) => `${dom}: ${Math.round(s * 100)}%`),
+    isBlended: Boolean(isBlended),
+    signalLevel: signal?.level || "mixed",
+  };
+}
+
+export function computeCacheKey(chosenAnswers, picks, promptVersion, model) {
+  const sortedAnswers = [...(chosenAnswers || [])].sort().join("|");
+  const pickSlugs = (picks || []).map((p) => p.slug).join(",");
+  const raw = `${sortedAnswers}::${pickSlugs}::${promptVersion}::${model}`;
+  return crypto.createHash("sha256").update(raw).digest("hex");
+}
+
+const SYSTEM_PROMPT_V3 = `You are Growvia's Lead AI Career Guidance Specialist and Educational Psychologist.
+Your task is to analyze the student's quiz answers and produce a qualitative career guidance assessment.
+
+STRICT CONSTRAINTS & PRINCIPLES:
+1. INTEREST-BASED ONLY:
+   - Frame all insights strictly in terms of curiosity, preferences, and interests ("your responses favor...", "you show strong interest in...").
+   - NEVER make ability, aptitude, or skill claims. Do NOT say "you are good at", "your skill in", "you excel at", or "technical strength".
+2. ABSOLUTELY BANNED CONTENT:
+   - Do NOT mention salary, pay, compensation, CTC, LPA, earnings, or currency figures ($ or ₹).
+   - Do NOT mention fees, costs, or tuition.
+   - Do NOT mention cutoffs, percentiles, entrance exams (NEET, JEE, UPSC, etc.), or guarantees.
+   - Do NOT mention "dashboard" or "personalized dashboard" (refer only to "interactive roadmaps" or "Growvia roadmaps").
+3. FACT-GROUNDED RATIONALES:
+   - For each recommended career in candidatePicks, provide a clear rationale referencing the student's actual chosen answer choices (provided in candidate evidence).
+   - Acknowledge cross-domain connections when recommended careers span multiple fields.
+4. STRICT JSON OUTPUT:
+   - Return valid JSON matching the exact schema specified. No markdown formatting, no code blocks, no explanatory preambles.`;
+
+const GEMINI_SCHEMA_V3 = {
+  type: "OBJECT",
+  properties: {
+    summary: { type: "STRING" },
+    interestThemes: {
+      type: "ARRAY",
+      items: { type: "STRING" },
+    },
+    pickRationales: {
+      type: "ARRAY",
+      items: {
+        type: "OBJECT",
+        properties: {
+          slug: { type: "STRING" },
+          reason: { type: "STRING" },
+        },
+        required: ["slug", "reason"],
+      },
+    },
+    developmentAreas: {
+      type: "ARRAY",
+      items: { type: "STRING" },
+    },
+    nextSteps: {
+      type: "ARRAY",
+      items: { type: "STRING" },
+    },
+    logicalProfile: {
+      type: "OBJECT",
+      properties: {
+        primaryStyle: { type: "STRING" },
+        reasoningStrength: { type: "STRING" },
+        decisionStrategy: { type: "STRING" },
+        cognitiveSummary: { type: "STRING" },
+      },
+      required: ["primaryStyle", "reasoningStrength", "decisionStrategy", "cognitiveSummary"],
+    },
+  },
+  required: [
+    "summary",
+    "interestThemes",
+    "pickRationales",
+    "developmentAreas",
+    "nextSteps",
+    "logicalProfile",
+  ],
+};
+
+export function normalizeAndValidateV3(parsed, picks = []) {
+  if (!parsed || typeof parsed !== "object") return null;
+
+  // 1. Summary
+  const summary = typeof parsed.summary === "string" ? parsed.summary.trim() : "";
+  if (summary.length < 20) return null;
+
+  // 2. Interest Themes (at least 3)
+  const interestThemes = Array.isArray(parsed.interestThemes)
+    ? parsed.interestThemes.filter((t) => typeof t === "string" && t.trim().length > 0)
+    : [];
+  if (interestThemes.length < 3) return null;
+
+  // 3. Pick Rationales
+  if (!Array.isArray(parsed.pickRationales) || parsed.pickRationales.length === 0) return null;
+  const rationaleMap = new Map();
+  for (const r of parsed.pickRationales) {
+    if (r && typeof r.slug === "string" && typeof r.reason === "string" && r.reason.trim().length > 0) {
+      rationaleMap.set(r.slug, r.reason.trim());
+    }
+  }
+  const normalizedRationales = picks.map((p) => ({
+    slug: p.slug,
+    reason: rationaleMap.get(p.slug) || p.whyMatch || `Aligned with interests in ${p.domain}.`,
+  }));
+
+  // 4. Development Areas (at least 2)
+  const developmentAreas = Array.isArray(parsed.developmentAreas)
+    ? parsed.developmentAreas.filter((d) => typeof d === "string" && d.trim().length > 0)
+    : [];
+  if (developmentAreas.length < 2) return null;
+
+  // 5. Next Steps (at least 3)
+  const nextSteps = Array.isArray(parsed.nextSteps)
+    ? parsed.nextSteps.filter((s) => typeof s === "string" && s.trim().length > 0)
+    : [];
+  if (nextSteps.length < 3) return null;
+
+  // 6. Logical Profile
+  const lp = parsed.logicalProfile;
+  if (!lp || typeof lp !== "object") return null;
+  if (!lp.primaryStyle || !lp.reasoningStrength || !lp.decisionStrategy || !lp.cognitiveSummary) return null;
+
+  const clean = (str) => str.replace(/«([^»]+)»/g, "$1").replace(/[«»]/g, "").trim();
+
+  return {
+    logicalProfile: {
+      primaryStyle: clean(String(lp.primaryStyle)),
+      reasoningStrength: clean(String(lp.reasoningStrength)),
+      decisionStrategy: clean(String(lp.decisionStrategy)),
+      cognitiveSummary: clean(String(lp.cognitiveSummary)),
+    },
+    summary: clean(summary),
+    interestThemes: interestThemes.slice(0, 3).map(clean),
+    strengths: interestThemes.slice(0, 3).map((t) => `Interest Focus: ${clean(t)}`),
+    pickRationales: normalizedRationales.map((r) => ({ slug: r.slug, reason: clean(r.reason) })),
+    developmentAreas: developmentAreas.slice(0, 2).map(clean),
+    nextSteps: nextSteps.slice(0, 3).map(clean),
+  };
+}
+
+/**
+ * Pure additive AI analysis layer for Career Assessment v3.
+ * Guaranteed to never throw. Falls back gracefully to deterministic analysis.
+ */
+export async function generateCareerAnalysisV3({
+  domainScores = {},
+  picks = [],
+  shortlist = [],
+  isBlended = false,
+  signal = { level: "mixed" },
+  chosenAnswers = [],
+  traitScores = {},
+  fetchFn = fetch,
+  modelOverride = null,
+} = {}) {
+  // If no picks supplied, immediately use deterministic generator
+  if (!picks || picks.length === 0) {
+    return generateDeterministicAnalysisV3({
+      picks,
+      topDomains: Object.keys(domainScores).slice(0, 2),
+      domainScores,
+      traitScores,
+      isBlended,
+      signal,
+      chosenAnswers,
+      fallbackReason: "NO_PICKS",
+    });
+  }
+
+  const model = modelOverride || process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
+
+  // 1. In-memory Cache Check
+  const cacheKey = computeCacheKey(chosenAnswers, picks, PROMPT_VERSION, model);
+  if (aiCache.has(cacheKey)) {
+    return { ...aiCache.get(cacheKey), cached: true };
+  }
+
+  // 2. Daily Rate Limit Check
+  const today = new Date().toISOString().slice(0, 10);
+  if (currentDailyDate !== today) {
+    currentDailyDate = today;
+    dailyCallCount = 0;
+  }
+  if (dailyCallCount >= AI_DAILY_CALL_LIMIT) {
+    return generateDeterministicAnalysisV3({
+      picks,
+      topDomains: Object.keys(domainScores).slice(0, 2),
+      domainScores,
+      traitScores,
+      isBlended,
+      signal,
+      chosenAnswers,
+      fallbackReason: "DAILY_LIMIT_EXCEEDED",
+    });
+  }
+
+  // 3. Sanitized Prompt Payload (Zero PII, Zero Weights, Wrapped Titles)
+  const sanitizedInput = sanitizePromptInputs({
+    chosenAnswers,
+    picks,
+    shortlist,
+    domainScores,
+    isBlended,
+    signal,
+  });
+
+  // 4. Mock Provider Support (for test suites)
+  if (mockAiProvider) {
+    try {
+      const mockResult = await mockAiProvider({
+        sanitizedInput,
+        chosenAnswers,
+        picks,
+        model,
+      });
+
+      // Linter check
+      const lint = checkBannedContent(mockResult);
+      if (!lint.valid) {
+        return generateDeterministicAnalysisV3({
+          picks,
+          topDomains: Object.keys(domainScores).slice(0, 2),
+          domainScores,
+          traitScores,
+          isBlended,
+          signal,
+          chosenAnswers,
+          fallbackReason: "BANNED_CONTENT",
+        });
+      }
+
+      // Schema check
+      const normalized = normalizeAndValidateV3(mockResult, picks);
+      if (!normalized) {
+        return generateDeterministicAnalysisV3({
+          picks,
+          topDomains: Object.keys(domainScores).slice(0, 2),
+          domainScores,
+          traitScores,
+          isBlended,
+          signal,
+          chosenAnswers,
+          fallbackReason: "SCHEMA_VALIDATION_FAILED",
+        });
+      }
+
+      const output = {
+        source: mockResult.source || "mock-ai",
+        model,
+        promptVersion: PROMPT_VERSION,
+        fallbackReason: null,
+        ...normalized,
+      };
+
+      if (aiCache.size >= MAX_CACHE_SIZE) {
+        const oldestKey = aiCache.keys().next().value;
+        aiCache.delete(oldestKey);
+      }
+      aiCache.set(cacheKey, output);
+      dailyCallCount++;
+      return output;
+    } catch (mockErr) {
+      const isTimeout = mockErr.name === "TimeoutError" || mockErr.message?.includes("timed out");
+      return generateDeterministicAnalysisV3({
+        picks,
+        topDomains: Object.keys(domainScores).slice(0, 2),
+        domainScores,
+        traitScores,
+        isBlended,
+        signal,
+        chosenAnswers,
+        fallbackReason: isTimeout ? "TIMEOUT" : "MOCK_PROVIDER_ERROR",
+      });
+    }
+  }
+
+  // Offline guard for test environment: don't make real network calls in tests unless --live
+  if (process.env.NODE_ENV === "test" && !process.env.LIVE_AI_TEST) {
+    return generateDeterministicAnalysisV3({
+      picks,
+      topDomains: Object.keys(domainScores).slice(0, 2),
+      domainScores,
+      traitScores,
+      isBlended,
+      signal,
+      chosenAnswers,
+      fallbackReason: "TEST_MODE_OFFLINE",
+    });
+  }
+
+  // 5. Check API Keys
+  const geminiApiKey = (process.env.GEMINI_API_KEY || "").trim();
+  const openaiApiKey = (process.env.OPENAI_API_KEY || "").trim();
+
+  if (!geminiApiKey && !openaiApiKey) {
+    return generateDeterministicAnalysisV3({
+      picks,
+      topDomains: Object.keys(domainScores).slice(0, 2),
+      domainScores,
+      traitScores,
+      isBlended,
+      signal,
+      chosenAnswers,
+      fallbackReason: "NO_API_KEY",
+    });
+  }
+
+  // 6. Provider Execution with 8s Timeout & 1 Retry for 429/5xx (12s total budget)
+  if (geminiApiKey) {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${geminiApiKey}`;
+    const requestBody = {
+      systemInstruction: {
+        parts: [{ text: SYSTEM_PROMPT_V3 }],
+      },
+      contents: [
+        {
+          role: "user",
+          parts: [{ text: JSON.stringify(sanitizedInput) }],
+        },
+      ],
+      generationConfig: {
+        responseMimeType: "application/json",
+        responseSchema: GEMINI_SCHEMA_V3,
+        temperature: 0.3,
+      },
+    };
+
+    let response = null;
+    let lastError = null;
+
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      try {
+        response = await fetchFn(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(requestBody),
+          signal: AbortSignal.timeout(8000),
+        });
+
+        if (response.ok) break;
+
+        // Retry on 429 or 5xx once
+        if (attempt === 1 && (response.status === 429 || response.status >= 500)) {
+          await new Promise((r) => setTimeout(r, 500));
+          continue;
+        }
+        break;
+      } catch (err) {
+        lastError = err;
+        if (attempt === 1 && (err.name === "TimeoutError" || err.message?.includes("fetch"))) {
+          await new Promise((r) => setTimeout(r, 500));
+          continue;
+        }
+      }
+    }
+
+    if (response && response.ok) {
+      try {
+        const data = await response.json();
+        const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (!text) {
+          return generateDeterministicAnalysisV3({
+            picks,
+            topDomains: Object.keys(domainScores).slice(0, 2),
+            domainScores,
+            traitScores,
+            isBlended,
+            signal,
+            chosenAnswers,
+            fallbackReason: "EMPTY_AI_RESPONSE",
+          });
+        }
+
+        let parsed = null;
+        try {
+          parsed = JSON.parse(text);
+        } catch {
+          return generateDeterministicAnalysisV3({
+            picks,
+            topDomains: Object.keys(domainScores).slice(0, 2),
+            domainScores,
+            traitScores,
+            isBlended,
+            signal,
+            chosenAnswers,
+            fallbackReason: "JSON_PARSE_ERROR",
+          });
+        }
+
+        // Banned Content Linter Check
+        const lint = checkBannedContent(parsed);
+        if (!lint.valid) {
+          console.warn("[AI Service]: AI response rejected due to banned phrase match:", lint.violations[0]?.pattern);
+          return generateDeterministicAnalysisV3({
+            picks,
+            topDomains: Object.keys(domainScores).slice(0, 2),
+            domainScores,
+            traitScores,
+            isBlended,
+            signal,
+            chosenAnswers,
+            fallbackReason: "BANNED_CONTENT",
+          });
+        }
+
+        // Schema Validation
+        const normalized = normalizeAndValidateV3(parsed, picks);
+        if (!normalized) {
+          return generateDeterministicAnalysisV3({
+            picks,
+            topDomains: Object.keys(domainScores).slice(0, 2),
+            domainScores,
+            traitScores,
+            isBlended,
+            signal,
+            chosenAnswers,
+            fallbackReason: "SCHEMA_VALIDATION_FAILED",
+          });
+        }
+
+        const output = {
+          source: "gemini",
+          model,
+          promptVersion: PROMPT_VERSION,
+          fallbackReason: null,
+          ...normalized,
+        };
+
+        if (aiCache.size >= MAX_CACHE_SIZE) {
+          const oldestKey = aiCache.keys().next().value;
+          aiCache.delete(oldestKey);
+        }
+        aiCache.set(cacheKey, output);
+        dailyCallCount++;
+        return output;
+      } catch (procErr) {
+        console.warn("[AI Service]: Gemini processing error:", procErr.message);
+        return generateDeterministicAnalysisV3({
+          picks,
+          topDomains: Object.keys(domainScores).slice(0, 2),
+          domainScores,
+          traitScores,
+          isBlended,
+          signal,
+          chosenAnswers,
+          fallbackReason: "AI_PROCESSING_ERROR",
+        });
+      }
+    } else {
+      const status = response?.status;
+      const statusReason = status === 429 ? "HTTP_429" : status >= 500 ? "HTTP_500" : "HTTP_ERROR";
+      const isTimeout = lastError?.name === "TimeoutError" || lastError?.message?.includes("timed out");
+      return generateDeterministicAnalysisV3({
+        picks,
+        topDomains: Object.keys(domainScores).slice(0, 2),
+        domainScores,
+        traitScores,
+        isBlended,
+        signal,
+        chosenAnswers,
+        fallbackReason: isTimeout ? "TIMEOUT" : statusReason,
+      });
+    }
+  }
+
+  // 7. OpenAI Provider Fallback if configured
+  if (openaiApiKey) {
+    try {
+      const openaiUrl = `${process.env.OPENAI_BASE_URL || "https://api.openai.com/v1"}/chat/completions`;
+      const response = await fetchFn(openaiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${openaiApiKey}`,
+        },
+        body: JSON.stringify({
+          model: process.env.OPENAI_MODEL || "gpt-4o-mini",
+          response_format: { type: "json_object" },
+          temperature: 0.3,
+          messages: [
+            { role: "system", content: SYSTEM_PROMPT_V3 },
+            { role: "user", content: JSON.stringify(sanitizedInput) },
+          ],
+        }),
+        signal: AbortSignal.timeout(8000),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const content = data.choices?.[0]?.message?.content;
+        const parsed = JSON.parse(content);
+        const lint = checkBannedContent(parsed);
+        if (!lint.valid) {
+          return generateDeterministicAnalysisV3({
+            picks,
+            topDomains: Object.keys(domainScores).slice(0, 2),
+            domainScores,
+            traitScores,
+            isBlended,
+            signal,
+            chosenAnswers,
+            fallbackReason: "BANNED_CONTENT",
+          });
+        }
+        const normalized = normalizeAndValidateV3(parsed, picks);
+        if (normalized) {
+          const output = {
+            source: "openai",
+            model: process.env.OPENAI_MODEL || "gpt-4o-mini",
+            promptVersion: PROMPT_VERSION,
+            fallbackReason: null,
+            ...normalized,
+          };
+          aiCache.set(cacheKey, output);
+          dailyCallCount++;
+          return output;
+        }
+      }
+    } catch (openaiErr) {
+      console.warn("[AI Service]: OpenAI error:", openaiErr.message);
+    }
+  }
+
+  // Default Fallback
+  return generateDeterministicAnalysisV3({
+    picks,
+    topDomains: Object.keys(domainScores).slice(0, 2),
+    domainScores,
+    traitScores,
+    isBlended,
+    signal,
+    chosenAnswers,
+    fallbackReason: "GENERAL_FALLBACK",
+  });
+}

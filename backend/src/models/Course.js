@@ -84,6 +84,30 @@ const salaryTierSchema = new mongoose.Schema({
   amount: { type: String, required: true },
 }, { _id: false });
 
+// IMPORTANT: Trait vectors must NOT be the in-domain discriminator.
+// Stage 2 option weights and tags do that job.
+// Traits are used only for the 10-dimension display and as a very weak last-resort tiebreaker.
+const quizProfileSchema = new mongoose.Schema(
+  {
+    domain: { type: String, required: true },
+    secondaryDomain: { type: String, default: null },
+    traits: {
+      technical: { type: Number, default: 0.5, min: 0, max: 1 },
+      analytical: { type: Number, default: 0.5, min: 0, max: 1 },
+      creative: { type: Number, default: 0.5, min: 0, max: 1 },
+      business: { type: Number, default: 0.5, min: 0, max: 1 },
+      communication: { type: Number, default: 0.5, min: 0, max: 1 },
+      leadership: { type: Number, default: 0.5, min: 0, max: 1 },
+      research: { type: Number, default: 0.5, min: 0, max: 1 },
+      people: { type: Number, default: 0.5, min: 0, max: 1 },
+      structured: { type: Number, default: 0.5, min: 0, max: 1 },
+      riskTaking: { type: Number, default: 0.5, min: 0, max: 1 },
+    },
+    tags: [{ type: String }],
+  },
+  { _id: false }
+);
+
 const courseSchema = new mongoose.Schema(
   {
     id: {
@@ -153,7 +177,12 @@ const courseSchema = new mongoose.Schema(
     examsData: { type: mongoose.Schema.Types.Mixed, default: [] },
     collegesData: { type: mongoose.Schema.Types.Mixed, default: {} },
     actionPlan: { type: mongoose.Schema.Types.Mixed, default: [] },
+    quizProfile: {
+      type: quizProfileSchema,
+      default: null,
+    },
     isCustom: { type: Boolean, default: false },
+    isPublished: { type: Boolean, default: true },
   },
   {
     timestamps: true,

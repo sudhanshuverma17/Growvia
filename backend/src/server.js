@@ -253,6 +253,13 @@ app.use("*", (req, res) => {
 app.use((err, req, res, next) => {
   console.error("[Server Error]:", err.stack || err);
   const status = err.status || 500;
+  if (status === 413 || err.type === "entity.too.large") {
+    return res.status(413).json({
+      success: false,
+      error: "Request payload exceeds size limit (20 kB).",
+      code: "PAYLOAD_TOO_LARGE",
+    });
+  }
   const errorResponse = {
     error: err.message || "Internal Server Error",
   };
@@ -328,12 +335,18 @@ process.on("uncaughtException", (err) => {
   console.error("[Server Uncaught Exception]:", err);
 });
 
-// Only run standalone HTTP listener if not running in a serverless environment (like Vercel)
+const isTestEnv = Boolean(
+  process.env.NODE_ENV === "test" ||
+  process.env.npm_lifecycle_event?.startsWith("test") ||
+  process.argv.some((arg) => arg.includes("test"))
+);
+
 const isServerless = Boolean(
   process.env.VERCEL ||
   process.env.VERCEL_ENV ||
   process.env.NOW_REGION ||
-  process.env.AWS_LAMBDA_FUNCTION_NAME
+  process.env.AWS_LAMBDA_FUNCTION_NAME ||
+  isTestEnv
 );
 
 if (!isServerless) {

@@ -4,6 +4,8 @@
  * to available database roadmaps with family-aware diversity classification.
  */
 
+import { inferCourseProfile, DOMAINS, DOMAIN_LABELS } from "./quizDomains.js";
+
 // 1. The 10 Core Career Dimensions (0–100 normalized score)
 export const DIMENSION_KEYS = [
   "technical",
@@ -1734,90 +1736,6 @@ export const CAREER_PROFILES = {
 };
 
 /**
- * Helper to dynamically generate a calibrated dimension profile for any newly added
- * or custom course in MongoDB that is not in the predefined matrix above.
- * Ensures that if a new roadmap is published by an admin, it becomes instantly eligible!
+ * Re-export the single authoritative inferCourseProfile from quizDomains.js
  */
-export const inferCourseProfile = (course = {}) => {
-  const category = (course.category || "").toLowerCase();
-  const title = (course.title || "").toLowerCase();
-  const skills = (course.skills || []).map((s) => s.toLowerCase());
-
-  let family = "technology";
-  const dims = {
-    technical: 50,
-    analytical: 50,
-    creative: 50,
-    business: 50,
-    communication: 50,
-    leadership: 50,
-    research: 50,
-    people: 50,
-    structured: 50,
-    riskTaking: 50,
-  };
-
-  if (category.includes("tech") || category.includes("code") || title.includes("developer")) {
-    family = "technology";
-    dims.technical = 85;
-    dims.analytical = 80;
-    dims.structured = 75;
-  } else if (category.includes("data") || title.includes("analyst") || title.includes("data")) {
-    family = "data";
-    dims.analytical = 90;
-    dims.research = 82;
-    dims.technical = 75;
-  } else if (category.includes("design") || category.includes("creative") || title.includes("designer")) {
-    family = "design";
-    dims.creative = 92;
-    dims.communication = 75;
-    dims.people = 70;
-  } else if (category.includes("business") || category.includes("manage") || title.includes("manager")) {
-    family = "business";
-    dims.business = 90;
-    dims.leadership = 85;
-    dims.communication = 80;
-  } else if (category.includes("health") || category.includes("med") || title.includes("doctor")) {
-    family = "healthcare";
-    dims.people = 92;
-    dims.structured = 85;
-    dims.analytical = 78;
-  } else if (category.includes("finance") || category.includes("account")) {
-    family = "finance";
-    dims.analytical = 90;
-    dims.structured = 90;
-    dims.business = 85;
-  } else if (category.includes("market")) {
-    family = "marketing";
-    dims.communication = 88;
-    dims.business = 84;
-    dims.creative = 80;
-  } else if (category.includes("media")) {
-    family = "media";
-    dims.creative = 88;
-    dims.communication = 92;
-    dims.riskTaking = 70;
-  }
-
-  // Adjust for skills
-  if (skills.some((s) => s.includes("code") || s.includes("programming") || s.includes("python"))) {
-    dims.technical = Math.min(95, dims.technical + 15);
-  }
-  if (skills.some((s) => s.includes("lead") || s.includes("management"))) {
-    dims.leadership = Math.min(95, dims.leadership + 15);
-  }
-  if (skills.some((s) => s.includes("design") || s.includes("art"))) {
-    dims.creative = Math.min(95, dims.creative + 15);
-  }
-
-  return {
-    family,
-    title: course.title,
-    category: course.category,
-    icon: course.icon || "Briefcase",
-    description: course.description || `Master the career roadmap for ${course.title}.`,
-    dimensions: dims,
-    keyStrengths: course.skills?.slice(0, 3) || ["Professional competence", "Problem solving"],
-    skillsToDevelop: ["Foundational domain concepts", "Practical project implementation"],
-  };
-};
+export { inferCourseProfile };
