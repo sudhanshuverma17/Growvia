@@ -41,18 +41,8 @@ if (!process.env.JWT_SECRET) {
 }
 
 // 2. FRONTEND_URL Validation (Required for dynamic Cashfree return_url & CORS)
-const frontendUrl = (process.env.FRONTEND_URL || process.env.CLIENT_URL)?.trim();
-if (!frontendUrl) {
-  console.error(
-    "\n❌ [FATAL CONFIG ERROR]: FRONTEND_URL environment variable is not defined!\n" +
-    "   Cashfree payment gateway return_url and CORS security require an explicit frontend URL.\n" +
-    "   Please add FRONTEND_URL to your backend/.env file:\n" +
-    "     - Local Development (Unified Server): FRONTEND_URL=http://localhost:5000\n" +
-    "     - Local Development (Vite Dev):       FRONTEND_URL=http://localhost:3000\n" +
-    "     - Production Domain:                  FRONTEND_URL=https://your-domain.com\n"
-  );
-  process.exit(1);
-}
+const rawFrontendUrl = (process.env.FRONTEND_URL || process.env.CLIENT_URL || "https://honesvia.com")?.trim();
+const frontendUrl = rawFrontendUrl.split(",")[0].trim();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -74,22 +64,38 @@ app.use(
 // 2. Response Compression (Gzip)
 app.use(compression());
 
-// 3. Flexible CORS supporting separate frontend deployment
-const allowedOrigins = [
+// 3. Flexible CORS supporting custom domains, Render subdomains, and local development
+const baseAllowedOrigins = [
   "http://localhost:5000",
   "http://127.0.0.1:5000",
   "http://localhost:3000",
   "http://127.0.0.1:3000",
+  "https://honesvia.com",
+  "https://www.honesvia.com",
+  "https://growvia-6owo.onrender.com",
   ...(process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(",").map((s) => s.trim()) : []),
   ...(process.env.CLIENT_URL ? process.env.CLIENT_URL.split(",").map((s) => s.trim()) : []),
-];
+].filter(Boolean);
+
+const isOriginAllowed = (origin) => {
+  if (!origin) return true;
+  if (baseAllowedOrigins.includes("*") || baseAllowedOrigins.includes(origin)) return true;
+  try {
+    const parsed = new URL(origin);
+    const host = parsed.hostname;
+    // Allow any honesvia.com subdomain and render.com subdomains
+    if (host === "honesvia.com" || host.endsWith(".honesvia.com") || host.endsWith(".onrender.com")) {
+      return true;
+    }
+  } catch {}
+  return false;
+};
 
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes("*") || allowedOrigins.includes(origin)) {
-        return callback(null, origin);
+      if (!origin || isOriginAllowed(origin)) {
+        return callback(null, origin || true);
       }
       return callback(null, origin);
     },

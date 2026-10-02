@@ -65,28 +65,23 @@ export const createOrder = async (req, res) => {
     ).trim().replace(/\/+$/, "");
 
     // Environment-aware frontend base URL resolution:
-    // If testing locally (localhost or 127.0.0.1), ALWAYS return to localhost so local testing works seamlessly.
-    // Only redirect to the remote production domain when the request is NOT originating from localhost.
-    const configuredUrl = (process.env.FRONTEND_URL || process.env.CLIENT_URL || "").trim().replace(/\/+$/, "");
-    const isLocal = (url) => !url || url.includes("localhost") || url.includes("127.0.0.1");
+    // ALWAYS prioritize clientOrigin if present (e.g. https://honesvia.com, http://localhost:3000)
+    // because localStorage session tokens are strictly scoped to the origin where the user logged in.
+    // If we redirected a honesvia.com user to an old onrender.com domain, their localStorage auth token would be missing!
+    const rawConfiguredUrl = (process.env.FRONTEND_URL || process.env.CLIENT_URL || "").trim();
+    const configuredUrl = rawConfiguredUrl.split(",")[0].trim().replace(/\/+$/, "");
 
     let frontendBaseUrl = "";
 
-    if (clientOrigin && isLocal(clientOrigin)) {
-      // 1. Active request is originating from localhost -> keep developer on localhost!
-      frontendBaseUrl = clientOrigin;
-    } else if (configuredUrl && !isLocal(configuredUrl)) {
-      // 2. Production domain configured in .env -> use for deployed/non-localhost environments
-      frontendBaseUrl = configuredUrl;
-    } else if (clientOrigin && !isLocal(clientOrigin)) {
-      // 3. Remote client origin
+    if (clientOrigin) {
+      // 1. Active request origin from browser (e.g. https://honesvia.com or http://localhost:3000)
       frontendBaseUrl = clientOrigin;
     } else if (configuredUrl) {
-      // 4. Configured URL fallback
+      // 2. Production or local domain configured in .env
       frontendBaseUrl = configuredUrl;
     } else {
-      // 5. Default fallback
-      frontendBaseUrl = `http://localhost:${process.env.PORT || 5000}`;
+      // 3. Fallback to production custom domain or local port
+      frontendBaseUrl = process.env.NODE_ENV === "production" ? "https://honesvia.com" : `http://localhost:${process.env.PORT || 5000}`;
     }
 
     console.log(`🌐 [Cashfree PG]: Resolved return_url origin: ${frontendBaseUrl} (configured: "${configuredUrl}", clientOrigin: "${clientOrigin}")`);
@@ -100,8 +95,9 @@ export const createOrder = async (req, res) => {
 
     // notify_url is Cashfree's per-order server-to-server webhook destination.
     // Cashfree servers cannot reach localhost/127.0.0.1 directly.
-    // Only attach notify_url if BACKEND_URL is set to a publicly accessible host (e.g. ngrok or deployed domain).
-    const backendBaseUrl = (process.env.BACKEND_URL || "").trim().replace(/\/+$/, "");
+    // Only attach notify_url if BACKEND_URL or a public origin is available.
+    const rawBackendUrl = (process.env.BACKEND_URL || configuredUrl || clientOrigin || "https://honesvia.com").trim();
+    const backendBaseUrl = rawBackendUrl.split(",")[0].trim().replace(/\/+$/, "");
     if (backendBaseUrl && !backendBaseUrl.includes("localhost") && !backendBaseUrl.includes("127.0.0.1")) {
       orderMeta.notify_url = `${backendBaseUrl}/api/payment/webhook`;
     }
