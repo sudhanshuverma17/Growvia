@@ -68,6 +68,8 @@ const Pricing = lazy(() => import("@/pages/pricing"));
 const About = lazy(() => import("@/pages/about"));
 const Contact = lazy(() => import("@/pages/contact"));
 const Login = lazy(() => import("@/pages/login"));
+const ForgotPassword = lazy(() => import("@/pages/forgot-password"));
+const ResetPassword = lazy(() => import("@/pages/reset-password"));
 const Dashboard = lazy(() => import("@/pages/dashboard"));
 const Videos = lazy(() => import("@/pages/videos"));
 const GetCounseling = lazy(() => import("@/pages/get-counseling"));
@@ -98,6 +100,10 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/contact-us" component={Contact} />
         <Route path="/login" component={Login} />
+        <Route path="/forgot-password" component={ForgotPassword} />
+        <Route path="/forgot-password/:rest*" component={ForgotPassword} />
+        <Route path="/reset-password" component={ResetPassword} />
+        <Route path="/reset-password/:rest*" component={ResetPassword} />
 
         {/* Career Assessment Quiz (Accessible to guests and members; attaches userId if signed in) */}
         <Route path="/career-quiz" component={Quiz} />

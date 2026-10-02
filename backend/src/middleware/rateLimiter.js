@@ -63,4 +63,17 @@ export const quizLimiter = rateLimit({
   skip: (req) => process.env.NODE_ENV === "test" && !process.env.TEST_RATE_LIMITER,
 });
 
-export default { authLimiter, apiLimiter, chatLimiter, quizLimiter };
+// Strict rate limiter for password reset endpoints (5 requests per 15 mins per IP)
+export const passwordResetLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    success: false,
+    error: "Too many password reset requests from this IP. Please try again after 15 minutes.",
+  },
+  skip: (req) => process.env.NODE_ENV === "test" && !process.env.TEST_RATE_LIMITER,
+});
+
+export default { authLimiter, apiLimiter, chatLimiter, quizLimiter, passwordResetLimiter };

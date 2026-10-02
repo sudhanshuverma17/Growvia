@@ -18,7 +18,8 @@ import paymentRoutes from "./routes/paymentRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
 import counselingRoutes from "./routes/counselingRoutes.js";
-import { authLimiter, apiLimiter } from "./middleware/rateLimiter.js";
+import { forgotPassword, resetPassword } from "./controllers/authController.js";
+import { authLimiter, apiLimiter, passwordResetLimiter } from "./middleware/rateLimiter.js";
 import { Course } from "./models/Course.js";
 import User from "./models/User.js";
 import Video from "./models/Video.js";
@@ -181,6 +182,8 @@ app.use(async (req, res, next) => {
 // 8. Mount Core API Routes under /api prefix
 const mountCoreRoutes = (prefix = "/api") => {
   app.use(`${prefix}/auth`, authRoutes);
+  app.post(`${prefix}/forgot-password`, passwordResetLimiter, forgotPassword);
+  app.post(`${prefix}/reset-password`, passwordResetLimiter, resetPassword);
   app.use(`${prefix}/courses`, courseRoutes);
   app.use(`${prefix}/videos`, videoRoutes);
   app.use(`${prefix}/career-quiz`, quizRoutes);
