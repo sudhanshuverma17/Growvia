@@ -94,7 +94,7 @@ export function GetCounselingWidget({
                 Book Your 1:1 Career Strategy Session
               </h3>
               <p className="text-xs text-muted-foreground mt-0.5 max-w-xl">
-                Get personalized advice, resume and roadmap review, and strategic guidance directly from Uttkarsh.
+                Get personalized advice, resume and roadmap review, and strategic guidance directly from Mentor.
               </p>
             </div>
           </div>
@@ -152,7 +152,7 @@ export function GetCounselingWidget({
           </h2>
 
           <p className="text-sm sm:text-base text-slate-300/90 leading-relaxed">
-            Connect directly with Uttkarsh in a private strategy session. We review your personalized roadmap, break down transition hurdles, optimize your preparation plan, and address your biggest career questions.
+            Connect directly with Mentor in a private strategy session. We review your personalized roadmap, break down transition hurdles, optimize your preparation plan, and address your biggest career questions.
           </p>
 
           {/* Value Highlights */}

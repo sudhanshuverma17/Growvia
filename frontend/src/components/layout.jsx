@@ -4,7 +4,7 @@ import { Menu, X, ShieldCheck, User, LogOut, LayoutDashboard, BookOpen, Users, L
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/auth-context";
-import { GrowviaLogo } from "@/components/GrowviaLogo";
+import { GrowviaLogo, GrowviaFullLogo } from "@/components/GrowviaLogo";
 import { PurchasedRoadmapGuard } from "@/components/purchased-roadmap-guard";
 
 export function Layout({ children }) {
@@ -120,7 +120,7 @@ export function Layout({ children }) {
         }`}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex justify-between items-center">
-          <GrowviaLogo markClassName="w-6 h-6 text-white" textClassName="text-xl font-light tracking-[0.04em] text-white" />
+          <GrowviaLogo className="h-7.5 sm:h-8.5 w-auto" />
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-7">
@@ -300,10 +300,7 @@ export function Layout({ children }) {
             <div className="lg:col-span-5 flex flex-col justify-between pr-0 lg:pr-8 border-b lg:border-b-0 lg:border-r border-white/10 pb-8 lg:pb-0">
               <div>
                 <div className="mb-4">
-                  <GrowviaLogo
-                    markClassName="w-8 h-8 text-white"
-                    textClassName="text-2xl font-bold tracking-tight text-white"
-                  />
+                  <GrowviaFullLogo className="h-12 sm:h-14 w-auto" />
                 </div>
                 <p className="text-zinc-400 text-sm leading-relaxed max-w-sm mb-6">
                   Helping Indian students find the right career path with absolute

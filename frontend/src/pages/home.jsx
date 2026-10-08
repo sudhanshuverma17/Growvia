@@ -28,7 +28,7 @@ import { HomeCounselingSection } from "@/components/HomeCounselingSection";
 import { Button } from "@/components/ui/button";
 import { useCourses } from "@/context/course-context";
 import { useAuth } from "@/context/auth-context";
-import { GrowviaLogoMark } from "@/components/GrowviaLogo";
+import { GrowviaLogoMark, GrowviaFullLogo } from "@/components/GrowviaLogo";
 import { getCareerCardImage, getCareerConciseDesc } from "@/lib/career-media";
 
 const FEATURED_ROADMAPS_CONFIG = [
@@ -195,11 +195,10 @@ export default function Home() {
         <div className="absolute top-0 left-0 right-0 h-28 sm:h-32 bg-gradient-to-b from-black/60 via-black/20 to-transparent pointer-events-none z-10" />
         <div className="absolute bottom-0 left-0 right-0 h-64 sm:h-72 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none z-10" />
 
-        {/* Center Watermark: Outlined Hexagon Logo Mark */}
+        {/* Center Watermark: Both Logo Mark and Name (Full Brand Identity) */}
         <div className="absolute top-[38%] sm:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 flex items-center justify-center">
-          <GrowviaLogoMark
-            className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 text-[#F5F0E8] drop-shadow-[0_4px_32px_rgba(0,0,0,0.85)]"
-            strokeWidth={1.8}
+          <GrowviaFullLogo
+            className="w-40 sm:w-52 md:w-64 lg:w-72 h-auto"
           />
         </div>
 

@@ -3,12 +3,12 @@ import { Link } from "wouter";
 
 /**
  * Honesvia Logo Mark
- * The distinctive hexagon icon containing the stylized path and sparkle star.
+ * The official stylized "H" monogram with curved pathway and champagne gold finish.
  */
 export function HonesviaLogoMark({ className = "w-7 h-7" }) {
   return (
     <img
-      src="/images/honesvia-icon.png"
+      src="/images/honesvia-icon.png?v=2"
       alt="Honesvia"
       className={`${className} object-contain select-none shrink-0`}
       loading="eager"
@@ -21,25 +21,21 @@ export function HonesviaLogoMark({ className = "w-7 h-7" }) {
 export const GrowviaLogoMark = HonesviaLogoMark;
 
 /**
- * Full Honesvia Brand Logo (Icon + Wordmark)
- * Wordmark uses the champagne gold gradient and typography matching the official brand identity.
+ * Honesvia Logo (Icon Mark Only)
+ * Used in the navigation bar to display only the stylized "H" logo mark without the name.
  */
 export function HonesviaLogo({
-  markClassName = "w-7 h-7",
-  textClassName = "text-xl font-bold tracking-tight bg-gradient-to-r from-white via-[#F5EAD9] to-[#E3BE8A] bg-clip-text text-transparent",
+  className,
+  markClassName,
   href = "/",
   onClick,
 }) {
+  const finalClass = className || markClassName || "h-7 sm:h-8.5 w-auto";
   const content = (
-    <div className="inline-flex items-center gap-2.5 group cursor-pointer select-none">
+    <div className="inline-flex items-center group cursor-pointer select-none">
       <HonesviaLogoMark
-        className={`${markClassName} transition-transform duration-300 group-hover:scale-105`}
+        className={`${finalClass} transition-transform duration-300 group-hover:scale-105 select-none shrink-0 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]`}
       />
-      <span
-        className={`${textClassName} transition-opacity duration-200 group-hover:opacity-90 font-['Outfit',sans-serif]`}
-      >
-        Honesvia
-      </span>
     </div>
   );
 
@@ -56,5 +52,26 @@ export function HonesviaLogo({
 
 // Alias for backward compatibility across existing imports
 export const GrowviaLogo = HonesviaLogo;
+
+/**
+ * Full Honesvia Brand Logo (Stacked Monogram Mark + Wordmark)
+ * Used as the center watermark in the hero section.
+ */
+export function HonesviaFullLogo({
+  className = "w-44 sm:w-56 md:w-64 lg:w-72 h-auto",
+  alt = "Honesvia",
+}) {
+  return (
+    <img
+      src="/images/honesvia-logo.png?v=2"
+      alt={alt}
+      className={`${className} object-contain select-none shrink-0 pointer-events-none drop-shadow-[0_4px_32px_rgba(0,0,0,0.95)]`}
+      loading="eager"
+      decoding="async"
+    />
+  );
+}
+
+export const GrowviaFullLogo = HonesviaFullLogo;
 
 export default HonesviaLogo;
