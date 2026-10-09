@@ -70,6 +70,7 @@ async function runTests() {
     // 5. Homepage HTML SEO Metadata Injection
     const homeHtml = await fetchUrl("/");
     test("GET / returns HTTP 200 HTML", homeHtml.statusCode === 200 && (homeHtml.headers["content-type"] || "").includes("text/html"));
+    test("GET / has updated title 'Honesvia | Career Guidance & Roadmaps for Students'", homeHtml.body.includes("<title>Honesvia | Career Guidance & Roadmaps for Students</title>") || homeHtml.body.includes("<title>Honesvia | Career Guidance &amp; Roadmaps for Students</title>"));
     test("GET / has canonical https://honesvia.com/", homeHtml.body.includes('href="https://honesvia.com/"') || homeHtml.body.includes('href="https://honesvia.com"'));
     test("GET / has OpenGraph og:site_name Honesvia", homeHtml.body.includes('property="og:site_name" content="Honesvia"'));
     test("GET / has Schema.org Organization JSON-LD", homeHtml.body.includes('"@type": "Organization"') || homeHtml.body.includes('"@type":"Organization"'));

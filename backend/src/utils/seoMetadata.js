@@ -4,7 +4,7 @@ const DOMAIN = "https://honesvia.com";
 const DEFAULT_IMAGE = `${DOMAIN}/opengraph.jpg`;
 
 const DEFAULT_METADATA = {
-  title: "Honesvia — India's Premier Career Roadmap & Mentor Guidance Platform",
+  title: "Honesvia | Career Guidance & Roadmaps for Students",
   description:
     "Clear, honest career roadmaps, real salary insights, step-by-step progression milestones, and unfiltered mentor masterclasses across 48+ careers for Indian students.",
   canonical: DOMAIN,
