@@ -24,6 +24,7 @@ import { Course } from "./models/Course.js";
 import User from "./models/User.js";
 import Video from "./models/Video.js";
 import { seedCareers } from "./data/seedData.js";
+import { injectSeoMetadata } from "./utils/seoMetadata.js";
 
 dotenv.config({ path: process.env.DOTENV_CONFIG_PATH || undefined });
 
@@ -195,7 +196,15 @@ const mountCoreRoutes = (prefix = "/api") => {
 
 mountCoreRoutes("/api");
 
-// 8. Static Frontend Serving from public folder
+// 8. Explicit API 404 Guard: Ensure nonexistent /api routes ALWAYS return JSON 404 and never HTML
+app.all(["/api", "/api/*"], (req, res) => {
+  res.status(404).json({
+    success: false,
+    error: `API endpoint not found: ${req.method} ${req.originalUrl}`,
+  });
+});
+
+// 9. Static Frontend Serving & SEO Endpoints
 const candidatePublicPaths = [
   path.resolve(__dirname, "../public"),
   path.resolve(process.cwd(), "backend/public"),
@@ -208,30 +217,103 @@ const staticServingPath = candidatePublicPaths.find((p) =>
   fs.existsSync(path.join(p, "index.html"))
 );
 
+// Cache for raw index.html template
+let cachedRawIndexHtml = null;
+let cachedIndexPath = null;
+
+const getRawIndexHtml = (indexPath) => {
+  if (isProduction && cachedRawIndexHtml && cachedIndexPath === indexPath) {
+    return cachedRawIndexHtml;
+  }
+  try {
+    cachedRawIndexHtml = fs.readFileSync(indexPath, "utf8");
+    cachedIndexPath = indexPath;
+    return cachedRawIndexHtml;
+  } catch {
+    return null;
+  }
+};
+
+// 9A. Production Robots.txt Endpoint
+app.get("/robots.txt", (req, res) => {
+  const robotsCandidates = [
+    staticServingPath && path.join(staticServingPath, "robots.txt"),
+    path.resolve(__dirname, "../public/robots.txt"),
+    path.resolve(process.cwd(), "public/robots.txt"),
+    path.resolve(process.cwd(), "frontend/public/robots.txt"),
+  ].filter(Boolean);
+
+  const foundPath = robotsCandidates.find((p) => fs.existsSync(p));
+
+  res.setHeader("Content-Type", "text/plain; charset=utf-8");
+  res.setHeader("Cache-Control", "public, max-age=86400");
+
+  if (foundPath) {
+    return res.sendFile(foundPath);
+  }
+
+  // Fallback in-memory robots.txt
+  res.send(`# Honesvia Robots.txt\nUser-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /dashboard\nDisallow: /admin\nDisallow: /pricing\nDisallow: /login\nDisallow: /forgot-password\nDisallow: /reset-password\nSitemap: https://honesvia.com/sitemap.xml\nHost: https://honesvia.com\n`);
+});
+
+// 9B. Production Sitemap.xml Endpoint
+app.get("/sitemap.xml", (req, res) => {
+  const sitemapCandidates = [
+    staticServingPath && path.join(staticServingPath, "sitemap.xml"),
+    path.resolve(__dirname, "../public/sitemap.xml"),
+    path.resolve(process.cwd(), "public/sitemap.xml"),
+    path.resolve(process.cwd(), "frontend/public/sitemap.xml"),
+  ].filter(Boolean);
+
+  const foundPath = sitemapCandidates.find((p) => fs.existsSync(p));
+
+  res.setHeader("Content-Type", "application/xml; charset=utf-8");
+  res.setHeader("Cache-Control", "public, max-age=3600");
+
+  if (foundPath) {
+    return res.sendFile(foundPath);
+  }
+
+  res.status(404).send("<error>Sitemap not found</error>");
+});
+
 if (staticServingPath) {
   // Serve static assets (JS, CSS, images) from the public folder
   app.use(
     express.static(staticServingPath, {
       maxAge: isProduction ? "1d" : 0,
-      index: "index.html",
+      index: false, // We handle HTML serving through the SPA route with SEO injection
     })
   );
 
-  // Client-side SPA routing fallback: serve index.html for page navigation
+  // Client-side SPA routing fallback with server-side SEO metadata injection
   app.get("*", (req, res, next) => {
     // Skip API routes and health endpoint so API handlers and 404 can catch them
     if (req.originalUrl.startsWith("/api") || req.originalUrl.startsWith("/health")) {
       return next();
     }
 
-    // If requesting a missing asset/file (has an extension like .js, .css, .svg, .png), return 404
-    // Allow /index.html to be served rather than being blocked as a missing asset
+    // If requesting a missing static asset with an extension (e.g. .js, .css, .svg, .png), return 404 JSON
     if (path.extname(req.path) && req.path !== "/index.html") {
       return res.status(404).json({ error: `Asset not found: ${req.path}` });
     }
 
-    // Otherwise serve index.html for SPA routes (e.g. /, /roadmaps, /dashboard, /pricing, /quiz)
-    res.sendFile(path.join(staticServingPath, "index.html"), (err) => {
+    // Read index.html template and inject route-specific SEO tags (Title, Description, Canonical, OG, JSON-LD)
+    const indexPath = path.join(staticServingPath, "index.html");
+    const rawHtml = getRawIndexHtml(indexPath);
+
+    if (rawHtml) {
+      try {
+        const enrichedHtml = injectSeoMetadata(rawHtml, req.path);
+        res.setHeader("Content-Type", "text/html; charset=utf-8");
+        return res.send(enrichedHtml);
+      } catch (seoErr) {
+        console.warn(`[SEO Injection Warning]: ${seoErr.message}`);
+      }
+    }
+
+    // Fallback to sending standard index.html directly
+    res.sendFile(indexPath, (err) => {
       if (err && !res.headersSent) {
         res.status(500).json({ error: "Failed to render application page", message: err.message });
       }

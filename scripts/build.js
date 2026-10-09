@@ -4,6 +4,9 @@ import fs from "node:fs";
 console.log("🚀 [Growvia Build]: Compiling frontend with Vite into backend/public...");
 execSync("npm --prefix frontend run build", { stdio: "inherit" });
 
+console.log("🔍 [Growvia Build]: Generating production sitemap.xml and robots.txt...");
+execSync("node scripts/generateSeoFiles.js", { stdio: "inherit" });
+
 if (fs.existsSync("backend/public")) {
   console.log("📁 [Growvia Build]: Syncing compiled assets to public/ and dist/...");
   if (fs.existsSync("public")) fs.rmSync("public", { recursive: true, force: true });

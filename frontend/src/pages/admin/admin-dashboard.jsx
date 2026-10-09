@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/SEO";
 import { useCourses } from "@/context/course-context";
 import { useVideos } from "@/context/video-context";
 import { CareerIcon } from "@/components/career-icon";
@@ -215,6 +216,7 @@ export default function AdminDashboard() {
 
   return (
     <Layout>
+      <SEO title="Admin Console" noIndex={true} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Header Bar */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-white/10">

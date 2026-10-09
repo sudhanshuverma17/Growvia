@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "wouter";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/SEO";
 import { GetCounselingWidget } from "@/components/GetCounselingWidget";
 import { useAuth } from "@/context/auth-context";
 import {
@@ -26,6 +27,7 @@ export default function GetCounselingPage() {
 
   return (
     <Layout>
+      <SEO title="1:1 Counseling" noIndex={true} />
       <div className="w-full min-h-screen bg-[#0d0d0f] text-foreground -mt-20 pt-28 pb-20 selection:bg-amber-500/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {/* Top Breadcrumb & Status */}

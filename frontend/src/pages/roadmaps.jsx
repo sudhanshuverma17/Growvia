@@ -2,6 +2,7 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/SEO";
 import { useCourses } from "@/context/course-context";
 import { CareerIcon } from "@/components/career-icon";
 import {
@@ -143,6 +144,11 @@ export default function Roadmaps() {
 
   return (
     <Layout>
+      <SEO
+        title="Career Roadmaps — Explore 48+ Career Paths & Milestones | Honesvia"
+        description="Browse 48+ comprehensive, transparent career roadmaps across Engineering, Healthcare, Business, Creative Arts, Aviation, and Law tailored for Indian students."
+        canonical="https://honesvia.com/roadmaps"
+      />
       <div className="w-full min-h-[calc(100vh-5rem)] bg-[#0d0d0f] text-foreground -mt-20 pt-20 pb-20 -mb-20">
         {/* ── CINEMATIC HERO BANNER ───────────────────────────────── */}
         <section className="relative w-full overflow-hidden border-b border-white/5 bg-black/60">

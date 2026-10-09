@@ -164,26 +164,30 @@ function Router() {
   );
 }
 
+import { HelmetProvider } from "react-helmet-async";
+
 function App() {
   return (
-    <ErrorBoundary>
-      <QueryClientProvider client={queryClient}>
-        <AuthProvider>
-          <CourseProvider>
-            <VideoProvider>
-              <TooltipProvider>
-                <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-                  <ScrollToTop />
-                  <Router />
-                  <ChatWidget />
-                </WouterRouter>
-                <Toaster />
-              </TooltipProvider>
-            </VideoProvider>
-          </CourseProvider>
-        </AuthProvider>
-      </QueryClientProvider>
-    </ErrorBoundary>
+    <HelmetProvider>
+      <ErrorBoundary>
+        <QueryClientProvider client={queryClient}>
+          <AuthProvider>
+            <CourseProvider>
+              <VideoProvider>
+                <TooltipProvider>
+                  <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+                    <ScrollToTop />
+                    <Router />
+                    <ChatWidget />
+                  </WouterRouter>
+                  <Toaster />
+                </TooltipProvider>
+              </VideoProvider>
+            </CourseProvider>
+          </AuthProvider>
+        </QueryClientProvider>
+      </ErrorBoundary>
+    </HelmetProvider>
   );
 }
 

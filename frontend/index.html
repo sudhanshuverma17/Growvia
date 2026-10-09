@@ -10,25 +10,61 @@
     <meta name="theme-color" content="#0a0a0f" />
 
     <link rel="canonical" href="https://honesvia.com/" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
 
-    <!-- Open Graph / Facebook / WhatsApp -->
+    <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Honesvia" />
     <meta property="og:url" content="https://honesvia.com/" />
     <meta property="og:title" content="Honesvia — India's Premier Career Roadmap & Guidance Platform" />
     <meta property="og:description" content="48+ honest career roadmaps, real mentor videos, and clear progression paths built specifically for ambitious students." />
     <meta property="og:image" content="https://honesvia.com/opengraph.jpg" />
+    <meta property="og:image:secure_url" content="https://honesvia.com/opengraph.jpg" />
+    <meta property="og:image:alt" content="Honesvia Career Roadmaps & Mentor Guidance Platform" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://honesvia.com/" />
     <meta name="twitter:title" content="Honesvia — Career Roadmaps & Mentor Guidance" />
     <meta name="twitter:description" content="48+ honest career roadmaps, real salary benchmarks, and curated video masterclasses for Indian students." />
     <meta name="twitter:image" content="https://honesvia.com/opengraph.jpg" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <!-- JSON-LD Structured Data: Organization & WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://honesvia.com/#organization",
+          "name": "Honesvia",
+          "url": "https://honesvia.com",
+          "logo": "https://honesvia.com/images/honesvia-icon.png",
+          "description": "India's premier career roadmap & mentor guidance platform for students and early professionals."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://honesvia.com/#website",
+          "url": "https://honesvia.com",
+          "name": "Honesvia",
+          "publisher": { "@id": "https://honesvia.com/#organization" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://honesvia.com/roadmaps?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="root"></div>

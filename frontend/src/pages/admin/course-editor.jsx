@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useLocation, Link } from "wouter";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/SEO";
 import { useCourses } from "@/context/course-context";
 import { useVideos } from "@/context/video-context";
 import { ICON_OPTIONS, CareerIcon } from "@/components/career-icon";
@@ -747,6 +748,7 @@ export default function CourseEditor() {
 
   return (
     <Layout>
+      <SEO title="Course Editor" noIndex={true} />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Navigation Breadcrumb */}
         <div className="mb-6 flex items-center justify-between">

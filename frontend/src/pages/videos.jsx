@@ -16,6 +16,7 @@ import {
   Compass,
 } from "lucide-react";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/SEO";
 import { useVideos } from "@/context/video-context";
 import { useCourses } from "@/context/course-context";
 import { useAuth } from "@/context/auth-context";
@@ -75,6 +76,11 @@ export default function Videos() {
 
   return (
     <Layout>
+      <SEO
+        title="Mentor Video Masterclasses — Unfiltered Career Advice | Honesvia"
+        description="Watch authentic video masterclasses from real professionals in India sharing day-to-day realities, actual salary expectations, and practical career roadmaps."
+        canonical="https://honesvia.com/videos"
+      />
       <div className="w-full min-h-[calc(100vh-5rem)] bg-[#0d0d0f] text-foreground -mt-20 pt-20 pb-20 -mb-20">
         {isLoading ? (
           /* ── SLEEK LOADING STATE ──────────────────────────────────── */

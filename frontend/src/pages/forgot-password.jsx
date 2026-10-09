@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { apiUrl } from "@/lib/api-config";
 import {
@@ -61,6 +62,7 @@ export default function ForgotPassword() {
 
   return (
     <Layout>
+      <SEO title="Forgot Password" noIndex={true} />
       <div className="min-h-[80vh] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
           <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/60 mx-auto flex items-center justify-center text-primary-foreground font-display font-bold text-2xl mb-6 shadow-lg shadow-primary/20">

@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowRight, Quote, Target, Eye, Zap, Heart, BookOpen, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 22 },
@@ -20,6 +21,11 @@ const ABOUT_HERO_IMAGE =
 export default function About() {
   return (
     <Layout>
+      <SEO
+        title="About Honesvia — Honest, Actionable Career Guidance for Indian Students"
+        description="Learn about Honesvia's mission: cutting through career noise and misinformation with verified salary benchmarks, transparent educational roadmaps, and mentor guidance."
+        canonical="https://honesvia.com/about"
+      />
       <div className="w-full min-h-[calc(100vh-5rem)] bg-[#0d0d0f] text-foreground -mt-20 pt-20 pb-20 -mb-20">
         {/* ── CINEMATIC HERO BANNER ───────────────────────────────── */}
         <section className="relative w-full overflow-hidden border-b border-white/5 bg-black/60">

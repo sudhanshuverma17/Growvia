@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/context/auth-context";
@@ -351,6 +352,12 @@ export default function Quiz() {
 
   return (
     <Layout>
+      <SEO
+        title={resultData ? "Your Career Assessment Results | Honesvia" : "Career Assessment Quiz — Discover Your Ideal Career Path | Honesvia"}
+        description="Take our free 5-minute psychometric career assessment quiz to match your cognitive strengths, interests, and personality with 48+ high-growth careers."
+        canonical="https://honesvia.com/career-quiz"
+        noIndex={Boolean(resultData)}
+      />
       <div className="w-full min-h-screen bg-[#0a0a0c] text-foreground relative overflow-hidden -mt-20 pt-28 pb-20 -mb-20">
         {/* Atmospheric Photography Background for Quiz Results */}
         {resultData && (

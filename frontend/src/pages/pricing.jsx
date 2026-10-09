@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Check, ChevronRight, Loader2 } from "lucide-react";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { careers, pricingFeatures } from "@/lib/mock-data";
 import { useCourses } from "@/context/course-context";
@@ -256,6 +257,7 @@ export default function Pricing() {
 
   return (
     <Layout>
+      <SEO title="Pricing & Plans" noIndex={true} />
       <div className="w-full min-h-[calc(100vh-5rem)] bg-[#0d0d0f] text-foreground -mt-20 pt-20 pb-20 -mb-20">
         {/* ── CINEMATIC HERO BANNER ───────────────────────────────── */}
         <section className="relative w-full overflow-hidden border-b border-white/5 bg-black/60">

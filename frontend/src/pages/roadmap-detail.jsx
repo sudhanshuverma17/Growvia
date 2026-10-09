@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link, useLocation } from "wouter";
 import { Layout } from "@/components/layout";
 import { useToast } from "@/hooks/use-toast";
+import { SEO } from "@/components/SEO";
 
 import { useCourses } from "@/context/course-context";
 import { CareerIcon } from "@/components/career-icon";
@@ -174,6 +175,7 @@ export default function RoadmapDetail() {
   if (!career) {
     return (
       <Layout>
+        <SEO title="Career Roadmap Not Found" noIndex />
         <div className="max-w-3xl mx-auto py-20 px-4 text-center">
           <div className="w-16 h-16 rounded-2xl bg-[#131316] border border-white/10 flex items-center justify-center mx-auto mb-4 text-[#E5A855]">
             <Compass className="w-8 h-8" />
@@ -206,8 +208,37 @@ export default function RoadmapDetail() {
   const dailyWork = career.dailyWork || [];
   const coursesList = career.courses || [];
 
+  const salaryInfo = career.stats?.salary ? ` (${career.stats.salary})` : "";
+  const pageTitle = `${career.title} Career Roadmap — Salary, Exams, Colleges & Skills | Honesvia`;
+  const pageDescription = career.description
+    ? `${career.title} Roadmap in India: ${career.description} Real salary benchmarks${salaryInfo}, required entrance exams, top colleges, and step-by-step career milestones.`
+    : `Complete step-by-step career roadmap for ${career.title} in India. Understand salary packages${salaryInfo}, required skills, college selection, and career pathways.`;
+
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: `${career.title} Career Roadmap`,
+    description: pageDescription,
+    provider: {
+      "@type": "Organization",
+      name: "Honesvia",
+      url: "https://honesvia.com",
+      sameAs: "https://honesvia.com/about",
+    },
+    url: `https://honesvia.com/roadmaps/${career.id}`,
+    isAccessibleForFree: true,
+    occupationalCredentialAwarded: `${career.title} Certification & Career Readiness`,
+  };
+
   return (
     <Layout>
+      <SEO
+        title={pageTitle}
+        description={pageDescription}
+        canonical={`https://honesvia.com/roadmaps/${career.id}`}
+        ogType="article"
+        schema={courseSchema}
+      />
       {/* ── ATMOSPHERIC HERO BANNER WITH THEMATIC CAREER PHOTOGRAPHY ── */}
       <section className="relative w-full overflow-hidden bg-[#0d0d0f] border-b border-white/10">
         <div className="absolute inset-0 z-0 pointer-events-none">

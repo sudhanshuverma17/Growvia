@@ -28,6 +28,7 @@ import { HomeCounselingSection } from "@/components/HomeCounselingSection";
 import { Button } from "@/components/ui/button";
 import { useCourses } from "@/context/course-context";
 import { useAuth } from "@/context/auth-context";
+import { SEO } from "@/components/SEO";
 import { GrowviaLogoMark, GrowviaFullLogo } from "@/components/GrowviaLogo";
 import { getCareerCardImage, getCareerConciseDesc } from "@/lib/career-media";
 
@@ -172,6 +173,11 @@ export default function Home() {
 
   return (
     <Layout>
+      <SEO
+        title="Honesvia — India's Premier Career Roadmap & Mentor Guidance Platform"
+        description="Clear, honest career roadmaps, real salary insights, step-by-step progression milestones, and unfiltered mentor masterclasses across 48+ careers for Indian students."
+        canonical="https://honesvia.com"
+      />
       {/* ── HERO (CINEMATIC EDITORIAL) ────────────────────────── */}
       <section className="relative h-[100dvh] min-h-[580px] sm:min-h-[640px] md:h-screen w-full flex flex-col justify-end overflow-hidden bg-black select-none">
         {/* Atmospheric Photography Background - Mobile */}
@@ -209,7 +215,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mb-5 sm:mb-6 leading-[1.12] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-light tracking-[0.04em] sm:tracking-[0.05em] text-white mb-5 sm:mb-6 leading-[1.18] sm:leading-[1.15] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]"
             >
               Find Your Path.
               <br />

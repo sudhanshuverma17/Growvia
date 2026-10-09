@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/SEO";
 import { useCourses } from "@/context/course-context";
 import { useAuth } from "@/context/auth-context";
 import { useToast } from "@/hooks/use-toast";
@@ -846,6 +847,7 @@ export default function Dashboard() {
 
   return (
     <Layout>
+      <SEO title="Student Dashboard" noIndex={true} />
       <div className="w-full min-h-[calc(100vh-5rem)] bg-[#0B0B0D] text-foreground -mt-20 pt-28 pb-20 -mb-20 relative overflow-hidden">
         {/* Subtle Warm Atmospheric Glows */}
         <div className="fixed top-0 right-0 w-[550px] h-[550px] bg-gradient-to-b from-[#E5A855]/10 via-[#E5A855]/3 to-transparent rounded-full blur-[130px] pointer-events-none z-0" />
