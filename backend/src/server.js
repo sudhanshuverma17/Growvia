@@ -444,4 +444,5 @@ if (!isServerless) {
   startServer();
 }
 
+// Trigger nodemon restart to refresh in-memory static index.html cache v2
 export default app;

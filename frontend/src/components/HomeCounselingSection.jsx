@@ -359,7 +359,7 @@ export function HomeCounselingSection({ id = "counseling-section" } = {}) {
                 </Button>
               </div>
 
-              {/* Card 2: 1:1 Career Counseling (Redirect to Purchase Roadmap) */}
+              {/* Card 2: 1:1 Career Counseling */}
               <div className="relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl bg-[#0d0d0f]/95 border border-amber-500/35 hover:border-amber-500/50 transition-all shadow-xl shadow-amber-500/5 group overflow-hidden">
                 {/* Subtle Amber Glow in Corner */}
                 <div className="absolute -top-16 -right-16 w-36 h-36 rounded-full bg-amber-500/15 blur-2xl pointer-events-none" />
@@ -371,7 +371,7 @@ export function HomeCounselingSection({ id = "counseling-section" } = {}) {
                     </div>
                     <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full flex items-center gap-1">
                       <Sparkles className="w-3 h-3 text-emerald-400" />
-                      1:1 Session · With Roadmap
+                      1:1 Strategy Session
                     </span>
                   </div>
 
@@ -379,7 +379,7 @@ export function HomeCounselingSection({ id = "counseling-section" } = {}) {
                     1:1 Career Strategy &amp; Counseling
                   </h4>
                   <p className="text-xs text-slate-300/90 leading-relaxed mb-4">
-                    Private 1-on-1 video call on Google Meet with Mentor to audit your resume, customize your roadmap, and plan your career transition.
+                    Private 1-on-1 video call on Google Meet with Mentor to audit your resume, customize your career path, and plan your career transition.
                   </p>
 
                   <div className="space-y-2.5 mb-6 pt-1 border-t border-white/5">
@@ -389,7 +389,7 @@ export function HomeCounselingSection({ id = "counseling-section" } = {}) {
                     </div>
                     <div className="flex items-start gap-2.5 text-xs text-slate-300">
                       <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
-                      <span>Personalized roadmap review &amp; timeline strategy</span>
+                      <span>Personalized career strategy &amp; timeline planning</span>
                     </div>
                     <div className="flex items-start gap-2.5 text-xs text-slate-300">
                       <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
@@ -414,7 +414,7 @@ export function HomeCounselingSection({ id = "counseling-section" } = {}) {
                     }
                   >
                     <Calendar className="w-4 h-4 text-black" />
-                    <span>Get 1:1 Counseling (Purchase Roadmap)</span>
+                    <span>Get 1:1 Counseling</span>
                     <ArrowRight className="w-3.5 h-3.5 ml-0.5" />
                   </Link>
                 </Button>

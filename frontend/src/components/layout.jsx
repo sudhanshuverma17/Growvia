@@ -119,7 +119,7 @@ export function Layout({ children }) {
             : "bg-transparent border-b border-transparent py-5 md:py-6"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex justify-between items-center">
+        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 flex justify-between items-center">
           <GrowviaLogo className="h-7.5 sm:h-8.5 w-auto" />
 
           {/* Desktop Nav */}

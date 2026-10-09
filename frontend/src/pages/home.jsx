@@ -204,12 +204,12 @@ export default function Home() {
         {/* Center Watermark: Both Logo Mark and Name (Full Brand Identity) */}
         <div className="absolute top-[38%] sm:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 flex items-center justify-center">
           <GrowviaFullLogo
-            className="w-40 sm:w-52 md:w-64 lg:w-72 h-auto"
+            className="w-32 sm:w-36 md:w-44 lg:w-52 h-auto"
           />
         </div>
 
         {/* Bottom-Left Content: Quote & CTA Buttons */}
-        <div className="relative z-20 max-w-7xl w-full mx-auto px-5 sm:px-8 lg:px-12 pb-8 sm:pb-12 lg:pb-14">
+        <div className="relative z-20 w-full px-4 sm:px-6 md:px-8 lg:px-12 pb-8 sm:pb-12 lg:pb-14">
           <div className="max-w-xl">
             <motion.h1
               initial={{ opacity: 0, y: 18 }}
