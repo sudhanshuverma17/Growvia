@@ -19,7 +19,8 @@ const DEFAULT_METADATA = {
         "@id": `${DOMAIN}/#organization`,
         name: "Honesvia",
         url: DOMAIN,
-        logo: `${DOMAIN}/images/honesvia-icon.png`,
+        logo: `${DOMAIN}/images/honesvia-logo-512.png`,
+        image: `${DOMAIN}/images/honesvia-logo-512.png`,
         description:
           "India's premier career guidance and learning roadmap platform for students and early professionals.",
         sameAs: [

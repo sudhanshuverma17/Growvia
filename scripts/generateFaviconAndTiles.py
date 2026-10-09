@@ -41,12 +41,14 @@ def generate_all_icons():
         tile.paste(mark_scaled, (paste_x, paste_y), mark_scaled)
         return tile
 
-    # Generate distinct sizes
+    # Generate distinct sizes (including strict 48px multiples required by Google Search)
     tile_512 = create_branded_tile(512, radius_ratio=0.22, mark_ratio=0.70)
     tile_192 = create_branded_tile(192, radius_ratio=0.22, mark_ratio=0.70)
     tile_180 = create_branded_tile(180, radius_ratio=0.22, mark_ratio=0.70)
     tile_150 = create_branded_tile(150, radius_ratio=0.22, mark_ratio=0.70)
+    tile_144 = create_branded_tile(144, radius_ratio=0.22, mark_ratio=0.70)
     tile_128 = create_branded_tile(128, radius_ratio=0.22, mark_ratio=0.70)
+    tile_96 = create_branded_tile(96, radius_ratio=0.22, mark_ratio=0.72)
     tile_64 = create_branded_tile(64, radius_ratio=0.22, mark_ratio=0.72)
     tile_48 = create_branded_tile(48, radius_ratio=0.22, mark_ratio=0.72)
     tile_32 = create_branded_tile(32, radius_ratio=0.22, mark_ratio=0.74)
@@ -105,14 +107,20 @@ def generate_all_icons():
     for target in targets:
         target.mkdir(parents=True, exist_ok=True)
         
-        # 1. Multi-resolution favicon.ico
+        # 1. Multi-resolution favicon.ico (includes 48x48 and 96x96 for Googlebot and Windows)
         tile_128.save(
             target / 'favicon.ico',
             format='ICO',
-            sizes=[(16, 16), (32, 32), (48, 48), (64, 64)]
+            sizes=[(16, 16), (32, 32), (48, 48), (96, 96)]
         )
         
-        # 2. Favicon PNGs
+        # 2. Google Search Favicon Multiples (Strict 48px square requirement by Google Search Central)
+        tile_48.save(target / 'favicon-48x48.png')
+        tile_96.save(target / 'favicon-96x96.png')
+        tile_144.save(target / 'favicon-144x144.png')
+        tile_192.save(target / 'favicon-192x192.png')
+        
+        # Standard Favicon PNGs
         tile_128.save(target / 'favicon.png')
         tile_32.save(target / 'favicon-32x32.png')
         tile_16.save(target / 'favicon-16x16.png')
@@ -123,11 +131,16 @@ def generate_all_icons():
         tile_192.save(target / 'android-chrome-192x192.png')
         tile_512.save(target / 'android-chrome-512x512.png')
         
-        # 4. Vector SVG favicon
+        # 4. Schema.org high-res Organization logo
+        images_dir = target / 'images'
+        images_dir.mkdir(parents=True, exist_ok=True)
+        tile_512.save(images_dir / 'honesvia-logo-512.png')
+        
+        # 5. Vector SVG favicon
         with open(target / 'favicon.svg', 'w', encoding='utf-8') as f:
             f.write(svg_content)
             
-        # 5. Web manifest
+        # 6. Web manifest
         with open(target / 'site.webmanifest', 'w', encoding='utf-8') as f:
             f.write(manifest_content)
 

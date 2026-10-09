@@ -17,6 +17,16 @@ Allow: /favicon*
 Allow: /robots.txt
 Allow: /sitemap.xml
 
+# Explicitly ensure Googlebot-Image can fetch all brand icons & favicons
+User-agent: Googlebot-Image
+Allow: /
+Allow: /images/
+Allow: /favicon*
+Allow: /*.png$
+Allow: /*.ico$
+Allow: /*.svg$
+
+
 # Protected student areas, personalized dashboards & internal APIs
 Disallow: /api/
 Disallow: /dashboard
