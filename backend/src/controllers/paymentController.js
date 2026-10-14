@@ -375,18 +375,39 @@ export const handleCashfreeWebhook = async (req, res) => {
     const signature = req.headers["x-webhook-signature"];
     const timestamp = req.headers["x-webhook-timestamp"];
 
-    if (!signature || !timestamp) {
-      return res.status(400).json({
-        success: false,
-        message: "Missing x-webhook-signature or x-webhook-timestamp header",
-      });
+    // 1. Extract raw body and payload safely
+    const rawBody = req.rawBody || (typeof req.body === "string" ? req.body : JSON.stringify(req.body || {}));
+    let payload = {};
+    try {
+      payload =
+        typeof req.body === "object" && !Buffer.isBuffer(req.body)
+          ? req.body
+          : JSON.parse(rawBody.toString("utf8"));
+    } catch {}
+
+    const eventType = payload?.type || payload?.event;
+
+    // 2. Acknowledge dashboard test pings / probes from Cashfree
+    const isTestProbe =
+      !signature ||
+      !timestamp ||
+      eventType === "TEST" ||
+      eventType === "TEST_WEBHOOK" ||
+      (req.body && Object.keys(req.body).length === 0);
+
+    if (isTestProbe && (!signature || !timestamp || eventType === "TEST" || eventType === "TEST_WEBHOOK")) {
+      console.log(`ℹ️ [Cashfree Webhook]: Acknowledged dashboard test probe / ping (${eventType || "probe"}).`);
+      return res.status(200).json({ status: "OK", message: "Cashfree webhook endpoint active" });
     }
 
-    // req.rawBody must be retained by express.json verify hook
-    const rawBody = req.rawBody || (typeof req.body === "string" ? req.body : JSON.stringify(req.body));
+    // 3. Cryptographic signature verification for production events
     const isValid = verifyCashfreeWebhookSignature(signature, rawBody, timestamp);
 
     if (!isValid) {
+      if (eventType === "TEST" || eventType === "TEST_WEBHOOK") {
+        return res.status(200).json({ status: "OK", message: "Test webhook accepted" });
+      }
+
       console.warn(`❌ [Cashfree Webhook - ${currentMode}]: Invalid webhook signature attempt.`);
       return res.status(400).json({
         success: false,
@@ -394,12 +415,6 @@ export const handleCashfreeWebhook = async (req, res) => {
       });
     }
 
-    const payload =
-      typeof req.body === "object" && !Buffer.isBuffer(req.body)
-        ? req.body
-        : JSON.parse(rawBody.toString("utf8"));
-
-    const eventType = payload.type || payload.event;
     console.log(`🔔 [Cashfree Webhook - ${currentMode}]: Verified webhook event received: ${eventType}`);
 
     const data = payload.data || {};

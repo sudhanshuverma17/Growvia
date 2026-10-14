@@ -16,6 +16,11 @@ router.post("/verify", protect, verifyPayment);
 // Cashfree post-payment callback handler (Closes popup window & notifies main tab)
 router.get("/callback", paymentCallback);
 
+// Health check / probe for Cashfree webhook endpoint (GET / HEAD)
+router.get("/webhook", (req, res) => {
+  res.status(200).json({ status: "OK", message: "Cashfree webhook endpoint is active" });
+});
+
 // Cashfree Server-to-Server Webhook (Public, Cryptographically Signature-verified)
 router.post("/webhook", handleCashfreeWebhook);
 

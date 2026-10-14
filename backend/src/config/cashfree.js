@@ -22,6 +22,10 @@ const cleanEnvValue = (val) => {
   if ((clean.startsWith('"') && clean.endsWith('"')) || (clean.startsWith("'") && clean.endsWith("'"))) {
     clean = clean.slice(1, -1).trim();
   }
+  // Auto-correct accidental typo like 'ccfsk_'
+  if (clean.startsWith("ccfsk_")) {
+    clean = clean.slice(1);
+  }
   return clean;
 };
 
