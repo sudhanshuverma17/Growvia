@@ -1,10 +1,11 @@
 import os
 import base64
+import shutil
 from pathlib import Path
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter
 
-def generate_all_icons():
-    # Source mark from navbar
+def generate_perfect_icons():
+    # Source mark directly from navbar
     source_path = Path('frontend/public/images/honesvia-icon.png')
     if not source_path.exists():
         raise FileNotFoundError(f"Source mark not found at {source_path}")
@@ -13,15 +14,25 @@ def generate_all_icons():
     bbox = mark.getbbox()
     mark_trimmed = mark.crop(bbox)
 
-    def create_branded_tile(size, radius_ratio=0.22, mark_ratio=0.70, border=True):
+    # Slight contrast boost on the mark so the chrome bevels and silver lines pop at tiny 16px/32px sizes
+    rgb = mark_trimmed.convert('RGB')
+    enhancer = ImageEnhance.Contrast(rgb)
+    boosted_rgb = enhancer.enhance(1.15)
+    
+    # Recombine with alpha
+    r, g, b = boosted_rgb.split()
+    _, _, _, a = mark_trimmed.split()
+    mark_crisp = Image.merge('RGBA', (r, g, b, a))
+
+    def create_branded_tile(size, radius_ratio=0.22, mark_ratio=0.82, border=True):
         tile = Image.new('RGBA', (size, size), (0, 0, 0, 0))
         draw = ImageDraw.Draw(tile)
         radius = int(size * radius_ratio)
         
-        # Sleek dark luxury background matching brand #0A0A0F
+        # Deep luxury dark background matching Honesvia brand palette (#0A0A0F)
         bg_color = (10, 10, 15, 255)
-        outline_color = (255, 255, 255, 32) if border else None
-        border_width = max(1, int(size * 0.018))
+        outline_color = (255, 255, 255, 45) if border else None
+        border_width = max(1, int(size * 0.02))
         
         draw.rounded_rectangle(
             [0, 0, size - 1, size - 1],
@@ -31,31 +42,31 @@ def generate_all_icons():
             width=border_width
         )
         
-        # Scale mark smoothly
+        # Scale mark to fill ~82-85% for maximum visibility and clarity in browser tabs & Google search
         target_h = int(size * mark_ratio)
-        target_w = int(mark_trimmed.width * (target_h / mark_trimmed.height))
-        mark_scaled = mark_trimmed.resize((target_w, target_h), Image.Resampling.LANCZOS)
+        target_w = int(mark_crisp.width * (target_h / mark_crisp.height))
+        mark_scaled = mark_crisp.resize((target_w, target_h), Image.Resampling.LANCZOS)
         
         paste_x = (size - target_w) // 2
         paste_y = (size - target_h) // 2
         tile.paste(mark_scaled, (paste_x, paste_y), mark_scaled)
         return tile
 
-    # Generate distinct sizes (including strict 48px multiples required by Google Search)
-    tile_512 = create_branded_tile(512, radius_ratio=0.22, mark_ratio=0.70)
-    tile_192 = create_branded_tile(192, radius_ratio=0.22, mark_ratio=0.70)
-    tile_180 = create_branded_tile(180, radius_ratio=0.22, mark_ratio=0.70)
-    tile_150 = create_branded_tile(150, radius_ratio=0.22, mark_ratio=0.70)
-    tile_144 = create_branded_tile(144, radius_ratio=0.22, mark_ratio=0.70)
-    tile_128 = create_branded_tile(128, radius_ratio=0.22, mark_ratio=0.70)
-    tile_96 = create_branded_tile(96, radius_ratio=0.22, mark_ratio=0.72)
-    tile_64 = create_branded_tile(64, radius_ratio=0.22, mark_ratio=0.72)
-    tile_48 = create_branded_tile(48, radius_ratio=0.22, mark_ratio=0.72)
-    tile_32 = create_branded_tile(32, radius_ratio=0.22, mark_ratio=0.74)
-    tile_16 = create_branded_tile(16, radius_ratio=0.20, mark_ratio=0.76)
+    # Generate icons across all required dimensions
+    tile_512 = create_branded_tile(512, radius_ratio=0.22, mark_ratio=0.82)
+    tile_192 = create_branded_tile(192, radius_ratio=0.22, mark_ratio=0.82)
+    tile_180 = create_branded_tile(180, radius_ratio=0.22, mark_ratio=0.82)
+    tile_150 = create_branded_tile(150, radius_ratio=0.22, mark_ratio=0.82)
+    tile_144 = create_branded_tile(144, radius_ratio=0.22, mark_ratio=0.82)
+    tile_128 = create_branded_tile(128, radius_ratio=0.22, mark_ratio=0.82)
+    tile_96  = create_branded_tile(96, radius_ratio=0.22, mark_ratio=0.84)
+    tile_64  = create_branded_tile(64, radius_ratio=0.22, mark_ratio=0.84)
+    tile_48  = create_branded_tile(48, radius_ratio=0.22, mark_ratio=0.84)
+    tile_32  = create_branded_tile(32, radius_ratio=0.22, mark_ratio=0.86)
+    tile_16  = create_branded_tile(16, radius_ratio=0.20, mark_ratio=0.88)
 
-    # Base64 for SVG embedding
-    tile_256 = create_branded_tile(256, radius_ratio=0.22, mark_ratio=0.70)
+    # Base64 embedding for vector SVG favicon
+    tile_256 = create_branded_tile(256, radius_ratio=0.22, mark_ratio=0.82)
     temp_png_path = Path('scratch/temp_svg_tile.png')
     tile_256.save(temp_png_path)
     with open(temp_png_path, 'rb') as f:
@@ -69,7 +80,7 @@ def generate_all_icons():
       <rect width="256" height="256" rx="56" ry="56" />
     </clipPath>
   </defs>
-  <rect width="256" height="256" rx="56" ry="56" fill="#0A0A0F" stroke="rgba(255, 255, 255, 0.12)" stroke-width="4" />
+  <rect width="256" height="256" rx="56" ry="56" fill="#0A0A0F" stroke="rgba(255, 255, 255, 0.18)" stroke-width="4" />
   <image href="data:image/png;base64,{b64_tile}" width="256" height="256" clip-path="url(#squircle)" />
 </svg>
 '''
@@ -80,12 +91,12 @@ def generate_all_icons():
   "description": "India's Premier Career Roadmap & Guidance Platform",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
+      "src": "/android-chrome-192x192.png?v=20261014",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/android-chrome-512x512.png",
+      "src": "/android-chrome-512x512.png?v=20261014",
       "sizes": "512x512",
       "type": "image/png"
     }
@@ -97,7 +108,10 @@ def generate_all_icons():
 }
 '''
 
-    # Destination directories
+    # Ensure assets are written to ALL public folders:
+    # 1. frontend/public (used during development & vite build)
+    # 2. backend/public (used in production on Render/Vercel)
+    # 3. public (root fallback)
     targets = [
         Path('frontend/public'),
         Path('backend/public'),
@@ -107,44 +121,44 @@ def generate_all_icons():
     for target in targets:
         target.mkdir(parents=True, exist_ok=True)
         
-        # 1. Multi-resolution favicon.ico (includes 48x48 and 96x96 for Googlebot and Windows)
+        # 1. Multi-resolution favicon.ico containing 16, 32, 48, 64, 96, 128
         tile_128.save(
             target / 'favicon.ico',
             format='ICO',
-            sizes=[(16, 16), (32, 32), (48, 48), (96, 96)]
+            sizes=[(16, 16), (32, 32), (48, 48), (64, 64), (96, 96), (128, 128)]
         )
         
-        # 2. Google Search Favicon Multiples (Strict 48px square requirement by Google Search Central)
+        # 2. Google Search Central multiples (Strict 48px square requirement by Google)
         tile_48.save(target / 'favicon-48x48.png')
         tile_96.save(target / 'favicon-96x96.png')
         tile_144.save(target / 'favicon-144x144.png')
         tile_192.save(target / 'favicon-192x192.png')
         
-        # Standard Favicon PNGs
+        # 3. Browser tab PNGs
         tile_128.save(target / 'favicon.png')
         tile_32.save(target / 'favicon-32x32.png')
         tile_16.save(target / 'favicon-16x16.png')
         
-        # 3. Touch icons & OS tiles
+        # 4. OS & Mobile Tiles
         tile_180.save(target / 'apple-touch-icon.png')
         tile_150.save(target / 'mstile-150x150.png')
         tile_192.save(target / 'android-chrome-192x192.png')
         tile_512.save(target / 'android-chrome-512x512.png')
         
-        # 4. Schema.org high-res Organization logo
+        # 5. Schema.org high-res Organization logo
         images_dir = target / 'images'
         images_dir.mkdir(parents=True, exist_ok=True)
         tile_512.save(images_dir / 'honesvia-logo-512.png')
         
-        # 5. Vector SVG favicon
+        # 6. Vector SVG favicon
         with open(target / 'favicon.svg', 'w', encoding='utf-8') as f:
             f.write(svg_content)
             
-        # 6. Web manifest
+        # 7. Web manifest
         with open(target / 'site.webmanifest', 'w', encoding='utf-8') as f:
             f.write(manifest_content)
 
-    print("All favicon and tile assets generated and synced across frontend/public, backend/public, and public!")
+    print("SUCCESS: All crisp navbar-identical favicon & Google search icon assets generated across all targets!")
 
 if __name__ == '__main__':
-    generate_all_icons()
+    generate_perfect_icons()
