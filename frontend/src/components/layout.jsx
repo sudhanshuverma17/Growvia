@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ShieldCheck, User, LogOut, LayoutDashboard, BookOpen, Users, Linkedin, Github, Instagram, Youtube, Calendar } from "lucide-react";
+import { Menu, X, ShieldCheck, User, LogOut, LayoutDashboard, BookOpen, Users, Linkedin, Instagram, Calendar } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/auth-context";
@@ -308,43 +308,25 @@ export function Layout({ children }) {
                 </p>
               </div>
 
-              {/* Social Icons (LinkedIn, GitHub, Instagram, YouTube) */}
+              {/* Social Icons (LinkedIn & Instagram) */}
               <div className="flex items-center gap-3">
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/uttkarsh-baisla-798553324"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
                   className="w-10 h-10 rounded-full bg-[#121318]/90 border border-white/15 hover:border-[#C88A58]/60 hover:bg-[#1c1d24] text-white/80 hover:text-white flex items-center justify-center transition-all shadow-md group"
                 >
-                  <Linkedin className="w-4 h-4 text-zinc-300 group-hover:text-white transition-colors" />
+                  <Linkedin className="w-4 h-4 text-zinc-300 group-hover:text-[#0A66C2] transition-colors" />
                 </a>
                 <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                  className="w-10 h-10 rounded-full bg-[#121318]/90 border border-white/15 hover:border-[#C88A58]/60 hover:bg-[#1c1d24] text-white/80 hover:text-white flex items-center justify-center transition-all shadow-md group"
-                >
-                  <Github className="w-4 h-4 text-zinc-300 group-hover:text-white transition-colors" />
-                </a>
-                <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/uttkarsh_baisla"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
                   className="w-10 h-10 rounded-full bg-[#121318]/90 border border-white/15 hover:border-[#C88A58]/60 hover:bg-[#1c1d24] text-white/80 hover:text-white flex items-center justify-center transition-all shadow-md group"
                 >
-                  <Instagram className="w-4 h-4 text-zinc-300 group-hover:text-white transition-colors" />
-                </a>
-                <a
-                  href="https://youtube.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="YouTube"
-                  className="w-10 h-10 rounded-full bg-[#121318]/90 border border-white/15 hover:border-[#C88A58]/60 hover:bg-[#1c1d24] text-white/80 hover:text-white flex items-center justify-center transition-all shadow-md group"
-                >
-                  <Youtube className="w-4 h-4 text-zinc-300 group-hover:text-white transition-colors" />
+                  <Instagram className="w-4 h-4 text-zinc-300 group-hover:text-[#E4405F] transition-colors" />
                 </a>
               </div>
             </div>

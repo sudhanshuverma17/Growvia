@@ -1,7 +1,7 @@
 import { Layout } from "@/components/layout";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, Quote, Target, Eye, Zap, Heart, BookOpen, Users, Award } from "lucide-react";
+import { ArrowRight, Quote, Target, Eye, Zap, Heart, BookOpen, Users, Award, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 
@@ -51,7 +51,7 @@ export default function About() {
               custom={0}
               className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#E5A855] px-3.5 py-1.5 rounded-full border border-amber-500/25 bg-amber-500/5 mb-4"
             >
-              HONESVIA — INDIA&apos;S CAREER GUIDANCE PLATFORM
+              OUR STORY & MISSION
             </motion.div>
 
             <motion.h1
@@ -72,7 +72,7 @@ export default function About() {
               custom={2}
               className="text-sm sm:text-base md:text-lg text-muted-foreground/90 max-w-2xl mx-auto leading-relaxed mb-8"
             >
-              Honesvia is India&apos;s Career Guidance Platform — helping students discover career paths, explore transparent roadmaps, understand real salary expectations, and access relevant learning resources across 48+ careers.
+              Every year, crores of Indian students choose careers based on hype, parental pressure, or outdated advice — without a single honest conversation about what the path really looks like. Honesvia was built to change that.
             </motion.p>
 
             {/* Metric Counters */}
@@ -182,7 +182,7 @@ export default function About() {
                     Honesvia is the answer to that problem. A platform where anyone can find the right career path and absolutely kill it in life.
                   </p>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {["Founder of Honesvia", "Co-Founder, Adfrenzy Media", "Career Clarity", "India-First"].map((tag) => (
                       <span
                         key={tag}
@@ -191,6 +191,31 @@ export default function About() {
                         {tag}
                       </span>
                     ))}
+                  </div>
+
+                  {/* Founder Social Profiles */}
+                  <div className="flex items-center gap-3 pt-3 border-t border-white/10">
+                    <span className="text-xs text-muted-foreground font-medium">Connect:</span>
+                    <a
+                      href="https://www.linkedin.com/in/uttkarsh-baisla-798553324"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Uttkarsh Baisla on LinkedIn"
+                      className="inline-flex items-center gap-1.5 text-xs text-zinc-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/15 hover:border-amber-500/40 px-3 py-1.5 rounded-full transition-all shadow-sm group"
+                    >
+                      <Linkedin className="w-3.5 h-3.5 text-[#0A66C2] group-hover:scale-110 transition-transform" />
+                      <span>LinkedIn</span>
+                    </a>
+                    <a
+                      href="https://www.instagram.com/uttkarsh_baisla"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Uttkarsh Baisla on Instagram"
+                      className="inline-flex items-center gap-1.5 text-xs text-zinc-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/15 hover:border-amber-500/40 px-3 py-1.5 rounded-full transition-all shadow-sm group"
+                    >
+                      <Instagram className="w-3.5 h-3.5 text-[#E4405F] group-hover:scale-110 transition-transform" />
+                      <span>Instagram</span>
+                    </a>
                   </div>
                 </div>
               </div>

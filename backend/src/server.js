@@ -217,17 +217,20 @@ const staticServingPath = candidatePublicPaths.find((p) =>
   fs.existsSync(path.join(p, "index.html"))
 );
 
-// Cache for raw index.html template
+// Cache for raw index.html template with mtime invalidation
 let cachedRawIndexHtml = null;
 let cachedIndexPath = null;
+let cachedMtime = 0;
 
 const getRawIndexHtml = (indexPath) => {
-  if (isProduction && cachedRawIndexHtml && cachedIndexPath === indexPath) {
-    return cachedRawIndexHtml;
-  }
   try {
+    const stats = fs.statSync(indexPath);
+    if (cachedRawIndexHtml && cachedIndexPath === indexPath && cachedMtime === stats.mtimeMs) {
+      return cachedRawIndexHtml;
+    }
     cachedRawIndexHtml = fs.readFileSync(indexPath, "utf8");
     cachedIndexPath = indexPath;
+    cachedMtime = stats.mtimeMs;
     return cachedRawIndexHtml;
   } catch {
     return null;

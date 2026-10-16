@@ -18,8 +18,16 @@ const ORGANIZATION_SCHEMA = {
   slogan: "India's Career Guidance Platform",
   founder: {
     "@type": "Person",
-    name: "Uttkarsh Baisla"
+    name: "Uttkarsh Baisla",
+    sameAs: [
+      "https://www.linkedin.com/in/uttkarsh-baisla-798553324",
+      "https://www.instagram.com/uttkarsh_baisla"
+    ]
   },
+  sameAs: [
+    "https://www.linkedin.com/in/uttkarsh-baisla-798553324",
+    "https://www.instagram.com/uttkarsh_baisla"
+  ],
   areaServed: {
     "@type": "Country",
     name: "India"

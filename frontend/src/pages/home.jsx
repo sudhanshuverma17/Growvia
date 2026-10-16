@@ -211,36 +211,16 @@ export default function Home() {
         {/* Bottom-Left Content: Quote & CTA Buttons */}
         <div className="relative z-20 w-full px-4 sm:px-6 md:px-8 lg:px-12 pb-8 sm:pb-12 lg:pb-14">
           <div className="max-w-xl">
-            {/* Prominent Brand Entity Badge for Google Search & Visitors */}
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-[#E5A869] px-3.5 py-1.5 rounded-full border border-[#C88A58]/40 bg-black/60 backdrop-blur-md mb-3.5 shadow-lg"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E5A869] shadow-[0_0_6px_#E5A869]" />
-              <span>HONESVIA — INDIA&apos;S CAREER GUIDANCE PLATFORM</span>
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-light tracking-[0.04em] sm:tracking-[0.05em] text-white mb-3.5 leading-[1.18] sm:leading-[1.15] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-light tracking-[0.04em] sm:tracking-[0.05em] text-white mb-5 sm:mb-6 leading-[1.18] sm:leading-[1.15] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]"
             >
               Find Your Path.
               <br />
               <span className="text-[#F5F0E8]">Kill It in Life.</span>
             </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-              className="text-xs sm:text-sm md:text-base text-zinc-300/90 leading-relaxed max-w-lg mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
-            >
-              Honesvia helps Indian students discover career paths, explore roadmaps, understand salary expectations, and access relevant learning resources across 48+ careers.
-            </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
