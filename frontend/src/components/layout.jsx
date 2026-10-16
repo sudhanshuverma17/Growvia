@@ -303,8 +303,8 @@ export function Layout({ children }) {
                   <GrowviaFullLogo className="h-12 sm:h-14 w-auto" />
                 </div>
                 <p className="text-zinc-400 text-sm leading-relaxed max-w-sm mb-6">
-                  Helping Indian students find the right career path with absolute
-                  clarity, honest insights, and structured roadmaps.
+                  <strong className="text-zinc-200 block font-medium mb-1">Honesvia — India&apos;s Career Guidance Platform</strong>
+                  Helping Indian students discover career paths, explore roadmaps, understand salary expectations, and access relevant learning resources.
                 </p>
               </div>
 

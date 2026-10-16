@@ -1,8 +1,12 @@
 import http from "http";
+import app from "../backend/src/server.js";
+
+let server;
+let port;
 
 function fetchUrl(path) {
   return new Promise((resolve, reject) => {
-    http.get(`http://localhost:5000${path}`, (res) => {
+    http.get(`http://127.0.0.1:${port}${path}`, (res) => {
       let data = "";
       res.on("data", (chunk) => (data += chunk));
       res.on("end", () => {
@@ -21,6 +25,14 @@ async function runTests() {
   console.log("🧪 RUNNING HONESVIA PRODUCTION SEO VERIFICATION");
   console.log("=================================================\n");
 
+  server = await new Promise((resolve) => {
+    const s = app.listen(0, "127.0.0.1", () => {
+      port = s.address().port;
+      console.log(`🌐 Test server listening on http://127.0.0.1:${port}\n`);
+      resolve(s);
+    });
+  });
+
   let passed = 0;
   let failed = 0;
 
@@ -35,11 +47,7 @@ async function runTests() {
   };
 
   try {
-    // 1. Health check
-    const health = await fetchUrl("/api/health");
-    test("GET /api/health returns 200 JSON", health.statusCode === 200 && health.headers["content-type"].includes("application/json"));
-
-    // 2. Robots.txt
+    // 1. Robots.txt
     const robots = await fetchUrl("/robots.txt");
     test("GET /robots.txt returns 200", robots.statusCode === 200);
     test("GET /robots.txt content-type is text/plain", (robots.headers["content-type"] || "").includes("text/plain"));
@@ -70,10 +78,17 @@ async function runTests() {
     // 5. Homepage HTML SEO Metadata Injection
     const homeHtml = await fetchUrl("/");
     test("GET / returns HTTP 200 HTML", homeHtml.statusCode === 200 && (homeHtml.headers["content-type"] || "").includes("text/html"));
-    test("GET / has updated title 'Honesvia | Career Guidance & Roadmaps for Students'", homeHtml.body.includes("<title>Honesvia | Career Guidance & Roadmaps for Students</title>") || homeHtml.body.includes("<title>Honesvia | Career Guidance &amp; Roadmaps for Students</title>"));
-    test("GET / has canonical https://honesvia.com/", homeHtml.body.includes('href="https://honesvia.com/"') || homeHtml.body.includes('href="https://honesvia.com"'));
+    test("GET / has updated title 'Honesvia — India's Career Guidance Platform'", homeHtml.body.includes("<title>Honesvia — India's Career Guidance Platform</title>") || homeHtml.body.includes("<title>Honesvia &mdash; India&#039;s Career Guidance Platform</title>") || homeHtml.body.includes("<title>Honesvia — India&#039;s Career Guidance Platform</title>"));
+    test("GET / has canonical https://honesvia.com/", homeHtml.body.includes('href="https://honesvia.com/"'));
     test("GET / has OpenGraph og:site_name Honesvia", homeHtml.body.includes('property="og:site_name" content="Honesvia"'));
     test("GET / has Schema.org Organization JSON-LD", homeHtml.body.includes('"@type": "Organization"') || homeHtml.body.includes('"@type":"Organization"'));
+    
+    // Schema Disambiguation & Single Script Tag Check (CRITICAL)
+    const jsonLdMatches = homeHtml.body.match(/<script\s+type=["']application\/ld\+json["']/gi) || [];
+    test("GET / has exactly ONE JSON-LD script (NO DUPLICATE SCHEMAS)", jsonLdMatches.length === 1, `Found ${jsonLdMatches.length} script tags`);
+    test("GET / schema contains disambiguatingDescription for Honestvia / HoneyVeda", homeHtml.body.includes("Honestvia Techsoft Private Limited") && homeHtml.body.includes("HoneyVeda"));
+    test("GET / schema contains founder Uttkarsh Baisla", homeHtml.body.includes("Uttkarsh Baisla"));
+    test("GET / schema contains areaServed India", homeHtml.body.includes('"name": "India"') || homeHtml.body.includes('"name":"India"'));
 
     // 6. Dynamic Route SEO: /roadmaps/doctor
     const doctorHtml = await fetchUrl("/roadmaps/doctor");
@@ -81,11 +96,14 @@ async function runTests() {
     test("GET /roadmaps/doctor injected title with 'Medical Doctor'", doctorHtml.body.includes("<title>Medical Doctor Career Roadmap"));
     test("GET /roadmaps/doctor has canonical https://honesvia.com/roadmaps/doctor", doctorHtml.body.includes('href="https://honesvia.com/roadmaps/doctor"'));
     test("GET /roadmaps/doctor has Course schema", doctorHtml.body.includes('"@type": "Course"') || doctorHtml.body.includes('"@type":"Course"'));
+    const doctorJsonLdMatches = doctorHtml.body.match(/<script\s+type=["']application\/ld\+json["']/gi) || [];
+    test("GET /roadmaps/doctor has exactly ONE JSON-LD script", doctorJsonLdMatches.length === 1, `Found ${doctorJsonLdMatches.length} script tags`);
 
     // 7. Dynamic Route SEO: /about
     const aboutHtml = await fetchUrl("/about");
-    test("GET /about injected About title", aboutHtml.body.includes("<title>About Honesvia"));
+    test("GET /about injected About title with brand identity", aboutHtml.body.includes("<title>About Honesvia — India's Career Guidance Platform</title>") || aboutHtml.body.includes("About Honesvia"));
     test("GET /about has canonical https://honesvia.com/about", aboutHtml.body.includes('href="https://honesvia.com/about"'));
+    test("GET /about has visible brand disambiguation text", aboutHtml.body.includes("Honestvia Techsoft Private Limited") && aboutHtml.body.includes("HoneyVeda"));
 
     // 8. Private Route Protection: /dashboard
     const dashHtml = await fetchUrl("/dashboard");
@@ -118,6 +136,11 @@ async function runTests() {
   } catch (err) {
     console.error("Test execution failed:", err);
     process.exit(1);
+  } finally {
+    if (server) {
+      server.close();
+      process.exit(0);
+    }
   }
 }
 

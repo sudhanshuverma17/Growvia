@@ -198,33 +198,30 @@ export function ContactSection({ id = "contact", isStandalonePage = false, class
                   <div>
                     <div className="text-base font-bold text-white leading-tight">Email Us</div>
                     <div className="text-xs text-zinc-400 mt-0.5 leading-snug">
-                      For general queries and support
+                      For roadmap guidance & student queries
                     </div>
                     <a
-                      href="mailto:support@honesvia.in"
+                      href="mailto:support@honesvia.com"
                       className="text-sm font-semibold text-[#E5A869] hover:text-[#f8caa0] transition-colors inline-block mt-0.5"
                     >
-                      support@honesvia.in
+                      support@honesvia.com
                     </a>
                   </div>
                 </div>
 
-                {/* 2. Call Us */}
+                {/* 2. Student Helpdesk */}
                 <div className="flex items-start gap-4 group">
                   <div className="w-12 h-12 rounded-full bg-black/50 border border-[#C88A58]/50 shadow-[0_0_16px_rgba(200,138,88,0.22)] flex items-center justify-center text-[#F5E6D3] shrink-0 group-hover:border-[#E5A869] group-hover:scale-105 transition-all">
-                    <Phone className="w-5 h-5 text-[#F5E6D3]" strokeWidth={1.8} />
+                    <Users className="w-5 h-5 text-[#F5E6D3]" strokeWidth={1.8} />
                   </div>
                   <div>
-                    <div className="text-base font-bold text-white leading-tight">Call Us</div>
+                    <div className="text-base font-bold text-white leading-tight">Student Helpdesk</div>
                     <div className="text-xs text-zinc-400 mt-0.5 leading-snug">
-                      Mon – Sat, 10:00 AM – 6:00 PM
+                      Mon – Sat, 10:00 AM – 6:00 PM IST
                     </div>
-                    <a
-                      href="tel:+919876543210"
-                      className="text-sm font-semibold text-white/90 hover:text-white transition-colors inline-block mt-0.5"
-                    >
-                      +91 98765 43210
-                    </a>
+                    <span className="text-sm font-semibold text-white/90 inline-block mt-0.5">
+                      Online Counseling & Guidance
+                    </span>
                   </div>
                 </div>
 

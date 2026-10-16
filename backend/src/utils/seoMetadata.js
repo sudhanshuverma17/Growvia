@@ -3,43 +3,79 @@ import { seedCareers } from "../data/seedData.js";
 const DOMAIN = "https://honesvia.com";
 const DEFAULT_IMAGE = `${DOMAIN}/opengraph.jpg`;
 
-const DEFAULT_METADATA = {
-  title: "Honesvia | Career Guidance & Roadmaps for Students",
+const ORGANIZATION_SCHEMA = {
+  "@type": "Organization",
+  "@id": `${DOMAIN}/#organization`,
+  name: "Honesvia",
+  alternateName: ["Honesvia Career Platform", "Honesvia India"],
+  url: `${DOMAIN}/`,
+  logo: `${DOMAIN}/images/honesvia-logo-512.png`,
+  image: `${DOMAIN}/images/honesvia-logo-512.png`,
   description:
-    "Clear, honest career roadmaps, real salary insights, step-by-step progression milestones, and unfiltered mentor masterclasses across 48+ careers for Indian students.",
-  canonical: DOMAIN,
+    "Honesvia is an Indian career guidance platform that helps students discover career paths, explore roadmaps, understand salary expectations, and access relevant learning resources.",
+  disambiguatingDescription:
+    "Honesvia is an Indian online career guidance and educational roadmap platform founded by Uttkarsh Baisla. Honesvia is an independent student guidance platform and is not affiliated with Honestvia Techsoft Private Limited, HoneyVeda, or any IT outsourcing or agricultural consumer product brands.",
+  slogan: "India's Career Guidance Platform",
+  founder: {
+    "@type": "Person",
+    name: "Uttkarsh Baisla"
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "India"
+  },
+  audience: {
+    "@type": "Audience",
+    audienceType: "Indian Students & Early Professionals"
+  },
+  knowsAbout: [
+    "Career Guidance in India",
+    "Student Career Roadmaps",
+    "Salary Insights in India",
+    "Higher Education Entrance Exams",
+    "Mentor Guidance"
+  ]
+};
+
+const WEBSITE_SCHEMA = {
+  "@type": "WebSite",
+  "@id": `${DOMAIN}/#website`,
+  url: `${DOMAIN}/`,
+  name: "Honesvia",
+  description:
+    "India's Career Guidance Platform — Explore 48+ career roadmaps, salary insights, and mentor guidance for Indian students.",
+  inLanguage: "en-IN",
+  publisher: { "@id": `${DOMAIN}/#organization` },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${DOMAIN}/roadmaps?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const DEFAULT_METADATA = {
+  title: "Honesvia — India's Career Guidance Platform",
+  description:
+    "Honesvia helps Indian students discover career paths, explore roadmaps, understand salary expectations, and access relevant learning resources across 48+ careers.",
+  canonical: `${DOMAIN}/`,
   ogType: "website",
   ogImage: DEFAULT_IMAGE,
   robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   schema: {
     "@context": "https://schema.org",
     "@graph": [
+      ORGANIZATION_SCHEMA,
+      WEBSITE_SCHEMA,
       {
-        "@type": "Organization",
-        "@id": `${DOMAIN}/#organization`,
-        name: "Honesvia",
-        url: DOMAIN,
-        logo: `${DOMAIN}/images/honesvia-logo-512.png`,
-        image: `${DOMAIN}/images/honesvia-logo-512.png`,
+        "@type": "WebPage",
+        "@id": `${DOMAIN}/#webpage`,
+        url: `${DOMAIN}/`,
+        name: "Honesvia — India's Career Guidance Platform",
         description:
-          "India's premier career guidance and learning roadmap platform for students and early professionals.",
-        sameAs: [
-          "https://www.linkedin.com/company/honesvia",
-          "https://www.instagram.com/honesvia",
-          "https://www.youtube.com/@honesvia"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": `${DOMAIN}/#website`,
-        url: DOMAIN,
-        name: "Honesvia",
-        publisher: { "@id": `${DOMAIN}/#organization` },
-        potentialAction: {
-          "@type": "SearchAction",
-          target: `${DOMAIN}/roadmaps?q={search_term_string}`,
-          "query-input": "required name=search_term_string"
-        }
+          "Honesvia helps Indian students discover career paths, explore roadmaps, understand salary expectations, and access relevant learning resources across 48+ careers.",
+        isPartOf: { "@id": `${DOMAIN}/#website` },
+        about: { "@id": `${DOMAIN}/#organization` },
+        inLanguage: "en-IN"
       }
     ]
   }
@@ -49,7 +85,7 @@ const DEFAULT_METADATA = {
 const STATIC_ROUTE_METADATA = {
   "/": DEFAULT_METADATA,
   "/roadmaps": {
-    title: "Career Roadmaps — Explore 48+ Career Paths & Milestones | Honesvia",
+    title: "Career Roadmaps Directory — Explore 48+ Career Paths | Honesvia",
     description:
       "Browse 48+ comprehensive, transparent career roadmaps across Engineering, Healthcare, Business, Creative Arts, Aviation, and Law tailored for Indian students.",
     canonical: `${DOMAIN}/roadmaps`,
@@ -58,15 +94,21 @@ const STATIC_ROUTE_METADATA = {
     robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
     schema: {
       "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      name: "Honesvia Career Roadmaps Directory",
-      description: "Comprehensive step-by-step career roadmaps for 48+ professions in India.",
-      url: `${DOMAIN}/roadmaps`,
-      publisher: {
-        "@type": "Organization",
-        name: "Honesvia",
-        url: DOMAIN
-      }
+      "@graph": [
+        ORGANIZATION_SCHEMA,
+        WEBSITE_SCHEMA,
+        {
+          "@type": "CollectionPage",
+          "@id": `${DOMAIN}/roadmaps#webpage`,
+          url: `${DOMAIN}/roadmaps`,
+          name: "Career Roadmaps Directory — Explore 48+ Career Paths | Honesvia",
+          description:
+            "Browse 48+ comprehensive, transparent career roadmaps across Engineering, Healthcare, Business, Creative Arts, Aviation, and Law tailored for Indian students.",
+          isPartOf: { "@id": `${DOMAIN}/#website` },
+          publisher: { "@id": `${DOMAIN}/#organization` },
+          inLanguage: "en-IN"
+        }
+      ]
     }
   },
   "/career-quiz": {
@@ -76,7 +118,25 @@ const STATIC_ROUTE_METADATA = {
     canonical: `${DOMAIN}/career-quiz`,
     ogType: "website",
     ogImage: DEFAULT_IMAGE,
-    robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        ORGANIZATION_SCHEMA,
+        WEBSITE_SCHEMA,
+        {
+          "@type": "WebPage",
+          "@id": `${DOMAIN}/career-quiz#webpage`,
+          url: `${DOMAIN}/career-quiz`,
+          name: "Career Assessment Quiz — Discover Your Ideal Career Path | Honesvia",
+          description:
+            "Take our free 5-minute psychometric career assessment quiz to match your cognitive strengths, interests, and personality with 48+ high-growth careers.",
+          isPartOf: { "@id": `${DOMAIN}/#website` },
+          about: { "@id": `${DOMAIN}/#organization` },
+          inLanguage: "en-IN"
+        }
+      ]
+    }
   },
   "/quiz": {
     title: "Career Assessment Quiz — Discover Your Ideal Career Path | Honesvia",
@@ -94,30 +154,84 @@ const STATIC_ROUTE_METADATA = {
     canonical: `${DOMAIN}/videos`,
     ogType: "website",
     ogImage: DEFAULT_IMAGE,
-    robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        ORGANIZATION_SCHEMA,
+        WEBSITE_SCHEMA,
+        {
+          "@type": "WebPage",
+          "@id": `${DOMAIN}/videos#webpage`,
+          url: `${DOMAIN}/videos`,
+          name: "Mentor Video Masterclasses — Unfiltered Career Advice | Honesvia",
+          description:
+            "Watch authentic video masterclasses from real professionals in India sharing day-to-day realities, actual salary expectations, and practical career roadmaps.",
+          isPartOf: { "@id": `${DOMAIN}/#website` },
+          about: { "@id": `${DOMAIN}/#organization` },
+          inLanguage: "en-IN"
+        }
+      ]
+    }
   },
   "/about": {
-    title: "About Honesvia — Honest, Actionable Career Guidance for Indian Students",
+    title: "About Honesvia — India's Career Guidance Platform",
     description:
-      "Learn about Honesvia's mission: cutting through career noise and misinformation with verified salary benchmarks, transparent educational roadmaps, and mentor guidance.",
+      "Learn about Honesvia, an Indian career guidance platform founded by Uttkarsh Baisla to help students discover career paths, explore roadmaps, understand salary expectations, and access learning resources.",
     canonical: `${DOMAIN}/about`,
     ogType: "website",
     ogImage: DEFAULT_IMAGE,
-    robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        ORGANIZATION_SCHEMA,
+        WEBSITE_SCHEMA,
+        {
+          "@type": "AboutPage",
+          "@id": `${DOMAIN}/about#webpage`,
+          url: `${DOMAIN}/about`,
+          name: "About Honesvia — India's Career Guidance Platform",
+          description:
+            "Learn about Honesvia, an Indian career guidance platform founded by Uttkarsh Baisla to help students discover career paths, explore roadmaps, understand salary expectations, and access learning resources.",
+          isPartOf: { "@id": `${DOMAIN}/#website` },
+          about: { "@id": `${DOMAIN}/#organization` },
+          inLanguage: "en-IN"
+        }
+      ]
+    }
   },
   "/contact": {
-    title: "Contact Us — Get in Touch with Honesvia",
+    title: "Contact Us — Honesvia",
     description:
-      "Have questions regarding career roadmaps, counseling sessions, or partnerships? Contact the Honesvia team for responsive support.",
+      "Have questions regarding career roadmaps, counseling sessions, or guidance? Contact the Honesvia team for student support.",
     canonical: `${DOMAIN}/contact`,
     ogType: "website",
     ogImage: DEFAULT_IMAGE,
-    robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        ORGANIZATION_SCHEMA,
+        WEBSITE_SCHEMA,
+        {
+          "@type": "ContactPage",
+          "@id": `${DOMAIN}/contact#webpage`,
+          url: `${DOMAIN}/contact`,
+          name: "Contact Us — Honesvia",
+          description:
+            "Have questions regarding career roadmaps, counseling sessions, or guidance? Contact the Honesvia team for student support.",
+          isPartOf: { "@id": `${DOMAIN}/#website` },
+          about: { "@id": `${DOMAIN}/#organization` },
+          inLanguage: "en-IN"
+        }
+      ]
+    }
   },
   "/contact-us": {
-    title: "Contact Us — Get in Touch with Honesvia",
+    title: "Contact Us — Honesvia",
     description:
-      "Have questions regarding career roadmaps, counseling sessions, or partnerships? Contact the Honesvia team for responsive support.",
+      "Have questions regarding career roadmaps, counseling sessions, or guidance? Contact the Honesvia team for student support.",
     canonical: `${DOMAIN}/contact`,
     ogType: "website",
     ogImage: DEFAULT_IMAGE,
@@ -185,23 +299,26 @@ export function getRouteMetadata(pathname) {
         robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
         schema: {
           "@context": "https://schema.org",
-          "@type": "Course",
-          name: `${career.title} Career Roadmap`,
-          description,
-          provider: {
-            "@type": "Organization",
-            name: "Honesvia",
-            url: DOMAIN,
-            sameAs: `${DOMAIN}/about`
-          },
-          url: `${DOMAIN}/roadmaps/${careerId}`,
-          isAccessibleForFree: true,
-          occupationalCredentialAwarded: `${career.title} Certification & Career Readiness`,
-          hasCourseInstance: {
-            "@type": "CourseInstance",
-            courseMode: "Online",
-            courseWorkload: "Self-paced roadmap"
-          }
+          "@graph": [
+            ORGANIZATION_SCHEMA,
+            WEBSITE_SCHEMA,
+            {
+              "@type": "Course",
+              "@id": `${DOMAIN}/roadmaps/${careerId}#course`,
+              name: `${career.title} Career Roadmap`,
+              description,
+              provider: { "@id": `${DOMAIN}/#organization` },
+              url: `${DOMAIN}/roadmaps/${careerId}`,
+              isAccessibleForFree: true,
+              inLanguage: "en-IN",
+              occupationalCredentialAwarded: `${career.title} Certification & Career Readiness`,
+              hasCourseInstance: {
+                "@type": "CourseInstance",
+                courseMode: "Online",
+                courseWorkload: "Self-paced roadmap"
+              }
+            }
+          ]
         }
       };
     }
@@ -210,7 +327,7 @@ export function getRouteMetadata(pathname) {
   // Fallback to default
   return {
     ...DEFAULT_METADATA,
-    canonical: `${DOMAIN}${cleanPath}`
+    canonical: cleanPath === "/" ? `${DOMAIN}/` : `${DOMAIN}${cleanPath}`
   };
 }
 
@@ -277,6 +394,10 @@ export function injectSeoMetadata(htmlTemplate, pathname) {
   // Remove existing OG and Twitter tags to prevent duplicate meta
   updatedHtml = updatedHtml.replace(/<meta\s+property=["']og:[^"']*["'][^>]*>/gi, "");
   updatedHtml = updatedHtml.replace(/<meta\s+name=["']twitter:[^"']*["'][^>]*>/gi, "");
+
+  // CRITICAL FIX: Remove ANY existing inline JSON-LD script from index.html template
+  // to prevent duplicate Schema.org blocks or conflicting @graph entries
+  updatedHtml = updatedHtml.replace(/<script\s+type=["']application\/ld\+json["'][\s\S]*?<\/script>/gi, "");
 
   // 6. JSON-LD Schema
   let schemaTag = "";

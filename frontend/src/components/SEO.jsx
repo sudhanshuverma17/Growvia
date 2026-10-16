@@ -2,9 +2,9 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 
 const DOMAIN = "https://honesvia.com";
-const DEFAULT_TITLE = "Honesvia — India's Premier Career Roadmap & Mentor Guidance Platform";
+const DEFAULT_TITLE = "Honesvia — India's Career Guidance Platform";
 const DEFAULT_DESCRIPTION =
-  "Explore 48+ honest career roadmaps, real salary benchmarks, step-by-step milestones, and unfiltered mentor masterclasses tailored for Indian students.";
+  "Honesvia helps Indian students discover career paths, explore roadmaps, understand salary expectations, and access relevant learning resources across 48+ careers.";
 const DEFAULT_IMAGE = `${DOMAIN}/opengraph.jpg`;
 
 /**
@@ -41,12 +41,15 @@ export function SEO({
   let finalCanonical = canonical;
   if (!finalCanonical && typeof window !== "undefined") {
     const cleanPath = window.location.pathname.replace(/\/+$/, "") || "/";
-    finalCanonical = `${DOMAIN}${cleanPath === "/" ? "" : cleanPath}`;
+    finalCanonical = `${DOMAIN}${cleanPath === "/" ? "/" : cleanPath}`;
   } else if (!finalCanonical) {
-    finalCanonical = DOMAIN;
+    finalCanonical = `${DOMAIN}/`;
   } else if (!finalCanonical.startsWith("http")) {
     const cleanPath = finalCanonical.startsWith("/") ? finalCanonical : `/${finalCanonical}`;
-    finalCanonical = `${DOMAIN}${cleanPath.replace(/\/+$/, "") || "/"}`;
+    const normalized = cleanPath.replace(/\/+$/, "") || "/";
+    finalCanonical = `${DOMAIN}${normalized === "/" ? "/" : normalized}`;
+  } else if (finalCanonical === DOMAIN) {
+    finalCanonical = `${DOMAIN}/`;
   }
 
   // Ensure ogImage is absolute

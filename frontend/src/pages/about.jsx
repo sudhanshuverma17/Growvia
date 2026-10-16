@@ -22,8 +22,8 @@ export default function About() {
   return (
     <Layout>
       <SEO
-        title="About Honesvia — Honest, Actionable Career Guidance for Indian Students"
-        description="Learn about Honesvia's mission: cutting through career noise and misinformation with verified salary benchmarks, transparent educational roadmaps, and mentor guidance."
+        title="About Honesvia — India's Career Guidance Platform"
+        description="Learn about Honesvia, an Indian career guidance platform founded by Uttkarsh Baisla to help students discover career paths, explore roadmaps, understand salary expectations, and access learning resources."
         canonical="https://honesvia.com/about"
       />
       <div className="w-full min-h-[calc(100vh-5rem)] bg-[#0d0d0f] text-foreground -mt-20 pt-20 pb-20 -mb-20">
@@ -51,7 +51,7 @@ export default function About() {
               custom={0}
               className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#E5A855] px-3.5 py-1.5 rounded-full border border-amber-500/25 bg-amber-500/5 mb-4"
             >
-              OUR STORY & MISSION
+              HONESVIA — INDIA&apos;S CAREER GUIDANCE PLATFORM
             </motion.div>
 
             <motion.h1
@@ -72,7 +72,7 @@ export default function About() {
               custom={2}
               className="text-sm sm:text-base md:text-lg text-muted-foreground/90 max-w-2xl mx-auto leading-relaxed mb-8"
             >
-              Every year, crores of Indian students choose careers based on hype, parental pressure, or outdated advice — without a single honest conversation about what the path really looks like. Honesvia was built to change that.
+              Honesvia is India&apos;s Career Guidance Platform — helping students discover career paths, explore transparent roadmaps, understand real salary expectations, and access relevant learning resources across 48+ careers.
             </motion.p>
 
             {/* Metric Counters */}
@@ -96,6 +96,33 @@ export default function About() {
                 <span>₹199 Lifetime Access</span>
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        {/* ── BRAND CLARITY & ENTITY DISAMBIGUATION ──────────────── */}
+        <section className="py-8 border-b border-white/5 bg-[#101014]/60">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="rounded-2xl border border-amber-500/20 bg-amber-500/[0.04] p-6 sm:p-8 backdrop-blur-sm shadow-lg">
+              <div className="flex flex-col sm:flex-row items-start gap-4">
+                <div className="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-[#E5A855] shrink-0">
+                  <Target className="w-5 h-5" />
+                </div>
+                <div className="flex-1">
+                  <div className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#E5A855] mb-1.5">
+                    OFFICIAL BRAND PROFILE
+                  </div>
+                  <h2 className="text-lg sm:text-xl font-bold text-white mb-2">
+                    What is Honesvia?
+                  </h2>
+                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-3">
+                    Honesvia is an Indian online career guidance and learning roadmap platform dedicated to students and early professionals. We provide structured milestones, verified salary insights, and mentor masterclasses to help students navigate engineering, healthcare, finance, design, technology, and civil service careers with confidence.
+                  </p>
+                  <p className="text-[11px] sm:text-xs text-zinc-400 leading-relaxed border-t border-white/10 pt-3">
+                    <strong className="text-zinc-200">Brand Disambiguation:</strong> Honesvia is an independent educational initiative founded by Uttkarsh Baisla. Honesvia is not affiliated, associated, or connected with similarly named corporate entities, including Honestvia Techsoft Private Limited, HoneyVeda, or any corporate IT services or agricultural products.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
