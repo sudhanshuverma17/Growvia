@@ -273,10 +273,9 @@ export default function Home() {
         {/* Subtle warm ambient glow behind stats */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(200,138,88,0.08),transparent_75%)] pointer-events-none" />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { value: 48, suffix: "", label: "Career Roadmaps" },
-              { value: 5000, suffix: "+", label: "Students Guided" },
               { value: 199, suffix: "", label: "Rupees Lifetime" },
               { value: 100, suffix: "%", label: "Unfiltered Truth" },
             ].map((s, i) => (
@@ -772,7 +771,7 @@ export default function Home() {
 
             {/* Subtitle */}
             <p className="text-xs sm:text-sm md:text-base text-zinc-300/80 max-w-xl mx-auto mb-9 leading-relaxed">
-              Join 5,000+ Indian students who found their career path with clarity — for less than a pizza.
+              Join Indian students who found their career path with clarity — for less than a pizza.
             </p>
 
             {/* Primary Action Button */}
@@ -812,10 +811,10 @@ export default function Home() {
               </div>
               <div className="text-left">
                 <div className="text-sm sm:text-base font-bold text-white leading-tight">
-                  5,000+
+                  Indian Students
                 </div>
                 <div className="text-[11px] sm:text-xs text-zinc-400 leading-tight">
-                  Indian students
+                  Career Community
                 </div>
               </div>
             </div>

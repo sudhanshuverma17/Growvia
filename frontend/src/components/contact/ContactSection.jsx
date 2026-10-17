@@ -188,7 +188,7 @@ export function ContactSection({ id = "contact", isStandalonePage = false, class
                 you at every step of your career journey.
               </p>
 
-              {/* 3 Contact Info Rows */}
+              {/* Contact Info Rows */}
               <div className="space-y-6 mb-10">
                 {/* 1. Email Us */}
                 <div className="flex items-start gap-4 group">
@@ -201,31 +201,15 @@ export function ContactSection({ id = "contact", isStandalonePage = false, class
                       For roadmap guidance & student queries
                     </div>
                     <a
-                      href="mailto:support@honesvia.com"
+                      href="mailto:careerguidence99@gmail.com"
                       className="text-sm font-semibold text-[#E5A869] hover:text-[#f8caa0] transition-colors inline-block mt-0.5"
                     >
-                      support@honesvia.com
+                      careerguidence99@gmail.com
                     </a>
                   </div>
                 </div>
 
-                {/* 2. Student Helpdesk */}
-                <div className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 rounded-full bg-black/50 border border-[#C88A58]/50 shadow-[0_0_16px_rgba(200,138,88,0.22)] flex items-center justify-center text-[#F5E6D3] shrink-0 group-hover:border-[#E5A869] group-hover:scale-105 transition-all">
-                    <Users className="w-5 h-5 text-[#F5E6D3]" strokeWidth={1.8} />
-                  </div>
-                  <div>
-                    <div className="text-base font-bold text-white leading-tight">Student Helpdesk</div>
-                    <div className="text-xs text-zinc-400 mt-0.5 leading-snug">
-                      Mon – Sat, 10:00 AM – 6:00 PM IST
-                    </div>
-                    <span className="text-sm font-semibold text-white/90 inline-block mt-0.5">
-                      Online Counseling & Guidance
-                    </span>
-                  </div>
-                </div>
-
-                {/* 3. Our Location */}
+                {/* 2. Our Location */}
                 <div className="flex items-start gap-4 group">
                   <div className="w-12 h-12 rounded-full bg-black/50 border border-[#C88A58]/50 shadow-[0_0_16px_rgba(200,138,88,0.22)] flex items-center justify-center text-[#F5E6D3] shrink-0 group-hover:border-[#E5A869] group-hover:scale-105 transition-all">
                     <MapPin className="w-5 h-5 text-[#F5E6D3]" strokeWidth={1.8} />
@@ -253,9 +237,9 @@ export function ContactSection({ id = "contact", isStandalonePage = false, class
                       Join Our Community
                     </div>
                     <div className="text-xs text-zinc-400 mt-0.5 leading-snug">
-                      Connect with 5,000+ students on their career journey.
+                      Connect with students on their career journey.
                     </div>
-                    {/* 5 Avatar Circles */}
+                    {/* Avatar Circles */}
                     <div className="flex items-center -space-x-2 mt-2">
                       <img
                         src="/images/avatar-1.png"
@@ -277,9 +261,6 @@ export function ContactSection({ id = "contact", isStandalonePage = false, class
                         alt="Student"
                         className="w-6 h-6 rounded-full border-2 border-black object-cover"
                       />
-                      <div className="w-6 h-6 rounded-full border-2 border-black bg-[#C88A58] flex items-center justify-center text-[9px] font-bold text-black">
-                        +5k
-                      </div>
                     </div>
                   </div>
                 </div>

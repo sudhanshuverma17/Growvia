@@ -1,7 +1,7 @@
 import { Layout } from "@/components/layout";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, Quote, Target, Eye, Zap, Heart, BookOpen, Users, Award, Linkedin, Instagram } from "lucide-react";
+import { ArrowRight, Quote, Target, Eye, Zap, Heart, BookOpen, Award, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 
@@ -86,10 +86,6 @@ export default function About() {
               <div className="flex items-center gap-2">
                 <BookOpen className="w-4 h-4 text-[#E69D43]" />
                 <span>48 Roadmaps</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Users className="w-4 h-4 text-[#E69D43]" />
-                <span>5,000+ Students Guided</span>
               </div>
               <div className="flex items-center gap-2">
                 <Award className="w-4 h-4 text-[#E69D43]" />
