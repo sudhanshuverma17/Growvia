@@ -78,7 +78,7 @@ export default function Pricing() {
   // Helper to verify payment with backend and fulfill user access
   const verifyAndFulfill = async (orderId, careerId) => {
     setLoadingPayment(true);
-    const activeToken = token || (typeof window !== "undefined" ? localStorage.getItem("growvia_token") : null);
+    const activeToken = token || (typeof window !== "undefined" ? (localStorage.getItem("honesvia_token") || localStorage.getItem("growvia_token")) : null);
     if (!activeToken) {
       toast({
         title: "Session Expired",
@@ -141,17 +141,17 @@ export default function Pricing() {
 
     // A. postMessage listener from popup window
     const handlePostMessage = (event) => {
-      if (event.data && event.data.type === "GROWVIA_PAYMENT_SUCCESS") {
+      if (event.data && (event.data.type === "HONESVIA_PAYMENT_SUCCESS" || event.data.type === "GROWVIA_PAYMENT_SUCCESS")) {
         handleSuccessEvent(event.data.orderId, event.data.careerId);
       }
     };
 
     // B. localStorage cross-window sync listener
     const handleStorageEvent = (event) => {
-      if (event.key === "growvia_cf_payment_event" && event.newValue) {
+      if ((event.key === "honesvia_cf_payment_event" || event.key === "growvia_cf_payment_event") && event.newValue) {
         try {
           const payload = JSON.parse(event.newValue);
-          if (payload && payload.type === "GROWVIA_PAYMENT_SUCCESS") {
+          if (payload && (payload.type === "HONESVIA_PAYMENT_SUCCESS" || payload.type === "GROWVIA_PAYMENT_SUCCESS")) {
             handleSuccessEvent(payload.orderId, payload.careerId);
           }
         } catch (e) {}
@@ -171,7 +171,7 @@ export default function Pricing() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const activeToken = token || localStorage.getItem("growvia_token");
+    const activeToken = token || localStorage.getItem("honesvia_token") || localStorage.getItem("growvia_token");
     if (!activeToken) return;
 
     const searchParams = new URLSearchParams(window.location.search);

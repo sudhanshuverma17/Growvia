@@ -269,7 +269,7 @@ export default function RoadmapDetail() {
                 <>
                   <Button
                     size="sm"
-                    onClick={() => window.dispatchEvent(new CustomEvent("growvia:open-chat"))}
+                    onClick={() => window.dispatchEvent(new CustomEvent("honesvia:open-chat"))}
                     className="bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs rounded-xl shadow-md shadow-emerald-600/25 flex items-center gap-1.5 transition-all cursor-pointer h-8 px-2.5 sm:px-3 whitespace-nowrap shrink-0"
                   >
                     <MessageSquare className="w-3.5 h-3.5" />
@@ -1295,7 +1295,7 @@ export default function RoadmapDetail() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button
-                onClick={() => window.dispatchEvent(new CustomEvent("growvia:open-chat"))}
+                onClick={() => window.dispatchEvent(new CustomEvent("honesvia:open-chat"))}
                 className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-full px-7 shadow-lg shadow-emerald-600/25 cursor-pointer"
               >
                 <MessageSquare className="w-4 h-4 mr-2" /> Chat with Vio

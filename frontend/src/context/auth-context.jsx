@@ -3,15 +3,35 @@ import { apiUrl } from "@/lib/api-config";
 
 const AuthContext = createContext(null);
 
+const TOKEN_KEY = "honesvia_token";
+const LEGACY_TOKEN_KEY = "growvia_token";
+
+function getStoredToken() {
+  if (typeof window === "undefined") return null;
+  return localStorage.getItem(TOKEN_KEY) || localStorage.getItem(LEGACY_TOKEN_KEY) || null;
+}
+
+function storeToken(token) {
+  if (typeof window === "undefined") return;
+  localStorage.setItem(TOKEN_KEY, token);
+  localStorage.removeItem(LEGACY_TOKEN_KEY);
+}
+
+function clearStoredToken() {
+  if (typeof window === "undefined") return;
+  localStorage.removeItem(TOKEN_KEY);
+  localStorage.removeItem(LEGACY_TOKEN_KEY);
+}
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
-  const [token, setToken] = useState(() => localStorage.getItem("growvia_token") || null);
+  const [token, setToken] = useState(() => getStoredToken());
   const [loading, setLoading] = useState(true);
 
   // Restore session on mount if token is in localStorage
   useEffect(() => {
     const initAuth = async () => {
-      const savedToken = localStorage.getItem("growvia_token");
+      const savedToken = getStoredToken();
       if (!savedToken) {
         setLoading(false);
         return;
@@ -28,9 +48,10 @@ export function AuthProvider({ children }) {
           const data = await res.json();
           setUser(data.user);
           setToken(savedToken);
+          storeToken(savedToken);
         } else {
           // Token expired or invalid
-          localStorage.removeItem("growvia_token");
+          clearStoredToken();
           setUser(null);
           setToken(null);
         }
@@ -67,7 +88,7 @@ export function AuthProvider({ children }) {
         };
       }
 
-      localStorage.setItem("growvia_token", data.token);
+      storeToken(data.token);
       setToken(data.token);
       setUser(data.user);
 
@@ -107,7 +128,7 @@ export function AuthProvider({ children }) {
         };
       }
 
-      localStorage.setItem("growvia_token", data.token);
+      storeToken(data.token);
       setToken(data.token);
       setUser(data.user);
 
@@ -126,7 +147,7 @@ export function AuthProvider({ children }) {
 
   // Logout action
   const logout = () => {
-    localStorage.removeItem("growvia_token");
+    clearStoredToken();
     setToken(null);
     setUser(null);
   };
@@ -160,7 +181,7 @@ export function AuthProvider({ children }) {
 
   // Refresh user profile from backend
   const refreshUser = async () => {
-    const savedToken = token || localStorage.getItem("growvia_token");
+    const savedToken = token || getStoredToken();
     if (!savedToken) return null;
     try {
       const res = await fetch(apiUrl("/api/auth/me"), {

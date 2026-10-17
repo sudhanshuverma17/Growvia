@@ -2,7 +2,8 @@ import React, { createContext, useContext, useState, useEffect, useCallback } fr
 import { apiUrl } from "@/lib/api-config";
 
 const VideoContext = createContext(null);
-const STORAGE_KEY = "growvia_videos_v3";
+const STORAGE_KEY = "honesvia_videos_v3";
+const LEGACY_STORAGE_KEY = "growvia_videos_v3";
 
 export function VideoProvider({ children }) {
   const [videos, setVideos] = useState(() => {
@@ -11,7 +12,7 @@ export function VideoProvider({ children }) {
         localStorage.removeItem("growvia_videos_v1");
         localStorage.removeItem("growvia_videos_v2");
       }
-      const stored = localStorage.getItem(STORAGE_KEY);
+      const stored = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
         if (Array.isArray(parsed)) {
@@ -29,7 +30,7 @@ export function VideoProvider({ children }) {
   const [isBackendConnected, setIsBackendConnected] = useState(false);
 
   const getAuthHeaders = () => {
-    const token = localStorage.getItem("growvia_token");
+    const token = localStorage.getItem("honesvia_token") || localStorage.getItem("growvia_token");
     const headers = { "Content-Type": "application/json" };
     if (token) {
       headers["Authorization"] = `Bearer ${token}`;

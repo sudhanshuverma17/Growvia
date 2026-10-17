@@ -443,7 +443,7 @@ export default function Dashboard() {
   const purchasedCareers = courses.filter((c) => userPurchasedIds.includes(c.id));
   const hasAccessToCounseling = isAdmin || purchasedCareers.length > 0;
 
-  const getLocalStorageKey = () => `growvia_counseling_bookings_${user?._id || "user"}`;
+  const getLocalStorageKey = () => `honesvia_counseling_bookings_${user?._id || "user"}`;
 
   const saveToLocalStorage = (list) => {
     try {
@@ -453,7 +453,7 @@ export default function Dashboard() {
 
   const fetchBookings = async () => {
     setLoadingBookings(true);
-    const authToken = token || (typeof window !== "undefined" && localStorage.getItem("growvia_token")) || null;
+    const authToken = token || (typeof window !== "undefined" && (localStorage.getItem("honesvia_token") || localStorage.getItem("growvia_token"))) || null;
     let remoteBookings = [];
 
     if (authToken) {
@@ -580,7 +580,10 @@ export default function Dashboard() {
     // Active polling interval while booking modal is open
     const pollInterval = setInterval(() => {
       try {
-        if (sessionStorage.getItem("growvia_booking_active") === "true") {
+        if (
+          sessionStorage.getItem("honesvia_booking_active") === "true" ||
+          sessionStorage.getItem("growvia_booking_active") === "true"
+        ) {
           fetchBookings();
         }
       } catch (e) {}

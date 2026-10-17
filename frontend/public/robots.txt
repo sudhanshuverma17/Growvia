@@ -11,6 +11,8 @@ Allow: /career-quiz
 Allow: /videos
 Allow: /about
 Allow: /contact
+Allow: /privacy-policy
+Allow: /terms-and-conditions
 Allow: /images/
 Allow: /assets/
 Allow: /favicon*

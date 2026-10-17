@@ -316,10 +316,10 @@ export const handleDayScheduleWebhook = async (req, res) => {
     });
 
     if (!user) {
-      console.log(`[DaySchedule Webhook]: No Growvia user found with email ${inviteeEmail}`);
+      console.log(`[DaySchedule Webhook]: No Honesvia user found with email ${inviteeEmail}`);
       return res.status(200).json({
         success: true,
-        message: "User not found in Growvia, skipped",
+        message: "User not found in Honesvia, skipped",
       });
     }
 

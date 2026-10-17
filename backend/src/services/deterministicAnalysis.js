@@ -193,7 +193,7 @@ export function generateDeterministicAnalysis({
 
   // 6. Exactly 3 actionable next steps (no banned phrases, no exams/dashboard)
   const nextSteps = [
-    `Explore foundational milestones for ${topPick.title || "your top match"} on the Growvia interactive roadmap.`,
+    `Explore foundational milestones for ${topPick.title || "your top match"} on the Honesvia interactive roadmap.`,
     `Undertake a targeted beginner-friendly project that connects ${primaryLabel} with practical applications.`,
     `Review the core day-to-day workflow and tools highlighted across your top recommended career pathways.`,
   ];

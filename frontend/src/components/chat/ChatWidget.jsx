@@ -84,13 +84,17 @@ function ChatWidgetContent({ user, token, careerId }) {
   const inputRef = useRef(null);
   const abortControllerRef = useRef(null);
 
-  const storageKey = `growvia_chat_${user._id || user.id || "user"}_${careerId}`;
+  const storageKey = `honesvia_chat_${user._id || user.id || "user"}_${careerId}`;
 
   // Listen for custom event so page buttons can trigger the AI Advisor window
   useEffect(() => {
     const handleOpen = () => setIsOpen(true);
+    window.addEventListener("honesvia:open-chat", handleOpen);
     window.addEventListener("growvia:open-chat", handleOpen);
-    return () => window.removeEventListener("growvia:open-chat", handleOpen);
+    return () => {
+      window.removeEventListener("honesvia:open-chat", handleOpen);
+      window.removeEventListener("growvia:open-chat", handleOpen);
+    };
   }, []);
 
   // Auto-scroll to bottom of messages container

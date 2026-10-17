@@ -527,17 +527,24 @@ export const paymentCallback = async (req, res) => {
 
       // 1. Broadcast success through localStorage for cross-window sync
       try {
-        localStorage.setItem("growvia_cf_payment_event", JSON.stringify({
-          type: "GROWVIA_PAYMENT_SUCCESS",
+        const payload = JSON.stringify({
+          type: "HONESVIA_PAYMENT_SUCCESS",
           orderId: orderId,
           careerId: career,
           timestamp: Date.now()
-        }));
+        });
+        localStorage.setItem("honesvia_cf_payment_event", payload);
+        localStorage.setItem("growvia_cf_payment_event", payload);
       } catch (e) {}
 
       // 2. If opened in a popup window, post message to parent window and close this window immediately!
       if (window.opener && !window.opener.closed) {
         try {
+          window.opener.postMessage({
+            type: "HONESVIA_PAYMENT_SUCCESS",
+            orderId: orderId,
+            careerId: career
+          }, "*");
           window.opener.postMessage({
             type: "GROWVIA_PAYMENT_SUCCESS",
             orderId: orderId,

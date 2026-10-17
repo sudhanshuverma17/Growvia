@@ -53,6 +53,7 @@ export function buildDayScheduleUrl(user) {
  */
 export function openDayScheduleBooking(user) {
   try {
+    sessionStorage.setItem("honesvia_booking_active", "true");
     sessionStorage.setItem("growvia_booking_active", "true");
   } catch (e) {}
 
@@ -161,7 +162,10 @@ export function setupDayScheduleBookingListener({
       let savedBooking = null;
 
       const authToken =
-        token || (typeof window !== "undefined" && localStorage.getItem("growvia_token")) || null;
+        token ||
+        (typeof window !== "undefined" &&
+          (localStorage.getItem("honesvia_token") || localStorage.getItem("growvia_token"))) ||
+        null;
 
       if (authToken) {
         try {
@@ -193,8 +197,8 @@ export function setupDayScheduleBookingListener({
 
       // Immediately persist to localStorage so it never disappears on refresh or focus
       try {
-        const storageKey = `growvia_counseling_bookings_${user?._id || "user"}`;
-        const existingRaw = localStorage.getItem(storageKey);
+        const storageKey = `honesvia_counseling_bookings_${user?._id || "user"}`;
+        const existingRaw = localStorage.getItem(storageKey) || localStorage.getItem(`growvia_counseling_bookings_${user?._id || "user"}`);
         let existingList = [];
         if (existingRaw) {
           try {
@@ -209,6 +213,7 @@ export function setupDayScheduleBookingListener({
       } catch (e) {}
 
       try {
+        sessionStorage.removeItem("honesvia_booking_active");
         sessionStorage.removeItem("growvia_booking_active");
       } catch (e) {}
 

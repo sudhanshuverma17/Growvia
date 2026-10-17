@@ -4,7 +4,8 @@ import { careers as defaultCareers } from "@/lib/mock-data";
 import { ICON_MAP } from "@/components/career-icon";
 
 const CourseContext = createContext(null);
-const STORAGE_KEY = "growvia_courses_v4";
+const STORAGE_KEY = "honesvia_courses_v4";
+const LEGACY_STORAGE_KEY = "growvia_courses_v4";
 
 // Helper to sanitize courses for JSON storage (turn function icons into string keys)
 function serializeCourses(coursesList) {
@@ -55,7 +56,7 @@ function deserializeCourses(rawList) {
 export function CourseProvider({ children }) {
   const [courses, setCourses] = useState(() => {
     try {
-      const stored = localStorage.getItem(STORAGE_KEY);
+      const stored = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
         if (Array.isArray(parsed) && parsed.length > 0) {
@@ -72,7 +73,7 @@ export function CourseProvider({ children }) {
   const [isBackendConnected, setIsBackendConnected] = useState(false);
 
   const getAuthHeaders = useCallback(() => {
-    const token = localStorage.getItem("growvia_token");
+    const token = localStorage.getItem("honesvia_token") || localStorage.getItem("growvia_token");
     const headers = { "Content-Type": "application/json" };
     if (token) {
       headers["Authorization"] = `Bearer ${token}`;

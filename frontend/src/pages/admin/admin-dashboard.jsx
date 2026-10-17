@@ -63,7 +63,7 @@ export default function AdminDashboard() {
   const fetchMessages = async () => {
     setLoadingMessages(true);
     try {
-      const token = localStorage.getItem("growvia_token");
+      const token = localStorage.getItem("honesvia_token") || localStorage.getItem("growvia_token");
       const res = await fetch(apiUrl("/api/contact"), {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -87,7 +87,7 @@ export default function AdminDashboard() {
 
   const handleUpdateStatus = async (id, newStatus) => {
     try {
-      const token = localStorage.getItem("growvia_token");
+      const token = localStorage.getItem("honesvia_token") || localStorage.getItem("growvia_token");
       const res = await fetch(apiUrl(`/api/contact/${id}/status`), {
         method: "PATCH",
         headers: {
@@ -116,7 +116,7 @@ export default function AdminDashboard() {
   const handleDeleteMessage = async (id, senderName) => {
     if (!window.confirm(`Are you sure you want to delete message from "${senderName}"?`)) return;
     try {
-      const token = localStorage.getItem("growvia_token");
+      const token = localStorage.getItem("honesvia_token") || localStorage.getItem("growvia_token");
       const res = await fetch(apiUrl(`/api/contact/${id}`), {
         method: "DELETE",
         headers: {

@@ -5,7 +5,7 @@ import confetti from "canvas-confetti";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/auth-context";
 import { useToast } from "@/hooks/use-toast";
-import { GrowviaLogoMark } from "@/components/GrowviaLogo";
+import { HonesviaLogoMark } from "@/components/HonesviaLogo";
 import { DOMAIN_LABELS } from "@/config/quiz-domains";
 import {
   ArrowRight,
@@ -181,9 +181,9 @@ export function CareerResults({ resultData, onRetake }) {
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="text-center max-w-3xl mx-auto pt-2 pb-4"
       >
-        {/* Outlined Growvia Hexagon Mark Watermark */}
+        {/* Outlined Honesvia Mark Watermark */}
         <div className="flex justify-center mb-5">
-          <GrowviaLogoMark
+          <HonesviaLogoMark
             className="w-16 h-16 sm:w-20 sm:h-20 text-[#F5F0E8]/70 drop-shadow-[0_4px_28px_rgba(0,0,0,0.85)]"
             strokeWidth={1.8}
           />
@@ -204,7 +204,7 @@ export function CareerResults({ resultData, onRetake }) {
         </h1>
         <p className="text-[#F5F0E8]/70 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-light">
           Synthesized via two-stage adaptive cognitive scoring, multi-domain affinity mapping,
-          and verified Growvia career roadmaps.
+          and verified Honesvia career roadmaps.
         </p>
 
         {/* Quick Header Actions */}
@@ -329,7 +329,7 @@ export function CareerResults({ resultData, onRetake }) {
               <Layers className="w-5 h-5 text-[#F5F0E8]" /> Top Recommended Career Directions
             </h3>
             <p className="text-xs sm:text-sm text-white/60 mt-0.5 font-light">
-              Curated across distinct career families with active step-by-step Growvia roadmaps
+              Curated across distinct career families with active step-by-step Honesvia roadmaps
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -554,7 +554,7 @@ export function CareerResults({ resultData, onRetake }) {
 
               <div className="space-y-3.5">
                 {(analysis.nextSteps || [
-                  `Explore foundational milestones for ${topCareer.title || "your top match"} on the Growvia roadmap.`,
+                  `Explore foundational milestones for ${topCareer.title || "your top match"} on the Honesvia roadmap.`,
                   "Complete an introductory starter tutorial to test day-to-day engagement.",
                   "Review real-world work environments and compensation trajectories across your matches.",
                 ]).slice(0, 3).map((step, idx) => (
@@ -657,7 +657,7 @@ export function CareerResults({ resultData, onRetake }) {
                 Save Your Career Assessment to Your Account
               </h4>
               <p className="text-xs sm:text-sm text-white/60 max-w-xl font-light">
-                You took this quiz as a guest. Create a free Growvia account or sign in
+                You took this quiz as a guest. Create a free Honesvia account or sign in
                 so you can revisit these results anytime on your student dashboard.
               </p>
             </div>

@@ -1,5 +1,5 @@
 /**
- * Career Domain Labels for Growvia Career Quiz v3
+ * Career Domain Labels for Honesvia Career Quiz v3
  * Maps domain codes to user-friendly titles, with fallbacks for legacy family codes.
  */
 export const DOMAIN_LABELS = {

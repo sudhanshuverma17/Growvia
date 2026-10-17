@@ -22,9 +22,9 @@ import {
   RotateCcw,
 } from "lucide-react";
 
-const PROGRESS_STORAGE_KEY = "growvia_quiz_v3";
-const RESULT_STORAGE_KEY = "growvia_last_quiz_result_v3";
-const LEGACY_RESULT_STORAGE_KEY = "growvia_last_quiz_result";
+const PROGRESS_STORAGE_KEY = "honesvia_quiz_v3";
+const RESULT_STORAGE_KEY = "honesvia_last_quiz_result_v3";
+const LEGACY_RESULT_STORAGE_KEY = "growvia_last_quiz_result_v3";
 
 export default function Quiz() {
   const { token, loading: authLoading } = useAuth();

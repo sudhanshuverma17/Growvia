@@ -442,10 +442,19 @@ export function ContactSection({ id = "contact", isStandalonePage = false, class
                     </button>
                   </div>
 
-                  {/* Privacy Note */}
-                  <div className="flex items-center justify-center gap-2 text-xs text-zinc-400 pt-2">
-                    <Lock className="w-3.5 h-3.5 text-zinc-400" />
-                    <span>We respect your privacy. Your information is safe with us.</span>
+                  {/* Privacy & Terms Note */}
+                  <div className="flex items-center justify-center gap-2 text-xs text-zinc-400 pt-2 text-center">
+                    <Lock className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
+                    <span>
+                      By sending, you agree to our{" "}
+                      <Link href="/terms-and-conditions" className="text-zinc-300 underline hover:text-[#E5A869] transition-colors">
+                        Terms
+                      </Link>{" "}
+                      &{" "}
+                      <Link href="/privacy-policy" className="text-zinc-300 underline hover:text-[#E5A869] transition-colors">
+                        Privacy Policy
+                      </Link>.
+                    </span>
                   </div>
                 </form>
               )}

@@ -1,5 +1,5 @@
 /**
- * 10 High-Precision Career & Aptitude Assessment Questions for Growvia
+ * 10 High-Precision Career & Aptitude Assessment Questions for Honesvia
  * Simplified, everyday language under 15 words per question, under 8 words per option.
  * 4 Academic Questions (40% weight) + 6 Interest Questions (60% weight).
  */

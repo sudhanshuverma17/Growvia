@@ -13,7 +13,7 @@ export class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error("[Growvia ErrorBoundary caught error]:", error, errorInfo);
+    console.error("[Honesvia ErrorBoundary caught error]:", error, errorInfo);
   }
 
   handleReset = () => {

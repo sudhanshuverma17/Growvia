@@ -29,7 +29,7 @@ import { Button } from "@/components/ui/button";
 import { useCourses } from "@/context/course-context";
 import { useAuth } from "@/context/auth-context";
 import { SEO } from "@/components/SEO";
-import { GrowviaLogoMark, GrowviaFullLogo } from "@/components/GrowviaLogo";
+import { HonesviaLogoMark, HonesviaFullLogo } from "@/components/HonesviaLogo";
 import { getCareerCardImage, getCareerConciseDesc } from "@/lib/career-media";
 
 const FEATURED_ROADMAPS_CONFIG = [
@@ -203,7 +203,7 @@ export default function Home() {
 
         {/* Center Watermark: Both Logo Mark and Name (Full Brand Identity) */}
         <div className="absolute top-[38%] sm:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 flex items-center justify-center">
-          <GrowviaFullLogo
+          <HonesviaFullLogo
             className="w-32 sm:w-36 md:w-44 lg:w-52 h-auto"
           />
         </div>

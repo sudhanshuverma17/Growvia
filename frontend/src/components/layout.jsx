@@ -4,7 +4,7 @@ import { Menu, X, ShieldCheck, User, LogOut, LayoutDashboard, BookOpen, Users, L
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/context/auth-context";
-import { GrowviaLogo, GrowviaFullLogo } from "@/components/GrowviaLogo";
+import { HonesviaLogo, HonesviaFullLogo } from "@/components/HonesviaLogo";
 import { PurchasedRoadmapGuard } from "@/components/purchased-roadmap-guard";
 
 export function Layout({ children }) {
@@ -120,7 +120,7 @@ export function Layout({ children }) {
         }`}
       >
         <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 flex justify-between items-center">
-          <GrowviaLogo className="h-7.5 sm:h-8.5 w-auto" />
+          <HonesviaLogo className="h-7.5 sm:h-8.5 w-auto" />
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-7">
@@ -300,7 +300,7 @@ export function Layout({ children }) {
             <div className="lg:col-span-5 flex flex-col justify-between pr-0 lg:pr-8 border-b lg:border-b-0 lg:border-r border-white/10 pb-8 lg:pb-0">
               <div>
                 <div className="mb-4">
-                  <GrowviaFullLogo className="h-12 sm:h-14 w-auto" />
+                  <HonesviaFullLogo className="h-12 sm:h-14 w-auto" />
                 </div>
                 <p className="text-zinc-400 text-sm leading-relaxed max-w-sm mb-6">
                   <strong className="text-zinc-200 block font-medium mb-1">Honesvia — India&apos;s Career Guidance Platform</strong>
@@ -420,13 +420,13 @@ export function Layout({ children }) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/about" className="hover:text-white transition-colors block">
+                    <Link href="/privacy-policy" className="hover:text-white transition-colors block">
                       Privacy Policy
                     </Link>
                   </li>
                   <li>
-                    <Link href="/about" className="hover:text-white transition-colors block">
-                      Terms of Service
+                    <Link href="/terms-and-conditions" className="hover:text-white transition-colors block">
+                      Terms & Conditions
                     </Link>
                   </li>
                 </ul>

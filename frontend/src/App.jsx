@@ -67,6 +67,8 @@ const Quiz = lazy(() => import("@/pages/quiz"));
 const Pricing = lazy(() => import("@/pages/pricing"));
 const About = lazy(() => import("@/pages/about"));
 const Contact = lazy(() => import("@/pages/contact"));
+const PrivacyPolicy = lazy(() => import("@/pages/privacy-policy"));
+const TermsAndConditions = lazy(() => import("@/pages/terms-and-conditions"));
 const Login = lazy(() => import("@/pages/login"));
 const ForgotPassword = lazy(() => import("@/pages/forgot-password"));
 const ResetPassword = lazy(() => import("@/pages/reset-password"));
@@ -78,6 +80,8 @@ const GetCounseling = lazy(() => import("@/pages/get-counseling"));
 const AdminDashboard = lazy(() => import("@/pages/admin/admin-dashboard"));
 const CourseEditor = lazy(() => import("@/pages/admin/course-editor"));
 const VideoManager = lazy(() => import("@/pages/admin/video-manager"));
+
+import { CookieConsent } from "@/components/CookieConsent";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -99,6 +103,11 @@ function Router() {
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
         <Route path="/contact-us" component={Contact} />
+        <Route path="/privacy-policy" component={PrivacyPolicy} />
+        <Route path="/privacy" component={PrivacyPolicy} />
+        <Route path="/terms-and-conditions" component={TermsAndConditions} />
+        <Route path="/terms" component={TermsAndConditions} />
+        <Route path="/terms-of-service" component={TermsAndConditions} />
         <Route path="/login" component={Login} />
         <Route path="/forgot-password" component={ForgotPassword} />
         <Route path="/forgot-password/:rest*" component={ForgotPassword} />
@@ -179,6 +188,7 @@ function App() {
                     <ScrollToTop />
                     <Router />
                     <ChatWidget />
+                    <CookieConsent />
                   </WouterRouter>
                   <Toaster />
                 </TooltipProvider>

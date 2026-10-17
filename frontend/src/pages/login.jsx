@@ -252,6 +252,16 @@ export default function Login() {
                     <span>{isLogin ? "Sign in" : "Sign up"}</span>
                   )}
                 </Button>
+                <p className="text-[11px] text-zinc-400 text-center mt-3">
+                  By {isLogin ? "signing in" : "signing up"}, you agree to Honesvia&apos;s{" "}
+                  <Link href="/terms-and-conditions" className="text-zinc-300 underline hover:text-primary transition-colors">
+                    Terms & Conditions
+                  </Link>{" "}
+                  and{" "}
+                  <Link href="/privacy-policy" className="text-zinc-300 underline hover:text-primary transition-colors">
+                    Privacy Policy
+                  </Link>.
+                </p>
               </div>
             </form>
 

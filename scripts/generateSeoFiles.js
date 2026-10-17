@@ -16,6 +16,8 @@ const staticPages = [
   { path: "videos", changefreq: "weekly", priority: "0.8" },
   { path: "about", changefreq: "monthly", priority: "0.7" },
   { path: "contact", changefreq: "monthly", priority: "0.7" },
+  { path: "privacy-policy", changefreq: "yearly", priority: "0.5" },
+  { path: "terms-and-conditions", changefreq: "yearly", priority: "0.5" },
 ];
 
 let xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -61,6 +63,8 @@ Allow: /career-quiz
 Allow: /videos
 Allow: /about
 Allow: /contact
+Allow: /privacy-policy
+Allow: /terms-and-conditions
 Allow: /images/
 Allow: /assets/
 Allow: /favicon*

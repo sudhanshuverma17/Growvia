@@ -244,6 +244,24 @@ const STATIC_ROUTE_METADATA = {
     ogType: "website",
     ogImage: DEFAULT_IMAGE,
     robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  },
+  "/privacy-policy": {
+    title: "Privacy Policy — Honesvia",
+    description:
+      "Read the official Privacy Policy of Honesvia. Learn how we collect, use, and protect your personal data in compliance with India's Digital Personal Data Protection Act, 2023 (DPDPA).",
+    canonical: `${DOMAIN}/privacy-policy`,
+    ogType: "website",
+    ogImage: DEFAULT_IMAGE,
+    robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  },
+  "/terms-and-conditions": {
+    title: "Terms & Conditions — Honesvia",
+    description:
+      "Read the official Terms and Conditions of Honesvia. Learn about user responsibilities, acceptable use, refund rules, and legal agreements.",
+    canonical: `${DOMAIN}/terms-and-conditions`,
+    ogType: "website",
+    ogImage: DEFAULT_IMAGE,
+    robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
   }
 };
 
