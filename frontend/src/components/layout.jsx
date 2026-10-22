@@ -320,7 +320,7 @@ export function Layout({ children }) {
                   <Linkedin className="w-4 h-4 text-zinc-300 group-hover:text-[#0A66C2] transition-colors" />
                 </a>
                 <a
-                  href="https://www.instagram.com/uttkarsh_baisla"
+                  href="https://www.instagram.com/honesvia/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
